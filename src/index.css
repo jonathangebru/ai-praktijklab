@@ -1,0 +1,232 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --ink: #1a1816;
+    --ink-soft: #4a453f;
+    --ink-mute: #6b655e;
+    --paper: #f5f1e8;
+    --paper-card: #fbf8f1;
+    --paper-deep: #ece4d4;
+    --terra: #b8431f;
+    --sage: #4b6d4f;
+    --academy: #1f3a52;
+    --rule: rgba(26, 24, 22, 0.1);
+    --rule-strong: rgba(26, 24, 22, 0.2);
+  }
+
+  html,
+  body {
+    min-height: 100%;
+  }
+
+  body {
+    margin: 0;
+    overflow-x: hidden;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "General Sans", ui-sans-serif, system-ui, sans-serif;
+    font-feature-settings: "ss01", "ss02", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: #b8431f33;
+    color: var(--ink);
+  }
+
+  /* Paper grain — adds quiet warmth to the background */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.1  0 0 0 0 0.095  0 0 0 0 0.085  0 0 0 0.045 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    opacity: 0.6;
+    mix-blend-mode: multiply;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Fraunces", ui-serif, Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+  }
+}
+
+@layer components {
+  .hairline {
+    border: 1px solid rgba(26, 24, 22, 0.1);
+  }
+  .hairline-b {
+    border-bottom: 1px solid rgba(26, 24, 22, 0.1);
+  }
+  .hairline-t {
+    border-top: 1px solid rgba(26, 24, 22, 0.1);
+  }
+  .hairline-r {
+    border-right: 1px solid rgba(26, 24, 22, 0.1);
+  }
+  .hairline-l {
+    border-left: 1px solid rgba(26, 24, 22, 0.1);
+  }
+
+  .display-italic {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-feature-settings: "ss01";
+  }
+
+  .eyebrow {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  .num-mark {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-weight: 300;
+    font-feature-settings: "ss01", "lnum";
+    color: var(--terra);
+  }
+
+  /* Subtle grid pattern for empty surfaces */
+  .grid-paper {
+    background-image:
+      linear-gradient(rgba(26, 24, 22, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(26, 24, 22, 0.045) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .dot-paper {
+    background-image: radial-gradient(
+      rgba(26, 24, 22, 0.18) 1px,
+      transparent 1px
+    );
+    background-size: 18px 18px;
+  }
+
+  .card {
+    background: var(--paper-card);
+    border: 1px solid var(--rule);
+    border-radius: 16px;
+  }
+
+  .card-elev {
+    background: #ffffff;
+    border: 1px solid var(--rule);
+    border-radius: 16px;
+    box-shadow: 0 1px 0 rgba(26, 24, 22, 0.04),
+      0 14px 32px -22px rgba(26, 24, 22, 0.18);
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    border: 1px solid var(--rule);
+    background: var(--paper-card);
+    color: var(--ink-soft);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 14.5px;
+    letter-spacing: -0.005em;
+    transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease,
+      box-shadow 0.2s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+  }
+
+  .btn-primary {
+    background: var(--ink);
+    color: var(--paper-card);
+  }
+  .btn-primary:hover {
+    background: #2a2622;
+    transform: translateY(-1px);
+  }
+
+  .btn-accent {
+    background: var(--terra);
+    color: #fff;
+  }
+  .btn-accent:hover {
+    background: #a13a18;
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--rule-strong);
+  }
+  .btn-ghost:hover {
+    background: rgba(26, 24, 22, 0.04);
+  }
+
+  .btn-soft {
+    background: var(--paper-card);
+    color: var(--ink);
+    border: 1px solid var(--rule);
+  }
+  .btn-soft:hover {
+    background: var(--paper-deep);
+  }
+
+  .focus-ring:focus-visible {
+    outline: 2px solid var(--terra);
+    outline-offset: 2px;
+  }
+
+  /* Scrollbar styling — quiet and warm */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(26, 24, 22, 0.18);
+    border-radius: 10px;
+    border: 2px solid var(--paper);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(26, 24, 22, 0.32);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
