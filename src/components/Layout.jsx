@@ -1,7 +1,11 @@
 import { Outlet, useLocation } from "react-router-dom";
 import { Sidebar, MobileNav } from "./Sidebar";
-import { Search, Bell, Command, Menu } from "lucide-react";
+import { Search, Bell, Command, Menu, Clock3 } from "lucide-react";
 import { useEffect, useState } from "react";
+import { FeedbackWidget } from "./FeedbackWidget";
+
+/* Demo expires on this date — change in one place if you extend the demo. */
+const DEMO_EXPIRES = new Date("2026-06-07T23:59:59");
 
 const breadcrumbs = {
   "/": ["Overzicht"],
@@ -52,6 +56,7 @@ export function Layout() {
         </div>
         <Footer />
       </main>
+      <FeedbackWidget />
     </div>
   );
 }
@@ -91,6 +96,7 @@ function TopBar({ crumbs, onOpenNav }) {
       </div>
 
       <div className="flex shrink-0 items-center gap-2">
+        <DemoBadge />
         <button
           className="hidden items-center gap-2.5 rounded-lg border border-rule bg-paper-card px-3 py-1.5 text-[12.5px] text-ink-mute hover:border-rule-strong hover:text-ink focus-ring md:flex"
           aria-label="Zoeken"
@@ -115,6 +121,38 @@ function TopBar({ crumbs, onOpenNav }) {
         </button>
       </div>
     </header>
+  );
+}
+
+function DemoBadge() {
+  const now = new Date();
+  const msPerDay = 1000 * 60 * 60 * 24;
+  const daysLeft = Math.ceil((DEMO_EXPIRES - now) / msPerDay);
+  if (daysLeft <= 0) {
+    return (
+      <span
+        title={`Demo vervallen op ${DEMO_EXPIRES.toLocaleDateString("nl-NL")}`}
+        className="hidden items-center gap-1.5 rounded-full border border-rule bg-paper-deep/50 px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-ink-mute sm:flex"
+      >
+        <Clock3 size={10} strokeWidth={1.8} />
+        Demo verlopen
+      </span>
+    );
+  }
+  const dateStr = DEMO_EXPIRES.toLocaleDateString("nl-NL", {
+    day: "numeric",
+    month: "short",
+  });
+  return (
+    <span
+      title={`Tijdelijke demo voor VABOK · vervalt ${DEMO_EXPIRES.toLocaleDateString("nl-NL")}`}
+      className="hidden items-center gap-1.5 rounded-full border border-terra-soft/60 bg-terra-tint/60 px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-terra-deep sm:flex"
+    >
+      <span className="inline-block h-1.5 w-1.5 animate-soft-pulse rounded-full bg-terra" />
+      Demo · t/m {dateStr}
+      <span className="text-terra-deep/60">·</span>
+      <span>{daysLeft}d</span>
+    </span>
   );
 }
 

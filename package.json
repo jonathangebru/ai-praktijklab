@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@microsoft/applicationinsights-react-js": "^19.4.0",
+    "@microsoft/applicationinsights-web": "^3.4.1",
     "autoprefixer": "^10.5.0",
     "framer-motion": "^12.40.0",
     "lucide-react": "^1.17.0",
