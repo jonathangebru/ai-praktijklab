@@ -2,5 +2,11 @@
   "name": "ai-praktijklab-api",
   "version": "1.0.0",
   "description": "SWA-managed Azure Functions voor AI PraktijkLab",
-  "main": "index.js"
+  "main": "src/functions/*.js",
+  "scripts": {
+    "start": "func start"
+  },
+  "dependencies": {
+    "@azure/functions": "^4.5.1"
+  }
 }
