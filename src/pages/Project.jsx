@@ -152,7 +152,10 @@ function ProjectHero() {
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Button variant="accent" href="mailto:jonathangebru@gmail.com?subject=AI%20PraktijkLab%20%E2%80%94%20verkenningsgesprek">
+              <Button
+                variant="accent"
+                href="mailto:j.gebru@datagrid.nl?subject=AI%20PraktijkLab%20%E2%80%94%20verkenningsgesprek&body=Hallo%20Jonathan%2C%0A%0AIk%20wil%20graag%20een%20verkenningsgesprek%20plannen%20over%20AI%20PraktijkLab.%0A%0A"
+              >
                 <Send size={14} strokeWidth={1.8} />
                 Plan een verkenningsgesprek
               </Button>
