@@ -176,6 +176,9 @@ export async function coach({ mode, input, context, signal }) {
   return {
     feedback: data.feedback || "",
     suggestions: Array.isArray(data.suggestions) ? data.suggestions : [],
+    criteria: Array.isArray(data.criteria) ? data.criteria : null,
+    tip: typeof data.tip === "string" ? data.tip : null,
+    modelAnswer: typeof data.modelAnswer === "string" ? data.modelAnswer : null,
   };
 }
 

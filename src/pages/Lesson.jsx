@@ -27,7 +27,7 @@ import {
   Play,
 } from "lucide-react";
 import { AIResponse } from "../components/AIResponse";
-import { streamChat, AIError } from "../lib/aiClient";
+import { streamChat, coach, AIError } from "../lib/aiClient";
 import { trackEvent } from "../lib/appInsights";
 import {
   PageHeader,
@@ -51,6 +51,7 @@ import {
   PromptLab,
   PraktijkOpdracht,
   KnowledgeCheck,
+  InlineCoachCallout,
 } from "../components/lesson-formats";
 import { findLesson } from "../data/modules";
 import { lessonDetails, defaultLesson } from "../data/lessonDetails";
@@ -349,6 +350,13 @@ function Steps({ detail, work }) {
                   hint={s.workspace.hint}
                   placeholder={s.workspace.placeholder}
                   rows={s.workspace.rows}
+                  coachContext={{
+                    stepTitle: s.title,
+                    stepBody: s.body,
+                    voorbeeld: s.voorbeeld,
+                    label: s.workspace.label,
+                    hint: s.workspace.hint,
+                  }}
                 />
               )}
             </div>
@@ -599,6 +607,15 @@ function WorkedExampleCard({ example, index, work, lesson }) {
   const [lastSource, setLastSource] = useState(null); // 'model' | 'own'
   const abortRef = useRef(null);
 
+  /* AI coach state (vergelijkt eigen prompt met modelprompt) */
+  const [coachState, setCoachState] = useState({
+    feedback: "",
+    suggestions: [],
+    loading: false,
+    error: null,
+  });
+  const coachAbortRef = useRef(null);
+
   const userPrompt = work && example.tryItYourself
     ? (work.get(example.tryItYourself.field) || "").trim()
     : "";
@@ -681,11 +698,77 @@ function WorkedExampleCard({ example, index, work, lesson }) {
     setLastSource(null);
   }
 
+  async function runCoach() {
+    if (!userPrompt || coachState.loading) return;
+    if (coachAbortRef.current) {
+      try {
+        coachAbortRef.current.abort();
+      } catch { /* ignore */ }
+    }
+    const ac = new AbortController();
+    coachAbortRef.current = ac;
+    setCoachState({
+      feedback: "",
+      suggestions: [],
+      loading: true,
+      error: null,
+    });
+    try {
+      const res = await coach({
+        mode: "prompt",
+        input: userPrompt,
+        context: { modelPrompt: example.prompt },
+        signal: ac.signal,
+      });
+      setCoachState({
+        feedback: res.feedback || "",
+        suggestions: res.suggestions || [],
+        loading: false,
+        error: null,
+      });
+      trackEvent("worked-example-coach", {
+        lesson: lesson?.slug,
+        example: example.title,
+      });
+    } catch (err) {
+      if (err?.name === "AbortError") return;
+      const msg =
+        err instanceof AIError
+          ? err.message
+          : "AI-coach werkte even niet. Probeer 't zo nog eens.";
+      setCoachState({
+        feedback: "",
+        suggestions: [],
+        loading: false,
+        error: msg,
+      });
+    }
+  }
+
+  function closeCoach() {
+    if (coachAbortRef.current) {
+      try {
+        coachAbortRef.current.abort();
+      } catch { /* ignore */ }
+    }
+    setCoachState({
+      feedback: "",
+      suggestions: [],
+      loading: false,
+      error: null,
+    });
+  }
+
   useEffect(() => {
     return () => {
       if (abortRef.current) {
         try {
           abortRef.current.abort();
+        } catch { /* ignore */ }
+      }
+      if (coachAbortRef.current) {
+        try {
+          coachAbortRef.current.abort();
         } catch { /* ignore */ }
       }
     };
@@ -814,6 +897,22 @@ function WorkedExampleCard({ example, index, work, lesson }) {
               Run mijn versie
             </button>
           )}
+          {work && example.tryItYourself && (
+            <button
+              type="button"
+              onClick={runCoach}
+              disabled={coachState.loading || !hasOwn}
+              aria-label="AI-coach: jouw prompt vergelijken met het voorbeeld"
+              className={`inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 font-mono text-[10.5px] uppercase tracking-widest transition focus-ring ${
+                coachState.loading || !hasOwn
+                  ? "border border-rule bg-paper-card/60 text-ink-faint cursor-not-allowed"
+                  : "border border-academy/30 bg-academy-tint/40 text-academy-deep hover:bg-academy-tint/70"
+              }`}
+            >
+              <Sparkles size={10} strokeWidth={1.8} />
+              {coachState.loading ? "AI denkt mee…" : "Coach mijn versie"}
+            </button>
+          )}
           <p className="font-mono text-[10px] uppercase tracking-widest text-ink-faint">
             Antwoord verschijnt hieronder — live.
           </p>
@@ -836,6 +935,19 @@ function WorkedExampleCard({ example, index, work, lesson }) {
               : "AI · modelprompt"
           }
         />
+
+        {(coachState.loading ||
+          coachState.feedback ||
+          coachState.error) && (
+          <InlineCoachCallout
+            feedback={coachState.feedback}
+            suggestions={coachState.suggestions}
+            loading={coachState.loading}
+            error={coachState.error}
+            onRetry={runCoach}
+            onClose={closeCoach}
+          />
+        )}
       </div>
     </div>
   );

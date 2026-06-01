@@ -1,6 +1,8 @@
 import { useEffect, useId, useRef, useState } from "react";
 import {
   Check,
+  ChevronDown,
+  ChevronRight,
   Download,
   Eraser,
   Lightbulb,
@@ -8,6 +10,7 @@ import {
   Save,
   Sparkles,
   Pencil,
+  X,
 } from "lucide-react";
 import { Footnote, ProgressBar } from "./ui";
 import { buildLessonMarkdown, downloadMarkdown } from "../hooks/useLessonWork";
@@ -29,6 +32,7 @@ export function WriteBlock({
   rows = 4,
   tone = "default", // default | accent
   example,
+  coachContext = null, // { stepTitle, stepBody, voorbeeld, label, hint } enables AI-check button
 }) {
   const value = work.get(field);
   const saved = work.savedAt[field];
@@ -37,6 +41,78 @@ export function WriteBlock({
   const focusTimer = useRef(null);
   const inputId = useId();
   const hintId = useId();
+
+  const canCoach = Boolean(coachContext) && value.trim().length >= 30;
+  const [aiCheck, setAiCheck] = useState({
+    loading: false,
+    error: null,
+    feedback: "",
+    criteria: null,
+    tip: null,
+    modelAnswer: null,
+  });
+  const abortRef = useRef(null);
+
+  async function runCheck() {
+    if (aiCheck.loading || !value.trim()) return;
+    if (abortRef.current) abortRef.current.abort();
+    const ac = new AbortController();
+    abortRef.current = ac;
+    setAiCheck({
+      loading: true,
+      error: null,
+      feedback: "",
+      criteria: null,
+      tip: null,
+      modelAnswer: null,
+    });
+    try {
+      const res = await coach({
+        mode: "writeblock",
+        input: value,
+        context: coachContext,
+        signal: ac.signal,
+      });
+      setAiCheck({
+        loading: false,
+        error: null,
+        feedback: res.feedback || "",
+        criteria: res.criteria || null,
+        tip: res.tip || null,
+        modelAnswer: res.modelAnswer || null,
+      });
+      trackEvent("writeblock-ai-check", { field, words: wordCount });
+    } catch (err) {
+      if (err?.name === "AbortError") return;
+      setAiCheck((prev) => ({
+        ...prev,
+        loading: false,
+        error:
+          err instanceof AIError
+            ? err.message
+            : "AI-check werkte even niet. Probeer 't zo nog eens.",
+      }));
+    }
+  }
+
+  function closeCheck() {
+    if (abortRef.current) abortRef.current.abort();
+    setAiCheck({
+      loading: false,
+      error: null,
+      feedback: "",
+      criteria: null,
+      tip: null,
+      modelAnswer: null,
+    });
+  }
+
+  useEffect(
+    () => () => {
+      if (abortRef.current) abortRef.current.abort();
+    },
+    []
+  );
 
   useEffect(() => {
     if (!saved) return;
@@ -116,7 +192,211 @@ export function WriteBlock({
           </div>
         )}
       </div>
+
+      {canCoach && (
+        <div className="mt-2">
+          <button
+            type="button"
+            onClick={runCheck}
+            disabled={aiCheck.loading}
+            aria-label="AI-check op mijn antwoord"
+            className={`inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 font-mono text-[10px] uppercase tracking-widest transition focus-ring ${
+              aiCheck.loading
+                ? "bg-paper-deep/60 text-ink-faint cursor-not-allowed"
+                : "border border-academy/30 bg-academy-tint/40 text-academy-deep hover:bg-academy-tint/70"
+            }`}
+          >
+            <Sparkles size={10} strokeWidth={1.8} />
+            {aiCheck.loading ? "AI denkt mee…" : "AI-check op mijn antwoord"}
+          </button>
+        </div>
+      )}
+
+      {(aiCheck.loading ||
+        aiCheck.feedback ||
+        aiCheck.criteria ||
+        aiCheck.modelAnswer ||
+        aiCheck.error) && (
+        <InlineCheckPanel
+          loading={aiCheck.loading}
+          error={aiCheck.error}
+          feedback={aiCheck.feedback}
+          criteria={aiCheck.criteria}
+          tip={aiCheck.tip}
+          modelAnswer={aiCheck.modelAnswer}
+          onRetry={runCheck}
+          onClose={closeCheck}
+        />
+      )}
     </div>
+  );
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+ * <InlineCheckPanel />
+ * Toont AI-check resultaat met criteria-lijst, tip en uitklapbaar voorbeeld-
+ * antwoord. Academy-getint zodat het rustig naast de coach-callouts past.
+ * ─────────────────────────────────────────────────────────────────────── */
+function InlineCheckPanel({
+  loading,
+  error,
+  feedback,
+  criteria,
+  tip,
+  modelAnswer,
+  onRetry,
+  onClose,
+}) {
+  const [showModel, setShowModel] = useState(false);
+  return (
+    <div
+      role="region"
+      aria-label="AI-check resultaat"
+      className="mt-2 max-w-prose rounded-lg border border-academy/20 bg-academy-tint/40 px-4 py-3"
+    >
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Sparkles size={11} strokeWidth={1.8} className="text-academy-deep" />
+          <span className="font-mono text-[10px] uppercase tracking-widest text-academy-deep">
+            AI-check · jouw antwoord
+          </span>
+          {loading && (
+            <span
+              aria-hidden="true"
+              className="inline-block h-1.5 w-1.5 animate-soft-pulse rounded-full bg-academy"
+            />
+          )}
+        </div>
+        {!loading && (
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Sluit AI-check"
+            className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-widest text-ink-faint hover:text-ink-soft focus-ring rounded"
+          >
+            <X size={10} strokeWidth={1.8} />
+            sluit
+          </button>
+        )}
+      </div>
+
+      {loading && (
+        <div className="mt-2.5 space-y-2" aria-hidden="true">
+          <div className="h-2.5 w-[78%] animate-soft-pulse rounded bg-ink/10" />
+          <div className="h-2.5 w-[64%] animate-soft-pulse rounded bg-ink/10" />
+          <div className="h-2.5 w-[52%] animate-soft-pulse rounded bg-ink/10" />
+        </div>
+      )}
+
+      {error && !loading && (
+        <div className="mt-2 text-[13px] leading-relaxed text-ink">
+          {error}
+          {onRetry && (
+            <button
+              type="button"
+              onClick={onRetry}
+              className="ml-2 inline-flex items-center gap-1 rounded-md bg-ink px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-paper-card hover:bg-ink-soft focus-ring"
+            >
+              opnieuw
+            </button>
+          )}
+        </div>
+      )}
+
+      {feedback && !error && (
+        <p className="mt-2 text-[13.5px] leading-relaxed text-ink whitespace-pre-wrap">
+          {feedback}
+        </p>
+      )}
+
+      {criteria && criteria.length > 0 && !error && (
+        <ul className="mt-3 space-y-1.5 border-t border-ink/10 pt-3">
+          {criteria.map((c, i) => (
+            <li
+              key={i}
+              className="flex items-start gap-2.5 text-[13px] leading-snug text-ink"
+            >
+              <CriteriumDot status={c.status} />
+              <span className="flex-1">{c.name}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {tip && !error && (
+        <div className="mt-3 flex items-start gap-2 border-t border-ink/10 pt-3">
+          <Lightbulb
+            size={12}
+            strokeWidth={1.8}
+            className="mt-0.5 shrink-0 text-terra"
+          />
+          <p className="text-[13px] leading-relaxed text-ink">
+            <span className="font-mono text-[10px] uppercase tracking-widest text-terra-deep mr-1.5">
+              Tip
+            </span>
+            {tip}
+          </p>
+        </div>
+      )}
+
+      {modelAnswer && !error && (
+        <div className="mt-3 border-t border-ink/10 pt-3">
+          <button
+            type="button"
+            onClick={() => setShowModel((v) => !v)}
+            className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-ink-soft hover:text-ink focus-ring rounded"
+          >
+            {showModel ? (
+              <ChevronDown size={11} strokeWidth={1.8} />
+            ) : (
+              <ChevronRight size={11} strokeWidth={1.8} />
+            )}
+            Voorbeeld van een goed antwoord
+          </button>
+          {showModel && (
+            <p className="mt-2 rounded bg-paper-card/60 px-3 py-2.5 text-[13px] leading-relaxed text-ink-soft italic whitespace-pre-wrap">
+              {modelAnswer}
+            </p>
+          )}
+        </div>
+      )}
+
+      {(feedback || criteria || modelAnswer || error) && !loading && (
+        <p className="mt-3 font-mono text-[9.5px] leading-relaxed text-ink-faint">
+          AI antwoorden zijn niet altijd correct. Behandel als suggestie, niet
+          als waarheid.
+        </p>
+      )}
+    </div>
+  );
+}
+
+function CriteriumDot({ status }) {
+  if (status === "yes")
+    return (
+      <span
+        title="Aanwezig"
+        className="mt-0.5 grid h-4 w-4 shrink-0 place-items-center rounded-full bg-sage text-paper-card"
+      >
+        <Check size={9} strokeWidth={2.5} />
+      </span>
+    );
+  if (status === "partial")
+    return (
+      <span
+        title="Zwak aanwezig"
+        className="mt-0.5 grid h-4 w-4 shrink-0 place-items-center rounded-full border border-terra-soft bg-terra-tint/50 text-terra-deep"
+      >
+        <span className="block h-1.5 w-1.5 rounded-full bg-terra" />
+      </span>
+    );
+  return (
+    <span
+      title="Ontbreekt"
+      className="mt-0.5 grid h-4 w-4 shrink-0 place-items-center rounded-full border border-rule-strong bg-paper-card text-ink-mute"
+    >
+      <X size={9} strokeWidth={2} />
+    </span>
   );
 }
 

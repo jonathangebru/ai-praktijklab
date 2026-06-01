@@ -425,7 +425,7 @@ export function ActionPlan({ source, title, steps, work }) {
  * ─────────────────────────────────────────────────────────────────────── */
 
 /* Compacte AI-coach callout binnen een Promptlab-ronde. Academy-getint. */
-function InlineCoachCallout({
+export function InlineCoachCallout({
   feedback,
   suggestions = [],
   loading,
