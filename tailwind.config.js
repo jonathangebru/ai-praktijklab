@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         display: ['"Fraunces"', "ui-serif", "Georgia", "serif"],
+        codex: ['"Instrument Serif"', "ui-serif", "Georgia", "serif"],
         sans: [
           '"General Sans"',
           "ui-sans-serif",
@@ -46,6 +47,22 @@ export default {
           deep: "#142536",
           soft: "#CCD5E0",
           tint: "#E2E8EF",
+        },
+        /* ─── Codex revamp palette — one accent, two surfaces, deep ink ─── */
+        codex: {
+          paper:      "#F0EADD",
+          card:       "#F8F3E7",
+          deep:       "#E6DDC9",
+          ink:        "#1E1A14",
+          "ink-soft": "#5B5346",
+          "ink-mute": "#857A66",
+          "ink-faint":"#B5AC97",
+          vermilion:  "#C53C1F",
+          "verm-deep":"#8C2208",
+          "verm-soft":"#F3D6CB",
+          "verm-tint":"#FAEAE0",
+          rule:       "rgba(30,26,20,0.12)",
+          "rule-strong":"rgba(30,26,20,0.30)",
         },
       },
       letterSpacing: {

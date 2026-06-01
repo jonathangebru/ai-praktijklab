@@ -1,296 +1,374 @@
 import { Link } from "react-router-dom";
 import {
   ArrowUpRight,
-  BookOpen,
   Compass,
-  GraduationCap,
-  FlaskConical,
-  Sparkles,
-  Library,
   CalendarDays,
-  Quote as QuoteIcon,
   ChevronRight,
-  Asterisk,
+  Sparkles,
 } from "lucide-react";
-import { Section, Button, Tag, ProgressBar, Footnote, Divider } from "../components/ui";
 import { moduleList } from "../data/modules";
+
+/* ──────────────────────────────────────────────────────────────────────────
+ * CODEX · het nieuwe Dashboard
+ *
+ * Een opzettelijk editoriaal ontwerp — een opening die meer lijkt op het
+ * eerste hoofdstuk van een gerespecteerd handboek dan op een SaaS-dashboard.
+ *
+ *   · One accent only — vermilion (#C53C1F). Geen sage. Geen academy.
+ *   · Display in Instrument Serif. Roman numerals als chapter marks.
+ *   · Dropcap-opening, hairline-rijk, marginalia rechts.
+ *   · Eén signature-moment van motion: staggered reveal bij eerste load.
+ *   · Een chiaroscuro band — kort, donker, cream-on-ink — als kantelpunt.
+ * ──────────────────────────────────────────────────────────────────────── */
 
 export function Dashboard() {
   return (
-    <>
-      <Hero />
-      <Modules />
-      <ProgressStrip />
-      <Principles />
-      <UpNext />
-      <PartnerStrip />
-    </>
+    <div className="bg-codex-paper text-codex-ink min-h-full">
+      <Opening />
+      <Chiaroscuro />
+      <Chapters />
+      <Voortgang />
+      <Onderscheidend />
+      <Resources />
+      <Partners />
+    </div>
   );
 }
 
-function Hero() {
+/* ─── I. Opening — Hero ─────────────────────────────────────────────────── */
+function Opening() {
   return (
-    <section className="relative overflow-hidden hairline-b">
-      <div
-        aria-hidden="true"
-        className="grid-paper absolute inset-0 opacity-50"
-      />
-      <div className="relative grid gap-10 px-10 pb-16 pt-16 lg:grid-cols-12">
-        <div className="lg:col-span-7">
-          <div className="mb-6 flex items-center gap-3">
-            <Tag tone="terra">
-              <Asterisk size={10} strokeWidth={2.5} />
-              VABOK · Pilotfase
-            </Tag>
-            <Tag tone="neutral">vo · mbo · hbo</Tag>
+    <section className="codex-grain relative codex-hairline-b overflow-hidden">
+      <div className="relative grid gap-12 px-5 pb-16 pt-14 sm:px-8 lg:grid-cols-12 lg:gap-16 lg:px-14 lg:pb-24 lg:pt-20">
+        <div className="codex-stagger lg:col-span-7">
+          <div className="flex items-center gap-3">
+            <span className="codex-eyebrow">AI PraktijkLab</span>
+            <span className="block h-px w-12 bg-codex-rule-strong" />
+            <span className="codex-eyebrow text-codex-vermilion">
+              Volume I · 2026
+            </span>
           </div>
-          <h1 className="font-display text-balance text-[36px] font-normal leading-[1.05] tracking-tightish text-ink sm:text-[48px] lg:text-[64px] lg:leading-[0.98]">
+
+          <h1 className="codex-display mt-7 max-w-3xl text-balance text-[44px] leading-[0.96] text-codex-ink sm:text-[58px] lg:text-[76px]">
             Welkom terug,{" "}
-            <span className="display-italic text-terra">Marieke</span>.
+            <span className="codex-display-italic text-codex-vermilion">
+              Marieke
+            </span>
+            .
             <br />
-            Klaar voor de volgende stap.
+            Een nieuwe les wacht.
           </h1>
-          <p className="mt-6 max-w-xl text-pretty text-[16.5px] leading-relaxed text-ink-soft">
-            Een werkplek voor docenten die AI verantwoord, praktisch en met
-            zelfvertrouwen willen inzetten — in vo, mbo en hbo. Begin met de
-            intake, of duik direct in de modules en bibliotheken.
+
+          <p className="codex-dropcap mt-10 max-w-[58ch] text-pretty text-[17px] leading-[1.75] text-codex-ink-soft">
+            Dit is een werkboek voor docenten in vo, mbo en hbo die AI met
+            zelfvertrouwen, vakdiepte en verantwoording willen inzetten. Twee
+            modules, zeventien lessen, vier kennischecks. Geen theorie zonder
+            toepassing. Geen technologie zonder didactiek. Wat je hier leert,
+            kun je komende lesweek gebruiken.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <Button variant="accent" to="/intake">
-              <Compass size={15} strokeWidth={1.8} />
-              Start de intake
-            </Button>
-            <Button variant="ghost" to="/modules/basiscursus-ai">
-              Bekijk de modules
-              <ArrowUpRight size={14} strokeWidth={1.8} />
-            </Button>
-            <span className="hidden h-8 w-px bg-rule sm:block" />
-            <span className="text-[12px] text-ink-mute">
-              <span className="text-ink-soft">~ 8 min</span> intake · adaptief ·
-              geen voorkennis nodig
+          <div className="mt-12 flex flex-wrap items-center gap-x-3 gap-y-4">
+            <Link
+              to="/intake"
+              className="codex-focus inline-flex items-center gap-2 rounded-full bg-codex-ink px-5 py-3 text-[14px] font-medium text-codex-paper transition hover:bg-codex-vermilion"
+            >
+              <Compass size={14} strokeWidth={1.8} />
+              Begin de intake
+            </Link>
+            <Link
+              to="/modules/basiscursus-ai"
+              className="codex-focus inline-flex items-center gap-1.5 border-b border-codex-ink/50 pb-1 text-[14px] font-medium text-codex-ink transition hover:border-codex-vermilion hover:text-codex-vermilion-deep"
+            >
+              Open Volume I
+              <ArrowUpRight size={13} strokeWidth={1.8} />
+            </Link>
+            <span className="hidden h-5 w-px bg-codex-rule-strong sm:block" />
+            <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-codex-ink-mute">
+              ~8&nbsp;min · adaptief · geen voorkennis
             </span>
           </div>
 
-          <div className="mt-10 flex items-center gap-3">
-            <Footnote>Vandaag</Footnote>
-            <span className="text-[12.5px] text-ink-soft">
-              <span className="display-italic text-ink">Module 01</span> · Les
-              1.4 — <em className="display-italic">AI voor lesvoorbereiding</em>{" "}
-              — verder waar je gisteren bleef.
-            </span>
+          <div className="mt-14 max-w-[62ch] codex-hairline-t pt-6">
+            <p className="codex-eyebrow mb-2">Lees verder waar je bleef</p>
             <Link
               to="/lessen/lesvoorbereiding"
-              className="ml-auto inline-flex items-center gap-1 text-[12.5px] font-medium text-terra hover:underline"
+              className="group flex items-baseline justify-between gap-6"
             >
-              Open les
-              <ChevronRight size={13} strokeWidth={2} />
+              <span className="text-[15px] text-codex-ink-soft">
+                <span className="codex-roman text-[20px] mr-1.5">1.4</span>
+                <span className="codex-display-italic text-codex-ink text-[19px]">
+                  AI voor lesvoorbereiding
+                </span>
+                <span className="ml-2 font-mono text-[11px] uppercase tracking-[0.18em] text-codex-ink-mute">
+                  22 van 75 min
+                </span>
+              </span>
+              <span className="codex-focus inline-flex items-center gap-1 whitespace-nowrap text-[13.5px] font-medium text-codex-vermilion transition group-hover:gap-2">
+                Open les
+                <ChevronRight size={13} strokeWidth={2.2} />
+              </span>
             </Link>
           </div>
         </div>
 
-        <aside className="relative lg:col-span-5">
-          <DocentKaart />
+        <aside className="lg:col-span-5">
+          <Marginalia />
         </aside>
-      </div>
-
-      {/* Ticker strip showing programme details */}
-      <div className="hairline-t hairline-b relative overflow-hidden bg-paper-card/60">
-        <div className="flex w-max animate-ticker items-center gap-12 whitespace-nowrap px-10 py-3">
-          {Array.from({ length: 2 }).map((_, k) => (
-            <div key={k} className="flex items-center gap-12">
-              {[
-                "Module 01 · Basiscursus AI · 6 weken",
-                "Module 02 · AI-geletterdheid & vibe coding · 8 weken",
-                "Promptbibliotheek · 60+ docent-prompts",
-                "Praktijkcasussen · vo · mbo · hbo",
-                "Train-the-teacher pilot · 2026",
-                "Verantwoord · Privacy-bewust · Vakdidactisch",
-              ].map((s, i) => (
-                <span
-                  key={`${k}-${i}`}
-                  className="font-mono text-[10.5px] uppercase tracking-widest text-ink-mute"
-                >
-                  · {s}
-                </span>
-              ))}
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
 }
 
-function DocentKaart() {
+/* ─── Marginalia (right rail) ───────────────────────────────────────────── */
+function Marginalia() {
   return (
-    <div className="relative">
-      <div className="card-elev relative overflow-hidden p-7">
-        <div className="flex items-start justify-between">
-          <div>
-            <Footnote>Mijn leerpad</Footnote>
-            <h3 className="mt-1 font-display text-[22px] leading-tight text-ink">
-              Basiscursus AI → AI-geletterdheid
-            </h3>
-          </div>
-          <div className="num-mark text-[34px] leading-none">M.</div>
-        </div>
+    <div className="codex-margin-rule sticky top-24 codex-hairline rounded-none border-l-2 border-codex-vermilion bg-codex-card/60 pl-7 pr-6 py-7">
+      <div className="flex items-baseline justify-between gap-4">
+        <span className="codex-eyebrow">In de marge</span>
+        <span className="codex-display-italic text-[22px] leading-none text-codex-vermilion">
+          M.
+        </span>
+      </div>
+      <h3 className="codex-display mt-1 text-[22px] leading-tight text-codex-ink">
+        Mijn voortgang
+      </h3>
 
-        <div className="mt-6 space-y-4">
-          <ProgressBar value={42} label="Module 01 · Basiscursus AI" tone="terra" />
-          <ProgressBar value={12} label="Module 02 · AI-geletterdheid" tone="academy" />
-          <ProgressBar value={67} label="Mijn promptkit (eigen verzameling)" tone="sage" />
-        </div>
+      <ul className="mt-6 space-y-5">
+        <ProgressRow
+          label="Volume I · Basiscursus AI"
+          pct={42}
+          right="03 van 08"
+        />
+        <ProgressRow
+          label="Volume II · Verdieping"
+          pct={12}
+          right="01 van 09"
+        />
+        <ProgressRow
+          label="Mijn promptkit"
+          pct={67}
+          right="12 prompts"
+        />
+      </ul>
 
-        <Divider label="Recent" className="my-6" />
+      <div className="my-7 codex-rule" />
 
-        <ul className="space-y-3">
-          <RecentItem
-            number="1.3"
-            title="Prompting voor docenten"
-            meta="Afgerond · 60 min"
-            done
+      <ul className="space-y-4">
+        <RecentEntry
+          number="1.3"
+          title="Prompting voor docenten"
+          meta="afgerond · 60 min"
+          status="done"
+        />
+        <RecentEntry
+          number="1.4"
+          title="AI voor lesvoorbereiding"
+          meta="in uitvoering · 22 van 75 min"
+        />
+        <RecentEntry
+          icon="prompt"
+          title="Drie niveaus van dezelfde opdracht"
+          meta="toegevoegd aan mijn kit"
+        />
+      </ul>
+
+      <div className="mt-7 codex-hairline-t pt-5">
+        <div className="flex items-center gap-2.5">
+          <CalendarDays
+            size={14}
+            strokeWidth={1.8}
+            className="text-codex-ink-mute"
           />
-          <RecentItem
-            number="1.4"
-            title="AI voor lesvoorbereiding"
-            meta="In uitvoering · 22 van 75 min"
-          />
-          <RecentItem
-            number="Prompt"
-            title="Drie niveaus van dezelfde opdracht"
-            meta="Toegevoegd aan mijn kit"
-            kind="prompt"
-          />
-        </ul>
-
-        <div className="mt-6 flex items-center justify-between rounded-lg bg-paper-deep/60 px-4 py-3">
-          <div className="flex items-center gap-2.5">
-            <CalendarDays size={14} strokeWidth={1.8} className="text-ink-mute" />
-            <span className="text-[12.5px] text-ink-soft">
+          <div className="flex-1">
+            <p className="text-[13px] text-codex-ink-soft">
               Eerstvolgende sessie · woensdag 10 juni · 14:30
-            </span>
+            </p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-codex-ink-mute mt-0.5">
+              Aventus · live met collega&apos;s
+            </p>
           </div>
-          <span className="font-mono text-[10px] uppercase tracking-widest text-ink-mute">
-            Aventus
-          </span>
         </div>
       </div>
-
-      <div className="absolute -bottom-4 -right-4 -z-10 h-full w-full rounded-2xl bg-terra-tint" />
     </div>
   );
 }
 
-function RecentItem({ number, title, meta, done, kind }) {
+function ProgressRow({ label, pct, right }) {
   return (
-    <li className="flex items-center gap-3">
-      <span
-        className={`grid h-8 w-8 shrink-0 place-items-center rounded-md text-[11px] font-medium ${
-          done
-            ? "bg-sage-tint text-sage-deep"
-            : kind === "prompt"
-            ? "bg-academy-tint text-academy-deep"
-            : "bg-terra-tint text-terra-deep"
-        }`}
-      >
-        {kind === "prompt" ? <Sparkles size={12} strokeWidth={1.8} /> : number}
-      </span>
-      <div className="flex-1">
-        <div className="text-[13.5px] leading-tight text-ink">{title}</div>
-        <div className="text-[11px] leading-tight text-ink-mute">{meta}</div>
+    <li>
+      <div className="mb-1.5 flex items-baseline justify-between gap-3">
+        <span className="text-[13px] text-codex-ink">{label}</span>
+        <span className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-codex-ink-mute">
+          {right}
+        </span>
       </div>
-      <ChevronRight size={14} strokeWidth={1.7} className="text-ink-faint" />
+      <div className="relative h-[3px] w-full bg-codex-deep">
+        <div
+          className="absolute inset-y-0 left-0 bg-codex-vermilion"
+          style={{ width: `${pct}%` }}
+        />
+      </div>
+      <div className="mt-1 flex items-baseline justify-end">
+        <span className="codex-display-italic text-[13px] text-codex-vermilion">
+          {pct}%
+        </span>
+      </div>
     </li>
   );
 }
 
-function Modules() {
+function RecentEntry({ number, icon, title, meta, status }) {
   return (
-    <Section
-      eyebrow="Twee modules · één programma"
-      title="Kies de route die past bij jouw vak"
-      action={
-        <Link
-          to="/intake"
-          className="hidden text-[13px] font-medium text-terra hover:underline sm:inline-flex sm:items-center sm:gap-1"
+    <li className="flex items-start gap-3">
+      <span
+        className={`codex-roman shrink-0 text-[16px] leading-snug ${
+          status === "done"
+            ? "text-codex-ink-mute"
+            : icon === "prompt"
+            ? "text-codex-ink"
+            : "text-codex-vermilion"
+        }`}
+      >
+        {icon === "prompt" ? <Sparkles size={12} strokeWidth={1.8} /> : number}
+      </span>
+      <div className="flex-1">
+        <div
+          className={`text-[13px] leading-snug ${
+            status === "done"
+              ? "text-codex-ink-mute line-through decoration-codex-ink-faint"
+              : "text-codex-ink"
+          }`}
         >
-          Niet zeker? Doe de intake
-          <ArrowUpRight size={13} strokeWidth={1.8} />
-        </Link>
-      }
-    >
-      <div className="grid gap-6 lg:grid-cols-2">
-        {moduleList.map((m, idx) => (
-          <ModuleCard key={m.id} module={m} delay={idx * 0.05} />
-        ))}
+          {title}
+        </div>
+        <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-codex-ink-mute mt-0.5">
+          {meta}
+        </div>
       </div>
-    </Section>
+    </li>
   );
 }
 
-function ModuleCard({ module: m }) {
-  const isOne = m.number === "01";
-  const Icon = isOne ? GraduationCap : FlaskConical;
-  const tone = isOne ? "terra" : "academy";
+/* ─── II. Chiaroscuro — een dark moment ─────────────────────────────────── */
+function Chiaroscuro() {
+  return (
+    <section className="bg-codex-ink text-codex-paper codex-hairline-b">
+      <div className="grid gap-10 px-5 py-12 sm:px-8 lg:grid-cols-12 lg:px-14 lg:py-16">
+        <div className="lg:col-span-5">
+          <span className="codex-eyebrow text-codex-ink-faint">
+            Het programma in cijfers
+          </span>
+          <h2 className="codex-display mt-3 text-[34px] leading-[1.05] sm:text-[44px]">
+            Zeventien lessen.{" "}
+            <span className="codex-display-italic text-codex-vermilion">
+              Vier kennischecks.
+            </span>{" "}
+            Eén leerlijn.
+          </h2>
+        </div>
+
+        <dl className="grid grid-cols-2 gap-6 lg:col-span-7 lg:grid-cols-4">
+          {[
+            { v: "17", l: "Lessen, volledig uitgewerkt" },
+            { v: "60+", l: "Prompts in de bibliotheek" },
+            { v: "12+", l: "Casussen uit vo / mbo / hbo" },
+            { v: "100", l: "WCAG-toegankelijkheidsscore" },
+          ].map((s) => (
+            <div key={s.l} className="codex-hairline-t border-codex-paper/15 pt-4">
+              <dt className="codex-display text-[40px] leading-none sm:text-[52px]">
+                {s.v}
+              </dt>
+              <dd className="mt-2 font-mono text-[10.5px] uppercase tracking-[0.22em] text-codex-paper/65">
+                {s.l}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+  );
+}
+
+/* ─── III. Chapters — de twee modules ───────────────────────────────────── */
+function Chapters() {
+  return (
+    <section className="px-5 py-16 sm:px-8 lg:px-14 lg:py-24">
+      <div className="codex-flourish mb-12">
+        <span>·</span>
+      </div>
+
+      <div className="mb-12 flex items-end justify-between gap-6">
+        <div>
+          <span className="codex-eyebrow">Twee delen · één leerlijn</span>
+          <h2 className="codex-display mt-3 text-[34px] leading-[1.05] sm:text-[44px]">
+            Kies een route, of laat de intake het wijzen.
+          </h2>
+        </div>
+        <Link
+          to="/intake"
+          className="codex-focus hidden items-center gap-1.5 border-b border-codex-vermilion/50 pb-0.5 text-[13.5px] font-medium text-codex-vermilion hover:border-codex-vermilion sm:inline-flex"
+        >
+          Doe de intake
+          <ArrowUpRight size={13} strokeWidth={1.8} />
+        </Link>
+      </div>
+
+      <div className="grid gap-6 lg:grid-cols-2">
+        {moduleList.map((m, idx) => (
+          <ChapterCard key={m.id} module={m} chapterRoman={idx === 0 ? "I" : "II"} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function ChapterCard({ module: m, chapterRoman }) {
   return (
     <Link
       to={`/modules/${m.id}`}
-      className="card group relative flex flex-col overflow-hidden p-7 transition hover:border-rule-strong hover:shadow-soft focus-ring"
+      className="codex-focus group relative flex flex-col overflow-hidden codex-hairline bg-codex-card p-8 transition hover:bg-codex-deep/40"
     >
-      <div className="flex items-start justify-between">
-        <div className="flex items-center gap-3">
-          <div
-            className={`grid h-11 w-11 place-items-center rounded-xl ${
-              isOne ? "bg-terra-tint text-terra-deep" : "bg-academy-tint text-academy-deep"
-            }`}
-          >
-            <Icon size={20} strokeWidth={1.6} />
-          </div>
-          <div>
-            <Footnote>Module · {m.number}</Footnote>
-            <h3 className="font-display text-[24px] leading-tight text-ink">
-              {m.title}
-            </h3>
-          </div>
-        </div>
-        <span className="num-mark text-[44px] leading-none">{m.number}</span>
+      <div className="absolute right-7 top-7 codex-display-italic text-[88px] leading-none text-codex-vermilion/15 group-hover:text-codex-vermilion/30 transition">
+        {chapterRoman}
       </div>
 
-      <p className="mt-5 max-w-prose text-[14.5px] leading-relaxed text-ink-soft">
+      <span className="codex-eyebrow">
+        Volume {m.number === "01" ? "I" : "II"} · {m.lessons.length} lessen
+      </span>
+
+      <h3 className="codex-display mt-5 max-w-md text-[28px] leading-tight text-codex-ink">
+        {m.title}
+      </h3>
+
+      <p className="mt-5 max-w-prose text-[14.5px] leading-[1.7] text-codex-ink-soft">
         {m.intro}
       </p>
 
-      <div className="mt-6 grid grid-cols-3 gap-2 text-[12px]">
-        <Meta label="Niveau" value={m.level} />
-        <Meta label="Doelgroep" value={m.audience} />
-        <Meta label="Duur" value={`${m.totalHours}`} />
+      <div className="mt-7 codex-hairline-t pt-5 grid grid-cols-3 gap-x-6 gap-y-1">
+        <ChapterMeta label="Niveau" value={m.level} />
+        <ChapterMeta label="Doelgroep" value={m.audience} />
+        <ChapterMeta label="Duur" value={m.totalHours} />
       </div>
 
-      <div className="mt-6 flex items-center justify-between">
-        <div className="flex flex-wrap gap-2">
-          <Tag tone={tone}>
-            {m.lessons.length} lessen
-          </Tag>
-          <Tag tone="neutral">{m.durationWeeks} weken</Tag>
+      <div className="mt-8 flex items-center justify-between">
+        <div className="flex flex-wrap items-center gap-3 font-mono text-[10.5px] uppercase tracking-[0.22em] text-codex-ink-mute">
+          <span>{m.durationWeeks} weken</span>
+          <span className="text-codex-ink-faint">·</span>
+          <span>4 kennischecks</span>
         </div>
-        <span className="inline-flex items-center gap-1.5 text-[13px] font-medium text-ink transition group-hover:translate-x-0.5">
-          Open module
+        <span className="inline-flex items-center gap-1.5 text-[13.5px] font-medium text-codex-ink transition group-hover:gap-2.5 group-hover:text-codex-vermilion">
+          Open
           <ArrowUpRight size={14} strokeWidth={1.8} />
         </span>
       </div>
 
-      {/* Decorative module strip */}
-      <div className="mt-6 grid grid-cols-9 gap-1.5">
+      {/* lesson strip — minimal */}
+      <div className="mt-6 flex gap-1.5">
         {m.lessons.map((l, i) => (
           <span
             key={l.slug}
-            className={`h-1 rounded-full ${
-              i < 3
-                ? isOne
-                  ? "bg-terra"
-                  : "bg-academy"
-                : "bg-paper-deep"
+            className={`h-[2px] flex-1 ${
+              i < 3 ? "bg-codex-vermilion" : "bg-codex-deep"
             }`}
             title={l.title}
           />
@@ -300,218 +378,282 @@ function ModuleCard({ module: m }) {
   );
 }
 
-function Meta({ label, value }) {
+function ChapterMeta({ label, value }) {
   return (
-    <div className="hairline rounded-lg bg-paper-card/70 px-3 py-2">
-      <div className="font-mono text-[9.5px] uppercase tracking-widest text-ink-faint">
+    <div>
+      <div className="font-mono text-[9.5px] uppercase tracking-[0.22em] text-codex-ink-faint">
         {label}
       </div>
-      <div className="mt-0.5 text-ink">{value}</div>
+      <div className="mt-1 codex-display text-[15px] text-codex-ink">
+        {value}
+      </div>
     </div>
   );
 }
 
-function ProgressStrip() {
+/* ─── Voortgang ─────────────────────────────────────────────────────────── */
+function Voortgang() {
   return (
-    <Section
-      eyebrow="Mijn voortgang"
-      title="Vier vakken, één leerlijn"
-      className="hairline-t"
-    >
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <section className="codex-hairline-t bg-codex-card/40 px-5 py-16 sm:px-8 lg:px-14">
+      <div className="mb-10 flex items-end justify-between gap-6">
+        <div>
+          <span className="codex-eyebrow">Mijn voortgang</span>
+          <h2 className="codex-display mt-3 text-[30px] leading-[1.05] sm:text-[38px]">
+            Vier vakken,{" "}
+            <span className="codex-display-italic text-codex-vermilion">één</span>{" "}
+            leerlijn.
+          </h2>
+        </div>
+      </div>
+
+      <div className="grid gap-0 codex-hairline overflow-hidden sm:grid-cols-2 lg:grid-cols-4">
         {[
-          { label: "Module 01 — basis", val: 42, tone: "terra" },
-          { label: "Module 02 — verdieping", val: 12, tone: "academy" },
-          { label: "Promptkit", val: 67, tone: "sage" },
-          { label: "Reflectiejournaal", val: 30, tone: "terra" },
-        ].map((s) => (
-          <div key={s.label} className="card p-5">
-            <div className="mb-4 flex items-baseline justify-between">
-              <span className="text-[12.5px] text-ink-soft">{s.label}</span>
-              <span className="font-display text-[28px] leading-none text-ink">
-                {s.val}
-                <span className="text-[14px] text-ink-mute">%</span>
+          { l: "Volume I · basis", v: 42 },
+          { l: "Volume II · verdieping", v: 12 },
+          { l: "Mijn promptkit", v: 67 },
+          { l: "Reflectiejournaal", v: 30 },
+        ].map((s, i) => (
+          <div
+            key={s.l}
+            className={`bg-codex-card p-7 ${
+              i > 0 ? "codex-hairline-l" : ""
+            }`}
+          >
+            <div className="codex-eyebrow mb-3">{s.l}</div>
+            <div className="flex items-baseline gap-2">
+              <span className="codex-display text-[52px] leading-none text-codex-ink">
+                {s.v}
+              </span>
+              <span className="codex-display-italic text-[18px] text-codex-vermilion">
+                %
               </span>
             </div>
-            <ProgressBar value={s.val} tone={s.tone} />
+            <div className="mt-4 h-[3px] w-full bg-codex-deep">
+              <div
+                className="h-full bg-codex-vermilion"
+                style={{ width: `${s.v}%` }}
+              />
+            </div>
           </div>
         ))}
       </div>
-    </Section>
+    </section>
   );
 }
 
-function Principles() {
+/* ─── Onderscheidend (Principles) ───────────────────────────────────────── */
+function Onderscheidend() {
   return (
-    <Section eyebrow="Waarom dit platform?" title="Niet AI-expert worden — AI-bekwaam zijn" className="hairline-t">
-      <div className="grid gap-10 lg:grid-cols-12">
+    <section className="codex-hairline-t px-5 py-20 sm:px-8 lg:px-14 lg:py-28">
+      <div className="codex-flourish mb-14">
+        <span>· · ·</span>
+      </div>
+
+      <div className="grid gap-12 lg:grid-cols-12 lg:gap-20">
         <div className="lg:col-span-5">
-          <p className="text-pretty text-[16px] leading-relaxed text-ink-soft">
-            Docenten hoeven geen AI-experts te worden. Wel hebben ze houvast
-            nodig om te zien hoe AI het werk van leerlingen, het ontwerpen van
-            lessen en het beoordelen verandert. Dit programma vertaalt die
-            verandering naar wat je morgen al doet voor de klas.
+          <span className="codex-eyebrow">Wat dit programma drijft</span>
+          <h2 className="codex-display mt-3 text-[34px] leading-[1.02] sm:text-[44px]">
+            Niet AI-expert worden.{" "}
+            <span className="codex-display-italic text-codex-vermilion">
+              AI-bekwaam zijn.
+            </span>
+          </h2>
+          <p className="mt-7 text-[15.5px] leading-[1.75] text-codex-ink-soft">
+            Docenten hoeven geen AI-experts te worden. Wel houvast om te zien
+            hoe AI het werk van leerlingen, het ontwerpen van lessen en het
+            beoordelen verandert. Wat hier staat vertaalt die verandering naar
+            wat je morgen al doet voor de klas.
           </p>
-          <div className="mt-8 max-w-md rounded-xl bg-paper-card p-6 ring-1 ring-rule">
-            <QuoteIcon
-              size={18}
-              strokeWidth={1.6}
-              className="mb-3 text-terra"
-            />
-            <p className="font-display text-[19px] italic leading-snug text-ink">
+
+          <figure className="mt-10 codex-hairline-l border-codex-vermilion/60 pl-6">
+            <blockquote className="codex-display-italic text-[22px] leading-snug text-codex-ink">
               We zoeken iemand die complexe technologie begrijpelijk en
               toepasbaar maakt voor docenten.
-            </p>
-            <p className="mt-3 font-mono text-[10px] uppercase tracking-widest text-ink-mute">
-              — Uit de opdrachtomschrijving Aventus / VABOK
-            </p>
-          </div>
+            </blockquote>
+            <figcaption className="mt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-codex-ink-mute">
+              Uit de opdrachtomschrijving · Aventus / VABOK
+            </figcaption>
+          </figure>
         </div>
 
-        <ul className="space-y-4 lg:col-span-7">
+        <ol className="lg:col-span-7">
           {[
             {
-              num: "01",
-              title: "AI verandert het leerproces, niet alleen het gereedschap",
+              num: "I",
+              title: "AI verandert het leerproces — niet alleen het gereedschap",
               body: "Hoe studenten lezen, schrijven, coderen en denken is sinds 2023 onomkeerbaar veranderd. Het programma vertrekt vanuit die werkelijkheid.",
             },
             {
-              num: "02",
-              title: "Toepasbaarheid voor morgen, niet voor over twee jaar",
+              num: "II",
+              title: "Toepasbaarheid voor morgen — niet voor over twee jaar",
               body: "Elke les eindigt met iets dat je in je volgende lesweek kunt gebruiken. Geen theorie zonder toepassing.",
             },
             {
-              num: "03",
+              num: "III",
               title: "Verantwoord gebruik is geen bijlage",
               body: "Privacy, bias, transparantie en academische integriteit zitten in de leerlijn, niet als bijlage achterin.",
             },
             {
-              num: "04",
+              num: "IV",
               title: "Vakdidactiek centraal — geen one-size-fits-all",
-              body: "De casussen, prompts en voorbeelden zijn afgestemd op vo, mbo en hbo en op specifieke vakgebieden.",
+              body: "Casussen, prompts en voorbeelden zijn afgestemd op vo, mbo en hbo en op specifieke vakgebieden.",
             },
           ].map((p) => (
             <li
               key={p.num}
-              className="hairline-b flex gap-6 py-5 last:border-0"
+              className="codex-hairline-b grid grid-cols-[60px_1fr] gap-6 py-6 first:pt-0 last:border-0"
             >
-              <span className="num-mark w-12 shrink-0 text-[28px] leading-none">
-                {p.num}
+              <span className="codex-roman text-[34px] leading-none">
+                {p.num}.
               </span>
               <div>
-                <h4 className="font-display text-[20px] leading-snug text-ink">
+                <h3 className="codex-display text-[22px] leading-snug text-codex-ink">
                   {p.title}
-                </h4>
-                <p className="mt-2 max-w-xl text-[14.5px] leading-relaxed text-ink-soft">
+                </h3>
+                <p className="mt-3 max-w-[62ch] text-[14.5px] leading-[1.7] text-codex-ink-soft">
                   {p.body}
                 </p>
               </div>
             </li>
           ))}
-        </ul>
+        </ol>
       </div>
-    </Section>
+    </section>
   );
 }
 
-function UpNext() {
+/* ─── Resources (Bibliotheken) ──────────────────────────────────────────── */
+function Resources() {
   return (
-    <Section eyebrow="Verder ontdekken" title="Bronnen en bibliotheken" className="hairline-t">
-      <div className="grid gap-6 md:grid-cols-3">
-        <ResourceCard
-          icon={Sparkles}
-          tone="terra"
+    <section className="codex-hairline-t bg-codex-card/40 px-5 py-16 sm:px-8 lg:px-14 lg:py-20">
+      <div className="mb-10">
+        <span className="codex-eyebrow">Verder ontdekken</span>
+        <h2 className="codex-display mt-3 text-[30px] leading-tight sm:text-[38px]">
+          Bronnen en bibliotheken.
+        </h2>
+      </div>
+
+      <div className="grid gap-0 codex-hairline overflow-hidden md:grid-cols-3">
+        <ResourceColumn
           eyebrow="60+ prompts"
+          number="A"
           title="Promptbibliotheek"
-          body="Lesvoorbereiding, differentiatie, feedback, programmeeronderwijs en meer — direct kopieerbaar."
+          body="Lesvoorbereiding, differentiatie, feedback, programmeeronderwijs. Direct kopieerbaar en filterbaar."
           to="/promptbibliotheek"
         />
-        <ResourceCard
-          icon={Library}
-          tone="academy"
+        <ResourceColumn
           eyebrow="vo · mbo · hbo"
+          number="B"
           title="Praktijkcasussen"
-          body="Beschreven uitwerkingen uit echte lessen — met risico's, reflectie en wat het opleverde."
+          body="Beschreven uitwerkingen uit echte lessituaties — met risico's, reflectie en wat het opleverde."
           to="/praktijkcasussen"
+          divider
         />
-        <ResourceCard
-          icon={BookOpen}
-          tone="sage"
+        <ResourceColumn
           eyebrow="VABOK"
+          number="C"
           title="Project & roadmap"
-          body="Hoe de modules zich ontwikkelen, hoe pilots werken, en hoe scholen meedoen."
+          body="Hoe het programma zich ontwikkelt, hoe pilots werken, en hoe instellingen meedoen."
           to="/project"
+          divider
         />
       </div>
-    </Section>
+    </section>
   );
 }
 
-function ResourceCard({ icon: Icon, tone, eyebrow, title, body, to }) {
-  const tones = {
-    terra: "bg-terra-tint text-terra-deep",
-    academy: "bg-academy-tint text-academy-deep",
-    sage: "bg-sage-tint text-sage-deep",
-  };
+function ResourceColumn({ eyebrow, number, title, body, to, divider }) {
   return (
     <Link
       to={to}
-      className="card group flex flex-col p-6 transition hover:border-rule-strong hover:shadow-soft focus-ring"
+      className={`codex-focus group flex flex-col bg-codex-card p-7 transition hover:bg-codex-deep/40 ${
+        divider ? "md:codex-hairline-l" : ""
+      }`}
     >
-      <div className="flex items-center justify-between">
-        <div className={`grid h-9 w-9 place-items-center rounded-lg ${tones[tone]}`}>
-          <Icon size={16} strokeWidth={1.7} />
-        </div>
-        <Footnote>{eyebrow}</Footnote>
+      <div className="flex items-baseline justify-between">
+        <span className="codex-eyebrow">{eyebrow}</span>
+        <span className="codex-display-italic text-[28px] leading-none text-codex-vermilion">
+          {number}.
+        </span>
       </div>
-      <h4 className="mt-5 font-display text-[20px] leading-tight text-ink">
+
+      <h3 className="codex-display mt-5 text-[22px] leading-snug text-codex-ink">
         {title}
-      </h4>
-      <p className="mt-2 flex-1 text-[14px] leading-relaxed text-ink-soft">
+      </h3>
+
+      <p className="mt-3 flex-1 text-[14px] leading-[1.7] text-codex-ink-soft">
         {body}
       </p>
-      <div className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-medium text-ink transition group-hover:translate-x-0.5">
+
+      <div className="mt-6 inline-flex items-center gap-1.5 text-[13px] font-medium text-codex-ink transition group-hover:gap-2.5 group-hover:text-codex-vermilion">
         Open
-        <ArrowUpRight size={14} strokeWidth={1.8} />
+        <ArrowUpRight size={13} strokeWidth={1.8} />
       </div>
     </Link>
   );
 }
 
-function PartnerStrip() {
+/* ─── Partners — editorial roll-call ────────────────────────────────────── */
+function Partners() {
+  const list = [
+    { name: "Veluwse Onderwijsgroep", type: "vo", note: "Apeldoorn e.o." },
+    { name: "Etty Hillesum Lyceum", type: "vo", note: "Deventer" },
+    {
+      name: "Aventus",
+      type: "mbo",
+      note: "Apeldoorn · Deventer · Zutphen",
+      anchor: true,
+    },
+    { name: "Saxion", type: "hbo", note: "Enschede · Deventer" },
+  ];
   return (
-    <Section eyebrow="Een samenwerking van" title="VABOK — vier instellingen, één leerlijn" className="hairline-t">
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {[
-          {
-            name: "Veluwse Onderwijsgroep",
-            type: "vo",
-            note: "Acht scholen, één visie",
-          },
-          {
-            name: "Etty Hillesum Lyceum",
-            type: "vo",
-            note: "Negen locaties, Deventer",
-          },
-          { name: "Aventus", type: "mbo", note: "Apeldoorn / Deventer / Zutphen" },
-          { name: "Saxion", type: "hbo", note: "Hogeschool · Enschede · Deventer" },
-        ].map((p) => (
-          <div key={p.name} className="card p-5">
-            <div className="flex items-center justify-between">
-              <Tag tone={p.type === "vo" ? "terra" : p.type === "mbo" ? "sage" : "academy"}>
-                {p.type}
-              </Tag>
-              <span className="font-mono text-[10px] uppercase tracking-widest text-ink-faint">
-                VABOK
-              </span>
-            </div>
-            <div className="mt-4 font-display text-[18px] leading-tight text-ink">
-              {p.name}
-            </div>
-            <div className="mt-1 text-[12.5px] text-ink-mute">{p.note}</div>
-          </div>
-        ))}
+    <section className="codex-hairline-t px-5 py-16 sm:px-8 lg:px-14 lg:py-20">
+      <div className="codex-flourish mb-12">
+        <span>·</span>
       </div>
-    </Section>
+
+      <div className="grid gap-10 lg:grid-cols-12">
+        <div className="lg:col-span-4">
+          <span className="codex-eyebrow">VABOK · samenwerking</span>
+          <h2 className="codex-display mt-3 text-[30px] leading-[1.05] sm:text-[36px]">
+            Vier instellingen,{" "}
+            <span className="codex-display-italic text-codex-vermilion">
+              één
+            </span>{" "}
+            leerlijn.
+          </h2>
+        </div>
+
+        <ol className="lg:col-span-8">
+          {list.map((p, i) => (
+            <li
+              key={p.name}
+              className="codex-hairline-t grid grid-cols-[40px_1fr_auto] items-baseline gap-x-6 py-6 first:border-t-0 last:codex-hairline-b"
+            >
+              <span className="codex-roman text-[22px]">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <div>
+                <div className="codex-display text-[22px] leading-tight text-codex-ink">
+                  {p.name}
+                  {p.anchor && (
+                    <span className="ml-3 inline-flex items-center gap-1 align-middle font-mono text-[10px] uppercase tracking-[0.22em] text-codex-vermilion-deep">
+                      <span className="inline-block h-1.5 w-1.5 rounded-full bg-codex-vermilion" />
+                      penvoerder
+                    </span>
+                  )}
+                </div>
+                <div className="mt-1 text-[13px] text-codex-ink-mute">
+                  {p.note}
+                </div>
+              </div>
+              <span className="font-mono text-[10.5px] uppercase tracking-[0.22em] text-codex-ink-mute">
+                {p.type}
+              </span>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
   );
 }

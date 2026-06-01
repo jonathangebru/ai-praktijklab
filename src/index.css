@@ -229,4 +229,194 @@
   .text-pretty {
     text-wrap: pretty;
   }
+
+  /* ──────────────────────────────────────────────────────────────────────
+   * CODEX — editorial revamp utilities
+   * Used on revamped pages. Standalone so legacy pages stay intact.
+   * ─────────────────────────────────────────────────────────────────── */
+
+  .codex-display {
+    font-family: "Instrument Serif", ui-serif, Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.012em;
+  }
+  .codex-display-italic {
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    letter-spacing: -0.018em;
+  }
+
+  /* Drop cap — first letter of an opening paragraph */
+  .codex-dropcap::first-letter {
+    font-family: "Instrument Serif", serif;
+    font-weight: 400;
+    font-size: 4.4em;
+    line-height: 0.92;
+    float: left;
+    padding: 6px 12px 0 0;
+    color: #1e1a14;
+  }
+  .codex-dropcap.dropcap-accent::first-letter {
+    color: #c53c1f;
+  }
+
+  /* Numeral marks — bold roman numerals in display serif */
+  .codex-roman {
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-feature-settings: "ss01";
+    color: #c53c1f;
+  }
+
+  /* Editorial small caps eyebrow */
+  .codex-eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #857a66;
+  }
+
+  /* Hairline + rule colors specifically for Codex pages */
+  .codex-hairline {
+    border: 1px solid rgba(30, 26, 20, 0.12);
+  }
+  .codex-hairline-b {
+    border-bottom: 1px solid rgba(30, 26, 20, 0.12);
+  }
+  .codex-hairline-t {
+    border-top: 1px solid rgba(30, 26, 20, 0.12);
+  }
+  .codex-hairline-l {
+    border-left: 1px solid rgba(30, 26, 20, 0.12);
+  }
+  .codex-hairline-r {
+    border-right: 1px solid rgba(30, 26, 20, 0.12);
+  }
+  .codex-rule {
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent 0,
+      rgba(30, 26, 20, 0.18) 8%,
+      rgba(30, 26, 20, 0.32) 50%,
+      rgba(30, 26, 20, 0.18) 92%,
+      transparent 100%
+    );
+  }
+
+  /* Decorative section divider — three centered dots */
+  .codex-flourish {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    color: rgba(30, 26, 20, 0.35);
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-size: 22px;
+  }
+  .codex-flourish::before,
+  .codex-flourish::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(30, 26, 20, 0.22),
+      transparent
+    );
+  }
+
+  /* Margin-note ruled vertical guide */
+  .codex-margin-rule {
+    border-left: 1px solid rgba(30, 26, 20, 0.15);
+    padding-left: 18px;
+  }
+
+  /* Paper grain — slightly more pronounced for Codex sections */
+  .codex-grain {
+    position: relative;
+  }
+  .codex-grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='nn'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.12  0 0 0 0 0.10  0 0 0 0 0.08  0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23nn)'/></svg>");
+    mix-blend-mode: multiply;
+    opacity: 0.55;
+    z-index: 0;
+  }
+  .codex-grain > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Vermilion underline — for inline-emphasis on links */
+  .codex-link {
+    background: linear-gradient(
+      to right,
+      rgba(197, 60, 31, 0) 0,
+      rgba(197, 60, 31, 0) 100%
+    );
+    background-size: 100% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    border-bottom: 1px solid rgba(197, 60, 31, 0.4);
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .codex-link:hover {
+    border-bottom-color: #c53c1f;
+    color: #8c2208;
+  }
+
+  /* One-shot staggered reveal — apply to a parent, children get delay
+   * via :nth-child. Subtle, one signature page-load moment. */
+  .codex-stagger > * {
+    opacity: 0;
+    animation: codex-rise 0.8s cubic-bezier(0.18, 0.74, 0.28, 1) forwards;
+  }
+  .codex-stagger > *:nth-child(1) { animation-delay: 60ms; }
+  .codex-stagger > *:nth-child(2) { animation-delay: 160ms; }
+  .codex-stagger > *:nth-child(3) { animation-delay: 260ms; }
+  .codex-stagger > *:nth-child(4) { animation-delay: 360ms; }
+  .codex-stagger > *:nth-child(5) { animation-delay: 460ms; }
+  .codex-stagger > *:nth-child(6) { animation-delay: 560ms; }
+
+  @keyframes codex-rise {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+      filter: blur(2px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  /* Ink-stamp halo for ChapterMark numerals */
+  .codex-stamp {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .codex-stamp::before {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 999px;
+    border: 1px solid rgba(197, 60, 31, 0.35);
+    opacity: 0.6;
+  }
+
+  /* "Inked" focus ring for codex pages */
+  .codex-focus:focus-visible {
+    outline: 2px solid #c53c1f;
+    outline-offset: 3px;
+  }
 }
