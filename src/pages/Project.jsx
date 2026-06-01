@@ -5,7 +5,6 @@ import {
   Users,
   Repeat,
   Rocket,
-  Circle,
   Asterisk,
   GraduationCap,
   Building2,
@@ -13,7 +12,6 @@ import {
   ArrowRight,
   MessageSquare,
   Sparkles,
-  ExternalLink,
 } from "lucide-react";
 import { Section, Button, Tag, Footnote, Divider } from "../components/ui";
 
@@ -37,28 +35,28 @@ const beoogdePartners = [
     name: "Veluwse Onderwijsgroep",
     level: "vo",
     location: "Apeldoorn e.o.",
-    role: "Beoogd: onderbouw + bovenbouw",
+    role: "Onderbouw en bovenbouw — taalvakken, mens & maatschappij, exacte vakken.",
     color: "terra",
   },
   {
     name: "Etty Hillesum Lyceum",
     level: "vo",
     location: "Deventer",
-    role: "Beoogd: taalvakken + maatschappij",
+    role: "Taalvakken en maatschappijleer — focus op kritisch lezen en mediawijsheid.",
     color: "terra",
   },
   {
     name: "Aventus",
     level: "mbo",
     location: "Apeldoorn / Deventer / Zutphen",
-    role: "Opdrachtgever · pen­voerder VABOK",
+    role: "Penvoerder. Meerdere opleidingen — zorg, techniek, ICT, economie.",
     color: "sage",
   },
   {
     name: "Saxion",
     level: "hbo",
     location: "Enschede / Deventer",
-    role: "Beoogd: ICT-vakken + lerarenopleiding",
+    role: "ICT-opleidingen en lerarenopleiding — programmeerdidactiek en AI-assisted development.",
     color: "academy",
   },
 ];
@@ -69,7 +67,7 @@ const voorgesteldeFases = [
     title: "Intake en behoefte",
     period: "wk 1 — 3",
     icon: Compass,
-    body: "Gesprekken met opleidingsmanagers en docenten per instelling. Een korte niveauscan brengt in beeld waar mensen nu staan met AI. Eind van fase: één pagina per instelling die hun leervragen, vakken en bestaande PD-routine vasthoudt.",
+    body: "Gesprekken met opleidingsmanagers en docenten per instelling. Een korte niveauscan brengt in beeld waar mensen nu staan met AI. Per instelling één pagina met leervragen, vakken en bestaande PD-routine.",
     deliverables: ["Gesprekken op locatie", "Niveauscan", "Eén pagina per instelling"],
   },
   {
@@ -77,7 +75,7 @@ const voorgesteldeFases = [
     title: "Ontwerp van de modules",
     period: "wk 3 — 8",
     icon: Sprout,
-    body: "Ontwerp samen met onderwijsexperts uit elke instelling. Elk stuk wordt getoetst op didactische kwaliteit en op of het in vo, mbo en hbo werkt. Jullie kiezen of we doorgaan op de huidige demo of opnieuw beginnen.",
+    body: "Ontwerp samen met onderwijsexperts uit elke instelling. Elk stuk getoetst op didactische kwaliteit en op werking in vo, mbo en hbo. Iteratief, met tussentoetsen.",
     deliverables: ["Modulekader 01", "Modulekader 02", "Promptbibliotheek v1"],
   },
   {
@@ -85,7 +83,7 @@ const voorgesteldeFases = [
     title: "Pilot met docenten",
     period: "wk 8 — 14",
     icon: Users,
-    body: "Drie groepen van acht tot twaalf docenten, één per onderwijssoort. Begeleid door de modules heen, met elke week een korte sessie waarin ze terugkoppelen wat werkt en wat niet.",
+    body: "Drie groepen van acht tot twaalf docenten, één per onderwijssoort. Begeleide doorloop, met elke week een korte sessie waarin ze terugkoppelen wat werkt en wat niet.",
     deliverables: ["Drie pilotgroepen", "Wekelijkse sessies", "Tussenrapportage"],
   },
   {
@@ -93,7 +91,7 @@ const voorgesteldeFases = [
     title: "Bijschaven en productie",
     period: "wk 14 — 18",
     icon: Repeat,
-    body: "Schaven op basis van wat de pilot opleverde. Casussen aanscherpen, prompts vastleggen, intake kalibreren. Tegelijk zetten we de productie-omgeving op: database, content-systeem, schoollogin via SURFconext.",
+    body: "Schaven op basis van pilot-input. Casussen aanscherpen, prompts vastleggen, intake kalibreren. De productie-omgeving wordt uitgerold: database, content-systeem, schoollogin via SURFconext.",
     deliverables: ["Modules v2", "Geanonimiseerde casussen", "Productie-omgeving"],
   },
   {
@@ -101,7 +99,7 @@ const voorgesteldeFases = [
     title: "Uitrol binnen VABOK",
     period: "vanaf wk 18",
     icon: Rocket,
-    body: "Opschalen naar meer docenten. Per instelling een kernteam dat de modules verspreidt en bewaakt. Plan voor beheer, doorontwikkeling en uitbreiding richting 2026 en 2027.",
+    body: "Opschalen naar de bredere docentpopulatie. Per instelling een kernteam dat de modules verspreidt en bewaakt. Plan voor beheer, doorontwikkeling en uitbreiding richting 2026 en 2027.",
     deliverables: ["Kernteam per instelling", "Beheerafspraken", "Roadmap 2026—2027"],
   },
 ];
@@ -110,7 +108,6 @@ export function Project() {
   return (
     <>
       <ProjectHero />
-      <HuidigeStatus />
       <Roadmap />
       <BeoogdePartners />
       <Adaptability />
@@ -128,7 +125,7 @@ function ProjectHero() {
         <div className="mb-4 flex flex-wrap items-center gap-3">
           <Tag tone="ink">
             <Asterisk size={10} strokeWidth={2.5} />
-            Aanbod · Aventus-opdracht
+            VABOK · 2026 — 2027
           </Tag>
           <Tag tone="terra">vo</Tag>
           <Tag tone="sage">mbo</Tag>
@@ -139,16 +136,16 @@ function ProjectHero() {
           <div className="lg:col-span-8">
             <Footnote>Project & roadmap</Footnote>
             <h1 className="mt-3 font-display text-balance text-[34px] font-normal leading-[1.05] tracking-tightish text-ink sm:text-[44px] lg:text-[56px] lg:leading-[1.02]">
-              Geen toezegging.{" "}
-              <span className="display-italic text-terra">Een werkend voorbeeld.</span>
+              Eén leerlijn voor{" "}
+              <span className="display-italic text-terra">vo, mbo en hbo</span>.
+              Eigen invulling per instelling.
             </h1>
             <p className="mt-5 max-w-3xl text-pretty text-[16px] leading-relaxed text-ink-soft">
-              Wij hebben in een paar dagen iets gebouwd op basis van de
-              opdrachtomschrijving. Niet om indruk te maken, om te laten
-              zien dat we weten wat we doen. De inhoud klopt, de techniek
-              werkt, de aanpak staat. Wat hieronder volgt — de fases, de
-              partners, het tempo — is wat we zouden doen als jullie ja
-              zeggen.
+              AI PraktijkLab is een professionaliseringsprogramma voor docenten
+              binnen de VABOK-samenwerking. Twee modules, zeventien lessen,
+              vier kennischecks. Casussen die docenten morgen in hun klas
+              kunnen toepassen. Een aanpak die didactische diepgang voorop
+              zet, en technologie als gereedschap behandelt.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -159,8 +156,8 @@ function ProjectHero() {
                 <Send size={14} strokeWidth={1.8} />
                 Plan een verkenningsgesprek
               </Button>
-              <Button variant="ghost" to="/">
-                Bekijk de demo
+              <Button variant="ghost" to="/modules/basiscursus-ai">
+                Bekijk een module
                 <ArrowRight size={13} strokeWidth={1.8} />
               </Button>
             </div>
@@ -168,22 +165,19 @@ function ProjectHero() {
 
           <aside className="lg:col-span-4">
             <div className="card-elev p-6">
-              <div className="flex items-center gap-2">
-                <span className="h-2 w-2 animate-soft-pulse rounded-full bg-sage" />
-                <Footnote>Live demo · status nu</Footnote>
-              </div>
+              <Footnote>Programma in beeld</Footnote>
               <h3 className="mt-1 font-display text-[22px] leading-tight">
-                Werkende prototype
+                Twee modules, zeventien lessen
               </h3>
 
               <ul className="mt-5 space-y-2 text-[13px]">
                 {[
-                  { l: "Module 01 (Basiscursus AI)", v: "8 lessen · af" },
-                  { l: "Module 02 (Verdieping)", v: "9 lessen · af" },
-                  { l: "Kennischecks", v: "4 · af" },
-                  { l: "Promptbibliotheek", v: "live, filterbaar" },
-                  { l: "Feedback-widget", v: "live, anoniem" },
-                  { l: "Toegankelijkheid", v: "WCAG AA · 100/100" },
+                  { l: "Module 01 · Basiscursus AI", v: "8 lessen" },
+                  { l: "Module 02 · Verdieping", v: "9 lessen" },
+                  { l: "Kennischecks tussen moduledelen", v: "4" },
+                  { l: "Promptbibliotheek · vakgericht", v: "60+" },
+                  { l: "Praktijkcasussen vo/mbo/hbo", v: "12+" },
+                  { l: "Toegankelijkheid", v: "WCAG AA" },
                 ].map((it) => (
                   <li
                     key={it.l}
@@ -197,16 +191,12 @@ function ProjectHero() {
                 ))}
               </ul>
 
-              <Divider label="Open ter evaluatie" className="my-5" />
+              <Divider label="Onderbouwd op" className="my-5" />
 
               <div className="text-[13px] text-ink-soft">
-                <div className="font-display text-[17px] text-ink">
-                  Klik door waar je wilt.
-                </div>
-                <div className="mt-1">
-                  Alles wat je hieronder ziet werkt. Reageer rechtsonder op
-                  wat je sterk vindt en wat niet.
-                </div>
+                UNESCO AI Competency Framework for Teachers, DigCompEdu,
+                Kennisnet, Npuls AI-GO! en Darling-Hammond's zeven kenmerken
+                van effectieve docent-PD.
               </div>
             </div>
           </aside>
@@ -216,75 +206,15 @@ function ProjectHero() {
   );
 }
 
-function HuidigeStatus() {
-  return (
-    <Section
-      eyebrow="Status nu"
-      title="Werkt, draait, is geen programma"
-      className="hairline-t"
-    >
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {[
-          {
-            num: "01",
-            title: "Demo, geen pilot",
-            body: "Niemand is ingeschreven. Geen lopende samenwerking met de vier instellingen. Bij gunning zetten we het programma in fase 01 op.",
-          },
-          {
-            num: "02",
-            title: "Inhoud staat",
-            body: "Zeventien lessen zijn af. Niet samenvattend. Met voorbeelden, valkuilen, vakvariaties en rubrics. Vier kennischecks tussen de moduledelen.",
-          },
-          {
-            num: "03",
-            title: "Echt interactief",
-            body: "Wat je typt blijft staan, ook na herladen. Je promptkit groeit terwijl je werkt. Je lesopzet exporteer je als één document.",
-          },
-          {
-            num: "04",
-            title: "Feedback komt binnen",
-            body: "De knop rechtsonder werkt. Iedereen kan reageren. Wij lezen alles wat binnenkomt, deze week elke dag.",
-          },
-          {
-            num: "05",
-            title: "Productie is uitgedacht",
-            body: "Voor de echte uitrol ligt een Azure-architectuur klaar. Database, content-systeem, schoollogin via SURFconext, AI-laag — binnen Europa.",
-          },
-          {
-            num: "06",
-            title: "Onderbouwd, niet bedacht",
-            body: "Het materiaal leunt op UNESCO, DigCompEdu, Kennisnet, Npuls en Darling-Hammond. Zestien bronnen in het werkdocument.",
-          },
-        ].map((s) => (
-          <article key={s.num} className="card flex flex-col gap-3 p-6">
-            <div className="flex items-baseline gap-3">
-              <span className="num-mark text-[24px] leading-none text-terra">
-                {s.num}
-              </span>
-              <h4 className="font-display text-[18px] leading-tight">
-                {s.title}
-              </h4>
-            </div>
-            <p className="text-[13.5px] leading-relaxed text-ink-soft">
-              {s.body}
-            </p>
-          </article>
-        ))}
-      </div>
-    </Section>
-  );
-}
-
 function Roadmap() {
   return (
     <Section
-      eyebrow="Voorgesteld traject"
-      title="Vijf fases — geen ervan loopt nu"
+      eyebrow="Traject"
+      title="Vijf fases, achttien tot twintig weken"
       className="hairline-t"
     >
       <p className="mb-8 max-w-3xl text-[15px] leading-relaxed text-ink-soft">
-        Geen van deze fases is gestart. Hieronder hoe we het zouden doen. In
-        kleine stappen, met de instellingen aan tafel, en met de eigen klas
+        Kort-cyclisch. Met de instellingen aan tafel. En met de eigen klas
         van de docent als plek waar de les uiteindelijk landt.
       </p>
 
@@ -311,7 +241,7 @@ function RoadmapStep({ fase: f }) {
   const Icon = f.icon;
   return (
     <div className="relative">
-      <div className="grid h-[72px] w-[72px] place-items-center rounded-full border border-rule bg-paper-card text-ink-mute">
+      <div className="grid h-[72px] w-[72px] place-items-center rounded-full bg-terra/10 text-terra">
         <Icon size={22} strokeWidth={1.6} />
       </div>
       <div className="mt-4">
@@ -320,9 +250,6 @@ function RoadmapStep({ fase: f }) {
         </Footnote>
         <div className="mt-1 font-display text-[18px] leading-tight">
           {f.title}
-        </div>
-        <div className="mt-2 flex items-center gap-1.5 text-[12px] text-ink-mute">
-          <Circle size={12} className="text-ink-faint" /> Voorgesteld
         </div>
       </div>
     </div>
@@ -340,7 +267,7 @@ function FaseDetail({ fase: f }) {
         {f.body}
       </p>
 
-      <Divider label="Wat dat oplevert" className="my-4" />
+      <Divider label="Opbrengsten" className="my-4" />
       <ul className="space-y-1.5">
         {f.deliverables.map((d) => (
           <li
@@ -359,14 +286,14 @@ function FaseDetail({ fase: f }) {
 function BeoogdePartners() {
   return (
     <Section
-      eyebrow="VABOK · beoogde partners"
+      eyebrow="VABOK · partners"
       title="Vier instellingen, één programma"
       className="hairline-t"
     >
       <p className="mb-8 max-w-3xl text-[15px] leading-relaxed text-ink-soft">
-        De vier partners liggen vast; die noemt de opdracht zelf. Hoe hun rol
-        eruit ziet hangt af van wat zij willen. Hieronder ons voorstel.
-        Afspraken maken we in fase 01.
+        Per instelling stemmen we de rol af op vakdomeinen, niveau en
+        bestaande PD-routine. Het gedeelde programma blijft hetzelfde; de
+        accenten zijn van de instelling.
       </p>
 
       <div className="grid gap-5 md:grid-cols-2">
@@ -475,14 +402,14 @@ function Adaptability() {
 function TrainTheTeacher() {
   return (
     <Section
-      eyebrow="Train-the-teacher · voorgesteld model"
-      title="Docent bekwaam, dan begeleider, dan ambassadeur"
+      eyebrow="Train-the-teacher"
+      title="Bekwaam, begeleider, trekker"
       className="hairline-t"
     >
       <p className="mb-8 max-w-3xl text-[15px] leading-relaxed text-ink-soft">
         Drie plekken waar een docent kan staan. Van zelf leren, naar
-        collega's helpen, naar de school-trekker. Geen verplichting. Een pad
-        dat docenten kiezen wanneer ze eraan toe zijn.
+        collega's helpen, naar de school-trekker. Een pad dat docenten zelf
+        kiezen wanneer ze eraan toe zijn.
       </p>
       <div className="grid gap-6 lg:grid-cols-3">
         {[
@@ -540,7 +467,7 @@ function FeedbackPanel() {
   return (
     <Section
       eyebrow="Stakeholder-feedback"
-      title="Hoe we feedback verzamelen tijdens de demo"
+      title="Het programma blijft groeien met de docenten mee"
       className="hairline-t"
     >
       <div className="grid gap-10 lg:grid-cols-12">
@@ -557,32 +484,32 @@ function FeedbackPanel() {
                 <p className="mt-3 text-[14.5px] leading-relaxed text-ink-soft">
                   Op iedere pagina staat rechtsonder een{" "}
                   <span className="font-medium text-ink">Feedback</span>-knop.
-                  Klik 'm, geef sterren, schrijf wat je wilt kwijt. Het komt
-                  anoniem binnen.
+                  Docenten, opleidingsmanagers en projectleiders kunnen op elk
+                  moment input geven — anoniem, zonder account.
                 </p>
 
                 <ul className="mt-5 space-y-2 text-[13.5px] text-ink-soft">
                   <li className="flex items-start gap-2">
                     <Sparkles size={12} strokeWidth={1.8} className="mt-1 text-terra" />
-                    Geen account, geen mail
+                    Sterren-score, optionele rol, vrije tekst
                   </li>
                   <li className="flex items-start gap-2">
                     <Sparkles size={12} strokeWidth={1.8} className="mt-1 text-terra" />
-                    Server-side opgeslagen, niet in jouw browser
+                    Server-side opgeslagen, doorzoekbaar voor het ontwerpteam
                   </li>
                   <li className="flex items-start gap-2">
                     <Sparkles size={12} strokeWidth={1.8} className="mt-1 text-terra" />
-                    Direct doorzoekbaar voor ons
+                    Wekelijks bundelen en omzetten in een verbeterronde
                   </li>
                   <li className="flex items-start gap-2">
                     <Sparkles size={12} strokeWidth={1.8} className="mt-1 text-terra" />
-                    Rol en naam zijn optioneel
+                    Geen persoonsgegevens vereist
                   </li>
                 </ul>
 
                 <div className="mt-6 flex flex-wrap gap-3">
                   <Button variant="accent" to="/">
-                    Open de demo en klik rechtsonder
+                    Probeer het zelf
                     <ArrowRight size={13} strokeWidth={1.8} />
                   </Button>
                 </div>
@@ -592,23 +519,23 @@ function FeedbackPanel() {
         </div>
 
         <aside className="lg:col-span-5">
-          <Footnote>Wat doen we met die feedback?</Footnote>
+          <Footnote>Hoe we het verwerken</Footnote>
           <ul className="mt-3 space-y-4">
             {[
               {
                 num: "01",
-                t: "Elke dag lezen",
-                b: "We kijken iedere dag wat er binnenkomt, deze hele week.",
+                t: "Wekelijks lezen",
+                b: "Het ontwerpteam leest álle binnenkomende feedback binnen één week.",
               },
               {
                 num: "02",
-                t: "Vrijdag clusteren",
-                b: "Aan het eind van de week bundelen we per thema en kiezen we wat meegaat in een eventueel vervolg.",
+                t: "Clusteren per thema",
+                b: "We bundelen naar thema en bepalen wat in de eerstvolgende iteratie meegaat.",
               },
               {
                 num: "03",
                 t: "Terugkoppelen",
-                b: "Als we de opdracht krijgen, sturen we je een mail wanneer jouw punt is verwerkt. Mits je je mail achterliet.",
+                b: "Wie wil weten wat er met hun punt is gebeurd, krijgt een korte mail bij de volgende release.",
               },
             ].map((s) => (
               <li
