@@ -46,19 +46,19 @@ const feedback = [
   {
     quote:
       "De praktijkcasus bij les 1.5 (differentiatie) heb ik direct gebruikt in mijn 3 mavo-klas. Werkte beter dan verwacht.",
-    role: "Docent NL · Etty Hillesum",
+    role: "Docent NL · vo",
     rating: 5,
   },
   {
     quote:
       "Module 02 is precies wat ik zocht — de les over vibe coding maakt mijn beoordelingsmodel echt anders.",
-    role: "Docent SE · Saxion",
+    role: "Docent Software Engineering · hbo",
     rating: 5,
   },
   {
     quote:
       "Sterke prompts, maar voor mbo zorg zou ik graag meer voorbeelden zien rond mondelinge verantwoording.",
-    role: "Docent Verpleegkunde · Aventus",
+    role: "Docent Verpleegkunde · mbo",
     rating: 4,
   },
 ];
@@ -66,22 +66,22 @@ const feedback = [
 const suggestions = [
   {
     title: "Casus voor mbo niveau 2 economie",
-    by: "Docent Aventus · 14 mei",
+    by: "Docent mbo · 14 mei",
     status: "in onderzoek",
   },
   {
     title: "Diepteles toetsing bij groepsopdrachten",
-    by: "Onderwijskundige Saxion · 12 mei",
+    by: "Onderwijskundige hbo · 12 mei",
     status: "ingepland · v0.5",
   },
   {
     title: "Specifieke prompts voor 2F-tekst",
-    by: "Docent VOG · 10 mei",
+    by: "Docent vo · 10 mei",
     status: "wordt toegevoegd",
   },
   {
     title: "Train-the-teacher draaiboek voor teamleiders",
-    by: "Opl. manager EHL · 8 mei",
+    by: "Opleidingsmanager vo · 8 mei",
     status: "v0.5 — review",
   },
 ];
@@ -94,15 +94,15 @@ export function Analytics() {
         number="∑"
         title={
           <>
-            Hoe de pilot{" "}
-            <span className="display-italic text-terra">echt</span> loopt.
+            Voortgang{" "}
+            <span className="display-italic text-terra">in beeld</span>.
           </>
         }
-        subtitle="Een overzicht voor projectleiders en opleidingsmanagers. Aggregaten alleen, geen herleidbare data over individuele docenten."
+        subtitle="Het dashboard zoals projectleiders en opleidingsmanagers het zien. Aggregaten alleen, geen herleidbare data over individuele docenten. Onderstaand een voorbeeld van wat een pilotweek oplevert aan inzicht."
         meta={[
-          { label: "Periode", value: "wk 1 — wk 6" },
-          { label: "Pilotpartners", value: "4 instellingen" },
-          { label: "Update", value: "Vandaag · 09:14" },
+          { label: "Voorbeeld-periode", value: "wk 1 — wk 6" },
+          { label: "Partners", value: "4 instellingen" },
+          { label: "Vernieuwt", value: "dagelijks" },
         ]}
       />
 
@@ -127,7 +127,7 @@ export function Analytics() {
           <KpiTile
             label="Promptgebruik"
             value="1.442"
-            sub="kopieën · pilotperiode"
+            sub="kopieën · in periode"
             delta="+184"
             icon={Sparkles}
             tone="academy"
@@ -143,7 +143,7 @@ export function Analytics() {
         </div>
       </Section>
 
-      <Section eyebrow="Modulevoortgang" title="Per module · pilot" className="hairline-t">
+      <Section eyebrow="Modulevoortgang" title="Per module" className="hairline-t">
         <div className="grid gap-6 lg:grid-cols-2">
           {moduleStats.map((m) => (
             <ModuleStatCard key={m.label} data={m} />
@@ -160,13 +160,13 @@ export function Analytics() {
               <Legend swatch="bg-academy" label="Module 02" />
             </div>
             <span className="font-mono uppercase tracking-widest">
-              wk 1 — wk 6 · pilotvenster
+              wk 1 — wk 6 · voorbeeld-periode
             </span>
           </div>
         </div>
       </Section>
 
-      <Section eyebrow="Intakeniveau" title="Verdeling startniveau pilotgroep" className="hairline-t">
+      <Section eyebrow="Intakeniveau" title="Verdeling startniveau" className="hairline-t">
         <div className="grid gap-6 lg:grid-cols-2">
           <div className="card p-6">
             <div className="space-y-5">
@@ -197,10 +197,10 @@ export function Analytics() {
             </div>
             <Divider label="Observatie" className="my-6" />
             <p className="text-[13.5px] leading-relaxed text-ink-soft">
-              79% van de pilotdeelnemers start op het niveau{" "}
+              79% van de deelnemers start op niveau{" "}
               <em>beginnend</em> of <em>comfortabel</em>. Module 01 sluit goed
-              aan; tijd voor versnelling van het advies naar Module 02 in week
-              4–6 voor de groep die snel doorgroeit.
+              aan; in week 4–6 versnellen we het advies naar Module 02 voor de
+              groep die snel doorgroeit.
             </p>
           </div>
 
