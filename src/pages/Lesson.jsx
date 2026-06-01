@@ -788,7 +788,7 @@ function WorkedExampleCard({ example, index, work, lesson }) {
             type="button"
             onClick={() => runAI("model")}
             disabled={isBusy}
-            aria-label="Run modelprompt met AI"
+            aria-label="Voorbeeld uitvoeren met AI"
             className={`inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 font-mono text-[10.5px] uppercase tracking-widest transition focus-ring ${
               isBusy
                 ? "bg-paper-deep/60 text-ink-faint cursor-not-allowed"
@@ -796,14 +796,14 @@ function WorkedExampleCard({ example, index, work, lesson }) {
             }`}
           >
             <Play size={10} strokeWidth={2} />
-            Run modelprompt
+            Run voorbeeld
           </button>
           {work && example.tryItYourself && (
             <button
               type="button"
               onClick={() => runAI("own")}
               disabled={isBusy || !hasOwn}
-              aria-label="Run je eigen prompt met AI"
+              aria-label="Je eigen versie uitvoeren met AI"
               className={`inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 font-mono text-[10.5px] uppercase tracking-widest transition focus-ring ${
                 isBusy || !hasOwn
                   ? "border border-rule bg-paper-card/60 text-ink-faint cursor-not-allowed"
@@ -811,7 +811,7 @@ function WorkedExampleCard({ example, index, work, lesson }) {
               }`}
             >
               <Play size={10} strokeWidth={2} />
-              Run mijn prompt
+              Run mijn versie
             </button>
           )}
           <p className="font-mono text-[10px] uppercase tracking-widest text-ink-faint">
