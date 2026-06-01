@@ -66,42 +66,42 @@ const beoogdePartners = [
 const voorgesteldeFases = [
   {
     nr: "01",
-    title: "Intake & behoefteanalyse",
+    title: "Intake en behoefte",
     period: "wk 1 — 3",
     icon: Compass,
-    body: "Verkennende gesprekken met opleidingsmanagers en docenten per instelling. Niveauscan met huidige tools. Scherp beeld van leervragen, vakdomeinen en bestaande PD-routines per instelling.",
-    deliverables: ["Stakeholdergesprekken", "Niveauscan docentpopulatie", "Programmakader v1"],
+    body: "Gesprekken met opleidingsmanagers en docenten per instelling. Een korte niveauscan brengt in beeld waar mensen nu staan met AI. Eind van fase: één pagina per instelling die hun leervragen, vakken en bestaande PD-routine vasthoudt.",
+    deliverables: ["Gesprekken op locatie", "Niveauscan", "Eén pagina per instelling"],
   },
   {
     nr: "02",
-    title: "Co-ontwerp modules",
+    title: "Ontwerp van de modules",
     period: "wk 3 — 8",
     icon: Sprout,
-    body: "Co-ontwerp met onderwijsexperts uit elke instelling. Iteratief, met tussentoetsen op didactische kwaliteit en toepasbaarheid in vo/mbo/hbo. Voortbouwen op huidige demo of opnieuw beginnen — keuze ligt bij VABOK.",
+    body: "Ontwerp samen met onderwijsexperts uit elke instelling. Elk stuk wordt getoetst op didactische kwaliteit en op of het in vo, mbo en hbo werkt. Jullie kiezen of we doorgaan op de huidige demo of opnieuw beginnen.",
     deliverables: ["Modulekader 01", "Modulekader 02", "Promptbibliotheek v1"],
   },
   {
     nr: "03",
-    title: "Pilot met docentgroep",
+    title: "Pilot met docenten",
     period: "wk 8 — 14",
     icon: Users,
-    body: "Drie pilotgroepen (één per onderwijssoort) van naar verwachting 8–12 docenten per groep. Begeleide doorloop met train-the-teacher elementen. Wekelijkse korte feedbacksessies.",
-    deliverables: ["Pilotgroepen samengesteld", "Wekelijkse feedbacksessies", "Korte tussenrapportage"],
+    body: "Drie groepen van acht tot twaalf docenten, één per onderwijssoort. Begeleid door de modules heen, met elke week een korte sessie waarin ze terugkoppelen wat werkt en wat niet.",
+    deliverables: ["Drie pilotgroepen", "Wekelijkse sessies", "Tussenrapportage"],
   },
   {
     nr: "04",
-    title: "Feedback & doorontwikkeling",
+    title: "Bijschaven en productie",
     period: "wk 14 — 18",
     icon: Repeat,
-    body: "Kort-cyclisch verbeteren op basis van pilotfeedback. Casussen aangescherpt, prompts gefinaliseerd, intake gekalibreerd. Productie-architectuur uitgerold (Postgres, Strapi-CMS, SURFconext-koppeling).",
-    deliverables: ["Modules v2", "Geanonimiseerde casussen", "Productie-architectuur"],
+    body: "Schaven op basis van wat de pilot opleverde. Casussen aanscherpen, prompts vastleggen, intake kalibreren. Tegelijk zetten we de productie-omgeving op: database, content-systeem, schoollogin via SURFconext.",
+    deliverables: ["Modules v2", "Geanonimiseerde casussen", "Productie-omgeving"],
   },
   {
     nr: "05",
-    title: "Brede uitrol binnen VABOK",
+    title: "Uitrol binnen VABOK",
     period: "vanaf wk 18",
     icon: Rocket,
-    body: "Schaalslag naar bredere docentpopulatie. Train-the-teacher kernteam per instelling. Lange-termijn beheer- en doorontwikkelplan met VABOK-partners.",
+    body: "Opschalen naar meer docenten. Per instelling een kernteam dat de modules verspreidt en bewaakt. Plan voor beheer, doorontwikkeling en uitbreiding richting 2026 en 2027.",
     deliverables: ["Kernteam per instelling", "Beheerafspraken", "Roadmap 2026—2027"],
   },
 ];
@@ -139,17 +139,16 @@ function ProjectHero() {
           <div className="lg:col-span-8">
             <Footnote>Project & roadmap</Footnote>
             <h1 className="mt-3 font-display text-balance text-[34px] font-normal leading-[1.05] tracking-tightish text-ink sm:text-[44px] lg:text-[56px] lg:leading-[1.02]">
-              Dit is wat we bouwden,{" "}
-              <span className="display-italic text-terra">en hoe</span> we het
-              verder zouden brengen.
+              Geen toezegging.{" "}
+              <span className="display-italic text-terra">Een werkend voorbeeld.</span>
             </h1>
             <p className="mt-5 max-w-3xl text-pretty text-[16px] leading-relaxed text-ink-soft">
-              AI PraktijkLab is op dit moment een werkende demo — gebouwd in
-              een paar dagen als reactie op de Aventus-aanbieding voor de
-              VABOK-opdracht. Het laat zien hoe we de twee professionaliserings­modules
-              inhoudelijk, didactisch én technisch zouden invullen. De fases
-              hieronder zijn een voorstel; ze gaan pas lopen zodra het traject
-              start.
+              Wij hebben in een paar dagen iets gebouwd op basis van de
+              opdrachtomschrijving. Niet om indruk te maken, om te laten
+              zien dat we weten wat we doen. De inhoud klopt, de techniek
+              werkt, de aanpak staat. Wat hieronder volgt — de fases, de
+              partners, het tempo — is wat we zouden doen als jullie ja
+              zeggen.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -195,15 +194,15 @@ function ProjectHero() {
                 ))}
               </ul>
 
-              <Divider label="Demo loopt" className="my-5" />
+              <Divider label="Open ter evaluatie" className="my-5" />
 
               <div className="text-[13px] text-ink-soft">
                 <div className="font-display text-[17px] text-ink">
-                  Online t/m 7 juni 2026
+                  Klik door waar je wilt.
                 </div>
                 <div className="mt-1">
-                  Gehost op Azure Static Web Apps (Free tier) in West-Europa.
-                  Geen auth — voor evaluatie open te benaderen.
+                  Alles wat je hieronder ziet werkt. Reageer rechtsonder op
+                  wat je sterk vindt en wat niet.
                 </div>
               </div>
             </div>
@@ -217,8 +216,8 @@ function ProjectHero() {
 function HuidigeStatus() {
   return (
     <Section
-      eyebrow="Wat er nú staat"
-      title="Een klikbare demo, geen lopend programma"
+      eyebrow="Status nu"
+      title="Werkt, draait, is geen programma"
       className="hairline-t"
     >
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -226,32 +225,32 @@ function HuidigeStatus() {
           {
             num: "01",
             title: "Demo, geen pilot",
-            body: "Geen actieve VABOK-samenwerking, geen ingeschreven docenten, geen lopende pilotgroepen. De fases hieronder gaan pas in bij gunning.",
+            body: "Niemand is ingeschreven. Geen lopende samenwerking met de vier instellingen. Bij gunning zetten we het programma in fase 01 op.",
           },
           {
             num: "02",
-            title: "Inhoud is volledig",
-            body: "Alle 17 lessen zijn uitgeschreven op ~3.000 woorden, met worked examples, vakvariaties, valkuilen en rubrics. 4 kennischecks tussen modulesdelen.",
+            title: "Inhoud staat",
+            body: "Zeventien lessen zijn af. Niet samenvattend. Met voorbeelden, valkuilen, vakvariaties en rubrics. Vier kennischecks tussen de moduledelen.",
           },
           {
             num: "03",
-            title: "Interactief, niet illusief",
-            body: "Docent-werk wordt lokaal opgeslagen, exporteerbaar als markdown. Promptkit-functie werkt. Mobile + a11y getest.",
+            title: "Echt interactief",
+            body: "Wat je typt blijft staan, ook na herladen. Je promptkit groeit terwijl je werkt. Je lesopzet exporteer je als één document.",
           },
           {
             num: "04",
-            title: "Anonieme feedback open",
-            body: "De drijvende feedbackknop rechtsonder verstuurt input naar Azure Application Insights. Bekijken via portal of CLI.",
+            title: "Feedback komt binnen",
+            body: "De knop rechtsonder werkt. Iedereen kan reageren. Wij lezen alles wat binnenkomt, deze week elke dag.",
           },
           {
             num: "05",
-            title: "Architectuur is uitgewerkt",
-            body: "Voor productie ligt een concrete Azure-architectuur klaar (Postgres, Strapi, SURFconext-via-Entra, Azure OpenAI in West-Europa).",
+            title: "Productie is uitgedacht",
+            body: "Voor de echte uitrol ligt een Azure-architectuur klaar. Database, content-systeem, schoollogin via SURFconext, AI-laag — binnen Europa.",
           },
           {
             num: "06",
-            title: "Audit + bronnen onder de inhoud",
-            body: "Inhoud verankerd in UNESCO AI Framework, DigCompEdu, Kennisnet, Npuls AI-GO! en Darling-Hammond. 16 bronnen in het werkdocument.",
+            title: "Onderbouwd, niet bedacht",
+            body: "Het materiaal leunt op UNESCO, DigCompEdu, Kennisnet, Npuls en Darling-Hammond. Zestien bronnen in het werkdocument.",
           },
         ].map((s) => (
           <article key={s.num} className="card flex flex-col gap-3 p-6">
@@ -277,14 +276,13 @@ function Roadmap() {
   return (
     <Section
       eyebrow="Voorgesteld traject"
-      title="Vijf fases — pas actief bij gunning"
+      title="Vijf fases — geen ervan loopt nu"
       className="hairline-t"
     >
       <p className="mb-8 max-w-3xl text-[15px] leading-relaxed text-ink-soft">
-        Geen enkele fase is op dit moment in uitvoering. Wat hieronder staat is
-        het traject zoals we het zouden aflopen — kort-cyclisch verbeteren,
-        co-ontwerp met instellingen, en transfer naar de eigen klas als
-        ankerpunt per les.
+        Geen van deze fases is gestart. Hieronder hoe we het zouden doen. In
+        kleine stappen, met de instellingen aan tafel, en met de eigen klas
+        van de docent als plek waar de les uiteindelijk landt.
       </p>
 
       <div className="relative grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
@@ -339,7 +337,7 @@ function FaseDetail({ fase: f }) {
         {f.body}
       </p>
 
-      <Divider label="Beoogde opbrengsten" className="my-4" />
+      <Divider label="Wat dat oplevert" className="my-4" />
       <ul className="space-y-1.5">
         {f.deliverables.map((d) => (
           <li
@@ -363,9 +361,9 @@ function BeoogdePartners() {
       className="hairline-t"
     >
       <p className="mb-8 max-w-3xl text-[15px] leading-relaxed text-ink-soft">
-        Dit zijn de partners die de Aventus-opdrachtomschrijving noemt. De
-        rol-omschrijvingen hieronder zijn óns voorstel — feitelijke afspraken
-        worden in fase 01 met elke instelling gemaakt.
+        De vier partners liggen vast; die noemt de opdracht zelf. Hoe hun rol
+        eruit ziet hangt af van wat zij willen. Hieronder ons voorstel.
+        Afspraken maken we in fase 01.
       </p>
 
       <div className="grid gap-5 md:grid-cols-2">
@@ -412,16 +410,16 @@ function Adaptability() {
       <div className="grid gap-10 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <p className="text-[15.5px] leading-relaxed text-ink-soft">
-            Eén leerlijn, drie aansluitingen. Vo-docenten leren met casussen
-            uit onderbouw en taalvakken. Mbo-docenten met beroepsgerichte
-            praktijksituaties. Hbo-docenten met projectonderwijs en onderzoek.
-            De kern is gedeeld, de toepassing is van de instelling.
+            De kern is voor iedereen gelijk. De voorbeelden komen uit de
+            instelling zelf. Vo werkt met casussen uit de onderbouw en
+            taalvakken. Mbo met beroepspraktijk en dilemma's. Hbo met
+            projecten en onderzoek. Hetzelfde fundament, eigen toepassing.
           </p>
           <div className="mt-6 rounded-xl bg-paper-card p-5 ring-1 ring-rule">
             <Footnote>Belofte</Footnote>
             <p className="mt-2 font-display text-[18px] italic leading-snug">
-              Iedere VABOK-instelling kan eigen casussen, prompts en
-              accentleggingen toevoegen — zonder de leerlijn te splitsen.
+              Iedere instelling voegt eigen casussen, prompts en accenten
+              toe. Zonder dat de leerlijn breekt.
             </p>
           </div>
         </div>
@@ -479,10 +477,9 @@ function TrainTheTeacher() {
       className="hairline-t"
     >
       <p className="mb-8 max-w-3xl text-[15px] leading-relaxed text-ink-soft">
-        Drie progressie-niveaus, geïnspireerd op het UNESCO AI Competency
-        Framework for Teachers (2024) en Darling-Hammond's zeven kenmerken
-        van effectieve docent-PD (2017). Geen verplicht traject — een
-        groei­pad dat docenten zelf kunnen kiezen.
+        Drie plekken waar een docent kan staan. Van zelf leren, naar
+        collega's helpen, naar de school-trekker. Geen verplichting. Een pad
+        dat docenten kiezen wanneer ze eraan toe zijn.
       </p>
       <div className="grid gap-6 lg:grid-cols-3">
         {[
@@ -490,21 +487,21 @@ function TrainTheTeacher() {
             icon: GraduationCap,
             num: "01",
             title: "Bekwaam",
-            body: "Docent doorloopt het programma zelf met begeleiding, levert eigen materiaal op.",
+            body: "Doorloopt het programma zelf met begeleiding. Levert eigen materiaal op dat in de klas werkt.",
             scale: "1 op 1",
           },
           {
             icon: BookMarked,
             num: "02",
-            title: "Begeleid",
-            body: "Docent begeleidt twee collega's met dezelfde lessen en casussen, met co-reflectie.",
+            title: "Begeleider",
+            body: "Helpt twee collega's door dezelfde lessen heen. Samen reflecteren, samen aanscherpen.",
             scale: "1 op 2",
           },
           {
             icon: Rocket,
             num: "03",
-            title: "Ambassadeur",
-            body: "Docent host eigen sessies binnen de instelling en deelt nieuwe casussen met VABOK.",
+            title: "Trekker",
+            body: "Geeft eigen sessies binnen de school. Deelt nieuwe casussen met VABOK voor andere instellingen.",
             scale: "1 op 8+",
           },
         ].map((s) => (
@@ -552,47 +549,38 @@ function FeedbackPanel() {
               </span>
               <div>
                 <h3 className="font-display text-[22px] leading-tight">
-                  Drijvende feedback-knop, rechtsonder.
+                  Eén knop, rechtsonder.
                 </h3>
                 <p className="mt-3 text-[14.5px] leading-relaxed text-ink-soft">
-                  Op elke pagina van deze demo zit rechtsonder een{" "}
+                  Op iedere pagina staat rechtsonder een{" "}
                   <span className="font-medium text-ink">Feedback</span>-knop.
-                  Klik 'm, geef sterren, kies eventueel een rol, schrijf wat
-                  je wilt — en het komt anoniem binnen bij het ontwerpteam.
+                  Klik 'm, geef sterren, schrijf wat je wilt kwijt. Het komt
+                  anoniem binnen.
                 </p>
 
                 <ul className="mt-5 space-y-2 text-[13.5px] text-ink-soft">
                   <li className="flex items-start gap-2">
                     <Sparkles size={12} strokeWidth={1.8} className="mt-1 text-terra" />
-                    Geen account nodig, geen email vereist
+                    Geen account, geen mail
                   </li>
                   <li className="flex items-start gap-2">
                     <Sparkles size={12} strokeWidth={1.8} className="mt-1 text-terra" />
-                    Server-side opgeslagen in Azure Application Insights
+                    Server-side opgeslagen, niet in jouw browser
                   </li>
                   <li className="flex items-start gap-2">
                     <Sparkles size={12} strokeWidth={1.8} className="mt-1 text-terra" />
-                    Direct querybaar via Kusto (KQL) — geen tussenstap
+                    Direct doorzoekbaar voor ons
                   </li>
                   <li className="flex items-start gap-2">
                     <Sparkles size={12} strokeWidth={1.8} className="mt-1 text-terra" />
-                    Geen persoonsgegevens vereist; rol en naam zijn optioneel
+                    Rol en naam zijn optioneel
                   </li>
                 </ul>
 
                 <div className="mt-6 flex flex-wrap gap-3">
                   <Button variant="accent" to="/">
-                    Open de demo & klik rechtsonder
+                    Open de demo en klik rechtsonder
                     <ArrowRight size={13} strokeWidth={1.8} />
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    href="https://learn.microsoft.com/azure/azure-monitor/logs/get-started-queries"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Over Kusto-query's
-                    <ExternalLink size={12} strokeWidth={1.8} />
                   </Button>
                 </div>
               </div>
@@ -606,18 +594,18 @@ function FeedbackPanel() {
             {[
               {
                 num: "01",
-                t: "Dagelijks lezen",
-                b: "Tijdens deze demo-week leest het ontwerpteam dagelijks de binnenkomende feedback.",
+                t: "Elke dag lezen",
+                b: "We kijken iedere dag wat er binnenkomt, deze hele week.",
               },
               {
                 num: "02",
-                t: "Cluster & beslis",
-                b: "Aan het einde van de week clusteren we naar thema en bepalen welke input meegaat in een eventueel vervolg.",
+                t: "Vrijdag clusteren",
+                b: "Aan het eind van de week bundelen we per thema en kiezen we wat meegaat in een eventueel vervolg.",
               },
               {
                 num: "03",
-                t: "Eerlijke terugkoppeling",
-                b: "Bij gunning krijgen geïnteresseerde feedbackgevers een korte mail wanneer hun input in een nieuwe versie staat — als ze dat willen.",
+                t: "Terugkoppelen",
+                b: "Als we de opdracht krijgen, sturen we je een mail wanneer jouw punt is verwerkt. Mits je je mail achterliet.",
               },
             ].map((s) => (
               <li
