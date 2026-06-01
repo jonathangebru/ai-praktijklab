@@ -3,6 +3,7 @@ import {
   Check,
   Download,
   Eraser,
+  Lightbulb,
   PlusCircle,
   Save,
   Sparkles,
@@ -10,6 +11,8 @@ import {
 } from "lucide-react";
 import { Footnote, ProgressBar } from "./ui";
 import { buildLessonMarkdown, downloadMarkdown } from "../hooks/useLessonWork";
+import { coach, AIError } from "../lib/aiClient";
+import { trackEvent } from "../lib/appInsights";
 
 /* ──────────────────────────────────────────────────────────────────────────
  * <WriteBlock />
@@ -197,8 +200,86 @@ export function RubricSelfRater({ detail, work }) {
   const scored = (detail.eindcriteria || []).map((_, i) =>
     work.get(`rubric-${i}`)
   );
+  const filledCount = scored.filter((v) => v && v !== "").length;
   const onOrAbove = scored.filter((v) => v === "op" || v === "boven").length;
   const above = scored.filter((v) => v === "boven").length;
+
+  const [aiState, setAiState] = useState({
+    feedback: "",
+    suggestions: [],
+    loading: false,
+    error: null,
+  });
+  const [open, setOpen] = useState(false);
+  const abortRef = useRef(null);
+
+  const canAsk = filledCount >= 3;
+
+  async function askCoach() {
+    if (!canAsk) return;
+    if (abortRef.current) {
+      try {
+        abortRef.current.abort();
+      } catch { /* ignore */ }
+    }
+    const ac = new AbortController();
+    abortRef.current = ac;
+
+    setAiState({ feedback: "", suggestions: [], loading: true, error: null });
+    setOpen(true);
+    trackEvent("ai-coach-rubric-ask", { filled: filledCount, above });
+
+    /* Bouw samenvatting van de zelfscore */
+    const summary = (detail.eindcriteria || [])
+      .map((c, i) => {
+        const choice = scored[i];
+        return choice
+          ? `- ${c.criterium}: zelfscore = ${choice}`
+          : `- ${c.criterium}: nog niet gescoord`;
+      })
+      .join("\n");
+
+    const headline = `Totaal: ${onOrAbove} van ${detail.eindcriteria.length} op- of boven-niveau (${above} boven).`;
+
+    try {
+      const { feedback, suggestions } = await coach({
+        mode: "rubric",
+        input: `${headline}\n\nPer criterium:\n${summary}`,
+        context: { criteria: detail.eindcriteria },
+        signal: ac.signal,
+      });
+      setAiState({ feedback, suggestions, loading: false, error: null });
+    } catch (err) {
+      if (err?.name === "AbortError") return;
+      const msg =
+        err instanceof AIError
+          ? err.message
+          : "AI-blik niet beschikbaar.";
+      setAiState({ feedback: "", suggestions: [], loading: false, error: msg });
+    } finally {
+      abortRef.current = null;
+    }
+  }
+
+  function closeCoach() {
+    if (abortRef.current) {
+      try {
+        abortRef.current.abort();
+      } catch { /* ignore */ }
+    }
+    setOpen(false);
+    setAiState({ feedback: "", suggestions: [], loading: false, error: null });
+  }
+
+  useEffect(() => {
+    return () => {
+      if (abortRef.current) {
+        try {
+          abortRef.current.abort();
+        } catch { /* ignore */ }
+      }
+    };
+  }, []);
 
   return (
     <article id="eindcriteria" className="hairline-t pt-10">
@@ -290,16 +371,51 @@ export function RubricSelfRater({ detail, work }) {
         })}
       </div>
 
-      <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 rounded-xl bg-paper-deep/40 px-5 py-4">
-        <Footnote>Mijn inschatting</Footnote>
-        <span className="text-[13px] text-ink">
-          <span className="num-mark text-[18px] text-ink">{onOrAbove}</span>
-          <span className="text-ink-mute"> van {detail.eindcriteria.length} op- of boven-niveau</span>
-        </span>
-        {above > 0 && (
-          <span className="text-[13px] text-sage-deep">
-            · waarvan {above} boven niveau
+      <div className="mt-6 rounded-xl bg-paper-deep/40 px-5 py-4">
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+          <Footnote>Mijn inschatting</Footnote>
+          <span className="text-[13px] text-ink">
+            <span className="num-mark text-[18px] text-ink">{onOrAbove}</span>
+            <span className="text-ink-mute"> van {detail.eindcriteria.length} op- of boven-niveau</span>
           </span>
+          {above > 0 && (
+            <span className="text-[13px] text-sage-deep">
+              · waarvan {above} boven niveau
+            </span>
+          )}
+          <span className="flex-1" />
+          <button
+            type="button"
+            onClick={open && !aiState.loading ? closeCoach : askCoach}
+            disabled={!canAsk || aiState.loading}
+            aria-label="Vraag een AI-blik op je zelfscore"
+            aria-expanded={open}
+            className={`inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 font-mono text-[10.5px] uppercase tracking-widest transition focus-ring ${
+              canAsk && !aiState.loading
+                ? "bg-ink text-paper-card hover:bg-ink-soft"
+                : "bg-paper-card/60 text-ink-faint border border-rule cursor-not-allowed"
+            }`}
+          >
+            <Sparkles size={11} strokeWidth={1.8} />
+            {open && !aiState.loading ? "Verberg AI-blik" : "AI-blik op mijn zelfscore"}
+          </button>
+        </div>
+        {!canAsk && (
+          <p className="mt-2 font-mono text-[10px] uppercase tracking-widest text-ink-faint">
+            Score eerst minimaal 3 criteria
+          </p>
+        )}
+        {open && (
+          <InlineCoachPanel
+            feedback={aiState.feedback}
+            suggestions={aiState.suggestions}
+            loading={aiState.loading}
+            error={aiState.error}
+            onRetry={askCoach}
+            onClose={closeCoach}
+            footnote="AI-blik · rubric"
+            tone="sage"
+          />
         )}
       </div>
     </article>
@@ -307,9 +423,119 @@ export function RubricSelfRater({ detail, work }) {
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
+ * <InlineCoachPanel />
+ * Compact academy-getint blokje voor coach-feedback onder een textarea of
+ * rubric-samenvatting. Bevat loading, error en suggestions.
+ * ─────────────────────────────────────────────────────────────────────── */
+function InlineCoachPanel({
+  feedback,
+  suggestions = [],
+  loading,
+  error,
+  onRetry,
+  onClose,
+  footnote = "Collegiale blik",
+  tone = "academy", // 'academy' | 'sage'
+}) {
+  if (!loading && !feedback && !error) return null;
+
+  const toneCls =
+    tone === "sage"
+      ? "border-sage/30 bg-sage-tint/30"
+      : "border-academy/20 bg-academy-tint/40";
+  const labelCls = tone === "sage" ? "text-sage-deep" : "text-academy-deep";
+
+  return (
+    <div
+      role="region"
+      aria-label={footnote}
+      className={`mt-3 rounded-lg border ${toneCls} px-4 py-3`}
+    >
+      <div className="flex items-center justify-between gap-2">
+        <div className="flex items-center gap-2">
+          <Sparkles size={11} strokeWidth={1.8} className={labelCls} />
+          <span className={`font-mono text-[10px] uppercase tracking-widest ${labelCls}`}>
+            {footnote}
+          </span>
+          {loading && (
+            <span
+              aria-hidden="true"
+              className={`inline-block h-1.5 w-1.5 rounded-full animate-soft-pulse ${
+                tone === "sage" ? "bg-sage" : "bg-academy"
+              }`}
+            />
+          )}
+        </div>
+        {onClose && !loading && (
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Sluit coach-paneel"
+            className="font-mono text-[10px] uppercase tracking-widest text-ink-faint hover:text-ink-soft focus-ring rounded"
+          >
+            sluit
+          </button>
+        )}
+      </div>
+
+      {loading && (
+        <div className="mt-2.5 space-y-2" aria-hidden="true">
+          <div className="h-2.5 w-[78%] animate-soft-pulse rounded bg-ink/10" />
+          <div className="h-2.5 w-[64%] animate-soft-pulse rounded bg-ink/10" />
+          <div className="h-2.5 w-[70%] animate-soft-pulse rounded bg-ink/10" />
+        </div>
+      )}
+
+      {error && (
+        <div className="mt-2 text-[13px] leading-relaxed text-ink">
+          {error}
+          {onRetry && (
+            <button
+              type="button"
+              onClick={onRetry}
+              className="ml-2 inline-flex items-center gap-1 rounded-md bg-ink px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-paper-card hover:bg-ink-soft focus-ring"
+            >
+              opnieuw
+            </button>
+          )}
+        </div>
+      )}
+
+      {feedback && !error && (
+        <p className="mt-2 text-[13.5px] leading-relaxed text-ink whitespace-pre-wrap">
+          {feedback}
+        </p>
+      )}
+
+      {suggestions.length > 0 && !error && (
+        <ul className="mt-3 space-y-1.5 border-t border-ink/10 pt-3">
+          {suggestions.map((s, i) => (
+            <li
+              key={i}
+              className="flex gap-2 text-[13px] leading-relaxed text-ink-soft"
+            >
+              <span className={`num-mark text-[14px] leading-snug ${labelCls}`}>
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <span>{s}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {(feedback || error) && !loading && (
+        <p className="mt-3 font-mono text-[9.5px] leading-relaxed text-ink-faint">
+          AI antwoorden zijn niet altijd correct. Deel geen leerlinggegevens.
+        </p>
+      )}
+    </div>
+  );
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
  * <ReflectionWriter />
  * The existing Reflection block becomes interactive — each vraag krijgt een
- * textarea ernaast.
+ * textarea ernaast, plus optioneel een AI-coach knop bij voldoende tekst.
  * ─────────────────────────────────────────────────────────────────────── */
 export function ReflectionWriter({ detail, work }) {
   return (
@@ -321,31 +547,138 @@ export function ReflectionWriter({ detail, work }) {
 
       <ol className="mt-6 space-y-5">
         {detail.reflection.map((r, i) => (
-          <li
+          <ReflectionItem
             key={i}
-            className="rounded-2xl bg-academy-tint/40 p-5 hairline"
-          >
-            <div className="flex items-start gap-3">
-              <span className="num-mark text-[18px] leading-none text-academy-deep">
-                R.{String(i + 1).padStart(2, "0")}
-              </span>
-              <p className="font-display text-[17px] italic leading-snug text-academy-deep">
-                {r}
-              </p>
-            </div>
-            <div className="mt-3 pl-9">
-              <WriteBlock
-                work={work}
-                field={`reflectie-${i}`}
-                label={`Antwoord ${i + 1}`}
-                placeholder="Neem een paar minuten — geen goed of fout."
-                rows={3}
-              />
-            </div>
-          </li>
+            question={r}
+            index={i}
+            work={work}
+          />
         ))}
       </ol>
     </article>
+  );
+}
+
+function ReflectionItem({ question, index, work }) {
+  const field = `reflectie-${index}`;
+  const value = (work.get(field) || "").trim();
+  const [aiState, setAiState] = useState({
+    feedback: "",
+    suggestions: [],
+    loading: false,
+    error: null,
+  });
+  const abortRef = useRef(null);
+
+  const canCoach = value.length >= 30;
+
+  async function askCoach() {
+    if (!canCoach) return;
+    if (abortRef.current) {
+      try {
+        abortRef.current.abort();
+      } catch { /* ignore */ }
+    }
+    const ac = new AbortController();
+    abortRef.current = ac;
+
+    setAiState({ feedback: "", suggestions: [], loading: true, error: null });
+    trackEvent("ai-coach-reflection-ask", { index });
+
+    try {
+      const { feedback, suggestions } = await coach({
+        mode: "reflection",
+        input: `Reflectievraag: ${question}\n\nAntwoord docent: ${value}`,
+        signal: ac.signal,
+      });
+      setAiState({ feedback, suggestions, loading: false, error: null });
+    } catch (err) {
+      if (err?.name === "AbortError") return;
+      const msg =
+        err instanceof AIError
+          ? err.message
+          : "Coach niet bereikbaar.";
+      setAiState({ feedback: "", suggestions: [], loading: false, error: msg });
+    } finally {
+      abortRef.current = null;
+    }
+  }
+
+  function closeCoach() {
+    if (abortRef.current) {
+      try {
+        abortRef.current.abort();
+      } catch { /* ignore */ }
+    }
+    setAiState({ feedback: "", suggestions: [], loading: false, error: null });
+  }
+
+  useEffect(() => {
+    return () => {
+      if (abortRef.current) {
+        try {
+          abortRef.current.abort();
+        } catch { /* ignore */ }
+      }
+    };
+  }, []);
+
+  const showCoach =
+    aiState.loading || aiState.feedback || aiState.error;
+
+  return (
+    <li className="rounded-2xl bg-academy-tint/40 p-5 hairline">
+      <div className="flex items-start gap-3">
+        <span className="num-mark text-[18px] leading-none text-academy-deep">
+          R.{String(index + 1).padStart(2, "0")}
+        </span>
+        <p className="font-display text-[17px] italic leading-snug text-academy-deep">
+          {question}
+        </p>
+      </div>
+      <div className="mt-3 pl-9">
+        <WriteBlock
+          work={work}
+          field={field}
+          label={`Antwoord ${index + 1}`}
+          placeholder="Neem een paar minuten — geen goed of fout."
+          rows={3}
+        />
+        <div className="mt-2.5 flex flex-wrap items-center gap-2">
+          <button
+            type="button"
+            onClick={askCoach}
+            disabled={!canCoach || aiState.loading}
+            aria-label="Vraag een collegiale blik van de AI-coach"
+            className={`inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest transition focus-ring ${
+              canCoach && !aiState.loading
+                ? "border border-academy/30 bg-paper-card text-academy-deep hover:bg-academy-tint/60"
+                : "border border-rule bg-paper-card/50 text-ink-faint cursor-not-allowed"
+            }`}
+          >
+            <Lightbulb size={10} strokeWidth={1.8} />
+            Vraag een collegiale blik
+          </button>
+          {!canCoach && (
+            <span className="font-mono text-[10px] uppercase tracking-widest text-ink-faint">
+              Schrijf 30+ tekens om te starten
+            </span>
+          )}
+        </div>
+        {showCoach && (
+          <InlineCoachPanel
+            feedback={aiState.feedback}
+            suggestions={aiState.suggestions}
+            loading={aiState.loading}
+            error={aiState.error}
+            onRetry={askCoach}
+            onClose={closeCoach}
+            footnote="Collegiale blik · AI"
+            tone="academy"
+          />
+        )}
+      </div>
+    </li>
   );
 }
 

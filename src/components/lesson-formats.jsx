@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   AlertTriangle,
   Check,
@@ -10,6 +10,7 @@ import {
   FileText,
   Gavel,
   Layers,
+  Lightbulb,
   ListChecks,
   MessageCircle,
   Pencil,
@@ -20,6 +21,8 @@ import {
 } from "lucide-react";
 import { Footnote } from "./ui";
 import { WriteBlock } from "./lesson-actions";
+import { coach, AIError } from "../lib/aiClient";
+import { trackEvent } from "../lib/appInsights";
 
 /* ──────────────────────────────────────────────────────────────────────────
  *  CASUSLAB  —  used by 1.2 "Wat kan AI wel en niet?"
@@ -421,10 +424,113 @@ export function ActionPlan({ source, title, steps, work }) {
  *  Vier iteratierondes (intent → start-prompt → eigen poging → model → leerpunt)
  * ─────────────────────────────────────────────────────────────────────── */
 
+/* Compacte AI-coach callout binnen een Promptlab-ronde. Academy-getint. */
+function InlineCoachCallout({
+  feedback,
+  suggestions = [],
+  loading,
+  error,
+  onRetry,
+  onClose,
+}) {
+  if (!loading && !feedback && !error) return null;
+  return (
+    <div
+      role="region"
+      aria-label="AI-coach feedback"
+      className="mt-3 rounded-lg border border-academy/20 bg-academy-tint/40 px-4 py-3"
+    >
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Sparkles size={11} strokeWidth={1.8} className="text-academy-deep" />
+          <span className="font-mono text-[10px] uppercase tracking-widest text-academy-deep">
+            AI-coach · prompt
+          </span>
+          {loading && (
+            <span
+              aria-hidden="true"
+              className="inline-block h-1.5 w-1.5 rounded-full bg-academy animate-soft-pulse"
+            />
+          )}
+        </div>
+        {onClose && !loading && (
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Sluit coach"
+            className="font-mono text-[10px] uppercase tracking-widest text-ink-faint hover:text-ink-soft focus-ring rounded"
+          >
+            sluit
+          </button>
+        )}
+      </div>
+
+      {loading && (
+        <div className="mt-2.5 space-y-2" aria-hidden="true">
+          <div className="h-2.5 w-[78%] animate-soft-pulse rounded bg-ink/10" />
+          <div className="h-2.5 w-[64%] animate-soft-pulse rounded bg-ink/10" />
+        </div>
+      )}
+
+      {error && (
+        <div className="mt-2 text-[13px] leading-relaxed text-ink">
+          {error}
+          {onRetry && (
+            <button
+              type="button"
+              onClick={onRetry}
+              className="ml-2 inline-flex items-center gap-1 rounded-md bg-ink px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-paper-card hover:bg-ink-soft focus-ring"
+            >
+              opnieuw
+            </button>
+          )}
+        </div>
+      )}
+
+      {feedback && !error && (
+        <p className="mt-2 text-[13.5px] leading-relaxed text-ink whitespace-pre-wrap">
+          {feedback}
+        </p>
+      )}
+
+      {suggestions.length > 0 && !error && (
+        <ul className="mt-3 space-y-1.5 border-t border-ink/10 pt-3">
+          {suggestions.map((s, i) => (
+            <li
+              key={i}
+              className="flex gap-2 text-[13px] leading-relaxed text-ink-soft"
+            >
+              <span className="num-mark text-[14px] leading-snug text-academy-deep">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <span>{s}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {(feedback || error) && !loading && (
+        <p className="mt-3 font-mono text-[9.5px] leading-relaxed text-ink-faint">
+          AI antwoorden zijn niet altijd correct. Deel geen leerlinggegevens.
+        </p>
+      )}
+    </div>
+  );
+}
+
 export function PromptIterationRound({ round, index, work }) {
   const [showModel, setShowModel] = useState(false);
   const [copied, setCopied] = useState(false);
   const userField = work ? `promptlab-${index}-user` : null;
+  const userPrompt = work && userField ? (work.get(userField) || "").trim() : "";
+
+  const [aiState, setAiState] = useState({
+    feedback: "",
+    suggestions: [],
+    loading: false,
+    error: null,
+  });
+  const abortRef = useRef(null);
 
   function copyModel() {
     if (!round.improvedPrompt) return;
@@ -432,6 +538,61 @@ export function PromptIterationRound({ round, index, work }) {
     setCopied(true);
     setTimeout(() => setCopied(false), 1700);
   }
+
+  async function askCoach() {
+    if (!userPrompt || userPrompt.length < 10) return;
+    if (abortRef.current) {
+      try {
+        abortRef.current.abort();
+      } catch { /* ignore */ }
+    }
+    const ac = new AbortController();
+    abortRef.current = ac;
+
+    setAiState({ feedback: "", suggestions: [], loading: true, error: null });
+    trackEvent("ai-coach-prompt-ask", { round: index });
+
+    try {
+      const { feedback, suggestions } = await coach({
+        mode: "prompt",
+        input: userPrompt,
+        context: { modelPrompt: round.improvedPrompt || "" },
+        signal: ac.signal,
+      });
+      setAiState({ feedback, suggestions, loading: false, error: null });
+    } catch (err) {
+      if (err?.name === "AbortError") return;
+      const msg =
+        err instanceof AIError
+          ? err.message
+          : "AI-coach niet bereikbaar.";
+      setAiState({ feedback: "", suggestions: [], loading: false, error: msg });
+    } finally {
+      abortRef.current = null;
+    }
+  }
+
+  function closeCoach() {
+    if (abortRef.current) {
+      try {
+        abortRef.current.abort();
+      } catch { /* ignore */ }
+    }
+    setAiState({ feedback: "", suggestions: [], loading: false, error: null });
+  }
+
+  useEffect(() => {
+    return () => {
+      if (abortRef.current) {
+        try {
+          abortRef.current.abort();
+        } catch { /* ignore */ }
+      }
+    };
+  }, []);
+
+  const canAsk = userPrompt.length >= 10;
+  const showCoach = aiState.loading || aiState.feedback || aiState.error;
 
   return (
     <div className="card-elev overflow-hidden">
@@ -471,14 +632,47 @@ export function PromptIterationRound({ round, index, work }) {
         )}
 
         {work && userField && (
-          <WriteBlock
-            work={work}
-            field={userField}
-            label="Jouw eigen verbeterde prompt"
-            hint="Schrijf de prompt zoals jij hem zou versturen — voor je het 'model' antwoord ziet"
-            rows={4}
-            tone="accent"
-          />
+          <>
+            <WriteBlock
+              work={work}
+              field={userField}
+              label="Jouw eigen verbeterde prompt"
+              hint="Schrijf de prompt zoals jij hem zou versturen — voor je het 'model' antwoord ziet"
+              rows={4}
+              tone="accent"
+            />
+            <div className="mt-2.5 flex flex-wrap items-center gap-2">
+              <button
+                type="button"
+                onClick={askCoach}
+                disabled={!canAsk || aiState.loading}
+                aria-label="Vraag AI-coach om je prompt te beoordelen"
+                className={`inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest transition focus-ring ${
+                  canAsk && !aiState.loading
+                    ? "border border-academy/30 bg-paper-card text-academy-deep hover:bg-academy-tint/60"
+                    : "border border-rule bg-paper-card/50 text-ink-faint cursor-not-allowed"
+                }`}
+              >
+                <Lightbulb size={10} strokeWidth={1.8} />
+                Vraag AI-coach
+              </button>
+              {!canAsk && (
+                <span className="font-mono text-[10px] uppercase tracking-widest text-ink-faint">
+                  Schrijf 10+ tekens eerst
+                </span>
+              )}
+            </div>
+            {showCoach && (
+              <InlineCoachCallout
+                feedback={aiState.feedback}
+                suggestions={aiState.suggestions}
+                loading={aiState.loading}
+                error={aiState.error}
+                onRetry={askCoach}
+                onClose={closeCoach}
+              />
+            )}
+          </>
         )}
 
         {round.improvedPrompt && (

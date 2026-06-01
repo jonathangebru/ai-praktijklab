@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import {
   ArrowLeft,
@@ -24,7 +24,11 @@ import {
   BookOpen,
   ChevronDown,
   ChevronRight,
+  Play,
 } from "lucide-react";
+import { AIResponse } from "../components/AIResponse";
+import { streamChat, AIError } from "../lib/aiClient";
+import { trackEvent } from "../lib/appInsights";
 import {
   PageHeader,
   Section,
@@ -586,11 +590,110 @@ function WorkedExamples({ detail, work, lesson }) {
 function WorkedExampleCard({ example, index, work, lesson }) {
   const [copied, setCopied] = useState(false);
   const [showOutput, setShowOutput] = useState(true);
+
+  /* AI streaming state */
+  const [aiResponse, setAiResponse] = useState("");
+  const [aiLoading, setAiLoading] = useState(false);
+  const [aiStreaming, setAiStreaming] = useState(false);
+  const [aiError, setAiError] = useState(null);
+  const [lastSource, setLastSource] = useState(null); // 'model' | 'own'
+  const abortRef = useRef(null);
+
+  const userPrompt = work && example.tryItYourself
+    ? (work.get(example.tryItYourself.field) || "").trim()
+    : "";
+
   function copy() {
     navigator.clipboard?.writeText(example.prompt);
     setCopied(true);
     setTimeout(() => setCopied(false), 1800);
   }
+
+  async function runAI(source) {
+    const promptText = source === "own" ? userPrompt : example.prompt;
+    if (!promptText) return;
+
+    // Cancel een eventueel lopende stream
+    if (abortRef.current) {
+      try {
+        abortRef.current.abort();
+      } catch { /* ignore */ }
+    }
+    const ac = new AbortController();
+    abortRef.current = ac;
+
+    setAiResponse("");
+    setAiError(null);
+    setAiLoading(true);
+    setAiStreaming(false);
+    setLastSource(source);
+    trackEvent("worked-example-ai-tried", {
+      lesson: lesson?.slug,
+      example: example.title,
+      source,
+    });
+
+    try {
+      const gen = streamChat({
+        messages: [
+          {
+            role: "system",
+            content:
+              "Je bent een AI-assistent voor docenten. Antwoord beknopt, didactisch verantwoord, in het Nederlands. Voeg geen vleierij toe.",
+          },
+          { role: "user", content: promptText },
+        ],
+        signal: ac.signal,
+      });
+      let first = true;
+      for await (const chunk of gen) {
+        if (first) {
+          setAiLoading(false);
+          setAiStreaming(true);
+          first = false;
+        }
+        setAiResponse((s) => s + chunk);
+      }
+    } catch (err) {
+      if (err?.name === "AbortError") return;
+      const msg =
+        err instanceof AIError
+          ? err.message
+          : "Er ging iets mis met de AI-aanroep.";
+      setAiError(msg);
+    } finally {
+      setAiLoading(false);
+      setAiStreaming(false);
+      abortRef.current = null;
+    }
+  }
+
+  function closeAI() {
+    if (abortRef.current) {
+      try {
+        abortRef.current.abort();
+      } catch { /* ignore */ }
+    }
+    setAiResponse("");
+    setAiError(null);
+    setAiLoading(false);
+    setAiStreaming(false);
+    setLastSource(null);
+  }
+
+  useEffect(() => {
+    return () => {
+      if (abortRef.current) {
+        try {
+          abortRef.current.abort();
+        } catch { /* ignore */ }
+      }
+    };
+  }, []);
+
+  const isBusy = aiLoading || aiStreaming;
+  const hasOwn = userPrompt.length > 0;
+
   return (
     <div className="card-elev overflow-hidden">
       <div className="hairline-b flex items-center justify-between px-5 py-3">
@@ -678,6 +781,62 @@ function WorkedExampleCard({ example, index, work, lesson }) {
           }}
         />
       )}
+
+      <div className="hairline-t bg-paper-deep/20 px-5 py-4">
+        <div className="flex flex-wrap items-center gap-2">
+          <button
+            type="button"
+            onClick={() => runAI("model")}
+            disabled={isBusy}
+            aria-label="Run modelprompt met AI"
+            className={`inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 font-mono text-[10.5px] uppercase tracking-widest transition focus-ring ${
+              isBusy
+                ? "bg-paper-deep/60 text-ink-faint cursor-not-allowed"
+                : "bg-ink text-paper-card hover:bg-ink-soft"
+            }`}
+          >
+            <Play size={10} strokeWidth={2} />
+            Run modelprompt
+          </button>
+          {work && example.tryItYourself && (
+            <button
+              type="button"
+              onClick={() => runAI("own")}
+              disabled={isBusy || !hasOwn}
+              aria-label="Run je eigen prompt met AI"
+              className={`inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 font-mono text-[10.5px] uppercase tracking-widest transition focus-ring ${
+                isBusy || !hasOwn
+                  ? "border border-rule bg-paper-card/60 text-ink-faint cursor-not-allowed"
+                  : "border border-terra/40 bg-terra-tint/30 text-terra-deep hover:bg-terra-tint/60"
+              }`}
+            >
+              <Play size={10} strokeWidth={2} />
+              Run mijn prompt
+            </button>
+          )}
+          <p className="font-mono text-[10px] uppercase tracking-widest text-ink-faint">
+            Antwoord verschijnt hieronder — live.
+          </p>
+        </div>
+
+        <AIResponse
+          response={aiResponse}
+          loading={aiLoading}
+          streaming={aiStreaming}
+          error={aiError}
+          onRegenerate={
+            lastSource ? () => runAI(lastSource) : undefined
+          }
+          onClose={
+            aiResponse || aiError || isBusy ? closeAI : undefined
+          }
+          footnote={
+            lastSource === "own"
+              ? "AI · jouw prompt"
+              : "AI · modelprompt"
+          }
+        />
+      </div>
     </div>
   );
 }
