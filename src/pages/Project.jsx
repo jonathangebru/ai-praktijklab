@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Send,
   Compass,
@@ -6,77 +5,87 @@ import {
   Users,
   Repeat,
   Rocket,
-  CheckCircle2,
   Circle,
   Asterisk,
   GraduationCap,
   Building2,
   BookMarked,
   ArrowRight,
+  MessageSquare,
+  Sparkles,
+  ExternalLink,
 } from "lucide-react";
-import { PageHeader, Section, Button, Tag, Footnote, Divider } from "../components/ui";
+import { Section, Button, Tag, Footnote, Divider } from "../components/ui";
 
-const partners = [
+/* ──────────────────────────────────────────────────────────────────────────
+ * Project & roadmap — waarheidsgetrouwe versie
+ *
+ * Wat dit platform op dit moment is:
+ *  · Een werkende demo, online gezet als onderdeel van een aanbod richting
+ *    Aventus voor de VABOK-opdracht.
+ *  · Solo gebouwd in een paar dagen om te laten zien dat we begrijpen wát
+ *    er gevraagd wordt en hoe we het didactisch én technisch zouden bouwen.
+ *  · Geen active VABOK-partnerschap. Geen lopende pilotgroepen. Geen
+ *    feitelijke docent-aantallen achter inschrijvingen.
+ *
+ * Wat het zou kunnen worden — bij gunning — staat hieronder als
+ * voorgestelde aanpak.
+ * ──────────────────────────────────────────────────────────────────────── */
+
+const beoogdePartners = [
   {
     name: "Veluwse Onderwijsgroep",
     level: "vo",
     location: "Apeldoorn e.o.",
-    role: "Pilot · onderbouw + bovenbouw",
-    teachers: 14,
+    role: "Beoogd: onderbouw + bovenbouw",
     color: "terra",
   },
   {
     name: "Etty Hillesum Lyceum",
     level: "vo",
     location: "Deventer",
-    role: "Pilot · taalvakken + maatschappij",
-    teachers: 11,
+    role: "Beoogd: taalvakken + maatschappij",
     color: "terra",
   },
   {
     name: "Aventus",
     level: "mbo",
     location: "Apeldoorn / Deventer / Zutphen",
-    role: "Penvoerder · meerdere opleidingen",
-    teachers: 22,
+    role: "Opdrachtgever · pen­voerder VABOK",
     color: "sage",
   },
   {
     name: "Saxion",
     level: "hbo",
     location: "Enschede / Deventer",
-    role: "Verdieping Module 02 · ICT en lerarenopleiding",
-    teachers: 18,
+    role: "Beoogd: ICT-vakken + lerarenopleiding",
     color: "academy",
   },
 ];
 
-const fases = [
+const voorgesteldeFases = [
   {
     nr: "01",
     title: "Intake & behoefteanalyse",
     period: "wk 1 — 3",
     icon: Compass,
-    body: "Verkennende gesprekken met opleidingsmanagers en docenten. Niveauscan met huidige tools. Output: scherp beeld van leervragen per instelling.",
-    status: "done",
-    deliverables: ["Stakeholdergesprekken", "Niveauscan docentpopulatie", "Vastgesteld programmakader"],
+    body: "Verkennende gesprekken met opleidingsmanagers en docenten per instelling. Niveauscan met huidige tools. Scherp beeld van leervragen, vakdomeinen en bestaande PD-routines per instelling.",
+    deliverables: ["Stakeholdergesprekken", "Niveauscan docentpopulatie", "Programmakader v1"],
   },
   {
     nr: "02",
-    title: "Ontwerp modules",
+    title: "Co-ontwerp modules",
     period: "wk 3 — 8",
     icon: Sprout,
-    body: "Co-ontwerp met onderwijsexperts uit elke instelling. Iteratief, met tussentoetsen op didactische kwaliteit en toepasbaarheid in vo/mbo/hbo.",
-    status: "active",
-    deliverables: ["Modulekader Module 01", "Modulekader Module 02", "Promptbibliotheek v1"],
+    body: "Co-ontwerp met onderwijsexperts uit elke instelling. Iteratief, met tussentoetsen op didactische kwaliteit en toepasbaarheid in vo/mbo/hbo. Voortbouwen op huidige demo of opnieuw beginnen — keuze ligt bij VABOK.",
+    deliverables: ["Modulekader 01", "Modulekader 02", "Promptbibliotheek v1"],
   },
   {
     nr: "03",
     title: "Pilot met docentgroep",
     period: "wk 8 — 14",
     icon: Users,
-    body: "Drie pilotgroepen (één per onderwijssoort). Begeleide doorloop met train-the-teacher elementen. Wekelijkse korte feedbacksessies.",
-    status: "queued",
+    body: "Drie pilotgroepen (één per onderwijssoort) van naar verwachting 8–12 docenten per groep. Begeleide doorloop met train-the-teacher elementen. Wekelijkse korte feedbacksessies.",
     deliverables: ["Pilotgroepen samengesteld", "Wekelijkse feedbacksessies", "Korte tussenrapportage"],
   },
   {
@@ -84,18 +93,16 @@ const fases = [
     title: "Feedback & doorontwikkeling",
     period: "wk 14 — 18",
     icon: Repeat,
-    body: "Kort-cyclisch verbeteren op basis van pilotfeedback. Casussen worden aangescherpt, prompts gefinaliseerd, intake gekalibreerd.",
-    status: "queued",
-    deliverables: ["Update modules v2", "Geanonimiseerde casussen", "Intake-kalibratie"],
+    body: "Kort-cyclisch verbeteren op basis van pilotfeedback. Casussen aangescherpt, prompts gefinaliseerd, intake gekalibreerd. Productie-architectuur uitgerold (Postgres, Strapi-CMS, SURFconext-koppeling).",
+    deliverables: ["Modules v2", "Geanonimiseerde casussen", "Productie-architectuur"],
   },
   {
     nr: "05",
     title: "Brede uitrol binnen VABOK",
     period: "vanaf wk 18",
     icon: Rocket,
-    body: "Schaalslag naar bredere docentpopulatie. Train-the-teacher kernteam per instelling. Lange-termijn beheer en doorontwikkelplan.",
-    status: "queued",
-    deliverables: ["Kernteam per instelling", "Beheerafspraken", "Roadmap 2026-2027"],
+    body: "Schaalslag naar bredere docentpopulatie. Train-the-teacher kernteam per instelling. Lange-termijn beheer- en doorontwikkelplan met VABOK-partners.",
+    deliverables: ["Kernteam per instelling", "Beheerafspraken", "Roadmap 2026—2027"],
   },
 ];
 
@@ -103,8 +110,9 @@ export function Project() {
   return (
     <>
       <ProjectHero />
+      <HuidigeStatus />
       <Roadmap />
-      <Partners />
+      <BeoogdePartners />
       <Adaptability />
       <TrainTheTeacher />
       <FeedbackPanel />
@@ -116,11 +124,11 @@ function ProjectHero() {
   return (
     <section className="hairline-b relative overflow-hidden">
       <div aria-hidden="true" className="grid-paper absolute inset-0 opacity-40" />
-      <div className="relative px-10 pb-14 pt-14">
+      <div className="relative px-5 pb-12 pt-12 sm:px-8 lg:px-10 lg:pb-14 lg:pt-14">
         <div className="mb-4 flex flex-wrap items-center gap-3">
           <Tag tone="ink">
             <Asterisk size={10} strokeWidth={2.5} />
-            VABOK · 2026 — 2027
+            Aanbod · Aventus-opdracht
           </Tag>
           <Tag tone="terra">vo</Tag>
           <Tag tone="sage">mbo</Tag>
@@ -131,44 +139,54 @@ function ProjectHero() {
           <div className="lg:col-span-8">
             <Footnote>Project & roadmap</Footnote>
             <h1 className="mt-3 font-display text-balance text-[34px] font-normal leading-[1.05] tracking-tightish text-ink sm:text-[44px] lg:text-[56px] lg:leading-[1.02]">
-              Eén leerlijn,{" "}
-              <span className="display-italic text-terra">vier instellingen</span>,
-              een gedeelde verantwoordelijkheid.
+              Dit is wat we bouwden,{" "}
+              <span className="display-italic text-terra">en hoe</span> we het
+              verder zouden brengen.
             </h1>
-            <p className="mt-5 max-w-3xl text-pretty text-[16.5px] leading-relaxed text-ink-soft">
-              VABOK is de samenwerking tussen Veluwse Onderwijsgroep, Etty
-              Hillesum Lyceum, Aventus en Saxion. Dit platform is ontworpen om
-              docenten in vo, mbo en hbo gerichte AI-professionalisering te
-              bieden — schaalbaar per instelling, met behoud van vakdidactische
-              eigenheid.
+            <p className="mt-5 max-w-3xl text-pretty text-[16px] leading-relaxed text-ink-soft">
+              AI PraktijkLab is op dit moment een werkende demo — gebouwd in
+              een paar dagen als reactie op de Aventus-aanbieding voor de
+              VABOK-opdracht. Het laat zien hoe we de twee professionaliserings­modules
+              inhoudelijk, didactisch én technisch zouden invullen. De fases
+              hieronder zijn een voorstel; ze gaan pas lopen zodra het traject
+              start.
             </p>
 
-            <div className="mt-8 flex items-center gap-3">
-              <Button variant="accent">
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <Button variant="accent" href="mailto:jonathangebru@gmail.com?subject=AI%20PraktijkLab%20%E2%80%94%20verkenningsgesprek">
                 <Send size={14} strokeWidth={1.8} />
                 Plan een verkenningsgesprek
               </Button>
-              <Button variant="ghost">
-                Download programmakader (PDF)
+              <Button variant="ghost" to="/">
+                Bekijk de demo
+                <ArrowRight size={13} strokeWidth={1.8} />
               </Button>
             </div>
           </div>
 
           <aside className="lg:col-span-4">
             <div className="card-elev p-6">
-              <Footnote>Status</Footnote>
+              <div className="flex items-center gap-2">
+                <span className="h-2 w-2 animate-soft-pulse rounded-full bg-sage" />
+                <Footnote>Live demo · status nu</Footnote>
+              </div>
               <h3 className="mt-1 font-display text-[22px] leading-tight">
-                Fase 02 · ontwerp
+                Werkende prototype
               </h3>
 
               <ul className="mt-5 space-y-2 text-[13px]">
                 {[
-                  { l: "Modulekader 01", v: "afgerond" },
-                  { l: "Modulekader 02", v: "in afronding" },
-                  { l: "Promptbibliotheek", v: "v0.4 — live" },
-                  { l: "Pilotwerving", v: "klaar voor start" },
+                  { l: "Module 01 (Basiscursus AI)", v: "8 lessen · af" },
+                  { l: "Module 02 (Verdieping)", v: "9 lessen · af" },
+                  { l: "Kennischecks", v: "4 · af" },
+                  { l: "Promptbibliotheek", v: "live, filterbaar" },
+                  { l: "Feedback-widget", v: "live, anoniem" },
+                  { l: "Toegankelijkheid", v: "WCAG AA · 100/100" },
                 ].map((it) => (
-                  <li key={it.l} className="flex items-center justify-between gap-3">
+                  <li
+                    key={it.l}
+                    className="flex items-center justify-between gap-3"
+                  >
                     <span className="text-ink-soft">{it.l}</span>
                     <span className="font-mono text-[10px] uppercase tracking-widest text-ink">
                       {it.v}
@@ -177,15 +195,15 @@ function ProjectHero() {
                 ))}
               </ul>
 
-              <Divider label="Eerstvolgend" className="my-5" />
+              <Divider label="Demo loopt" className="my-5" />
 
               <div className="text-[13px] text-ink-soft">
                 <div className="font-display text-[17px] text-ink">
-                  Pilotstart maandag 16 juni
+                  Online t/m 7 juni 2026
                 </div>
                 <div className="mt-1">
-                  Drie groepen, één per onderwijssoort. Eerste feedbacksessie
-                  vrijdag 20 juni.
+                  Gehost op Azure Static Web Apps (Free tier) in West-Europa.
+                  Geen auth — voor evaluatie open te benaderen.
                 </div>
               </div>
             </div>
@@ -196,21 +214,91 @@ function ProjectHero() {
   );
 }
 
+function HuidigeStatus() {
+  return (
+    <Section
+      eyebrow="Wat er nú staat"
+      title="Een klikbare demo, geen lopend programma"
+      className="hairline-t"
+    >
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {[
+          {
+            num: "01",
+            title: "Demo, geen pilot",
+            body: "Geen actieve VABOK-samenwerking, geen ingeschreven docenten, geen lopende pilotgroepen. De fases hieronder gaan pas in bij gunning.",
+          },
+          {
+            num: "02",
+            title: "Inhoud is volledig",
+            body: "Alle 17 lessen zijn uitgeschreven op ~3.000 woorden, met worked examples, vakvariaties, valkuilen en rubrics. 4 kennischecks tussen modulesdelen.",
+          },
+          {
+            num: "03",
+            title: "Interactief, niet illusief",
+            body: "Docent-werk wordt lokaal opgeslagen, exporteerbaar als markdown. Promptkit-functie werkt. Mobile + a11y getest.",
+          },
+          {
+            num: "04",
+            title: "Anonieme feedback open",
+            body: "De drijvende feedbackknop rechtsonder verstuurt input naar Azure Application Insights. Bekijken via portal of CLI.",
+          },
+          {
+            num: "05",
+            title: "Architectuur is uitgewerkt",
+            body: "Voor productie ligt een concrete Azure-architectuur klaar (Postgres, Strapi, SURFconext-via-Entra, Azure OpenAI in West-Europa).",
+          },
+          {
+            num: "06",
+            title: "Audit + bronnen onder de inhoud",
+            body: "Inhoud verankerd in UNESCO AI Framework, DigCompEdu, Kennisnet, Npuls AI-GO! en Darling-Hammond. 16 bronnen in het werkdocument.",
+          },
+        ].map((s) => (
+          <article key={s.num} className="card flex flex-col gap-3 p-6">
+            <div className="flex items-baseline gap-3">
+              <span className="num-mark text-[24px] leading-none text-terra">
+                {s.num}
+              </span>
+              <h4 className="font-display text-[18px] leading-tight">
+                {s.title}
+              </h4>
+            </div>
+            <p className="text-[13.5px] leading-relaxed text-ink-soft">
+              {s.body}
+            </p>
+          </article>
+        ))}
+      </div>
+    </Section>
+  );
+}
+
 function Roadmap() {
   return (
-    <Section eyebrow="Roadmap" title="Vijf fases · kort-cyclisch verbeteren">
-      <div className="relative grid gap-5 lg:grid-cols-5">
+    <Section
+      eyebrow="Voorgesteld traject"
+      title="Vijf fases — pas actief bij gunning"
+      className="hairline-t"
+    >
+      <p className="mb-8 max-w-3xl text-[15px] leading-relaxed text-ink-soft">
+        Geen enkele fase is op dit moment in uitvoering. Wat hieronder staat is
+        het traject zoals we het zouden aflopen — kort-cyclisch verbeteren,
+        co-ontwerp met instellingen, en transfer naar de eigen klas als
+        ankerpunt per les.
+      </p>
+
+      <div className="relative grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
         <div
           aria-hidden="true"
           className="absolute left-0 right-0 top-9 hidden h-px bg-rule lg:block"
         />
-        {fases.map((f) => (
+        {voorgesteldeFases.map((f) => (
           <RoadmapStep key={f.nr} fase={f} />
         ))}
       </div>
 
       <div className="mt-10 grid gap-5 md:grid-cols-2">
-        {fases.map((f) => (
+        {voorgesteldeFases.map((f) => (
           <FaseDetail key={`d-${f.nr}`} fase={f} />
         ))}
       </div>
@@ -220,16 +308,9 @@ function Roadmap() {
 
 function RoadmapStep({ fase: f }) {
   const Icon = f.icon;
-  const colors = {
-    done: "bg-sage text-paper-card",
-    active: "bg-terra text-paper-card",
-    queued: "bg-paper-card text-ink-mute border-rule border",
-  };
   return (
     <div className="relative">
-      <div
-        className={`grid h-[72px] w-[72px] place-items-center rounded-full ${colors[f.status]}`}
-      >
+      <div className="grid h-[72px] w-[72px] place-items-center rounded-full border border-rule bg-paper-card text-ink-mute">
         <Icon size={22} strokeWidth={1.6} />
       </div>
       <div className="mt-4">
@@ -240,22 +321,7 @@ function RoadmapStep({ fase: f }) {
           {f.title}
         </div>
         <div className="mt-2 flex items-center gap-1.5 text-[12px] text-ink-mute">
-          {f.status === "done" && (
-            <>
-              <CheckCircle2 size={12} className="text-sage" /> Afgerond
-            </>
-          )}
-          {f.status === "active" && (
-            <>
-              <span className="h-2 w-2 animate-soft-pulse rounded-full bg-terra" />{" "}
-              In uitvoering
-            </>
-          )}
-          {f.status === "queued" && (
-            <>
-              <Circle size={12} className="text-ink-faint" /> Gepland
-            </>
-          )}
+          <Circle size={12} className="text-ink-faint" /> Voorgesteld
         </div>
       </div>
     </div>
@@ -267,14 +333,19 @@ function FaseDetail({ fase: f }) {
     <div className="card p-6">
       <div className="flex items-baseline gap-3">
         <span className="num-mark text-[28px] leading-none">{f.nr}</span>
-        <h4 className="font-display text-[20px] leading-tight">{f.title}</h4>
+        <h3 className="font-display text-[20px] leading-tight">{f.title}</h3>
       </div>
-      <p className="mt-3 text-[14px] leading-relaxed text-ink-soft">{f.body}</p>
+      <p className="mt-3 text-[14px] leading-relaxed text-ink-soft">
+        {f.body}
+      </p>
 
-      <Divider label="Opbrengsten" className="my-4" />
+      <Divider label="Beoogde opbrengsten" className="my-4" />
       <ul className="space-y-1.5">
         {f.deliverables.map((d) => (
-          <li key={d} className="flex items-center gap-2 text-[13px] text-ink-soft">
+          <li
+            key={d}
+            className="flex items-center gap-2 text-[13px] text-ink-soft"
+          >
             <span className="h-1.5 w-1.5 rounded-full bg-terra" />
             {d}
           </li>
@@ -284,11 +355,21 @@ function FaseDetail({ fase: f }) {
   );
 }
 
-function Partners() {
+function BeoogdePartners() {
   return (
-    <Section eyebrow="VABOK · partners" title="Vier instellingen, één programma" className="hairline-t">
+    <Section
+      eyebrow="VABOK · beoogde partners"
+      title="Vier instellingen, één programma"
+      className="hairline-t"
+    >
+      <p className="mb-8 max-w-3xl text-[15px] leading-relaxed text-ink-soft">
+        Dit zijn de partners die de Aventus-opdrachtomschrijving noemt. De
+        rol-omschrijvingen hieronder zijn óns voorstel — feitelijke afspraken
+        worden in fase 01 met elke instelling gemaakt.
+      </p>
+
       <div className="grid gap-5 md:grid-cols-2">
-        {partners.map((p) => (
+        {beoogdePartners.map((p) => (
           <PartnerCard key={p.name} data={p} />
         ))}
       </div>
@@ -303,27 +384,19 @@ function PartnerCard({ data }) {
     academy: "bg-academy-tint text-academy-deep",
   };
   return (
-    <article className="card flex items-start justify-between gap-5 p-6">
-      <div className="flex items-start gap-4">
-        <div
-          className={`grid h-12 w-12 place-items-center rounded-xl ${tones[data.color]}`}
-        >
-          <Building2 size={20} strokeWidth={1.5} />
-        </div>
-        <div>
-          <div className="mb-1.5 flex items-center gap-2">
-            <Tag tone={data.color}>{data.level}</Tag>
-            <Tag tone="neutral">{data.location}</Tag>
-          </div>
-          <h4 className="font-display text-[22px] leading-tight">
-            {data.name}
-          </h4>
-          <p className="mt-1 max-w-md text-[13px] text-ink-soft">{data.role}</p>
-        </div>
+    <article className="card flex items-start gap-4 p-6">
+      <div
+        className={`grid h-12 w-12 shrink-0 place-items-center rounded-xl ${tones[data.color]}`}
+      >
+        <Building2 size={20} strokeWidth={1.5} />
       </div>
-      <div className="text-right">
-        <div className="num-mark text-[34px] leading-none">{data.teachers}</div>
-        <Footnote>docenten · pilot</Footnote>
+      <div className="flex-1">
+        <div className="mb-1.5 flex items-center gap-2">
+          <Tag tone={data.color}>{data.level}</Tag>
+          <Tag tone="neutral">{data.location}</Tag>
+        </div>
+        <h3 className="font-display text-[22px] leading-tight">{data.name}</h3>
+        <p className="mt-1 max-w-md text-[13px] text-ink-soft">{data.role}</p>
       </div>
     </article>
   );
@@ -338,14 +411,14 @@ function Adaptability() {
     >
       <div className="grid gap-10 lg:grid-cols-12">
         <div className="lg:col-span-5">
-          <p className="text-[16px] leading-relaxed text-ink-soft">
-            Eén leerlijn, drie aansluitingen. Vo-docenten leren met casussen uit
-            de onderbouw en taalvakken. Mbo-docenten met beroepsgerichte
+          <p className="text-[15.5px] leading-relaxed text-ink-soft">
+            Eén leerlijn, drie aansluitingen. Vo-docenten leren met casussen
+            uit onderbouw en taalvakken. Mbo-docenten met beroepsgerichte
             praktijksituaties. Hbo-docenten met projectonderwijs en onderzoek.
             De kern is gedeeld, de toepassing is van de instelling.
           </p>
           <div className="mt-6 rounded-xl bg-paper-card p-5 ring-1 ring-rule">
-            <Footnote>Garantie</Footnote>
+            <Footnote>Belofte</Footnote>
             <p className="mt-2 font-display text-[18px] italic leading-snug">
               Iedere VABOK-instelling kan eigen casussen, prompts en
               accentleggingen toevoegen — zonder de leerlijn te splitsen.
@@ -383,9 +456,9 @@ function Adaptability() {
             ].map((c) => (
               <div key={c.level} className="card p-5">
                 <Tag tone={c.tone}>{c.level}</Tag>
-                <h4 className="mt-3 font-display text-[19px] leading-tight">
+                <h3 className="mt-3 font-display text-[19px] leading-tight">
                   {c.title}
-                </h4>
+                </h3>
                 <p className="mt-2 text-[13.5px] leading-relaxed text-ink-soft">
                   {c.body}
                 </p>
@@ -401,10 +474,16 @@ function Adaptability() {
 function TrainTheTeacher() {
   return (
     <Section
-      eyebrow="Train-the-teacher"
-      title="Docenten bekwaam, dan ambassadeur"
+      eyebrow="Train-the-teacher · voorgesteld model"
+      title="Docent bekwaam, dan begeleider, dan ambassadeur"
       className="hairline-t"
     >
+      <p className="mb-8 max-w-3xl text-[15px] leading-relaxed text-ink-soft">
+        Drie progressie-niveaus, geïnspireerd op het UNESCO AI Competency
+        Framework for Teachers (2024) en Darling-Hammond's zeven kenmerken
+        van effectieve docent-PD (2017). Geen verplicht traject — een
+        groei­pad dat docenten zelf kunnen kiezen.
+      </p>
       <div className="grid gap-6 lg:grid-cols-3">
         {[
           {
@@ -412,18 +491,21 @@ function TrainTheTeacher() {
             num: "01",
             title: "Bekwaam",
             body: "Docent doorloopt het programma zelf met begeleiding, levert eigen materiaal op.",
+            scale: "1 op 1",
           },
           {
             icon: BookMarked,
             num: "02",
             title: "Begeleid",
             body: "Docent begeleidt twee collega's met dezelfde lessen en casussen, met co-reflectie.",
+            scale: "1 op 2",
           },
           {
             icon: Rocket,
             num: "03",
             title: "Ambassadeur",
             body: "Docent host eigen sessies binnen de instelling en deelt nieuwe casussen met VABOK.",
+            scale: "1 op 8+",
           },
         ].map((s) => (
           <article key={s.num} className="card flex flex-col gap-4 p-6">
@@ -431,13 +513,21 @@ function TrainTheTeacher() {
               <div className="grid h-10 w-10 place-items-center rounded-lg bg-paper-deep/70 text-ink">
                 <s.icon size={18} strokeWidth={1.6} />
               </div>
-              <span className="num-mark text-[28px] leading-none">{s.num}</span>
+              <span className="num-mark text-[28px] leading-none">
+                {s.num}
+              </span>
             </div>
-            <h4 className="font-display text-[22px] leading-tight">{s.title}</h4>
-            <p className="text-[14px] leading-relaxed text-ink-soft">{s.body}</p>
+            <h3 className="font-display text-[22px] leading-tight">
+              {s.title}
+            </h3>
+            <p className="text-[14px] leading-relaxed text-ink-soft">
+              {s.body}
+            </p>
             <div className="hairline-t flex items-center justify-between pt-3 text-[12px] text-ink-mute">
-              <span className="font-mono uppercase tracking-widest">Schaal</span>
-              <span>{s.num === "01" ? "1 op 1" : s.num === "02" ? "1 op 2" : "1 op 8+"}</span>
+              <span className="font-mono uppercase tracking-widest">
+                Schaal
+              </span>
+              <span>{s.scale}</span>
             </div>
           </article>
         ))}
@@ -447,136 +537,107 @@ function TrainTheTeacher() {
 }
 
 function FeedbackPanel() {
-  const [name, setName] = useState("");
-  const [role, setRole] = useState("");
-  const [msg, setMsg] = useState("");
-  const [sent, setSent] = useState(false);
-
-  function submit(e) {
-    e.preventDefault();
-    setSent(true);
-    setTimeout(() => {
-      setName("");
-      setRole("");
-      setMsg("");
-      setSent(false);
-    }, 2400);
-  }
-
   return (
     <Section
       eyebrow="Stakeholder-feedback"
-      title="Welk inzicht ontbreekt nog in dit programma?"
+      title="Hoe we feedback verzamelen tijdens de demo"
       className="hairline-t"
     >
       <div className="grid gap-10 lg:grid-cols-12">
-        <form onSubmit={submit} className="card-elev p-7 lg:col-span-7">
-          <Footnote>Korte feedback · ~2 min</Footnote>
-          <h3 className="mt-1 font-display text-[24px] leading-tight">
-            Vertel ons waar dit programma de plank mist
-          </h3>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2">
-            <Field label="Naam">
-              <input
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Voornaam Achternaam"
-                className="w-full bg-transparent text-[14px] focus:outline-none"
-              />
-            </Field>
-            <Field label="Rol & instelling">
-              <input
-                value={role}
-                onChange={(e) => setRole(e.target.value)}
-                placeholder="bv. Docent NL, Etty Hillesum Lyceum"
-                className="w-full bg-transparent text-[14px] focus:outline-none"
-              />
-            </Field>
+        <div className="lg:col-span-7">
+          <div className="card-elev p-7">
+            <div className="flex items-start gap-4">
+              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-terra/15 text-terra">
+                <MessageSquare size={18} strokeWidth={1.7} />
+              </span>
+              <div>
+                <h3 className="font-display text-[22px] leading-tight">
+                  Drijvende feedback-knop, rechtsonder.
+                </h3>
+                <p className="mt-3 text-[14.5px] leading-relaxed text-ink-soft">
+                  Op elke pagina van deze demo zit rechtsonder een{" "}
+                  <span className="font-medium text-ink">Feedback</span>-knop.
+                  Klik 'm, geef sterren, kies eventueel een rol, schrijf wat
+                  je wilt — en het komt anoniem binnen bij het ontwerpteam.
+                </p>
+
+                <ul className="mt-5 space-y-2 text-[13.5px] text-ink-soft">
+                  <li className="flex items-start gap-2">
+                    <Sparkles size={12} strokeWidth={1.8} className="mt-1 text-terra" />
+                    Geen account nodig, geen email vereist
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Sparkles size={12} strokeWidth={1.8} className="mt-1 text-terra" />
+                    Server-side opgeslagen in Azure Application Insights
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Sparkles size={12} strokeWidth={1.8} className="mt-1 text-terra" />
+                    Direct querybaar via Kusto (KQL) — geen tussenstap
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Sparkles size={12} strokeWidth={1.8} className="mt-1 text-terra" />
+                    Geen persoonsgegevens vereist; rol en naam zijn optioneel
+                  </li>
+                </ul>
+
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <Button variant="accent" to="/">
+                    Open de demo & klik rechtsonder
+                    <ArrowRight size={13} strokeWidth={1.8} />
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    href="https://learn.microsoft.com/azure/azure-monitor/logs/get-started-queries"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Over Kusto-query's
+                    <ExternalLink size={12} strokeWidth={1.8} />
+                  </Button>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="mt-4">
-            <Field label="Wat zou je willen toevoegen, aanpassen of weghalen?">
-              <textarea
-                value={msg}
-                onChange={(e) => setMsg(e.target.value)}
-                rows={5}
-                placeholder="Bijvoorbeeld: een casus voor bovenbouw vwo Engels, of een diepteles over toetsing in mbo niveau 2…"
-                className="w-full resize-none bg-transparent text-[14px] focus:outline-none"
-              />
-            </Field>
-          </div>
-          <div className="mt-5 flex items-center justify-between">
-            <span className="text-[12px] text-ink-mute">
-              Wordt anoniem gedeeld met het VABOK-team.
-            </span>
-            <Button
-              variant="accent"
-              type="submit"
-              className={sent ? "!bg-sage hover:!bg-sage" : ""}
-            >
-              {sent ? (
-                <>
-                  <CheckCircle2 size={14} strokeWidth={1.8} />
-                  Verstuurd · dank je wel
-                </>
-              ) : (
-                <>
-                  <Send size={14} strokeWidth={1.8} />
-                  Verstuur feedback
-                </>
-              )}
-            </Button>
-          </div>
-        </form>
+        </div>
 
         <aside className="lg:col-span-5">
-          <Footnote>Wat doen we ermee?</Footnote>
+          <Footnote>Wat doen we met die feedback?</Footnote>
           <ul className="mt-3 space-y-4">
             {[
               {
                 num: "01",
-                t: "Wekelijks lezen",
-                b: "Het ontwerpteam leest álle feedback binnen één week.",
+                t: "Dagelijks lezen",
+                b: "Tijdens deze demo-week leest het ontwerpteam dagelijks de binnenkomende feedback.",
               },
               {
                 num: "02",
                 t: "Cluster & beslis",
-                b: "We clusteren naar thema en bepalen wat in welke versie meegaat.",
+                b: "Aan het einde van de week clusteren we naar thema en bepalen welke input meegaat in een eventueel vervolg.",
               },
               {
                 num: "03",
-                t: "Terugkoppeling",
-                b: "Je krijgt — als je dat wilt — een korte mail wanneer jouw punt in een nieuwe versie staat.",
+                t: "Eerlijke terugkoppeling",
+                b: "Bij gunning krijgen geïnteresseerde feedbackgevers een korte mail wanneer hun input in een nieuwe versie staat — als ze dat willen.",
               },
             ].map((s) => (
-              <li key={s.num} className="hairline-b flex gap-4 pb-4 last:border-0">
-                <span className="num-mark text-[22px] leading-none">{s.num}</span>
+              <li
+                key={s.num}
+                className="hairline-b flex gap-4 pb-4 last:border-0"
+              >
+                <span className="num-mark text-[22px] leading-none">
+                  {s.num}
+                </span>
                 <div>
-                  <h4 className="font-display text-[18px] leading-snug">{s.t}</h4>
+                  <h3 className="font-display text-[18px] leading-snug">
+                    {s.t}
+                  </h3>
                   <p className="mt-1 text-[13.5px] text-ink-soft">{s.b}</p>
                 </div>
               </li>
             ))}
           </ul>
-
-          <div className="mt-6">
-            <Button variant="ghost" to="/analytics">
-              Bekijk huidige feedbacknota's
-              <ArrowRight size={13} strokeWidth={1.8} />
-            </Button>
-          </div>
         </aside>
       </div>
     </Section>
-  );
-}
-
-function Field({ label, children }) {
-  return (
-    <label className="hairline block rounded-lg bg-paper-card px-3 py-2.5 focus-within:border-rule-strong">
-      <div className="mb-0.5 font-mono text-[10px] uppercase tracking-widest text-ink-faint">
-        {label}
-      </div>
-      {children}
-    </label>
   );
 }
