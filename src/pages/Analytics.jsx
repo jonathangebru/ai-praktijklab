@@ -2,14 +2,11 @@ import {
   TrendingUp,
   Users,
   CheckCircle2,
-  MessageSquare,
   Star,
   Sparkles,
   Asterisk,
-  ChevronRight,
-  ArrowUpRight,
 } from "lucide-react";
-import { PageHeader, Section, Tag, Footnote, ProgressBar, Divider, Button } from "../components/ui";
+import { PageHeader, Section, Footnote, ProgressBar, Divider } from "../components/ui";
 
 const moduleStats = [
   { label: "Module 01 · Basiscursus AI", enrolled: 65, completed: 28, color: "terra" },
@@ -40,50 +37,6 @@ const completionTrend = [
   { w: "wk 4", a: 23, b: 6 },
   { w: "wk 5", a: 26, b: 8 },
   { w: "wk 6", a: 28, b: 9 },
-];
-
-const feedback = [
-  {
-    quote:
-      "De praktijkcasus bij les 1.5 (differentiatie) heb ik direct gebruikt in mijn 3 mavo-klas. Werkte beter dan verwacht.",
-    role: "Docent NL · vo",
-    rating: 5,
-  },
-  {
-    quote:
-      "Module 02 is precies wat ik zocht — de les over vibe coding maakt mijn beoordelingsmodel echt anders.",
-    role: "Docent Software Engineering · hbo",
-    rating: 5,
-  },
-  {
-    quote:
-      "Sterke prompts, maar voor mbo zorg zou ik graag meer voorbeelden zien rond mondelinge verantwoording.",
-    role: "Docent Verpleegkunde · mbo",
-    rating: 4,
-  },
-];
-
-const suggestions = [
-  {
-    title: "Casus voor mbo niveau 2 economie",
-    by: "Docent mbo · 14 mei",
-    status: "in onderzoek",
-  },
-  {
-    title: "Diepteles toetsing bij groepsopdrachten",
-    by: "Onderwijskundige hbo · 12 mei",
-    status: "ingepland · v0.5",
-  },
-  {
-    title: "Specifieke prompts voor 2F-tekst",
-    by: "Docent vo · 10 mei",
-    status: "wordt toegevoegd",
-  },
-  {
-    title: "Train-the-teacher draaiboek voor teamleiders",
-    by: "Opleidingsmanager vo · 8 mei",
-    status: "v0.5 — review",
-  },
 ];
 
 export function Analytics() {
@@ -232,71 +185,6 @@ export function Analytics() {
           </div>
         </div>
       </Section>
-
-      <Section eyebrow="Stem van de docent" title="Recente feedback" className="hairline-t">
-        <div className="grid gap-5 md:grid-cols-3">
-          {feedback.map((f, i) => (
-            <FeedbackCard key={i} data={f} />
-          ))}
-        </div>
-      </Section>
-
-      <Section eyebrow="Doorontwikkeling" title="Open verbetervoorstellen" className="hairline-t">
-        <div className="card overflow-hidden">
-          <table className="w-full">
-            <thead>
-              <tr className="hairline-b bg-paper text-left">
-                <th className="px-5 py-3 font-mono text-[10px] uppercase tracking-widest text-ink-faint">
-                  Voorstel
-                </th>
-                <th className="px-5 py-3 font-mono text-[10px] uppercase tracking-widest text-ink-faint">
-                  Ingediend door
-                </th>
-                <th className="px-5 py-3 font-mono text-[10px] uppercase tracking-widest text-ink-faint">
-                  Status
-                </th>
-                <th className="px-5 py-3" />
-              </tr>
-            </thead>
-            <tbody>
-              {suggestions.map((s, i) => (
-                <tr
-                  key={i}
-                  className="hairline-b last:border-0 hover:bg-paper-deep/30"
-                >
-                  <td className="px-5 py-4 text-[14px] text-ink">{s.title}</td>
-                  <td className="px-5 py-4 text-[13px] text-ink-mute">{s.by}</td>
-                  <td className="px-5 py-4">
-                    <Tag
-                      tone={
-                        s.status.includes("ingepland")
-                          ? "sage"
-                          : s.status.includes("review")
-                          ? "academy"
-                          : "neutral"
-                      }
-                    >
-                      {s.status}
-                    </Tag>
-                  </td>
-                  <td className="px-5 py-4 text-right">
-                    <ChevronRight size={14} strokeWidth={1.8} className="inline text-ink-mute" />
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <div className="mt-4 flex items-center justify-between">
-          <span className="text-[12.5px] text-ink-mute">
-            18 voorstellen totaal · 12 verwerkt · 6 open
-          </span>
-          <Button variant="ghost" to="/project">
-            Naar projectpagina
-            <ArrowUpRight size={13} strokeWidth={1.8} />
-          </Button>
-        </div>
-      </Section>
     </>
   );
 }
@@ -366,32 +254,6 @@ function Mini({ label, value }) {
         {value}
       </div>
     </div>
-  );
-}
-
-function FeedbackCard({ data }) {
-  return (
-    <article className="card flex flex-col gap-4 p-5">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-1">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <Star
-              key={i}
-              size={12}
-              strokeWidth={1.5}
-              className={i < data.rating ? "fill-terra text-terra" : "text-ink-faint"}
-            />
-          ))}
-        </div>
-        <MessageSquare size={13} strokeWidth={1.6} className="text-ink-mute" />
-      </div>
-      <p className="font-display text-[17px] italic leading-snug text-ink">
-        “{data.quote}”
-      </p>
-      <div className="hairline-t pt-3 font-mono text-[10.5px] uppercase tracking-widest text-ink-mute">
-        {data.role}
-      </div>
-    </article>
   );
 }
 
