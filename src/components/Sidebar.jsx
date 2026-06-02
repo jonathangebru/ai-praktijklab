@@ -8,10 +8,11 @@ import {
   FlaskConical,
   ClipboardList,
   LineChart,
-  CircleHelp,
+  LogOut,
   X,
 } from "lucide-react";
 import { Wordmark } from "./Logo";
+import { useAuth } from "./AuthProvider";
 import { useEffect } from "react";
 
 const nav = [
@@ -35,17 +36,71 @@ const nav = [
     section: "VABOK",
     items: [
       { to: "/project", label: "Project & roadmap", icon: ClipboardList },
-      { to: "/analytics", label: "Voortgang & analytics", icon: LineChart },
+      { to: "/analytics", label: "Voortgang & analytics", icon: LineChart, requiresRole: "beheerder" },
     ],
   },
 ];
 
+/* Initialen uit een naam: "Marieke v. Dijk" → "MD", "Dev (lokaal)" → "DL". */
+function initialsFrom(name) {
+  if (!name) return "?";
+  const parts = name.trim().split(/\s+/).filter(Boolean);
+  if (parts.length === 0) return "?";
+  if (parts.length === 1) return parts[0].slice(0, 1).toUpperCase();
+  return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+}
+
+/* Gebruikerskaart onderaan de sidebar — echte naam, rol en uitlog-knop. */
+function UserCard() {
+  const { displayName, hasRole, logout } = useAuth();
+  const roleLabel = hasRole("beheerder") ? "Beheerder" : "Docent";
+
+  return (
+    <div className="hairline-t mx-3 mb-3 mt-2 rounded-xl bg-paper-card p-4">
+      <div className="flex items-center gap-3">
+        <div className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-academy text-paper-card">
+          <span className="font-display text-[13px]">
+            {initialsFrom(displayName)}
+          </span>
+        </div>
+        <div className="min-w-0 flex-1">
+          <div className="truncate text-[13px] font-medium leading-tight text-ink">
+            {displayName || "Onbekend"}
+          </div>
+          <div className="text-[11px] leading-tight text-ink-mute">
+            {roleLabel} · Aventus
+          </div>
+        </div>
+        <button
+          type="button"
+          onClick={logout}
+          className="focus-ring grid h-7 w-7 shrink-0 place-items-center rounded-md text-ink-mute hover:bg-paper-deep hover:text-ink"
+          aria-label="Uitloggen"
+          title="Uitloggen"
+        >
+          <LogOut size={14} strokeWidth={1.7} />
+        </button>
+      </div>
+    </div>
+  );
+}
+
 /* ─────────────────────────────────────────────────────────────────────────
- * SidebarBody — shared content for desktop sidebar and mobile drawer.
- * Accepts `onNavigate` so the drawer can close itself when a NavLink is
- * activated; desktop ignores it.
+ * SidebarBody — gedeelde inhoud voor desktop-sidebar en mobiele drawer.
+ * Accepteert `onNavigate` zodat de drawer zichzelf kan sluiten bij een klik;
+ * desktop negeert het. Nav-items met `requiresRole` worden gefilterd op rol.
  * ──────────────────────────────────────────────────────────────────────── */
 function SidebarBody({ onNavigate }) {
+  const { hasRole } = useAuth();
+  const visibleNav = nav
+    .map((group) => ({
+      ...group,
+      items: group.items.filter(
+        (item) => !item.requiresRole || hasRole(item.requiresRole)
+      ),
+    }))
+    .filter((group) => group.items.length > 0);
+
   return (
     <>
       <div className="hairline-b flex items-center gap-2 px-6 py-5">
@@ -53,7 +108,7 @@ function SidebarBody({ onNavigate }) {
       </div>
 
       <nav className="flex-1 overflow-y-auto px-3 py-5" aria-label="Hoofdnavigatie">
-        {nav.map((group) => (
+        {visibleNav.map((group) => (
           <div key={group.section} className="mb-6">
             <div className="px-3 pb-2">
               <span className="eyebrow">{group.section}</span>
@@ -99,27 +154,7 @@ function SidebarBody({ onNavigate }) {
         ))}
       </nav>
 
-      <div className="hairline-t mx-3 mb-3 mt-2 rounded-xl bg-paper-card p-4">
-        <div className="flex items-center gap-3">
-          <div className="grid h-9 w-9 place-items-center rounded-full bg-academy text-paper-card">
-            <span className="font-display text-sm">M</span>
-          </div>
-          <div className="flex-1">
-            <div className="text-[13px] font-medium leading-tight text-ink">
-              Marieke v. Dijk
-            </div>
-            <div className="text-[11px] leading-tight text-ink-mute">
-              Docent · Aventus
-            </div>
-          </div>
-          <button
-            className="grid h-7 w-7 place-items-center rounded-md text-ink-mute hover:bg-paper-deep hover:text-ink"
-            aria-label="Help"
-          >
-            <CircleHelp size={14} strokeWidth={1.7} />
-          </button>
-        </div>
-      </div>
+      <UserCard />
 
       <div className="hairline-t px-6 py-3">
         <div className="flex items-center justify-between">
