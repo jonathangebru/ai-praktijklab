@@ -258,7 +258,7 @@ function Chiaroscuro() {
           <span className="codex-eyebrow text-codex-ink-faint">
             Het programma in cijfers
           </span>
-          <h2 className="codex-display mt-3 text-[34px] leading-[1.05] sm:text-[44px]">
+          <h2 className="codex-display mt-3 text-[34px] leading-[1.05] text-codex-paper sm:text-[44px]">
             Zeventien lessen.{" "}
             <span className="codex-display-italic text-codex-vermilion">
               Vier kennischecks.
@@ -278,7 +278,7 @@ function Chiaroscuro() {
               <dt className="codex-display text-[40px] leading-none sm:text-[52px]">
                 {s.v}
               </dt>
-              <dd className="mt-2 font-mono text-[10.5px] uppercase tracking-[0.22em] text-codex-paper/65">
+              <dd className="mt-2 break-words hyphens-auto font-mono text-[10.5px] uppercase tracking-[0.18em] text-codex-paper/70">
                 {s.l}
               </dd>
             </div>
