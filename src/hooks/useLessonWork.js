@@ -1,10 +1,15 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import * as workClient from "../lib/workClient";
 
 /* ─────────────────────────────────────────────────────────────────────────
  * useLessonWork(slug)
  *
- * Lightweight per-lesson workspace. Reads/writes to localStorage with a
- * short debounce so typing feels instant but disk writes are batched.
+ * Lightweight per-lesson workspace. API-first met localStorage-fallback:
+ * typen schrijft direct naar localStorage (instant, offline-proof) en pusht
+ * debounced naar /api/work. Bij mount haalt de hook het serverwerk op; staat
+ * de server iets voor deze les, dan wint de server (cross-device). Is de
+ * server niet bereikbaar (niet ingelogd / storage uit), dan blijft alles
+ * lokaal werken — geen regressie.
  *
  * Storage layout:
  *   praktijklab.work.<slug>   → { [field]: value, … }   (per lesson)
@@ -26,6 +31,23 @@ import { useCallback, useEffect, useRef, useState } from "react";
 const workKey = (slug) => `praktijklab.work.${slug}`;
 const PROMPTKIT_KEY = "praktijklab.promptkit";
 const SAVE_DEBOUNCE_MS = 350;
+
+/* De promptkit is globaal — we synchroniseren 'm één keer per page-load met
+ * de server (niet bij elke les-wissel). Een volledige reload (bv. na in-/
+ * uitloggen) reset deze module-flag vanzelf. */
+let _promptkitSynced = false;
+
+function isNonEmptyObject(o) {
+  return o && typeof o === "object" && Object.keys(o).length > 0;
+}
+
+function mirrorLocal(key, value) {
+  try {
+    window.localStorage.setItem(key, JSON.stringify(value));
+  } catch {
+    /* localStorage vol/uit — negeer */
+  }
+}
 
 function safeParse(raw, fallback) {
   if (!raw) return fallback;
@@ -60,15 +82,58 @@ export function useLessonWork(slug) {
   const timerRef = useRef(null);
   const pendingFieldsRef = useRef(new Set());
 
+  // True zodra de docent zelf iets wijzigt — voorkomt dat een trage
+  // serverrespons actief getypte tekst overschrijft.
+  const dirtyRef = useRef(false);
+
   // Reset hook state when slug changes (different lesson).
   useEffect(() => {
     setValues(readWork(slug));
     setSavedAt({});
+    dirtyRef.current = false;
     pendingFieldsRef.current = new Set();
     if (timerRef.current) {
       clearTimeout(timerRef.current);
       timerRef.current = null;
     }
+  }, [slug]);
+
+  // Server-load: haal het werk + de promptkit van de ingelogde gebruiker op.
+  // Server wint voor déze les (cross-device); heeft de server nog niets maar
+  // staat er lokaal wel werk, dan seeden we de server. Niet ingelogd / geen
+  // storage -> loadAll() geeft null en we blijven lokaal.
+  useEffect(() => {
+    let cancelled = false;
+    workClient.loadAll().then((all) => {
+      if (cancelled || !all) return;
+
+      const serverWork = all.work?.[slug];
+      if (isNonEmptyObject(serverWork)) {
+        // Niet overschrijven als de docent ondertussen zelf typt.
+        if (!dirtyRef.current) {
+          setValues(serverWork);
+          mirrorLocal(workKey(slug), serverWork);
+        }
+      } else if (isNonEmptyObject(latestRef.current)) {
+        // Server kent deze les nog niet -> lokaal werk omhoog seeden.
+        workClient.saveLesson(slug, latestRef.current);
+      }
+
+      // Promptkit éénmalig synchroniseren.
+      if (!_promptkitSynced) {
+        _promptkitSynced = true;
+        if (all.promptkit.length) {
+          setPromptkit(all.promptkit);
+          mirrorLocal(PROMPTKIT_KEY, all.promptkit);
+        } else {
+          const localKit = readPromptkit();
+          if (localKit.length) workClient.savePromptkit(localKit);
+        }
+      }
+    });
+    return () => {
+      cancelled = true;
+    };
   }, [slug]);
 
   // Cross-tab sync — listen to storage events for this lesson and promptkit.
@@ -86,11 +151,9 @@ export function useLessonWork(slug) {
   }, [slug]);
 
   const flush = useCallback(() => {
+    const snapshot = latestRef.current;
     try {
-      window.localStorage.setItem(
-        workKey(slug),
-        JSON.stringify(latestRef.current)
-      );
+      window.localStorage.setItem(workKey(slug), JSON.stringify(snapshot));
       const fields = Array.from(pendingFieldsRef.current);
       pendingFieldsRef.current = new Set();
       if (fields.length) {
@@ -104,6 +167,8 @@ export function useLessonWork(slug) {
     } catch {
       /* localStorage full or disabled — fail silently */
     }
+    // Push naar de server (best-effort; faalt stil als niet ingelogd).
+    workClient.saveLesson(slug, snapshot);
   }, [slug]);
 
   const scheduleSave = useCallback(
@@ -120,6 +185,7 @@ export function useLessonWork(slug) {
 
   const set = useCallback(
     (field, value) => {
+      dirtyRef.current = true;
       setValues((prev) => {
         if (prev[field] === value) return prev;
         return { ...prev, [field]: value };
@@ -139,6 +205,7 @@ export function useLessonWork(slug) {
 
   const reset = useCallback(
     (field) => {
+      dirtyRef.current = true;
       setValues((prev) => {
         if (!(field in prev)) return prev;
         const next = { ...prev };
@@ -151,6 +218,7 @@ export function useLessonWork(slug) {
   );
 
   const resetAll = useCallback(() => {
+    dirtyRef.current = true;
     setValues({});
     setSavedAt({});
     try {
@@ -158,6 +226,8 @@ export function useLessonWork(slug) {
     } catch {
       /* ignore */
     }
+    // Leeg ook op de server.
+    workClient.saveLesson(slug, {});
   }, [slug]);
 
   const completion = useCallback(
@@ -182,6 +252,8 @@ export function useLessonWork(slug) {
       const next = [{ savedAt: Date.now(), ...entry }, ...list];
       window.localStorage.setItem(PROMPTKIT_KEY, JSON.stringify(next));
       setPromptkit(next);
+      // Push naar de server (best-effort).
+      workClient.savePromptkit(next);
       return true;
     } catch {
       return false;

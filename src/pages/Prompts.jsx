@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { PageHeader, Section, Tag, Footnote, Button } from "../components/ui";
 import { prompts, promptCategories } from "../data/prompts";
+import * as workClient from "../lib/workClient";
 
 const PROMPTKIT_KEY = "praktijklab.promptkit";
 
@@ -45,6 +46,33 @@ function usePromptkit() {
     return () => window.removeEventListener("storage", onStorage);
   }, []);
 
+  // Server-load: staat er een promptkit op de server, dan wint die (cross-
+  // device). Anders seeden we de server vanuit localStorage. Niet ingelogd /
+  // geen storage -> loadAll() geeft null en we blijven lokaal.
+  useEffect(() => {
+    let cancelled = false;
+    workClient.loadAll().then((all) => {
+      if (cancelled || !all) return;
+      if (all.promptkit.length) {
+        setKit(all.promptkit);
+        try {
+          window.localStorage.setItem(
+            PROMPTKIT_KEY,
+            JSON.stringify(all.promptkit)
+          );
+        } catch {
+          /* ignore */
+        }
+      } else {
+        const local = readPromptkit();
+        if (local.length) workClient.savePromptkit(local);
+      }
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   function remove(savedAt) {
     const next = kit.filter((item) => item.savedAt !== savedAt);
     setKit(next);
@@ -53,6 +81,7 @@ function usePromptkit() {
     } catch {
       /* ignore */
     }
+    workClient.savePromptkit(next);
   }
 
   function clearAll() {
@@ -62,6 +91,7 @@ function usePromptkit() {
     } catch {
       /* ignore */
     }
+    workClient.savePromptkit([]);
   }
 
   return { kit, remove, clearAll };
