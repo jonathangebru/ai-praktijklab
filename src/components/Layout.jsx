@@ -1,4 +1,4 @@
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation, Link } from "react-router-dom";
 import { Sidebar, MobileNav } from "./Sidebar";
 import { Search, Bell, Command, Menu, Clock3 } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -21,6 +21,7 @@ const breadcrumbs = {
   "/praktijkcasussen": ["Bibliotheken", "Praktijkcasussen"],
   "/project": ["VABOK", "Project & roadmap"],
   "/analytics": ["VABOK", "Voortgang & analytics"],
+  "/privacy": ["VABOK", "Privacy & AVG"],
 };
 
 export function Layout() {
@@ -174,9 +175,9 @@ function Footer() {
             Toegankelijkheid
           </a>
           <span className="h-3 w-px bg-rule" />
-          <a href="#" className="hover:text-ink focus-ring rounded">
+          <Link to="/privacy" className="hover:text-ink focus-ring rounded">
             Privacy & AVG
-          </a>
+          </Link>
           <span className="h-3 w-px bg-rule" />
           <a href="#" className="hover:text-ink focus-ring rounded">
             Contact
