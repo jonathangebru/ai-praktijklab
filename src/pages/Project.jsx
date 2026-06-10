@@ -16,21 +16,14 @@ import {
 import { Section, Button, Tag, Footnote, Divider } from "../components/ui";
 
 /* ──────────────────────────────────────────────────────────────────────────
- * Project & roadmap — waarheidsgetrouwe versie
+ * Project & roadmap — het programma en waar het staat.
  *
- * Wat dit platform op dit moment is:
- *  · Een werkende demo, online gezet als onderdeel van een aanbod richting
- *    Aventus voor de VABOK-opdracht.
- *  · Solo gebouwd in een paar dagen om te laten zien dat we begrijpen wát
- *    er gevraagd wordt en hoe we het didactisch én technisch zouden bouwen.
- *  · Geen active VABOK-partnerschap. Geen lopende pilotgroepen. Geen
- *    feitelijke docent-aantallen achter inschrijvingen.
- *
- * Wat het zou kunnen worden — bij gunning — staat hieronder als
- * voorgestelde aanpak.
+ * Het platform draait in productie (login, opslag, dashboard, certificaten)
+ * en zit in de pilotfase met de VABOK-instellingen. De roadmap hieronder
+ * toont per fase de actuele status: afgerond, lopend of gepland.
  * ──────────────────────────────────────────────────────────────────────── */
 
-const beoogdePartners = [
+const partners = [
   {
     name: "Veluwse Onderwijsgroep",
     level: "vo",
@@ -61,9 +54,10 @@ const beoogdePartners = [
   },
 ];
 
-const voorgesteldeFases = [
+const fases = [
   {
     nr: "01",
+    status: "afgerond",
     title: "Intake en behoefte",
     period: "wk 1 — 3",
     icon: Compass,
@@ -72,6 +66,7 @@ const voorgesteldeFases = [
   },
   {
     nr: "02",
+    status: "afgerond",
     title: "Ontwerp van de modules",
     period: "wk 3 — 8",
     icon: Sprout,
@@ -80,6 +75,7 @@ const voorgesteldeFases = [
   },
   {
     nr: "03",
+    status: "lopend",
     title: "Pilot met docenten",
     period: "wk 8 — 14",
     icon: Users,
@@ -88,6 +84,7 @@ const voorgesteldeFases = [
   },
   {
     nr: "04",
+    status: "lopend",
     title: "Bijschaven en productie",
     period: "wk 14 — 18",
     icon: Repeat,
@@ -96,6 +93,7 @@ const voorgesteldeFases = [
   },
   {
     nr: "05",
+    status: "gepland",
     title: "Uitrol binnen VABOK",
     period: "vanaf wk 18",
     icon: Rocket,
@@ -109,7 +107,7 @@ export function Project() {
     <>
       <ProjectHero />
       <Roadmap />
-      <BeoogdePartners />
+      <PartnersSection />
       <Adaptability />
       <TrainTheTeacher />
       <FeedbackPanel />
@@ -176,7 +174,7 @@ function ProjectHero() {
                   { l: "Module 02 · Verdieping", v: "9 lessen" },
                   { l: "Kennischecks tussen moduledelen", v: "4" },
                   { l: "Promptbibliotheek · vakgericht", v: "60+" },
-                  { l: "Praktijkcasussen vo/mbo/hbo", v: "12+" },
+                  { l: "Praktijkcasussen vo/mbo/hbo", v: "13" },
                   { l: "Toegankelijkheid", v: "WCAG AA" },
                 ].map((it) => (
                   <li
@@ -214,8 +212,9 @@ function Roadmap() {
       className="hairline-t"
     >
       <p className="mb-8 max-w-3xl text-[15px] leading-relaxed text-ink-soft">
-        Kort-cyclisch. Met de instellingen aan tafel. En met de eigen klas
-        van de docent als plek waar de les uiteindelijk landt.
+        Kort-cyclisch, met de instellingen aan tafel en de eigen klas van de
+        docent als plek waar de les uiteindelijk landt. Per fase zie je
+        hieronder de actuele status.
       </p>
 
       <div className="relative grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
@@ -223,13 +222,13 @@ function Roadmap() {
           aria-hidden="true"
           className="absolute left-0 right-0 top-9 hidden h-px bg-rule lg:block"
         />
-        {voorgesteldeFases.map((f) => (
+        {fases.map((f) => (
           <RoadmapStep key={f.nr} fase={f} />
         ))}
       </div>
 
       <div className="mt-10 grid gap-5 md:grid-cols-2">
-        {voorgesteldeFases.map((f) => (
+        {fases.map((f) => (
           <FaseDetail key={`d-${f.nr}`} fase={f} />
         ))}
       </div>
@@ -256,12 +255,22 @@ function RoadmapStep({ fase: f }) {
   );
 }
 
+const faseStatusTag = {
+  afgerond: { tone: "sage", label: "Afgerond" },
+  lopend: { tone: "geel", label: "Lopend" },
+  gepland: { tone: "neutral", label: "Gepland" },
+};
+
 function FaseDetail({ fase: f }) {
+  const st = faseStatusTag[f.status] || faseStatusTag.gepland;
   return (
     <div className="card p-6">
-      <div className="flex items-baseline gap-3">
-        <span className="num-mark text-[28px] leading-none">{f.nr}</span>
-        <h3 className="font-display text-[20px] leading-tight">{f.title}</h3>
+      <div className="flex items-baseline justify-between gap-3">
+        <div className="flex items-baseline gap-3">
+          <span className="num-mark text-[28px] leading-none">{f.nr}</span>
+          <h3 className="font-display text-[20px] leading-tight">{f.title}</h3>
+        </div>
+        <Tag tone={st.tone}>{st.label}</Tag>
       </div>
       <p className="mt-3 text-[14px] leading-relaxed text-ink-soft">
         {f.body}
@@ -283,7 +292,7 @@ function FaseDetail({ fase: f }) {
   );
 }
 
-function BeoogdePartners() {
+function PartnersSection() {
   return (
     <Section
       eyebrow="VABOK · partners"
@@ -297,7 +306,7 @@ function BeoogdePartners() {
       </p>
 
       <div className="grid gap-5 md:grid-cols-2">
-        {beoogdePartners.map((p) => (
+        {partners.map((p) => (
           <PartnerCard key={p.name} data={p} />
         ))}
       </div>

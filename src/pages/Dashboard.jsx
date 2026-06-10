@@ -390,8 +390,8 @@ function Chiaroscuro() {
           {[
             { v: "17", l: "Lessen, volledig uitgewerkt" },
             { v: "60+", l: "Prompts in de bibliotheek" },
-            { v: "12+", l: "Casussen uit vo / mbo / hbo" },
-            { v: "100", l: "WCAG-toegankelijkheidsscore" },
+            { v: "13", l: "Casussen uit vo / mbo / hbo" },
+            { v: "AA", l: "WCAG 2.2-norm waaraan we bouwen" },
           ].map((s) => (
             <div key={s.l} className="codex-hairline-t border-codex-ink/15 pt-4">
               <dt className="codex-display text-[40px] leading-none text-codex-ink sm:text-[52px]">
