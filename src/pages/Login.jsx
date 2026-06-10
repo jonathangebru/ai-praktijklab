@@ -353,15 +353,15 @@ function Programma() {
     <section id="programma" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-20">
       <span className="eyebrow">Het programma</span>
       <h2 className="mt-3 max-w-2xl text-[32px] font-extrabold leading-[1.05] tracking-tightish text-ink sm:text-[40px]">
-        Twee volwaardige modules — en de leerlijn{" "}
-        <span className="text-terra">groeit</span>.
+        Vijf volwaardige modules —{" "}
+        <span className="text-terra">één doorlopende leerlijn</span>.
       </h2>
 
       <div className="mt-12 grid gap-5 lg:grid-cols-2">
         {moduleList.map((m, i) => (
-          <article key={m.id} className={`card-elev hover-grow p-8 ${i === 0 ? "lg:-rotate-[0.4deg]" : "lg:rotate-[0.4deg]"}`}>
+          <article key={m.id} className={`card-elev hover-grow p-8 ${i % 2 === 0 ? "lg:-rotate-[0.4deg]" : "lg:rotate-[0.4deg]"}`}>
             <div className="flex flex-wrap items-center gap-2">
-              <span className={`rounded-full px-3 py-1 text-[10.5px] font-bold uppercase tracking-wider ${i === 0 ? "bg-terra-tint text-terra-deep" : "bg-academy-soft text-academy-deep"}`}>
+              <span className={`rounded-full px-3 py-1 text-[10.5px] font-bold uppercase tracking-wider ${["bg-terra-tint text-terra-deep","bg-academy-soft text-academy-deep","bg-sage-soft text-sage-deep","bg-koraal-tint text-koraal-deep","bg-geel text-geel-deep"][i % 5]}`}>
                 Module {m.number}
               </span>
               <span className="pill">{m.level}</span>
@@ -376,7 +376,7 @@ function Programma() {
             <ul className="mt-5 space-y-1.5">
               {m.lessons.filter((l) => !l.isCheck).slice(0, 3).map((l) => (
                 <li key={l.slug} className="flex items-center gap-2.5 text-[13.5px] text-ink-soft">
-                  <CheckCircle2 size={14} strokeWidth={2} className={i === 0 ? "text-terra" : "text-academy"} />
+                  <CheckCircle2 size={14} strokeWidth={2} className={["text-terra","text-academy","text-sage","text-koraal-deep","text-geel-deep"][i % 5]} />
                   {l.number} · {l.title}
                 </li>
               ))}
@@ -389,17 +389,6 @@ function Programma() {
         ))}
       </div>
 
-      <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 rounded-3xl border border-dashed border-rule-strong bg-paper-card px-7 py-5">
-        <span className="rounded-full bg-geel px-3 py-1 text-[10.5px] font-bold uppercase tracking-wider text-geel-deep">
-          In ontwikkeling
-        </span>
-        <p className="text-[13.5px] text-ink-soft">
-          <strong>Module 3</strong> · AI-geletterdheid onderwijzen (kerndoelen
-          2027) &nbsp;·&nbsp; <strong>Module 4</strong> · AI-beleid en de AI
-          Act &nbsp;·&nbsp; <strong>Module 5</strong> · AI voor je eigen groei
-          en je team
-        </p>
-      </div>
     </section>
   );
 }
@@ -597,7 +586,7 @@ function Faq() {
   const vragen = [
     {
       q: "Hoeveel tijd kost een module?",
-      a: `Module 01 vraagt 10–14 uur, Module 02 16–22 uur — verdeeld over zes tot acht weken, volledig in eigen tempo. Elke les duurt 40 tot 90 minuten en eindigt in iets dat je direct in je les gebruikt.`,
+      a: "Een module vraagt 8 tot 22 uur, verdeeld over vijf tot acht weken, volledig in eigen tempo. Elke les duurt 40 tot 90 minuten en eindigt in iets dat je direct in je les of school gebruikt.",
     },
     {
       q: "Hoe zit het met de AVG en onze gegevens?",

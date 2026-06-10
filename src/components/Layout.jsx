@@ -11,6 +11,9 @@ const breadcrumbs = {
   "/voortgang": ["Programma", "Mijn voortgang"],
   "/modules/basiscursus-ai": ["Programma", "Module 01 — Basiscursus AI"],
   "/modules/ai-geletterdheid": ["Programma", "Module 02 — AI-geletterdheid"],
+  "/modules/ai-geletterdheid-onderwijzen": ["Programma", "Module 03 — AI-geletterdheid onderwijzen"],
+  "/modules/ai-beleid": ["Programma", "Module 04 — AI-beleid en de AI Act"],
+  "/modules/groei-en-team": ["Programma", "Module 05 — Groei en team"],
   "/lessen/lesvoorbereiding": [
     "Programma",
     "Module 01",

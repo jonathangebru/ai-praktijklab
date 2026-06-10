@@ -93,13 +93,13 @@ function formatStamp(iso) {
 }
 
 const barColor = (color) =>
-  color === "terra"
-    ? "bg-terra"
-    : color === "sage"
-    ? "bg-sage"
-    : color === "academy"
-    ? "bg-academy"
-    : "bg-ink";
+  ({
+    terra: "bg-terra",
+    sage: "bg-sage",
+    academy: "bg-academy",
+    koraal: "bg-koraal",
+    geel: "bg-geel-soft",
+  }[color] || "bg-ink");
 
 /* Rolt de per-les-aggregaten op naar per-module cijfers, m.b.v. modules.js. */
 function buildModules(lessonsBySlug) {

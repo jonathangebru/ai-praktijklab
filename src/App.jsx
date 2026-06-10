@@ -7,6 +7,9 @@ import { Dashboard } from "./pages/Dashboard";
 import { Intake } from "./pages/Intake";
 import { Module1 } from "./pages/Module1";
 import { Module2 } from "./pages/Module2";
+import { Module3 } from "./pages/Module3";
+import { Module4 } from "./pages/Module4";
+import { Module5 } from "./pages/Module5";
 import { Lesson } from "./pages/Lesson";
 import { Cases } from "./pages/Cases";
 import { Prompts } from "./pages/Prompts";
@@ -62,6 +65,9 @@ function AppRoutes() {
         <Route path="/voortgang" element={<MijnVoortgang />} />
         <Route path="/modules/basiscursus-ai" element={<Module1 />} />
         <Route path="/modules/ai-geletterdheid" element={<Module2 />} />
+        <Route path="/modules/ai-geletterdheid-onderwijzen" element={<Module3 />} />
+        <Route path="/modules/ai-beleid" element={<Module4 />} />
+        <Route path="/modules/groei-en-team" element={<Module5 />} />
         <Route path="/lessen/:slug" element={<Lesson />} />
         <Route path="/praktijkcasussen" element={<Cases />} />
         <Route path="/promptbibliotheek" element={<Prompts />} />

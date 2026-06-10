@@ -235,6 +235,94 @@ export const modules = {
       },
     ],
   },
+
+  "ai-geletterdheid-onderwijzen": {
+    id: "ai-geletterdheid-onderwijzen",
+    number: "03",
+    title: "AI-geletterdheid onderwijzen",
+    tagline: "Je leerlingen en studenten AI-vaardig maken — niet alleen jijzelf",
+    level: "Verdieping",
+    audience: "vo · mbo · hbo",
+    durationWeeks: 6,
+    totalHours: "10–12 uur",
+    color: "sage",
+    intro:
+      "De wettelijke kerndoelen digitale geletterdheid (inclusief AI) gelden per augustus 2027 in het vo; het mbo werkt met DigComp-gebaseerde keuzedelen. Deze module leert je AI-geletterdheid onderwijzen: van kerndoelen vertalen naar je eigen leerlijn tot een gegeven en geëvalueerde les.",
+    learningOutcomes: [
+      "Je vertaalt de SLO-kerndoelen en het AI-GO-raamwerk naar een leerlijn voor jouw groep.",
+      "Je legt werking en grenzen van generatieve AI uit op het niveau van je klas.",
+      "Je ontwerpt verificatie-opdrachten waarin leerlingen AI-output kritisch controleren.",
+      "Je geeft een zelf ontworpen AI-geletterdheidsles en stelt bij op basis van leerlingreacties.",
+    ],
+    lessons: [
+      { slug: "kerndoelen-leerlijn", number: "3.1", title: "Wat moeten zíj kunnen?", duration: "50 min", goal: "Je vertaalt de SLO-kerndoelen en het AI-GO-raamwerk naar een leerlijn voor jouw groep.", output: "Leerlijn-op-één-A4 voor je eigen vak", difficulty: "Verdieping" },
+      { slug: "ai-uitleggen", number: "3.2", title: "AI uitleggen zonder jargon", duration: "60 min", goal: "Je legt werking en grenzen van generatieve AI uit op het niveau van je klas, met werkvormen die misconcepties blootleggen.", output: "Uitleg-werkvorm voor je eigen groep", difficulty: "Verdieping" },
+      { slug: "kritisch-met-ai", number: "3.3", title: "Kritisch met AI-output", duration: "70 min", goal: "Je ontwerpt verificatie-opdrachten waarin leerlingen AI-antwoorden controleren, fouten vinden en bronnen wegen.", output: "Verificatie-opdracht voor je vak", difficulty: "Verdieping" },
+      { slug: "ai-informatievaardigheden", number: "3.4", title: "AI, informatie en mediawijsheid", duration: "60 min", goal: "Je verbindt AI-geletterdheid aan bestaande lessen informatievaardigheden, deepfakes en bronkritiek.", output: "Koppelkaart AI × mediawijsheid", difficulty: "Verdieping" },
+      { slug: "check-mod3", number: "✓5", title: "Kennischeck — didactiek getoetst", duration: "12 min", goal: "Test of de didactische kern van 3.1–3.4 staat.", output: "Advies voor vervolg", difficulty: "Tussencheck", isCheck: true },
+      { slug: "verantwoord-in-de-klas", number: "3.5", title: "Verantwoord gebruik in de klas", duration: "55 min", goal: "Je maakt met je klas werkbare AI-afspraken en bespreekt integriteit zonder verbodscultuur.", output: "Klas-afsprakenset", difficulty: "Verdieping" },
+      { slug: "lesmateriaal-maken", number: "3.6", title: "Eigen lesmateriaal maken", duration: "75 min", goal: "Je bouwt een complete AI-geletterdheidsles voor je eigen vak, met de promptbibliotheek als gereedschap.", output: "Complete AI-geletterdheidsles", difficulty: "Praktijk" },
+      { slug: "praktijkopdracht-3", number: "3.7", title: "Praktijkopdracht: geef de les", duration: "2,5 uur", goal: "Je geeft de les uit 3.6 écht, verzamelt leerlingreacties en stelt bij.", output: "Gegeven les + evaluatie", difficulty: "Praktijk" },
+    ],
+  },
+
+  "ai-beleid": {
+    id: "ai-beleid",
+    number: "04",
+    title: "AI-beleid en de AI Act",
+    tagline: "Van losse experimenten naar gedragen schoolbeleid dat aan de wet voldoet",
+    level: "Verdieping",
+    audience: "schoolleiders · teamleiders · kartrekkers",
+    durationWeeks: 5,
+    totalHours: "8–10 uur",
+    color: "koraal",
+    intro:
+      "De AI Act-geletterdheidsplicht (artikel 4) geldt sinds februari 2025; handhaving start in augustus 2026. Toelating, beoordeling en proctoring zijn hoog-risicotoepassingen. Deze module brengt je van wetskennis naar een besluitrijp AI-beleidsvoorstel voor je eigen school of team.",
+    learningOutcomes: [
+      "Je kent de AI Act-plichten, verboden praktijken en hoog-risicocategorieën voor onderwijs.",
+      "Je inventariseert systematisch het AI-gebruik in je school — inclusief schaduwgebruik.",
+      "Je schrijft schoolafspraken die beginnen bij de onderwijsvisie, niet bij de tool.",
+      "Je levert een besluitrijp AI-beleidsvoorstel op voor school of team.",
+    ],
+    lessons: [
+      { slug: "ai-act-school", number: "4.1", title: "De AI Act in de school", duration: "60 min", goal: "Je kent de geletterdheidsplicht, de verboden praktijken en de hoog-risicocategorieën.", output: "AI Act-checklist voor je school", difficulty: "Verdieping" },
+      { slug: "ai-inventarisatie", number: "4.2", title: "AI-gebruik in kaart", duration: "55 min", goal: "Je inventariseert systematisch welk AI-gebruik er al ís in je school — inclusief schaduwgebruik.", output: "Ingevulde inventarisatiekaart", difficulty: "Verdieping" },
+      { slug: "beleid-onderwijsvisie", number: "4.3", title: "Beleid vanuit onderwijsvisie", duration: "70 min", goal: "Je schrijft schoolafspraken die beginnen bij je onderwijsvisie, niet bij de tool.", output: "Concept-schoolafspraken", difficulty: "Verdieping" },
+      { slug: "toetsing-organisatie", number: "4.4", title: "Toetsing op organisatieniveau", duration: "65 min", goal: "Je past de Npuls-handreikingen toe: AI-bestendige toetsprogramma's en de rol van de examencommissie.", output: "Toets-actieplan voor je opleiding", difficulty: "Verdieping" },
+      { slug: "check-mod4", number: "✓6", title: "Kennischeck — beleid getoetst", duration: "12 min", goal: "Test wetgeving, inventarisatie en beleidsopbouw.", output: "Advies voor vervolg", difficulty: "Tussencheck", isCheck: true },
+      { slug: "kansengelijkheid-duurzaamheid", number: "4.5", title: "Kansengelijkheid & duurzaamheid", duration: "50 min", goal: "Je weegt wie profiteert en wie de boot mist, en neemt de maatschappelijke en milieukosten van AI mee in beleid.", output: "Wegingskader voor je beleid", difficulty: "Verdieping" },
+      { slug: "praktijkopdracht-4", number: "4.6", title: "Praktijkopdracht: beleidsvoorstel", duration: "3 uur", goal: "Je levert een AI-beleidsvoorstel voor je eigen school of team, klaar voor besluitvorming.", output: "Besluitrijp beleidsvoorstel", difficulty: "Praktijk" },
+    ],
+  },
+
+  "groei-en-team": {
+    id: "groei-en-team",
+    number: "05",
+    title: "AI voor je eigen groei en je team",
+    tagline: "Van zelf bekwaam naar een team dat blijft leren",
+    level: "Create",
+    audience: "ervaren deelnemers · opleiders",
+    durationWeeks: 5,
+    totalHours: "8–10 uur",
+    color: "geel",
+    intro:
+      "De minst gedekte UNESCO-dimensie in bestaand aanbod: AI voor professioneel leren. Voor wie module 1 of 2 heeft afgerond en het team wil meenemen — van AI als eigen leerpartner tot een gegeven teamsessie met borgingsplan.",
+    learningOutcomes: [
+      "Je zet AI in voor je eigen professionele ontwikkeling: reflectie, lesanalyse, feedback.",
+      "Je ontwerpt een PLG-cyclus waarin het team samen AI-praktijken onderzoekt.",
+      "Je herontwerpt een onderwijseenheid vanuit wat AI structureel verandert.",
+      "Je verzorgt een echte teamsessie en levert een borgingsplan op.",
+    ],
+    lessons: [
+      { slug: "ai-leerpartner", number: "5.1", title: "AI als leerpartner", duration: "55 min", goal: "Je zet AI in voor je eigen professionele ontwikkeling: reflectie, lesanalyse, feedback op je didactiek.", output: "Eigen professionaliseringsroutine", difficulty: "Create" },
+      { slug: "teamleren-met-ai", number: "5.2", title: "Teamleren met AI", duration: "60 min", goal: "Je ontwerpt een PLG-cyclus waarin het team samen AI-praktijken onderzoekt en deelt.", output: "PLG-cyclus voor je team", difficulty: "Create" },
+      { slug: "train-the-teacher", number: "5.3", title: "Train-the-teacher", duration: "70 min", goal: "Je bereidt een collega-sessie voor: werkvormen, weerstand, verschillende startniveaus.", output: "Draaiboek collega-sessie", difficulty: "Create" },
+      { slug: "onderwijs-herontwerpen", number: "5.4", title: "Onderwijs herontwerpen", duration: "80 min", goal: "Je herontwerpt een onderwijseenheid vanuit wat AI structureel verandert — pedagogische transformatie, niet optimalisatie.", output: "Herontworpen onderwijseenheid", difficulty: "Create" },
+      { slug: "check-mod5", number: "✓7", title: "Kennischeck — transfer getoetst", duration: "12 min", goal: "Test teamleren, transfer en herontwerp-denken.", output: "Advies voor vervolg", difficulty: "Tussencheck", isCheck: true },
+      { slug: "effect-meten", number: "5.5", title: "Werkt het? Effect meten", duration: "50 min", goal: "Je ontwerpt een lichte effectmeting: wat is er ná de teamsessie anders in de les?", output: "Effectmeting-opzet", difficulty: "Create" },
+      { slug: "praktijkopdracht-5", number: "5.6", title: "Praktijkopdracht: teamsessie", duration: "3 uur", goal: "Je verzorgt een echte teamsessie en levert een borgingsplan op.", output: "Gegeven teamsessie + borgingsplan", difficulty: "Praktijk" },
+    ],
+  },
 };
 
 export const moduleList = Object.values(modules);

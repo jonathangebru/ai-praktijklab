@@ -180,7 +180,7 @@ export function Intake() {
             zodat we jouw leerpad goed laten beginnen.
           </>
         }
-        subtitle="Zes vragen, geen voorkennis nodig. Op het einde krijg je een aanbevolen route door de twee modules — die je altijd kunt aanpassen."
+        subtitle="Zes vragen, geen voorkennis nodig. Op het einde krijg je een aanbevolen startpunt in de leerlijn — dat je altijd kunt aanpassen."
         meta={[
           { label: "Vragen", value: `${total}` },
           { label: "Tijd", value: "~ 8 min" },

@@ -134,7 +134,7 @@ export function MijnVoortgang() {
             <div className="mb-6 max-w-md">
               <ProgressBar
                 value={stat.pct}
-                tone={m.color === "terra" ? "koraal" : "academy"}
+                tone={["terra","academy","sage","koraal","geel"].includes(m.color) ? m.color : "terra"}
               />
             </div>
 

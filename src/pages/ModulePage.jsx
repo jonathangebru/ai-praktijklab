@@ -12,7 +12,9 @@ import {
 import { PageHeader, Section, Button, Tag, ProgressBar, Footnote, Divider } from "../components/ui";
 
 export function ModulePage({ module: m, states = {} }) {
-  const tone = m.color === "terra" ? "terra" : "academy";
+  const tone = ["terra", "academy", "sage", "koraal", "geel"].includes(m.color)
+    ? m.color
+    : "terra";
   const completedCount = m.lessons.filter(
     (l) => states[l.slug] === "done"
   ).length;
@@ -36,7 +38,13 @@ export function ModulePage({ module: m, states = {} }) {
 }
 
 function ModuleHero({ module: m, tone, pct, completedCount }) {
-  const accent = tone === "terra" ? "text-terra" : "text-academy";
+  const accent = {
+    terra: "text-terra",
+    academy: "text-academy",
+    sage: "text-sage",
+    koraal: "text-koraal-deep",
+    geel: "text-geel-deep",
+  }[tone] || "text-terra";
   return (
     <section className="relative overflow-hidden hairline-b">
       <div aria-hidden="true" className="dot-paper absolute inset-0 opacity-30" />
@@ -190,7 +198,13 @@ function LessonRow({ lesson: l, tone, done, working, current }) {
         <div className="col-span-1 flex justify-end">
           <span
             className={`grid h-8 w-8 place-items-center rounded-full transition group-hover:translate-x-0.5 ${
-              tone === "terra" ? "bg-terra text-paper-card" : "bg-academy text-paper-card"
+              {
+                terra: "bg-terra text-paper-card",
+                academy: "bg-academy text-paper-card",
+                sage: "bg-sage text-paper-card",
+                koraal: "bg-koraal text-paper-card",
+                geel: "bg-geel-soft text-ink",
+              }[tone] || "bg-terra text-paper-card"
             }`}
           >
             <ArrowRight size={14} strokeWidth={1.8} />

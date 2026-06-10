@@ -92,8 +92,8 @@ function Opening({ voortgang }) {
 
           <p className="codex-dropcap mt-10 max-w-[58ch] text-pretty text-[17px] leading-[1.75] text-codex-ink-soft">
             Dit is een werkboek voor docenten in vo, mbo en hbo die AI met
-            zelfvertrouwen, vakdiepte en verantwoording willen inzetten. Twee
-            modules, zeventien lessen, vier kennischecks. Geen theorie zonder
+            zelfvertrouwen, vakdiepte en verantwoording willen inzetten. Vijf
+            modules, zesendertig lessen, zeven kennischecks. Geen theorie zonder
             toepassing. Geen technologie zonder didactiek. Wat je hier leert,
             kun je komende lesweek gebruiken.
           </p>
@@ -181,8 +181,8 @@ function Opening({ voortgang }) {
 /* ─── Marginalia (right rail) ───────────────────────────────────────────── */
 function Marginalia({ voortgang }) {
   const { modules, promptkitCount, activity } = voortgang;
-  const vol1 = modules[0];
-  const vol2 = modules[1];
+  const romeins = ["I", "II", "III", "IV", "V"];
+  const balken = ["bg-koraal", "bg-academy", "bg-sage", "bg-koraal", "bg-geel-soft"];
   const recent = activity.slice(0, 3);
 
   return (
@@ -198,22 +198,17 @@ function Marginalia({ voortgang }) {
       </h3>
 
       <ul className="mt-6 space-y-5">
-        <ProgressRow
-          label="Volume I · Basiscursus AI"
-          pct={vol1.pct}
-          bar="bg-koraal"
-          right={`${String(vol1.done).padStart(2, "0")} van ${String(
-            vol1.total
-          ).padStart(2, "0")}`}
-        />
-        <ProgressRow
-          label="Volume II · Verdieping"
-          pct={vol2.pct}
-          bar="bg-academy"
-          right={`${String(vol2.done).padStart(2, "0")} van ${String(
-            vol2.total
-          ).padStart(2, "0")}`}
-        />
+        {modules.map((vol, i) => (
+          <ProgressRow
+            key={vol.id}
+            label={`Volume ${romeins[i] || vol.number} · ${vol.title}`}
+            pct={vol.pct}
+            bar={balken[i % balken.length]}
+            right={`${String(vol.done).padStart(2, "0")} van ${String(
+              vol.total
+            ).padStart(2, "0")}`}
+          />
+        ))}
         <ProgressRow
           label="Mijn promptkit"
           pct={Math.min(100, promptkitCount * 10)}
@@ -396,7 +391,7 @@ function Chapters({ voortgang }) {
           <ChapterCard
             key={m.id}
             module={m}
-            chapterRoman={idx === 0 ? "I" : "II"}
+            chapterRoman={["I", "II", "III", "IV", "V"][idx] || m.number}
             stats={voortgang.modules[idx]}
             lessonStates={voortgang.lessonStates}
           />
@@ -418,7 +413,7 @@ function ChapterCard({ module: m, chapterRoman, stats, lessonStates }) {
       </div>
 
       <span className="codex-eyebrow">
-        Volume {m.number === "01" ? "I" : "II"} · {m.lessons.length} lessen
+        Volume {chapterRoman} · {m.lessons.length} lessen
       </span>
 
       <h3 className="codex-display mt-5 max-w-md text-[28px] leading-tight text-codex-ink">
@@ -502,19 +497,14 @@ function ChapterMeta({ label, value }) {
 /* ─── Voortgang ─────────────────────────────────────────────────────────── */
 function Voortgang({ voortgang }) {
   const { modules, promptkitCount, doneTotal, lessonsTotal } = voortgang;
+  const romeins = ["I", "II", "III", "IV", "V"];
   const tiles = [
-    {
-      l: "Volume I · basis",
-      v: modules[0].pct,
+    ...modules.map((vol, i) => ({
+      l: `Volume ${romeins[i] || vol.number}`,
+      v: vol.pct,
       suffix: "%",
-      pct: modules[0].pct,
-    },
-    {
-      l: "Volume II · verdieping",
-      v: modules[1].pct,
-      suffix: "%",
-      pct: modules[1].pct,
-    },
+      pct: vol.pct,
+    })),
     {
       l: "Mijn promptkit",
       v: promptkitCount,

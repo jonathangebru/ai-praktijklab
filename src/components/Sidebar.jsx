@@ -1,6 +1,9 @@
 import { NavLink } from "react-router-dom";
 import {
   LayoutDashboard,
+  BookOpen,
+  Scale,
+  Users,
   Compass,
   Library,
   Sparkles,
@@ -24,6 +27,9 @@ const nav = [
       { to: "/voortgang", label: "Mijn voortgang", icon: TrendingUp },
       { to: "/modules/basiscursus-ai", label: "Basiscursus AI", icon: GraduationCap, eyebrow: "Module 01" },
       { to: "/modules/ai-geletterdheid", label: "AI-geletterdheid", icon: FlaskConical, eyebrow: "Module 02" },
+      { to: "/modules/ai-geletterdheid-onderwijzen", label: "AI-geletterdheid onderwijzen", icon: BookOpen, eyebrow: "Module 03" },
+      { to: "/modules/ai-beleid", label: "AI-beleid & de AI Act", icon: Scale, eyebrow: "Module 04" },
+      { to: "/modules/groei-en-team", label: "Groei & team", icon: Users, eyebrow: "Module 05" },
     ],
   },
   {

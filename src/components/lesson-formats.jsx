@@ -808,24 +808,25 @@ export function PraktijkOpdracht({ detail, work }) {
       {detail.paths && (
         <div className="mt-6 grid gap-3 sm:grid-cols-3">
           {detail.paths.map((p) => {
-            const isSelected = path === p.key;
+            const pkey = p.key || p.id;
+            const isSelected = path === pkey;
             return (
               <button
-                key={p.key}
+                key={pkey}
                 type="button"
-                onClick={() => selectPath(isSelected ? "" : p.key)}
+                onClick={() => selectPath(isSelected ? "" : pkey)}
                 className={`hairline relative rounded-2xl p-5 text-left transition focus-ring ${
                   isSelected
                     ? "border-terra bg-terra-tint/40 ring-2 ring-terra/30"
                     : "bg-paper-card hover:bg-paper-deep/40"
                 }`}
               >
-                <Footnote>Pad {p.key.toUpperCase()}</Footnote>
+                <Footnote>Pad {String(pkey || "").toUpperCase()}</Footnote>
                 <h4 className="mt-2 font-display text-[18px] leading-snug text-ink">
-                  {p.title}
+                  {p.title || p.label}
                 </h4>
                 <p className="mt-2 text-[13px] leading-relaxed text-ink-soft">
-                  {p.body}
+                  {p.body || p.beschrijving}
                 </p>
                 {isSelected && (
                   <span className="absolute right-4 top-4 grid h-5 w-5 place-items-center rounded-full bg-terra text-paper-card">
@@ -838,11 +839,21 @@ export function PraktijkOpdracht({ detail, work }) {
         </div>
       )}
 
-      {detail.deliverables && (
+      {(() => {
+        const actief = detail.paths?.find((p) => (p.key || p.id) === path);
+        const deliverables =
+          detail.deliverables ||
+          actief?.deliverables ||
+          detail.paths?.[0]?.deliverables;
+        if (!deliverables) return null;
+        return (
         <div className="mt-8 hairline rounded-2xl bg-paper-card p-6">
-          <Footnote>Wat lever je op</Footnote>
+          <Footnote>
+            Wat lever je op
+            {actief ? ` · Pad ${String(actief.key || actief.id).toUpperCase()}` : ""}
+          </Footnote>
           <ul className="mt-3 space-y-2">
-            {detail.deliverables.map((d, i) => (
+            {deliverables.map((d, i) => (
               <li key={i} className="flex items-start gap-3 text-[13.5px]">
                 <span className="mt-1 grid h-3.5 w-3.5 shrink-0 place-items-center rounded-[3px] border border-rule-strong">
                   <Check size={9} strokeWidth={2.5} className="text-ink-faint" />
@@ -852,7 +863,8 @@ export function PraktijkOpdracht({ detail, work }) {
             ))}
           </ul>
         </div>
-      )}
+        );
+      })()}
 
       {detail.peerReview && (
         <div className="mt-8 hairline rounded-2xl bg-academy-tint/30 p-6">
@@ -873,13 +885,21 @@ export function PraktijkOpdracht({ detail, work }) {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div>
-                  <p className="text-[13.5px] leading-relaxed text-ink">{q}</p>
+                  <p className="text-[13.5px] leading-relaxed text-ink">
+                    {typeof q === "string" ? q : q.vraag || q.q || ""}
+                  </p>
                   {work && (
                     <WriteBlock
                       work={work}
-                      field={`peer-${i}`}
-                      label={`Antwoord van collega (vraag ${i + 1})`}
-                      placeholder="Wat zegt je collega hierover?"
+                      field={q?.workspace?.field || `peer-${i}`}
+                      label={
+                        q?.workspace?.label ||
+                        `Antwoord van collega (vraag ${i + 1})`
+                      }
+                      placeholder={
+                        q?.workspace?.placeholder ||
+                        "Wat zegt je collega hierover?"
+                      }
                       rows={2}
                     />
                   )}
