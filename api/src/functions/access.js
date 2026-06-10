@@ -111,6 +111,49 @@ async function getTable(context) {
   return _client;
 }
 
+/* E-mailnotificatie bij een nieuwe aanvraag — via Azure Communication
+ * Services. Zonder ACS_EMAIL_CONNECTION (bv. lokaal) wordt dit stil
+ * overgeslagen; een mailfout breekt de aanvraag nooit. */
+let _emailClient = null;
+async function notifyDatagrid(context, r) {
+  const conn = process.env.ACS_EMAIL_CONNECTION || "";
+  const to = process.env.ACCESS_NOTIFY_TO || "";
+  const from = process.env.ACCESS_NOTIFY_FROM || "";
+  if (!conn || !to || !from) return;
+  try {
+    if (!_emailClient) {
+      const { EmailClient } = require("@azure/communication-email");
+      _emailClient = new EmailClient(conn);
+    }
+    const regels = [
+      `Naam:        ${r.name}`,
+      `E-mail:      ${r.email}`,
+      `Instelling:  ${r.organisation || "—"}`,
+      `Functie:     ${r.role || "—"}`,
+      `Bericht:     ${r.message || "—"}`,
+      `Ontvangen:   ${r.receivedAt}`,
+      ``,
+      `Afhandelen kan in het beheerdersdashboard:`,
+      `https://praktijklab.datagrid.nl/analytics`,
+    ].join("\n");
+    const poller = await _emailClient.beginSend({
+      senderAddress: from,
+      recipients: { to: [{ address: to }] },
+      content: {
+        subject: `Nieuwe toegangsaanvraag · ${r.name}${
+          r.organisation ? ` (${r.organisation})` : ""
+        }`,
+        plainText: `Er is een nieuwe toegangsaanvraag voor het AI PraktijkLab.\n\n${regels}\n`,
+      },
+      replyTo: [{ address: r.email, displayName: r.name }],
+    });
+    await poller.pollUntilDone();
+    context.log("ACCESS_NOTIFY_SENT " + r.id);
+  } catch (err) {
+    context.log("ACCESS_NOTIFY_FAIL " + (err?.message || err));
+  }
+}
+
 app.http("access", {
   methods: ["GET", "POST", "PATCH", "OPTIONS"],
   authLevel: "anonymous",
@@ -174,6 +217,18 @@ app.http("access", {
           "ACCESS_REQUEST " +
             JSON.stringify({ id, name, email, organisation, role, receivedAt })
         );
+
+        // E-mailnotificatie naar Datagrid (best-effort: een mailfout mag de
+        // aanvraag nooit laten mislukken — die staat al veilig in de tabel).
+        await notifyDatagrid(context, {
+          id,
+          name,
+          email,
+          organisation,
+          role,
+          message,
+          receivedAt,
+        });
 
         return { status: 200, headers: CORS, jsonBody: { ok: true, id } };
       }
