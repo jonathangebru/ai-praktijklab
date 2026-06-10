@@ -18,10 +18,10 @@ const breadcrumbs = {
   ],
   "/promptbibliotheek": ["Bibliotheken", "Promptbibliotheek"],
   "/praktijkcasussen": ["Bibliotheken", "Praktijkcasussen"],
-  "/project": ["VABOK", "Project & roadmap"],
-  "/analytics": ["VABOK", "Voortgang & analytics"],
-  "/privacy": ["VABOK", "Privacy & AVG"],
-  "/toegankelijkheid": ["VABOK", "Toegankelijkheid"],
+  "/project": ["Platform", "Project & roadmap"],
+  "/analytics": ["Platform", "Voortgang & analytics"],
+  "/privacy": ["Platform", "Privacy & AVG"],
+  "/toegankelijkheid": ["Platform", "Toegankelijkheid"],
 };
 
 export function Layout() {
@@ -165,11 +165,11 @@ function TopBar({ crumbs, onOpenNav, onOpenSearch }) {
 function PilotBadge() {
   return (
     <span
-      title="Pilotfase · VABOK-samenwerking"
+      title="Voor docenten in vo, mbo en hbo"
       className="hidden items-center gap-1.5 rounded-full border border-terra-soft/60 bg-terra-tint/60 px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-terra-deep sm:flex"
     >
       <span className="inline-block h-1.5 w-1.5 animate-soft-pulse rounded-full bg-terra" />
-      Pilot · VABOK
+      vo · mbo · hbo
     </span>
   );
 }
@@ -184,8 +184,8 @@ function Footer() {
           </p>
           <p className="mt-2 max-w-sm text-[13px] leading-relaxed text-ink-mute">
             Praktische AI-professionalisering voor docenten in vo, mbo en
-            hbo. Een initiatief van de VABOK-samenwerking, gebouwd door
-            Datagrid.
+            hbo — gebouwd door Datagrid, voor elke school die met AI aan de
+            slag wil.
           </p>
         </div>
 
@@ -223,20 +223,20 @@ function Footer() {
 
         <div className="lg:col-span-3">
           <p className="text-[11px] font-bold uppercase tracking-widest text-ink-faint">
-            Partners
+            Gebouwd op kaders
           </p>
           <ul className="mt-3 space-y-2 text-[13px] text-ink-soft">
-            <li>Aventus</li>
-            <li>Veluwse Onderwijsgroep</li>
-            <li>Etty Hillesum Lyceum</li>
-            <li>Saxion</li>
+            <li>UNESCO AI Competency Framework</li>
+            <li>Kennisnet · handreiking AI</li>
+            <li>Npuls · AI-GO raamwerk</li>
+            <li>EU AI Act · artikel 4</li>
           </ul>
         </div>
       </div>
 
       <div className="hairline-t px-5 py-4 sm:px-8 lg:px-10">
         <div className="flex flex-col gap-2 text-[11.5px] text-ink-mute sm:flex-row sm:items-center sm:justify-between">
-          <span>© 2026 Datagrid · VABOK-samenwerking</span>
+          <span>© 2026 Datagrid</span>
           <span>v1.0</span>
         </div>
       </div>

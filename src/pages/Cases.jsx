@@ -228,7 +228,7 @@ function CaseDetail({ data }) {
       />
 
       <div className="hairline-t mt-6 flex items-center justify-between pt-5">
-        <Footnote>VABOK · gepilot</Footnote>
+        <Footnote>Uit de onderwijspraktijk</Footnote>
         <div className="flex items-center gap-2">
           <Button variant="ghost">
             <L.Bookmark size={13} strokeWidth={1.8} />

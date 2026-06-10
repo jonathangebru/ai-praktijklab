@@ -7,7 +7,6 @@ import {
   Rocket,
   Asterisk,
   GraduationCap,
-  Building2,
   BookMarked,
   ArrowRight,
   MessageSquare,
@@ -19,40 +18,9 @@ import { Section, Button, Tag, Footnote, Divider } from "../components/ui";
  * Project & roadmap — het programma en waar het staat.
  *
  * Het platform draait in productie (login, opslag, dashboard, certificaten)
- * en zit in de pilotfase met de VABOK-instellingen. De roadmap hieronder
+ * en is beschikbaar voor scholen in vo, mbo en hbo. De roadmap hieronder
  * toont per fase de actuele status: afgerond, lopend of gepland.
  * ──────────────────────────────────────────────────────────────────────── */
-
-const partners = [
-  {
-    name: "Veluwse Onderwijsgroep",
-    level: "vo",
-    location: "Apeldoorn e.o.",
-    role: "Onderbouw en bovenbouw — taalvakken, mens & maatschappij, exacte vakken.",
-    color: "terra",
-  },
-  {
-    name: "Etty Hillesum Lyceum",
-    level: "vo",
-    location: "Deventer",
-    role: "Taalvakken en maatschappijleer — focus op kritisch lezen en mediawijsheid.",
-    color: "terra",
-  },
-  {
-    name: "Aventus",
-    level: "mbo",
-    location: "Apeldoorn / Deventer / Zutphen",
-    role: "Penvoerder. Meerdere opleidingen — zorg, techniek, ICT, economie.",
-    color: "sage",
-  },
-  {
-    name: "Saxion",
-    level: "hbo",
-    location: "Enschede / Deventer",
-    role: "ICT-opleidingen en lerarenopleiding — programmeerdidactiek en AI-assisted development.",
-    color: "academy",
-  },
-];
 
 const fases = [
   {
@@ -94,11 +62,11 @@ const fases = [
   {
     nr: "05",
     status: "gepland",
-    title: "Uitrol binnen VABOK",
+    title: "Uitrol per instelling",
     period: "vanaf wk 18",
     icon: Rocket,
-    body: "Opschalen naar de bredere docentpopulatie. Per instelling een kernteam dat de modules verspreidt en bewaakt. Plan voor beheer, doorontwikkeling en uitbreiding richting 2026 en 2027.",
-    deliverables: ["Kernteam per instelling", "Beheerafspraken", "Roadmap 2026—2027"],
+    body: "Opschalen naar de bredere docentpopulatie van elke deelnemende school. Per instelling een kernteam dat de modules verspreidt en bewaakt. Plan voor beheer, doorontwikkeling en uitbreiding.",
+    deliverables: ["Kernteam per instelling", "Beheerafspraken", "Doorontwikkel-roadmap"],
   },
 ];
 
@@ -107,7 +75,6 @@ export function Project() {
     <>
       <ProjectHero />
       <Roadmap />
-      <PartnersSection />
       <Adaptability />
       <TrainTheTeacher />
       <FeedbackPanel />
@@ -123,7 +90,7 @@ function ProjectHero() {
         <div className="mb-4 flex flex-wrap items-center gap-3">
           <Tag tone="ink">
             <Asterisk size={10} strokeWidth={2.5} />
-            VABOK · 2026 — 2027
+            Voor scholen · 2026
           </Tag>
           <Tag tone="terra">vo</Tag>
           <Tag tone="sage">mbo</Tag>
@@ -139,8 +106,8 @@ function ProjectHero() {
               Eigen invulling per instelling.
             </h1>
             <p className="mt-5 max-w-3xl text-pretty text-[16px] leading-relaxed text-ink-soft">
-              AI PraktijkLab is een professionaliseringsprogramma voor docenten
-              binnen de VABOK-samenwerking. Twee modules, zeventien lessen,
+              AI PraktijkLab is een professionaliseringsprogramma voor
+              docenten in vo, mbo en hbo. Twee modules, zeventien lessen,
               vier kennischecks. Casussen die docenten morgen in hun klas
               kunnen toepassen. Een aanpak die didactische diepgang voorop
               zet, en technologie als gereedschap behandelt.
@@ -292,53 +259,6 @@ function FaseDetail({ fase: f }) {
   );
 }
 
-function PartnersSection() {
-  return (
-    <Section
-      eyebrow="VABOK · partners"
-      title="Vier instellingen, één programma"
-      className="hairline-t"
-    >
-      <p className="mb-8 max-w-3xl text-[15px] leading-relaxed text-ink-soft">
-        Per instelling stemmen we de rol af op vakdomeinen, niveau en
-        bestaande PD-routine. Het gedeelde programma blijft hetzelfde; de
-        accenten zijn van de instelling.
-      </p>
-
-      <div className="grid gap-5 md:grid-cols-2">
-        {partners.map((p) => (
-          <PartnerCard key={p.name} data={p} />
-        ))}
-      </div>
-    </Section>
-  );
-}
-
-function PartnerCard({ data }) {
-  const tones = {
-    terra: "bg-terra-tint text-terra-deep",
-    sage: "bg-sage-tint text-sage-deep",
-    academy: "bg-academy-tint text-academy-deep",
-  };
-  return (
-    <article className="card flex items-start gap-4 p-6">
-      <div
-        className={`grid h-12 w-12 shrink-0 place-items-center rounded-xl ${tones[data.color]}`}
-      >
-        <Building2 size={20} strokeWidth={1.5} />
-      </div>
-      <div className="flex-1">
-        <div className="mb-1.5 flex items-center gap-2">
-          <Tag tone={data.color}>{data.level}</Tag>
-          <Tag tone="neutral">{data.location}</Tag>
-        </div>
-        <h3 className="font-display text-[22px] leading-tight">{data.name}</h3>
-        <p className="mt-1 max-w-md text-[13px] text-ink-soft">{data.role}</p>
-      </div>
-    </article>
-  );
-}
-
 function Adaptability() {
   return (
     <Section
@@ -440,7 +360,7 @@ function TrainTheTeacher() {
             icon: Rocket,
             num: "03",
             title: "Trekker",
-            body: "Geeft eigen sessies binnen de school. Deelt nieuwe casussen met VABOK voor andere instellingen.",
+            body: "Geeft eigen sessies binnen de school. Deelt nieuwe casussen via het platform met andere instellingen.",
             scale: "1 op 8+",
           },
         ].map((s) => (

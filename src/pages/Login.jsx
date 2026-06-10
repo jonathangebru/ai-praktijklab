@@ -46,7 +46,7 @@ export function Login() {
     <div className="relative isolate min-h-screen bg-paper">
       <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
         <Wordmark />
-        <span className="pill">Pilot · VABOK</span>
+        <span className="pill">vo · mbo · hbo</span>
       </header>
 
       <main className="mx-auto grid max-w-6xl items-center gap-12 px-6 pb-20 pt-8 lg:grid-cols-2 lg:gap-20 lg:pt-16">
@@ -59,9 +59,9 @@ export function Login() {
             vakdiepte.
           </h1>
           <p className="mt-5 max-w-xl text-pretty text-[16.5px] leading-relaxed text-ink-soft">
-            Het AI PraktijkLab is het leerplatform van de VABOK-samenwerking
-            voor docenten in vo, mbo en hbo. Geen theorie zonder toepassing —
-            wat je hier leert, gebruik je komende lesweek.
+            Het AI PraktijkLab is hét leerplatform voor docenten in vo, mbo
+            en hbo. Geen theorie zonder toepassing — wat je hier leert,
+            gebruik je komende lesweek.
           </p>
 
           <ul className="mt-8 space-y-3.5">
@@ -87,10 +87,10 @@ export function Login() {
           </ul>
 
           <div className="mt-10 hairline-t pt-6">
-            <p className="eyebrow mb-3">De VABOK-samenwerking</p>
+            <p className="eyebrow mb-3">Gebouwd op erkende kaders</p>
             <p className="text-[13px] font-medium leading-relaxed text-ink-mute">
-              Aventus &nbsp;·&nbsp; Veluwse Onderwijsgroep &nbsp;·&nbsp; Etty
-              Hillesum Lyceum &nbsp;·&nbsp; Saxion
+              UNESCO AI Competency Framework &nbsp;·&nbsp; Kennisnet
+              &nbsp;·&nbsp; Npuls AI-GO &nbsp;·&nbsp; EU AI Act art. 4
             </p>
           </div>
         </section>
@@ -182,7 +182,7 @@ function RequestForm({ onSent, onBack }) {
       onSent();
     } else {
       setError(
-        "Versturen lukte niet. Probeer het zo nog eens, of mail je VABOK-contactpersoon."
+        "Versturen lukte niet. Probeer het over een paar minuten opnieuw."
       );
     }
   }
@@ -229,7 +229,7 @@ function RequestForm({ onSent, onBack }) {
               onChange={set("organisation")}
               autoComplete="organization"
               className="input-base"
-              placeholder="Bijv. Aventus"
+              placeholder="Naam van je school"
             />
           </Field>
           <Field label="Functie">

@@ -35,7 +35,7 @@ const nav = [
     ],
   },
   {
-    section: "VABOK",
+    section: "Platform",
     items: [
       { to: "/project", label: "Project & roadmap", icon: ClipboardList },
       { to: "/analytics", label: "Voortgang & analytics", icon: LineChart, requiresRole: ["beheerder", "manager"] },
@@ -74,7 +74,7 @@ function UserCard() {
             {displayName || "Onbekend"}
           </div>
           <div className="text-[11px] leading-tight text-ink-mute">
-            {roleLabel} · VABOK
+            {roleLabel}
           </div>
         </div>
         <button
@@ -169,12 +169,12 @@ function SidebarBody({ onNavigate }) {
       <div className="hairline-t px-6 py-3">
         <div className="flex items-center justify-between">
           <span className="font-mono text-[9.5px] uppercase tracking-widest text-ink-faint">
-            VABOK · 2026
+            AI PraktijkLab
           </span>
           <div className="flex items-center gap-1.5">
             <span className="h-1.5 w-1.5 animate-soft-pulse rounded-full bg-sage" />
             <span className="font-mono text-[9.5px] uppercase tracking-widest text-ink-faint">
-              Pilotfase
+              Live
             </span>
           </div>
         </div>

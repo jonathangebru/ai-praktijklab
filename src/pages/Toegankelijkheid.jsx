@@ -93,7 +93,7 @@ export function Toegankelijkheid() {
               >
                 contact
               </Link>{" "}
-              op via je VABOK-projectleider. We pakken
+              op met Datagrid. We pakken
               toegankelijkheidsproblemen met voorrang op.
             </p>
           </div>

@@ -154,7 +154,7 @@ export function FeedbackWidget() {
                   Bedankt.
                 </h3>
                 <p className="max-w-[260px] text-[13px] text-ink-soft">
-                  Je input komt direct binnen bij het VABOK-team. Veel waarde.
+                  Je input komt direct binnen bij het PraktijkLab-team. Veel waarde.
                 </p>
               </div>
             ) : (

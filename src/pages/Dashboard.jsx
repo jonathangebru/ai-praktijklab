@@ -639,11 +639,11 @@ function Onderscheidend() {
 
           <figure className="mt-10 codex-hairline-l border-codex-vermilion/60 pl-6">
             <blockquote className="codex-display-italic text-[22px] leading-snug text-codex-ink">
-              We zoeken iemand die complexe technologie begrijpelijk en
-              toepasbaar maakt voor docenten.
+              Aanbieders en exploitanten van AI-systemen zorgen voor een
+              toereikend niveau van AI-geletterdheid bij hun personeel.
             </blockquote>
             <figcaption className="mt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-codex-ink-mute">
-              Uit de opdrachtomschrijving · Aventus / VABOK
+              EU AI Act · artikel 4 · van kracht sinds februari 2025
             </figcaption>
           </figure>
         </div>
@@ -722,7 +722,7 @@ function Resources() {
           divider
         />
         <ResourceColumn
-          eyebrow="VABOK"
+          eyebrow="Platform"
           number="C"
           title="Project & roadmap"
           body="Hoe het programma zich ontwikkelt, hoe pilots werken, en hoe instellingen meedoen."
@@ -768,10 +768,10 @@ function ResourceColumn({ eyebrow, number, title, body, to, divider }) {
 /* ─── Partners — zachte marquee ─────────────────────────────────────────── */
 function Partners() {
   const list = [
-    { name: "Aventus", type: "mbo", anchor: true },
-    { name: "Veluwse Onderwijsgroep", type: "vo" },
-    { name: "Etty Hillesum Lyceum", type: "vo" },
-    { name: "Saxion", type: "hbo" },
+    { name: "Vo-scholen", type: "vo" },
+    { name: "Mbo-colleges", type: "mbo", anchor: true },
+    { name: "Hogescholen", type: "hbo" },
+    { name: "Lerarenopleidingen", type: "hbo" },
   ];
   // Twee identieke helften → de -50%-loop sluit naadloos aan.
   const strip = [...list, ...list, ...list];
@@ -779,11 +779,13 @@ function Partners() {
   return (
     <section className="codex-hairline-t py-16 lg:py-20">
       <div className="px-5 sm:px-8 lg:px-14">
-        <span className="codex-eyebrow">VABOK · samenwerking</span>
+        <span className="codex-eyebrow">Voor wie</span>
         <h2 className="codex-display mt-3 text-[30px] leading-[1.05] sm:text-[36px]">
-          Vier instellingen,{" "}
-          <span className="codex-display-italic text-codex-vermilion">één</span>{" "}
-          leerlijn.
+          Eén leerlijn,{" "}
+          <span className="codex-display-italic text-codex-vermilion">
+            elke
+          </span>{" "}
+          onderwijssoort.
         </h2>
       </div>
 
@@ -810,8 +812,8 @@ function Partners() {
 
       {/* Toegankelijke, statische opsomming voor schermlezers. */}
       <p className="sr-only">
-        Partners: Aventus (penvoerder, mbo), Veluwse Onderwijsgroep (vo), Etty
-        Hillesum Lyceum (vo) en Saxion (hbo).
+        Gemaakt voor vo-scholen, mbo-colleges, hogescholen en
+        lerarenopleidingen.
       </p>
     </section>
   );

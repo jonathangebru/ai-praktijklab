@@ -34,7 +34,7 @@ function certificaatMarkdown({ name, module: m }) {
   return [
     `# Certificaat van afronding`,
     ``,
-    `**AI PraktijkLab · VABOK-samenwerking**`,
+    `**AI PraktijkLab · door Datagrid**`,
     ``,
     `Hierbij wordt verklaard dat`,
     ``,

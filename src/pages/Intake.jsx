@@ -303,7 +303,7 @@ export function Intake() {
                 </div>
                 <p className="mt-2 text-[12.5px] leading-relaxed text-ink-soft">
                   Je antwoorden blijven lokaal in deze sessie. Niets wordt
-                  zonder akkoord gedeeld met andere VABOK-partners.
+                  zonder akkoord gedeeld buiten je eigen instelling.
                 </p>
               </div>
             </div>
@@ -401,7 +401,7 @@ function Result({ advice, totals, onReset }) {
 
               <div className="hairline-t mt-6 pt-4 text-[12px] text-ink-mute">
                 Stem je route ook af met je opleidingsmanager of vakgroep —
-                pilots binnen VABOK lopen vaak per team.
+                pilots lopen vaak per team.
               </div>
             </div>
           </aside>

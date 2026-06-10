@@ -256,11 +256,11 @@ export function Analytics() {
             ? [
                 { label: "Bijgewerkt", value: formatStamp(p.generatedAt) },
                 { label: "Docenten", value: nf(p.teachers) },
-                { label: "Partners", value: "4 instellingen" },
+                { label: "Sectoren", value: "vo · mbo · hbo" },
               ]
             : [
                 { label: "Status", value: "Voorbeelddata" },
-                { label: "Partners", value: "4 instellingen" },
+                { label: "Sectoren", value: "vo · mbo · hbo" },
                 { label: "Vernieuwt", value: "bij laden" },
               ]
         }
@@ -536,7 +536,7 @@ const DEMO_REQUESTS = [
     id: "vb-1",
     name: "S. de Boer",
     email: "s.deboer@school.nl",
-    organisation: "Etty Hillesum Lyceum",
+    organisation: "Het Stedelijk College",
     role: "Docent vo",
     message: "Wil AI inzetten voor differentiatie bij Nederlands.",
     status: "nieuw",
@@ -545,8 +545,8 @@ const DEMO_REQUESTS = [
   {
     id: "vb-2",
     name: "M. Janssen",
-    email: "m.janssen@aventus.nl",
-    organisation: "Aventus",
+    email: "m.janssen@rocrijnstad.nl",
+    organisation: "ROC Rijnstad",
     role: "Teamleider / management",
     message: "Demo voor het team ICT-opleidingen.",
     status: "afgehandeld",
@@ -569,7 +569,7 @@ function inviteMailto(r) {
     "Wil je eerst een korte demo met je team? Antwoord op deze mail, dan plannen we iets in.",
     "",
     "Met vriendelijke groet,",
-    "Datagrid · AI PraktijkLab (VABOK)",
+    "Datagrid · AI PraktijkLab",
   ].join("\n");
   return `mailto:${encodeURIComponent(r.email)}?subject=${encodeURIComponent(
     subject

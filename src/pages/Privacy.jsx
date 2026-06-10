@@ -69,7 +69,7 @@ export function Privacy() {
         }
         subtitle="Transparantie en controle horen bij verantwoord AI-gebruik — daarom leggen we precies uit wat het PraktijkLab van jou bewaart, waar dat staat en hoe je het op elk moment zelf weghaalt."
         meta={[
-          { label: "Verwerker", value: "ROC Aventus · VABOK" },
+          { label: "Verwerker", value: "Datagrid" },
           { label: "Regio", value: "EU · West-Europa" },
           { label: "Grondslag", value: "Uitvoering scholing" },
         ]}
@@ -114,7 +114,7 @@ export function Privacy() {
           <Guard
             icon={Lock}
             title="Geen verkoop of tracking"
-            body="Je gegevens worden niet verkocht of voor advertenties gebruikt. Ze dienen enkel de scholing binnen VABOK."
+            body="Je gegevens worden niet verkocht of voor advertenties gebruikt. Ze dienen enkel jouw scholing."
           />
         </ul>
       </Section>
@@ -218,7 +218,7 @@ export function Privacy() {
           <Divider label="Contact" className="my-8" />
           <p className="max-w-2xl text-[13.5px] leading-relaxed text-ink-soft">
             Vragen over je gegevens of wil je een verzoek indienen? Neem contact
-            op met je VABOK-projectleider of de Functionaris Gegevensbescherming
+            op met Datagrid of de Functionaris Gegevensbescherming
             van je instelling. Voor inhoudelijke feedback over het PraktijkLab
             kun je de feedbackknop rechtsonder gebruiken.
           </p>
