@@ -22,3 +22,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Azure Functions local dev — bevat connectiestrings/secrets, nooit committen
+api/local.settings.json
+
+# Azurite (lokale storage-emulator) data
+.azurite/
+__azurite_db*__.json
+__blobstorage__
+__queuestorage__

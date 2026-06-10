@@ -15,6 +15,9 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [react()],
     server: {
+      // Respecteer een toegewezen poort (bv. van de preview-runner); anders
+      // de Vite-default 5173 met auto-increment.
+      port: Number(process.env.PORT) || undefined,
       proxy: {
         '/api': {
           target: apiProxyTarget,

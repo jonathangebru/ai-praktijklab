@@ -3,6 +3,7 @@
   "configurations": {
     "praktijklab": {
       "appLocation": ".",
+      "apiLocation": "api",
       "outputLocation": "dist",
       "appDevserverUrl": "http://localhost:5173",
       "run": "npm run dev",
