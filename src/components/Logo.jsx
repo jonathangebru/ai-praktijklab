@@ -1,3 +1,7 @@
+/* ──────────────────────────────────────────────────────────────────────────
+ * Merk — open boek + vonk (leren × AI). Zelfde tekening als public/favicon.svg;
+ * pas je het merk aan, wijzig dan beide bestanden.
+ * ─────────────────────────────────────────────────────────────────────── */
 export function Logo({ size = 32, monochrome = false }) {
   const ink = monochrome ? "currentColor" : "#231F20";
   const accent = monochrome ? "currentColor" : "#FF832C";
@@ -10,18 +14,19 @@ export function Logo({ size = 32, monochrome = false }) {
       aria-hidden="true"
     >
       <rect width="64" height="64" rx="14" fill={ink} />
-      <g
-        stroke="#F6F6F3"
-        strokeWidth="2.4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        fill="none"
-      >
-        <circle cx="32" cy="32" r="14" />
-        <path d="M22 28 L32 18 L42 28" />
-        <path d="M22 36 L32 46 L42 36" />
-      </g>
-      <circle cx="32" cy="32" r="3" fill={accent} />
+      <path
+        d="M32 7l2.6 5.4L40 15l-5.4 2.6L32 23l-2.6-5.4L24 15l5.4-2.6z"
+        fill={accent}
+      />
+      <path
+        d="M30 28c-4.2-2.6-9.8-3.3-15-2v26c5.2-1.3 10.8-.6 15 2z"
+        fill="#FFFFFF"
+      />
+      <path
+        d="M34 28c4.2-2.6 9.8-3.3 15-2v26c-5.2-1.3-10.8-.6-15 2z"
+        fill="#FFFFFF"
+        opacity="0.82"
+      />
     </svg>
   );
 }
