@@ -75,10 +75,80 @@ export function Project() {
     <>
       <ProjectHero />
       <Roadmap />
+      <NieuweModules />
       <Adaptability />
       <TrainTheTeacher />
       <FeedbackPanel />
     </>
+  );
+}
+
+/* ─── In ontwikkeling — Module 3, 4 en 5 ────────────────────────────────────
+ * Ontworpen op de gap-analyse van het UNESCO AICFT, Kennisnet, SLO, Npuls
+ * AI-GO en de EU AI Act. Volledige uitwerking: docs/module-roadmap.md. */
+const nieuweModules = [
+  {
+    nr: "03",
+    title: "AI-geletterdheid onderwijzen",
+    tagline: "Je leerlingen en studenten AI-vaardig maken — niet alleen jijzelf.",
+    doelgroep: "Alle docenten vo · mbo · hbo",
+    hook: "Wettelijke kerndoelen digitale geletterdheid per aug 2027.",
+    lessen: "7 lessen + kennischeck · 10–12 uur",
+  },
+  {
+    nr: "04",
+    title: "AI-beleid en de AI Act",
+    tagline: "Van losse experimenten naar gedragen schoolbeleid dat aan de wet voldoet.",
+    doelgroep: "Teamleiders · schoolleiders · kartrekkers",
+    hook: "AI Act-handhaving vanaf aug 2026; toetsing is hoog-risico.",
+    lessen: "6 lessen + kennischeck · 8–10 uur",
+  },
+  {
+    nr: "05",
+    title: "AI voor je eigen groei en je team",
+    tagline: "Van zelf bekwaam naar een team dat blijft leren.",
+    doelgroep: "Ervaren deelnemers · opleiders",
+    hook: "De minst gedekte UNESCO-dimensie in bestaand aanbod.",
+    lessen: "6 lessen + kennischeck · 8–10 uur",
+  },
+];
+
+function NieuweModules() {
+  return (
+    <Section
+      eyebrow="In ontwikkeling"
+      title="De leerlijn groeit: Module 3, 4 en 5"
+      className="hairline-t"
+    >
+      <p className="mb-8 max-w-3xl text-[15px] leading-relaxed text-ink-soft">
+        Ontworpen op de gap-analyse van het UNESCO AI Competency Framework,
+        Kennisnet, de SLO-kerndoelen en de EU AI Act. Samen maken ze van het
+        programma een doorlopende leerlijn — van eerste kennismaking tot
+        teamtransformatie.
+      </p>
+
+      <div className="grid gap-5 md:grid-cols-3">
+        {nieuweModules.map((m) => (
+          <article key={m.nr} className="card flex flex-col p-6">
+            <div className="flex items-center justify-between">
+              <span className="num-mark text-[30px] leading-none">{m.nr}</span>
+              <Tag tone="geel">In ontwikkeling</Tag>
+            </div>
+            <h3 className="mt-4 font-display text-[20px] leading-tight text-ink">
+              {m.title}
+            </h3>
+            <p className="mt-2 flex-1 text-[13.5px] leading-relaxed text-ink-soft">
+              {m.tagline}
+            </p>
+            <div className="mt-4 space-y-1.5 hairline-t pt-4 text-[12.5px] text-ink-mute">
+              <p>{m.doelgroep}</p>
+              <p>{m.lessen}</p>
+              <p className="text-ink-soft">{m.hook}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </Section>
   );
 }
 

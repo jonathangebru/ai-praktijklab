@@ -35,7 +35,7 @@ export function Wordmark({ className = "" }) {
           PraktijkLab
         </span>
         <span className="mt-0.5 font-mono text-[9px] uppercase tracking-widest text-ink-mute">
-          AI&nbsp;·&nbsp;vo&nbsp;·&nbsp;mbo&nbsp;·&nbsp;hbo
+          Powered&nbsp;by&nbsp;Datagrid
         </span>
       </div>
     </div>
