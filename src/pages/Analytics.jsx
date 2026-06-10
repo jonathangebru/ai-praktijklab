@@ -19,6 +19,7 @@ import {
 import { moduleList, findLesson } from "../data/modules";
 import { loadProgress } from "../lib/progressClient";
 import { listAccess, updateAccess } from "../lib/accessClient";
+import { useAuth } from "../components/AuthProvider";
 
 /* ──────────────────────────────────────────────────────────────────────────
  * Analytics — beheerder-dashboard op ECHTE, geanonimiseerde data (/api/progress).
@@ -576,10 +577,14 @@ function inviteMailto(r) {
 }
 
 function ToegangsAanvragen() {
+  const { hasRole } = useAuth();
+  // Onboarding is een beheerderstaak — managers zien dit paneel niet.
+  const isBeheerder = hasRole("beheerder");
   const [requests, setRequests] = useState(null); // null = nog laden / demo
   const [liveList, setLiveList] = useState(false);
 
   useEffect(() => {
+    if (!isBeheerder) return;
     let cancelled = false;
     listAccess().then((list) => {
       if (cancelled) return;
@@ -604,7 +609,7 @@ function ToegangsAanvragen() {
     if (liveList) await updateAccess(id, status);
   }
 
-  if (!requests) return null;
+  if (!isBeheerder || !requests) return null;
   const open = requests.filter((r) => r.status === "nieuw").length;
 
   return (

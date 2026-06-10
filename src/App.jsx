@@ -13,6 +13,7 @@ import { Project } from "./pages/Project";
 import { Analytics } from "./pages/Analytics";
 import { Privacy } from "./pages/Privacy";
 import { Toegankelijkheid } from "./pages/Toegankelijkheid";
+import { MijnVoortgang } from "./pages/MijnVoortgang";
 
 /* Tussenstaat terwijl /.auth/me wordt opgehaald. */
 function Splash() {
@@ -36,20 +37,20 @@ function NoAccess() {
       <div className="max-w-md text-center">
         <span className="eyebrow">403 · Geen toegang</span>
         <h1 className="codex-display mt-3 text-[24px] text-ink">
-          Alleen voor beheerders
+          Alleen voor beheer en management
         </h1>
         <p className="mt-2 text-[14px] leading-relaxed text-ink-soft">
-          Deze pagina is afgeschermd. Vraag een beheerder om toegang als je
-          denkt dat dit niet klopt.
+          Deze pagina is afgeschermd. Vraag je beheerder om de juiste rol als
+          je denkt dat dit niet klopt.
         </p>
       </div>
     </div>
   );
 }
 
-function RequireRole({ role, children }) {
+function RequireRole({ roles, children }) {
   const { hasRole } = useAuth();
-  return hasRole(role) ? children : <NoAccess />;
+  return roles.some(hasRole) ? children : <NoAccess />;
 }
 
 function AppRoutes() {
@@ -58,6 +59,7 @@ function AppRoutes() {
       <Route element={<Layout />}>
         <Route path="/" element={<Dashboard />} />
         <Route path="/intake" element={<Intake />} />
+        <Route path="/voortgang" element={<MijnVoortgang />} />
         <Route path="/modules/basiscursus-ai" element={<Module1 />} />
         <Route path="/modules/ai-geletterdheid" element={<Module2 />} />
         <Route path="/lessen/:slug" element={<Lesson />} />
@@ -69,7 +71,7 @@ function AppRoutes() {
         <Route
           path="/analytics"
           element={
-            <RequireRole role="beheerder">
+            <RequireRole roles={["beheerder", "manager"]}>
               <Analytics />
             </RequireRole>
           }

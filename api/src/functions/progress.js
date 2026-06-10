@@ -32,7 +32,9 @@ const { TableClient } = require("@azure/data-tables");
 
 const TABLE_NAME = process.env.WORK_TABLE_NAME || "PraktijklabWork";
 const PROMPTKIT_ROW = "__promptkit__";
-const ADMIN_ROLE = "beheerder";
+/* Wie mag de aggregaten zien: beheerders én management (directeuren,
+ * teamleiders). Het endpoint levert uitsluitend geanonimiseerde totalen. */
+const VIEWER_ROLES = ["beheerder", "manager"];
 const MAX_ROWS = 50000; // veiligheidsplafond tegen runaway-scans
 const TREND_WEEKS = 6; // aantal weken in de activiteitstrend
 
@@ -151,7 +153,7 @@ app.http("progress", {
     }
 
     const roles = Array.isArray(principal.userRoles) ? principal.userRoles : [];
-    if (!roles.includes(ADMIN_ROLE)) {
+    if (!VIEWER_ROLES.some((r) => roles.includes(r))) {
       return {
         status: 403,
         headers: CORS,

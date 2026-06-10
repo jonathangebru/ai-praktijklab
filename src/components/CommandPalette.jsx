@@ -25,6 +25,7 @@ import { useAuth } from "./AuthProvider";
 const PAGES = [
   { title: "Overzicht", to: "/" },
   { title: "Intake & niveau", to: "/intake" },
+  { title: "Mijn voortgang", to: "/voortgang" },
   { title: "Module 01 · Basiscursus AI", to: "/modules/basiscursus-ai" },
   { title: "Module 02 · AI-geletterdheid", to: "/modules/ai-geletterdheid" },
   { title: "Promptbibliotheek", to: "/promptbibliotheek" },
@@ -160,13 +161,13 @@ export function CommandPalette({ open, onOpen, onClose }) {
   const navigate = useNavigate();
   const { hasRole } = useAuth();
 
-  // Beheerderspagina's alleen tonen aan beheerders.
+  // Beheer-/managementpagina's alleen tonen aan die rollen.
   const groups = useMemo(() => {
-    const isAdmin = hasRole("beheerder");
+    const mayView = hasRole("beheerder") || hasRole("manager");
     return search(query)
       .map((g) => ({
         ...g,
-        items: g.items.filter((i) => isAdmin || i.to !== "/analytics"),
+        items: g.items.filter((i) => mayView || i.to !== "/analytics"),
       }))
       .filter((g) => g.items.length);
   }, [query, hasRole]);

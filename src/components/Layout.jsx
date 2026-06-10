@@ -8,6 +8,7 @@ import { CommandPalette } from "./CommandPalette";
 const breadcrumbs = {
   "/": ["Overzicht"],
   "/intake": ["Programma", "Intake & niveau"],
+  "/voortgang": ["Programma", "Mijn voortgang"],
   "/modules/basiscursus-ai": ["Programma", "Module 01 — Basiscursus AI"],
   "/modules/ai-geletterdheid": ["Programma", "Module 02 — AI-geletterdheid"],
   "/lessen/lesvoorbereiding": [
@@ -236,7 +237,7 @@ function Footer() {
       <div className="hairline-t px-5 py-4 sm:px-8 lg:px-10">
         <div className="flex flex-col gap-2 text-[11.5px] text-ink-mute sm:flex-row sm:items-center sm:justify-between">
           <span>© 2026 Datagrid · VABOK-samenwerking</span>
-          <span>v0.7 pilot</span>
+          <span>v1.0</span>
         </div>
       </div>
     </footer>

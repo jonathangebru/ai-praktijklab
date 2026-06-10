@@ -8,6 +8,7 @@ import {
   FlaskConical,
   ClipboardList,
   LineChart,
+  TrendingUp,
   LogOut,
   X,
 } from "lucide-react";
@@ -21,6 +22,7 @@ const nav = [
     items: [
       { to: "/", label: "Overzicht", icon: LayoutDashboard, end: true },
       { to: "/intake", label: "Intake & niveau", icon: Compass },
+      { to: "/voortgang", label: "Mijn voortgang", icon: TrendingUp },
       { to: "/modules/basiscursus-ai", label: "Basiscursus AI", icon: GraduationCap, eyebrow: "Module 01" },
       { to: "/modules/ai-geletterdheid", label: "AI-geletterdheid", icon: FlaskConical, eyebrow: "Module 02" },
     ],
@@ -36,7 +38,7 @@ const nav = [
     section: "VABOK",
     items: [
       { to: "/project", label: "Project & roadmap", icon: ClipboardList },
-      { to: "/analytics", label: "Voortgang & analytics", icon: LineChart, requiresRole: "beheerder" },
+      { to: "/analytics", label: "Voortgang & analytics", icon: LineChart, requiresRole: ["beheerder", "manager"] },
     ],
   },
 ];
@@ -53,7 +55,11 @@ function initialsFrom(name) {
 /* Gebruikerskaart onderaan de sidebar — echte naam, rol en uitlog-knop. */
 function UserCard() {
   const { displayName, hasRole, logout } = useAuth();
-  const roleLabel = hasRole("beheerder") ? "Beheerder" : "Docent";
+  const roleLabel = hasRole("beheerder")
+    ? "Beheerder"
+    : hasRole("manager")
+    ? "Management"
+    : "Docent";
 
   return (
     <div className="hairline-t mx-3 mb-3 mt-2 rounded-xl bg-paper-card p-4">
@@ -68,7 +74,7 @@ function UserCard() {
             {displayName || "Onbekend"}
           </div>
           <div className="text-[11px] leading-tight text-ink-mute">
-            {roleLabel} · Aventus
+            {roleLabel} · VABOK
           </div>
         </div>
         <button
@@ -96,7 +102,11 @@ function SidebarBody({ onNavigate }) {
     .map((group) => ({
       ...group,
       items: group.items.filter(
-        (item) => !item.requiresRole || hasRole(item.requiresRole)
+        (item) =>
+          !item.requiresRole ||
+          (Array.isArray(item.requiresRole)
+            ? item.requiresRole.some(hasRole)
+            : hasRole(item.requiresRole))
       ),
     }))
     .filter((group) => group.items.length > 0);
