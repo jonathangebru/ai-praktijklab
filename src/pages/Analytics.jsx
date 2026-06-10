@@ -1,5 +1,14 @@
 import { useEffect, useState } from "react";
-import { Users, CheckCircle2, Sparkles, FileText } from "lucide-react";
+import {
+  Users,
+  CheckCircle2,
+  Sparkles,
+  FileText,
+  Inbox,
+  Mail,
+  Check,
+  RotateCcw,
+} from "lucide-react";
 import {
   PageHeader,
   Section,
@@ -9,6 +18,7 @@ import {
 } from "../components/ui";
 import { moduleList, findLesson } from "../data/modules";
 import { loadProgress } from "../lib/progressClient";
+import { listAccess, updateAccess } from "../lib/accessClient";
 
 /* ──────────────────────────────────────────────────────────────────────────
  * Analytics — beheerder-dashboard op ECHTE, geanonimiseerde data (/api/progress).
@@ -266,6 +276,8 @@ export function Analytics() {
         </span>
       </div>
 
+      <ToegangsAanvragen />
+
       <Section className="!py-10">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {kpis.map((k) => (
@@ -457,8 +469,8 @@ function Chart({ points }) {
       >
         <defs>
           <linearGradient id="gActivity" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0%" stopColor="#B8431F" stopOpacity="0.22" />
-            <stop offset="100%" stopColor="#B8431F" stopOpacity="0" />
+            <stop offset="0%" stopColor="#2563EB" stopOpacity="0.22" />
+            <stop offset="100%" stopColor="#2563EB" stopOpacity="0" />
           </linearGradient>
         </defs>
 
@@ -469,7 +481,7 @@ function Chart({ points }) {
               x2={W - padR}
               y1={yFor(t)}
               y2={yFor(t)}
-              stroke="rgba(26,24,22,0.08)"
+              stroke="rgba(14,26,43,0.08)"
               strokeDasharray={i === 0 ? "0" : "2 4"}
             />
             <text
@@ -479,7 +491,7 @@ function Chart({ points }) {
               textAnchor="end"
               fontFamily="JetBrains Mono"
               fontSize="10"
-              fill="rgba(26,24,22,0.5)"
+              fill="rgba(14,26,43,0.5)"
             >
               {t}
             </text>
@@ -487,18 +499,18 @@ function Chart({ points }) {
         ))}
 
         <path d={area} fill="url(#gActivity)" />
-        <path d={line} fill="none" stroke="#B8431F" strokeWidth="2" />
+        <path d={line} fill="none" stroke="#2563EB" strokeWidth="2" />
 
         {data.map((d, i) => (
           <g key={i}>
-            <circle cx={xFor(i)} cy={yFor(d.value)} r="3" fill="#B8431F" />
+            <circle cx={xFor(i)} cy={yFor(d.value)} r="3" fill="#2563EB" />
             <text
               x={xFor(i)}
               y={H - 8}
               textAnchor="middle"
               fontFamily="JetBrains Mono"
               fontSize="10"
-              fill="rgba(26,24,22,0.5)"
+              fill="rgba(14,26,43,0.5)"
             >
               {d.label}
             </text>
@@ -506,5 +518,188 @@ function Chart({ points }) {
         ))}
       </svg>
     </div>
+  );
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+ * Toegangsaanvragen — binnengekomen via het formulier op de loginpagina.
+ *
+ * De beheerder ziet hier wie toegang vraagt, stuurt met één klik een
+ * uitnodigingsmail (voor-ingevuld, via de eigen mailclient — dat is meteen
+ * de bevestiging voor de aanvrager) en vinkt de aanvraag daarna af.
+ * Buiten productie (geen rechten/storage) toont het paneel een voorbeeld.
+ * ─────────────────────────────────────────────────────────────────────── */
+
+const DEMO_REQUESTS = [
+  {
+    id: "vb-1",
+    name: "S. de Boer",
+    email: "s.deboer@school.nl",
+    organisation: "Etty Hillesum Lyceum",
+    role: "Docent vo",
+    message: "Wil AI inzetten voor differentiatie bij Nederlands.",
+    status: "nieuw",
+    receivedAt: null,
+  },
+  {
+    id: "vb-2",
+    name: "M. Janssen",
+    email: "m.janssen@aventus.nl",
+    organisation: "Aventus",
+    role: "Teamleider / management",
+    message: "Demo voor het team ICT-opleidingen.",
+    status: "afgehandeld",
+    receivedAt: null,
+  },
+];
+
+function inviteMailto(r) {
+  const subject = "Je toegang tot het AI PraktijkLab";
+  const body = [
+    `Beste ${r.name},`,
+    "",
+    "Bedankt voor je aanvraag — je toegang tot het AI PraktijkLab staat klaar.",
+    "",
+    "Zo log je in:",
+    "1. Ga naar https://praktijklab.datagrid.nl",
+    "2. Kies “Inloggen met Microsoft” en gebruik je school- of Microsoft-account.",
+    "3. Begin bij de intake — die wijst je de juiste module.",
+    "",
+    "Wil je eerst een korte demo met je team? Antwoord op deze mail, dan plannen we iets in.",
+    "",
+    "Met vriendelijke groet,",
+    "Datagrid · AI PraktijkLab (VABOK)",
+  ].join("\n");
+  return `mailto:${encodeURIComponent(r.email)}?subject=${encodeURIComponent(
+    subject
+  )}&body=${encodeURIComponent(body)}`;
+}
+
+function ToegangsAanvragen() {
+  const [requests, setRequests] = useState(null); // null = nog laden / demo
+  const [liveList, setLiveList] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    listAccess().then((list) => {
+      if (cancelled) return;
+      if (list) {
+        setRequests(list);
+        setLiveList(true);
+      } else {
+        setRequests(DEMO_REQUESTS);
+        setLiveList(false);
+      }
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  async function setStatus(id, status) {
+    // Optimistisch bijwerken; alleen live echt PATCHen.
+    setRequests((rs) =>
+      rs.map((r) => (r.id === id ? { ...r, status } : r))
+    );
+    if (liveList) await updateAccess(id, status);
+  }
+
+  if (!requests) return null;
+  const open = requests.filter((r) => r.status === "nieuw").length;
+
+  return (
+    <Section
+      eyebrow="Onboarding"
+      title="Toegangsaanvragen"
+      className="hairline-t !py-10"
+      action={
+        <Tag tone={open ? "terra" : "neutral"}>
+          {open ? `${open} open` : "Geen openstaande"}
+        </Tag>
+      }
+    >
+      {!liveList && (
+        <p className="mb-4 text-[12.5px] text-ink-mute">
+          Voorbeeldweergave — echte aanvragen van het loginformulier
+          verschijnen hier zodra je als beheerder bent ingelogd.
+        </p>
+      )}
+
+      {requests.length === 0 ? (
+        <div className="card flex items-center gap-3 p-6 text-ink-soft">
+          <Inbox size={18} strokeWidth={1.7} className="text-ink-mute" />
+          <p className="text-[14px]">
+            Nog geen aanvragen. Deel de link — wie geen account heeft kan op
+            de loginpagina toegang aanvragen.
+          </p>
+        </div>
+      ) : (
+        <ul className="space-y-3">
+          {requests.map((r) => (
+            <li
+              key={r.id}
+              className={`card flex flex-col gap-4 p-5 sm:flex-row sm:items-start sm:justify-between ${
+                r.status === "afgehandeld" ? "opacity-60" : ""
+              }`}
+            >
+              <div className="min-w-0">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-[15px] font-semibold text-ink">
+                    {r.name}
+                  </span>
+                  <Tag tone={r.status === "nieuw" ? "terra" : "sage"}>
+                    {r.status === "nieuw" ? "Nieuw" : "Afgehandeld"}
+                  </Tag>
+                </div>
+                <p className="mt-1 text-[13px] text-ink-soft">
+                  {r.email}
+                  {r.organisation ? ` · ${r.organisation}` : ""}
+                  {r.role ? ` · ${r.role}` : ""}
+                </p>
+                {r.message ? (
+                  <p className="mt-2 max-w-xl text-[13px] leading-relaxed text-ink-mute">
+                    &ldquo;{r.message}&rdquo;
+                  </p>
+                ) : null}
+                {r.receivedAt ? (
+                  <p className="mt-2 font-mono text-[10.5px] uppercase tracking-widest text-ink-faint">
+                    {formatStamp(r.receivedAt)}
+                  </p>
+                ) : null}
+              </div>
+
+              <div className="flex shrink-0 flex-wrap items-center gap-2">
+                <a
+                  href={inviteMailto(r)}
+                  className="focus-ring inline-flex items-center gap-1.5 rounded-lg bg-terra px-3.5 py-2 text-[12.5px] font-medium text-white transition hover:bg-terra-deep"
+                >
+                  <Mail size={13} strokeWidth={1.9} />
+                  Stuur uitnodiging
+                </a>
+                {r.status === "nieuw" ? (
+                  <button
+                    type="button"
+                    onClick={() => setStatus(r.id, "afgehandeld")}
+                    className="focus-ring inline-flex items-center gap-1.5 rounded-lg border border-rule bg-paper-card px-3.5 py-2 text-[12.5px] font-medium text-ink-soft transition hover:border-rule-strong hover:text-ink"
+                  >
+                    <Check size={13} strokeWidth={2} />
+                    Markeer afgehandeld
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => setStatus(r.id, "nieuw")}
+                    className="focus-ring inline-flex items-center gap-1.5 rounded-lg border border-rule bg-paper-card px-3.5 py-2 text-[12.5px] font-medium text-ink-soft transition hover:border-rule-strong hover:text-ink"
+                  >
+                    <RotateCcw size={13} strokeWidth={1.9} />
+                    Heropen
+                  </button>
+                )}
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+    </Section>
   );
 }

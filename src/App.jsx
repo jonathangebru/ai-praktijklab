@@ -82,6 +82,13 @@ function AppRoutes() {
 /* Bewaakt de hele app: laden → splash, niet ingelogd → login, anders → app. */
 function Gate() {
   const { status, isAuthenticated } = useAuth();
+  // Dev-only: ?login toont de loginpagina ondanks de auto-login op :5173.
+  if (
+    import.meta.env.DEV &&
+    new URLSearchParams(window.location.search).has("login")
+  ) {
+    return <Login />;
+  }
   if (status === "loading") return <Splash />;
   if (!isAuthenticated) return <Login />;
   return <AppRoutes />;
