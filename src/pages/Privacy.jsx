@@ -214,13 +214,15 @@ export function Privacy() {
           </div>
         </div>
 
-        <Divider label="Contact" className="my-8" />
-        <p className="max-w-2xl text-[13.5px] leading-relaxed text-ink-soft">
-          Vragen over je gegevens of wil je een verzoek indienen? Neem contact op
-          met je VABOK-projectleider of de Functionaris Gegevensbescherming van je
-          instelling. Voor inhoudelijke feedback over het PraktijkLab kun je de
-          feedbackknop rechtsonder gebruiken.
-        </p>
+        <div id="contact" className="scroll-mt-24">
+          <Divider label="Contact" className="my-8" />
+          <p className="max-w-2xl text-[13.5px] leading-relaxed text-ink-soft">
+            Vragen over je gegevens of wil je een verzoek indienen? Neem contact
+            op met je VABOK-projectleider of de Functionaris Gegevensbescherming
+            van je instelling. Voor inhoudelijke feedback over het PraktijkLab
+            kun je de feedbackknop rechtsonder gebruiken.
+          </p>
+        </div>
         <div className="mt-5 flex flex-wrap items-center gap-2">
           <Tag tone="sage">
             <Shield size={11} strokeWidth={2} /> AVG-bewust ontworpen

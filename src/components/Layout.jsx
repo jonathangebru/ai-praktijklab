@@ -1,11 +1,9 @@
 import { Outlet, useLocation, Link } from "react-router-dom";
 import { Sidebar, MobileNav } from "./Sidebar";
-import { Search, Bell, Command, Menu, Clock3 } from "lucide-react";
+import { Search, Command, Menu } from "lucide-react";
 import { useEffect, useState } from "react";
 import { FeedbackWidget } from "./FeedbackWidget";
-
-/* Demo expires on this date — change in one place if you extend the demo. */
-const DEMO_EXPIRES = new Date("2026-06-07T23:59:59");
+import { CommandPalette } from "./CommandPalette";
 
 const breadcrumbs = {
   "/": ["Overzicht"],
@@ -22,23 +20,36 @@ const breadcrumbs = {
   "/project": ["VABOK", "Project & roadmap"],
   "/analytics": ["VABOK", "Voortgang & analytics"],
   "/privacy": ["VABOK", "Privacy & AVG"],
+  "/toegankelijkheid": ["VABOK", "Toegankelijkheid"],
 };
 
 export function Layout() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   const [navOpen, setNavOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+
+  // Scroll naar boven bij routewissel (of naar het anker bij een #hash)
+  // + sluit mobiele nav.
+  useEffect(() => {
+    setNavOpen(false);
+    if (hash) {
+      // Wacht tot de pagina-animatie (fade-up remount) klaar is, anders
+      // wordt de scroll door de browser weer teruggedraaid.
+      const t = setTimeout(() => {
+        document
+          .querySelector(hash)
+          ?.scrollIntoView({ behavior: "instant", block: "start" });
+      }, 350);
+      return () => clearTimeout(t);
+    }
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [pathname, hash]);
 
   const crumbs =
     breadcrumbs[pathname] ||
     (pathname.startsWith("/lessen")
       ? ["Programma", "Module", "Les"]
       : ["Overzicht"]);
-
-  // Scroll to top on route change + close mobile nav
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" });
-    setNavOpen(false);
-  }, [pathname]);
 
   return (
     <div className="relative isolate flex min-h-screen bg-paper">
@@ -51,18 +62,27 @@ export function Layout() {
       <Sidebar />
       <MobileNav open={navOpen} onClose={() => setNavOpen(false)} />
       <main id="hoofdinhoud" className="relative flex-1 min-w-0">
-        <TopBar crumbs={crumbs} onOpenNav={() => setNavOpen(true)} />
+        <TopBar
+          crumbs={crumbs}
+          onOpenNav={() => setNavOpen(true)}
+          onOpenSearch={() => setSearchOpen(true)}
+        />
         <div key={pathname} className="animate-fade-up">
           <Outlet />
         </div>
         <Footer />
       </main>
       <FeedbackWidget />
+      <CommandPalette
+        open={searchOpen}
+        onOpen={() => setSearchOpen(true)}
+        onClose={() => setSearchOpen(false)}
+      />
     </div>
   );
 }
 
-function TopBar({ crumbs, onOpenNav }) {
+function TopBar({ crumbs, onOpenNav, onOpenSearch }) {
   return (
     <header className="hairline-b sticky top-0 z-30 flex items-center justify-between gap-3 bg-paper/85 px-4 py-3 backdrop-blur-md sm:px-6 lg:gap-4 lg:px-10 lg:py-3.5">
       <div className="flex min-w-0 items-center gap-3">
@@ -97,8 +117,10 @@ function TopBar({ crumbs, onOpenNav }) {
       </div>
 
       <div className="flex shrink-0 items-center gap-2">
-        <DemoBadge />
+        <PilotBadge />
         <button
+          type="button"
+          onClick={onOpenSearch}
           className="hidden items-center gap-2.5 rounded-lg border border-rule bg-paper-card px-3 py-1.5 text-[12.5px] text-ink-mute hover:border-rule-strong hover:text-ink focus-ring md:flex"
           aria-label="Zoeken"
         >
@@ -109,50 +131,26 @@ function TopBar({ crumbs, onOpenNav }) {
           </span>
         </button>
         <button
+          type="button"
+          onClick={onOpenSearch}
           className="grid h-9 w-9 place-items-center rounded-lg border border-rule bg-paper-card text-ink-soft hover:border-rule-strong hover:text-ink focus-ring md:hidden"
           aria-label="Zoeken"
         >
           <Search size={14} strokeWidth={1.7} />
-        </button>
-        <button
-          className="grid h-9 w-9 place-items-center rounded-lg border border-rule bg-paper-card text-ink-soft hover:border-rule-strong hover:text-ink focus-ring"
-          aria-label="Meldingen"
-        >
-          <Bell size={14} strokeWidth={1.7} />
         </button>
       </div>
     </header>
   );
 }
 
-function DemoBadge() {
-  const now = new Date();
-  const msPerDay = 1000 * 60 * 60 * 24;
-  const daysLeft = Math.ceil((DEMO_EXPIRES - now) / msPerDay);
-  if (daysLeft <= 0) {
-    return (
-      <span
-        title={`Demo vervallen op ${DEMO_EXPIRES.toLocaleDateString("nl-NL")}`}
-        className="hidden items-center gap-1.5 rounded-full border border-rule bg-paper-deep/50 px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-ink-mute sm:flex"
-      >
-        <Clock3 size={10} strokeWidth={1.8} />
-        Demo verlopen
-      </span>
-    );
-  }
-  const dateStr = DEMO_EXPIRES.toLocaleDateString("nl-NL", {
-    day: "numeric",
-    month: "short",
-  });
+function PilotBadge() {
   return (
     <span
-      title={`Tijdelijke demo voor VABOK · vervalt ${DEMO_EXPIRES.toLocaleDateString("nl-NL")}`}
+      title="Pilotfase · VABOK-samenwerking"
       className="hidden items-center gap-1.5 rounded-full border border-terra-soft/60 bg-terra-tint/60 px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-terra-deep sm:flex"
     >
       <span className="inline-block h-1.5 w-1.5 animate-soft-pulse rounded-full bg-terra" />
-      Demo · t/m {dateStr}
-      <span className="text-terra-deep/60">·</span>
-      <span>{daysLeft}d</span>
+      Pilot · VABOK
     </span>
   );
 }
@@ -163,7 +161,7 @@ function Footer() {
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
           <span className="font-mono text-[10.5px] uppercase tracking-widest text-ink-mute">
-            AI&nbsp;PraktijkLab · v0.4 prototype
+            AI&nbsp;PraktijkLab · v0.5 pilot
           </span>
           <span className="hidden h-3 w-px bg-rule sm:block" />
           <span className="hidden text-[12px] text-ink-mute sm:block">
@@ -171,17 +169,23 @@ function Footer() {
           </span>
         </div>
         <div className="flex flex-wrap items-center gap-3 text-[12px] text-ink-mute">
-          <a href="#" className="hover:text-ink focus-ring rounded">
+          <Link
+            to="/toegankelijkheid"
+            className="hover:text-ink focus-ring rounded"
+          >
             Toegankelijkheid
-          </a>
+          </Link>
           <span className="h-3 w-px bg-rule" />
           <Link to="/privacy" className="hover:text-ink focus-ring rounded">
             Privacy & AVG
           </Link>
           <span className="h-3 w-px bg-rule" />
-          <a href="#" className="hover:text-ink focus-ring rounded">
+          <Link
+            to="/privacy#contact"
+            className="hover:text-ink focus-ring rounded"
+          >
             Contact
-          </a>
+          </Link>
         </div>
       </div>
     </footer>

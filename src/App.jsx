@@ -12,6 +12,7 @@ import { Prompts } from "./pages/Prompts";
 import { Project } from "./pages/Project";
 import { Analytics } from "./pages/Analytics";
 import { Privacy } from "./pages/Privacy";
+import { Toegankelijkheid } from "./pages/Toegankelijkheid";
 
 /* Tussenstaat terwijl /.auth/me wordt opgehaald. */
 function Splash() {
@@ -64,6 +65,7 @@ function AppRoutes() {
         <Route path="/promptbibliotheek" element={<Prompts />} />
         <Route path="/project" element={<Project />} />
         <Route path="/privacy" element={<Privacy />} />
+        <Route path="/toegankelijkheid" element={<Toegankelijkheid />} />
         <Route
           path="/analytics"
           element={
