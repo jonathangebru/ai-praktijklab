@@ -157,35 +157,68 @@ function PilotBadge() {
 
 function Footer() {
   return (
-    <footer className="hairline-t mt-24 px-5 py-8 sm:px-8 lg:px-10">
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
-          <span className="font-mono text-[10.5px] uppercase tracking-widest text-ink-mute">
-            AI&nbsp;PraktijkLab · v0.5 pilot
-          </span>
-          <span className="hidden h-3 w-px bg-rule sm:block" />
-          <span className="hidden text-[12px] text-ink-mute sm:block">
-            Een ontwerp voor de VABOK-samenwerking
-          </span>
+    <footer className="mt-24 bg-ink text-white">
+      <div className="grid gap-10 px-5 py-12 sm:px-8 lg:grid-cols-12 lg:px-10">
+        <div className="lg:col-span-5">
+          <p className="text-[17px] font-bold tracking-tightish">
+            AI PraktijkLab
+          </p>
+          <p className="mt-2 max-w-sm text-[13px] leading-relaxed text-white/60">
+            Praktische AI-professionalisering voor docenten in vo, mbo en
+            hbo. Een initiatief van de VABOK-samenwerking, gebouwd door
+            Datagrid.
+          </p>
         </div>
-        <div className="flex flex-wrap items-center gap-3 text-[12px] text-ink-mute">
-          <Link
-            to="/toegankelijkheid"
-            className="hover:text-ink focus-ring rounded"
-          >
-            Toegankelijkheid
-          </Link>
-          <span className="h-3 w-px bg-rule" />
-          <Link to="/privacy" className="hover:text-ink focus-ring rounded">
-            Privacy & AVG
-          </Link>
-          <span className="h-3 w-px bg-rule" />
-          <Link
-            to="/privacy#contact"
-            className="hover:text-ink focus-ring rounded"
-          >
-            Contact
-          </Link>
+
+        <div className="lg:col-span-4">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-white/40">
+            Platform
+          </p>
+          <ul className="mt-3 space-y-2 text-[13px]">
+            <li>
+              <Link
+                to="/toegankelijkheid"
+                className="focus-ring rounded text-white/75 transition hover:text-white"
+              >
+                Toegankelijkheid
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/privacy"
+                className="focus-ring rounded text-white/75 transition hover:text-white"
+              >
+                Privacy & AVG
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/privacy#contact"
+                className="focus-ring rounded text-white/75 transition hover:text-white"
+              >
+                Contact
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        <div className="lg:col-span-3">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-white/40">
+            Partners
+          </p>
+          <ul className="mt-3 space-y-2 text-[13px] text-white/75">
+            <li>Aventus</li>
+            <li>Veluwse Onderwijsgroep</li>
+            <li>Etty Hillesum Lyceum</li>
+            <li>Saxion</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="border-t border-white/10 px-5 py-4 sm:px-8 lg:px-10">
+        <div className="flex flex-col gap-2 text-[11.5px] text-white/45 sm:flex-row sm:items-center sm:justify-between">
+          <span>© 2026 Datagrid · VABOK-samenwerking</span>
+          <span>v0.6 pilot</span>
         </div>
       </div>
     </footer>
