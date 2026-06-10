@@ -32,12 +32,9 @@ export function Dashboard() {
   return (
     <div className="bg-codex-paper text-codex-ink min-h-full">
       <Opening voortgang={voortgang} />
-      <Chiaroscuro />
       <Chapters voortgang={voortgang} />
       <Voortgang voortgang={voortgang} />
-      <Onderscheidend />
       <Resources />
-      <Partners />
     </div>
   );
 }
@@ -370,44 +367,6 @@ function ProgressRow({ label, pct, right, bar = "bg-codex-vermilion" }) {
   );
 }
 
-/* ─── II. Cijferband — warm beige rustmoment ────────────────────────────── */
-function Chiaroscuro() {
-  return (
-    <section className="bg-paper-warm codex-hairline-b">
-      <div className="grid gap-10 px-5 py-12 sm:px-8 lg:grid-cols-12 lg:px-14 lg:py-16">
-        <div className="lg:col-span-5">
-          <span className="codex-eyebrow">Het programma in cijfers</span>
-          <h2 className="codex-display mt-3 text-[34px] leading-[1.05] text-codex-ink sm:text-[44px]">
-            Zeventien lessen.{" "}
-            <span className="codex-display-italic text-codex-vermilion">
-              Vier kennischecks.
-            </span>{" "}
-            Eén leerlijn.
-          </h2>
-        </div>
-
-        <dl className="grid grid-cols-2 gap-6 lg:col-span-7 lg:grid-cols-4">
-          {[
-            { v: "17", l: "Lessen, volledig uitgewerkt" },
-            { v: "60+", l: "Prompts in de bibliotheek" },
-            { v: "13", l: "Casussen uit vo / mbo / hbo" },
-            { v: "AA", l: "WCAG 2.2-norm waaraan we bouwen" },
-          ].map((s) => (
-            <div key={s.l} className="codex-hairline-t border-codex-ink/15 pt-4">
-              <dt className="codex-display text-[40px] leading-none text-codex-ink sm:text-[52px]">
-                {s.v}
-              </dt>
-              <dd className="mt-2 break-words hyphens-auto font-mono text-[10.5px] uppercase tracking-[0.18em] text-codex-ink-mute">
-                {s.l}
-              </dd>
-            </div>
-          ))}
-        </dl>
-      </div>
-    </section>
-  );
-}
-
 /* ─── III. Chapters — de twee modules ───────────────────────────────────── */
 function Chapters({ voortgang }) {
   return (
@@ -613,87 +572,6 @@ function Voortgang({ voortgang }) {
   );
 }
 
-/* ─── Onderscheidend (Principles) ───────────────────────────────────────── */
-function Onderscheidend() {
-  return (
-    <section className="codex-hairline-t px-5 py-20 sm:px-8 lg:px-14 lg:py-28">
-      <div className="codex-flourish mb-14">
-        <span>· · ·</span>
-      </div>
-
-      <div className="grid gap-12 lg:grid-cols-12 lg:gap-20">
-        <div className="lg:col-span-5">
-          <span className="codex-eyebrow">Wat dit programma drijft</span>
-          <h2 className="codex-display mt-3 text-[34px] leading-[1.02] sm:text-[44px]">
-            Niet AI-expert worden.{" "}
-            <span className="codex-display-italic text-codex-vermilion">
-              AI-bekwaam zijn.
-            </span>
-          </h2>
-          <p className="mt-7 text-[15.5px] leading-[1.75] text-codex-ink-soft">
-            Docenten hoeven geen AI-experts te worden. Wel houvast om te zien
-            hoe AI het werk van leerlingen, het ontwerpen van lessen en het
-            beoordelen verandert. Wat hier staat vertaalt die verandering naar
-            wat je morgen al doet voor de klas.
-          </p>
-
-          <figure className="mt-10 codex-hairline-l border-codex-vermilion/60 pl-6">
-            <blockquote className="codex-display-italic text-[22px] leading-snug text-codex-ink">
-              Aanbieders en exploitanten van AI-systemen zorgen voor een
-              toereikend niveau van AI-geletterdheid bij hun personeel.
-            </blockquote>
-            <figcaption className="mt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-codex-ink-mute">
-              EU AI Act · artikel 4 · van kracht sinds februari 2025
-            </figcaption>
-          </figure>
-        </div>
-
-        <ol className="lg:col-span-7">
-          {[
-            {
-              num: "I",
-              title: "AI verandert het leerproces — niet alleen het gereedschap",
-              body: "Hoe studenten lezen, schrijven, coderen en denken is sinds 2023 onomkeerbaar veranderd. Het programma vertrekt vanuit die werkelijkheid.",
-            },
-            {
-              num: "II",
-              title: "Toepasbaarheid voor morgen — niet voor over twee jaar",
-              body: "Elke les eindigt met iets dat je in je volgende lesweek kunt gebruiken. Geen theorie zonder toepassing.",
-            },
-            {
-              num: "III",
-              title: "Verantwoord gebruik is geen bijlage",
-              body: "Privacy, bias, transparantie en academische integriteit zitten in de leerlijn, niet als bijlage achterin.",
-            },
-            {
-              num: "IV",
-              title: "Vakdidactiek centraal — geen one-size-fits-all",
-              body: "Casussen, prompts en voorbeelden zijn afgestemd op vo, mbo en hbo en op specifieke vakgebieden.",
-            },
-          ].map((p) => (
-            <li
-              key={p.num}
-              className="codex-hairline-b grid grid-cols-[60px_1fr] gap-6 py-6 first:pt-0 last:border-0"
-            >
-              <span className="codex-roman text-[34px] leading-none">
-                {p.num}.
-              </span>
-              <div>
-                <h3 className="codex-display text-[22px] leading-snug text-codex-ink">
-                  {p.title}
-                </h3>
-                <p className="mt-3 max-w-[62ch] text-[14.5px] leading-[1.7] text-codex-ink-soft">
-                  {p.body}
-                </p>
-              </div>
-            </li>
-          ))}
-        </ol>
-      </div>
-    </section>
-  );
-}
-
 /* ─── Resources (Bibliotheken) ──────────────────────────────────────────── */
 function Resources() {
   return (
@@ -765,56 +643,3 @@ function ResourceColumn({ eyebrow, number, title, body, to, divider }) {
   );
 }
 
-/* ─── Partners — zachte marquee ─────────────────────────────────────────── */
-function Partners() {
-  const list = [
-    { name: "Vo-scholen", type: "vo" },
-    { name: "Mbo-colleges", type: "mbo", anchor: true },
-    { name: "Hogescholen", type: "hbo" },
-    { name: "Lerarenopleidingen", type: "hbo" },
-  ];
-  // Twee identieke helften → de -50%-loop sluit naadloos aan.
-  const strip = [...list, ...list, ...list];
-
-  return (
-    <section className="codex-hairline-t py-16 lg:py-20">
-      <div className="px-5 sm:px-8 lg:px-14">
-        <span className="codex-eyebrow">Voor wie</span>
-        <h2 className="codex-display mt-3 text-[30px] leading-[1.05] sm:text-[36px]">
-          Eén leerlijn,{" "}
-          <span className="codex-display-italic text-codex-vermilion">
-            elke
-          </span>{" "}
-          onderwijssoort.
-        </h2>
-      </div>
-
-      <div className="marquee-mask mt-10 overflow-hidden" aria-hidden="true">
-        <div className="flex w-max animate-ticker items-center gap-4 pr-4 motion-reduce:animate-none motion-reduce:flex-wrap motion-reduce:w-full motion-reduce:px-5">
-          {strip.map((p, i) => (
-            <span
-              key={`${p.name}-${i}`}
-              className="flex shrink-0 items-center gap-3 rounded-full border border-codex-rule bg-codex-card px-6 py-3"
-            >
-              <span className="codex-display text-[18px] text-codex-ink">
-                {p.name}
-              </span>
-              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-codex-ink-mute">
-                {p.type}
-              </span>
-              {p.anchor && (
-                <span className="inline-block h-1.5 w-1.5 rounded-full bg-codex-vermilion" />
-              )}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* Toegankelijke, statische opsomming voor schermlezers. */}
-      <p className="sr-only">
-        Gemaakt voor vo-scholen, mbo-colleges, hogescholen en
-        lerarenopleidingen.
-      </p>
-    </section>
-  );
-}

@@ -13,6 +13,8 @@ import {
   Sparkles,
 } from "lucide-react";
 import { Section, Button, Tag, Footnote, Divider } from "../components/ui";
+import { prompts } from "../data/prompts";
+import { cases } from "../data/cases";
 
 /* ──────────────────────────────────────────────────────────────────────────
  * Project & roadmap — het programma en waar het staat.
@@ -210,8 +212,8 @@ function ProjectHero() {
                   { l: "Module 01 · Basiscursus AI", v: "8 lessen" },
                   { l: "Module 02 · Verdieping", v: "9 lessen" },
                   { l: "Kennischecks tussen moduledelen", v: "4" },
-                  { l: "Promptbibliotheek · vakgericht", v: "60+" },
-                  { l: "Praktijkcasussen vo/mbo/hbo", v: "13" },
+                  { l: "Promptbibliotheek · vakgericht", v: String(prompts.length) },
+                  { l: "Praktijkcasussen vo/mbo/hbo", v: String(cases.length) },
                   { l: "Toegankelijkheid", v: "WCAG AA" },
                 ].map((it) => (
                   <li

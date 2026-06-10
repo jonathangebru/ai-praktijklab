@@ -1,5 +1,6 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom";
 import { AuthProvider, useAuth } from "./components/AuthProvider";
+import { Wordmark } from "./components/Logo";
 import { Layout } from "./components/Layout";
 import { Login } from "./pages/Login";
 import { Dashboard } from "./pages/Dashboard";
@@ -81,10 +82,31 @@ function AppRoutes() {
   );
 }
 
-/* Bewaakt de hele app: laden → splash, niet ingelogd → login, anders → app. */
+/* Privacy- en toegankelijkheidsverklaring zijn ook zonder login leesbaar —
+ * een AVG-statement hoort publiek te zijn. Minimale publieke omlijsting. */
+function PublicPage({ children }) {
+  return (
+    <div className="min-h-screen bg-paper">
+      <header className="hairline-b bg-paper/85 backdrop-blur-md">
+        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+          <Link to="/" className="focus-ring rounded">
+            <Wordmark />
+          </Link>
+          <Link to="/" className="btn btn-ghost focus-ring !px-5 !py-2 text-[13px]">
+            Naar de startpagina
+          </Link>
+        </div>
+      </header>
+      <main className="mx-auto max-w-5xl">{children}</main>
+    </div>
+  );
+}
+
+/* Bewaakt de hele app: laden → splash, niet ingelogd → landing, anders → app. */
 function Gate() {
   const { status, isAuthenticated } = useAuth();
-  // Dev-only: ?login toont de loginpagina ondanks de auto-login op :5173.
+  const { pathname } = useLocation();
+  // Dev-only: ?login toont de landing ondanks de auto-login op :5173.
   if (
     import.meta.env.DEV &&
     new URLSearchParams(window.location.search).has("login")
@@ -92,7 +114,21 @@ function Gate() {
     return <Login />;
   }
   if (status === "loading") return <Splash />;
-  if (!isAuthenticated) return <Login />;
+  if (!isAuthenticated) {
+    if (pathname === "/privacy")
+      return (
+        <PublicPage>
+          <Privacy />
+        </PublicPage>
+      );
+    if (pathname === "/toegankelijkheid")
+      return (
+        <PublicPage>
+          <Toegankelijkheid />
+        </PublicPage>
+      );
+    return <Login />;
+  }
   return <AppRoutes />;
 }
 

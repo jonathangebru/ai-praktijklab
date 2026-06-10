@@ -10,6 +10,26 @@ const iconMap = {
   Bug: L.Bug,
   Stethoscope: L.Stethoscope,
   BarChart3: L.BarChart3,
+  Languages: L.Languages,
+  Calculator: L.Calculator,
+  FlaskConical: L.FlaskConical,
+  Landmark: L.Landmark,
+  Palette: L.Palette,
+  Laptop: L.Laptop,
+  Compass: L.Compass,
+  Users: L.Users,
+  Truck: L.Truck,
+  ChefHat: L.ChefHat,
+  Car: L.Car,
+  HardHat: L.HardHat,
+  Scale: L.Scale,
+  Megaphone: L.Megaphone,
+  Baby: L.Baby,
+  PenLine: L.PenLine,
+  Shield: L.Shield,
+  GraduationCap: L.GraduationCap,
+  HeartHandshake: L.HeartHandshake,
+  Briefcase: L.Briefcase,
 };
 
 export function Cases() {
@@ -19,13 +39,12 @@ export function Cases() {
 
   const filtered = useMemo(() => {
     return cases.filter((c) => {
+      const f = caseFilters.find((x) => x.id === filter);
       const matchFilter =
         filter === "all" ||
         filter === c.level ||
-        (filter === "ict" && c.domain.toLowerCase().includes("ict")) ||
-        (filter === "zorg" && c.domain.toLowerCase().includes("zorg")) ||
-        (filter === "economie" &&
-          c.domain.toLowerCase().includes("economie"));
+        (f?.match &&
+          f.match.some((m) => c.domain.toLowerCase().includes(m)));
       const matchQuery =
         !query ||
         c.title.toLowerCase().includes(query.toLowerCase()) ||
