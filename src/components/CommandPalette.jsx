@@ -30,7 +30,6 @@ const PAGES = [
   { title: "Module 02 · AI-geletterdheid", to: "/modules/ai-geletterdheid" },
   { title: "Promptbibliotheek", to: "/promptbibliotheek" },
   { title: "Praktijkcasussen", to: "/praktijkcasussen" },
-  { title: "Project & roadmap", to: "/project" },
   { title: "Voortgang & analytics", to: "/analytics" },
   { title: "Privacy & AVG", to: "/privacy" },
   { title: "Toegankelijkheid", to: "/toegankelijkheid" },

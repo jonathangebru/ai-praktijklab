@@ -6,7 +6,6 @@ import {
   Sparkles,
   GraduationCap,
   FlaskConical,
-  ClipboardList,
   LineChart,
   TrendingUp,
   LogOut,
@@ -37,7 +36,6 @@ const nav = [
   {
     section: "Platform",
     items: [
-      { to: "/project", label: "Project & roadmap", icon: ClipboardList },
       { to: "/analytics", label: "Voortgang & analytics", icon: LineChart, requiresRole: ["beheerder", "manager"] },
     ],
   },

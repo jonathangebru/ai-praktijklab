@@ -18,7 +18,6 @@ const breadcrumbs = {
   ],
   "/promptbibliotheek": ["Bibliotheken", "Promptbibliotheek"],
   "/praktijkcasussen": ["Bibliotheken", "Praktijkcasussen"],
-  "/project": ["Platform", "Project & roadmap"],
   "/analytics": ["Platform", "Voortgang & analytics"],
   "/privacy": ["Platform", "Privacy & AVG"],
   "/toegankelijkheid": ["Platform", "Toegankelijkheid"],

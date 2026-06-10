@@ -249,9 +249,9 @@ function ModulePraktijk({ module: m }) {
             tone: "sage",
           },
           {
-            title: "Pilot in je team",
-            body: "Hoe je collega's meeneemt in een train-the-teacher.",
-            to: "/project",
+            title: "Mijn voortgang",
+            body: "Volg je leerreis, lessen en certificaten.",
+            to: "/voortgang",
             icon: Asterisk,
             tone: "terra",
           },

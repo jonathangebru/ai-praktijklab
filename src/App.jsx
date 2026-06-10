@@ -10,7 +10,6 @@ import { Module2 } from "./pages/Module2";
 import { Lesson } from "./pages/Lesson";
 import { Cases } from "./pages/Cases";
 import { Prompts } from "./pages/Prompts";
-import { Project } from "./pages/Project";
 import { Analytics } from "./pages/Analytics";
 import { Privacy } from "./pages/Privacy";
 import { Toegankelijkheid } from "./pages/Toegankelijkheid";
@@ -66,7 +65,6 @@ function AppRoutes() {
         <Route path="/lessen/:slug" element={<Lesson />} />
         <Route path="/praktijkcasussen" element={<Cases />} />
         <Route path="/promptbibliotheek" element={<Prompts />} />
-        <Route path="/project" element={<Project />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/toegankelijkheid" element={<Toegankelijkheid />} />
         <Route

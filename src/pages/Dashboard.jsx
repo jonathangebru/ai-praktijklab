@@ -600,11 +600,11 @@ function Resources() {
           divider
         />
         <ResourceColumn
-          eyebrow="Platform"
+          eyebrow="Persoonlijk"
           number="C"
-          title="Project & roadmap"
-          body="Hoe het programma zich ontwikkelt, hoe pilots werken, en hoe instellingen meedoen."
-          to="/project"
+          title="Mijn voortgang"
+          body="Je leerreis per les, je activiteit en je certificaten — alles op één plek."
+          to="/voortgang"
           divider
         />
       </div>
