@@ -2,14 +2,17 @@ import { Link } from "react-router-dom";
 import {
   ArrowUpRight,
   Compass,
-  CalendarDays,
   ChevronRight,
   Sparkles,
+  Target,
+  CheckCircle2,
 } from "lucide-react";
 import { moduleList } from "../data/modules";
+import { useAuth } from "../components/AuthProvider";
+import { useVoortgang, formatRelative } from "../lib/voortgang";
 
 /* ──────────────────────────────────────────────────────────────────────────
- * CODEX · het nieuwe Dashboard
+ * CODEX · het Dashboard
  *
  * Een opzettelijk editoriaal ontwerp — een opening die meer lijkt op het
  * eerste hoofdstuk van een gerespecteerd handboek dan op een SaaS-dashboard.
@@ -19,15 +22,19 @@ import { moduleList } from "../data/modules";
  *   · Dropcap-opening, hairline-rijk, marginalia rechts.
  *   · Eén signature-moment van motion: staggered reveal bij eerste load.
  *   · Een chiaroscuro band — kort, donker, cream-on-ink — als kantelpunt.
+ *
+ * Alles wat voortgang toont is écht: berekend uit het werk van de docent
+ * (lib/voortgang) — geen mockdata.
  * ──────────────────────────────────────────────────────────────────────── */
 
 export function Dashboard() {
+  const voortgang = useVoortgang();
   return (
     <div className="bg-codex-paper text-codex-ink min-h-full">
-      <Opening />
+      <Opening voortgang={voortgang} />
       <Chiaroscuro />
-      <Chapters />
-      <Voortgang />
+      <Chapters voortgang={voortgang} />
+      <Voortgang voortgang={voortgang} />
       <Onderscheidend />
       <Resources />
       <Partners />
@@ -35,8 +42,23 @@ export function Dashboard() {
   );
 }
 
+/* Voornaam uit de inlognaam — werkt voor "Marieke de Vries" én "j.gebru@…". */
+function firstNameFrom(displayName) {
+  const raw = (displayName || "").trim();
+  if (!raw) return "";
+  const local = raw.includes("@") ? raw.split("@")[0] : raw;
+  const first = local.split(/[\s._-]+/).filter(Boolean)[0] || "";
+  if (first.length < 2) return "";
+  return first.charAt(0).toUpperCase() + first.slice(1);
+}
+
 /* ─── I. Opening — Hero ─────────────────────────────────────────────────── */
-function Opening() {
+function Opening({ voortgang }) {
+  const { displayName } = useAuth();
+  const name = firstNameFrom(displayName);
+  const { next, nextIsResume, doneTotal } = voortgang;
+  const started = doneTotal > 0 || voortgang.workingTotal > 0;
+
   return (
     <section className="codex-grain relative codex-hairline-b overflow-hidden">
       <div className="relative grid gap-12 px-5 pb-16 pt-14 sm:px-8 lg:grid-cols-12 lg:gap-16 lg:px-14 lg:pb-24 lg:pt-20">
@@ -50,11 +72,23 @@ function Opening() {
           </div>
 
           <h1 className="codex-display mt-7 max-w-3xl text-balance text-[44px] leading-[0.96] text-codex-ink sm:text-[58px] lg:text-[76px]">
-            Welkom terug,{" "}
-            <span className="codex-display-italic text-codex-vermilion">
-              Marieke
-            </span>
-            .
+            {name ? (
+              <>
+                Welkom terug,{" "}
+                <span className="codex-display-italic text-codex-vermilion">
+                  {name}
+                </span>
+                .
+              </>
+            ) : (
+              <>
+                Welkom{" "}
+                <span className="codex-display-italic text-codex-vermilion">
+                  terug
+                </span>
+                .
+              </>
+            )}
             <br />
             Een nieuwe les wacht.
           </h1>
@@ -89,30 +123,58 @@ function Opening() {
           </div>
 
           <div className="mt-14 max-w-[62ch] codex-hairline-t pt-6">
-            <p className="codex-eyebrow mb-2">Lees verder waar je bleef</p>
-            <Link
-              to="/lessen/lesvoorbereiding"
-              className="group flex items-baseline justify-between gap-6"
-            >
-              <span className="text-[15px] text-codex-ink-soft">
-                <span className="codex-roman text-[20px] mr-1.5">1.4</span>
-                <span className="codex-display-italic text-codex-ink text-[19px]">
-                  AI voor lesvoorbereiding
-                </span>
-                <span className="ml-2 font-mono text-[11px] uppercase tracking-[0.18em] text-codex-ink-mute">
-                  22 van 75 min
-                </span>
-              </span>
-              <span className="codex-focus inline-flex items-center gap-1 whitespace-nowrap text-[13.5px] font-medium text-codex-vermilion transition group-hover:gap-2">
-                Open les
-                <ChevronRight size={13} strokeWidth={2.2} />
-              </span>
-            </Link>
+            {next ? (
+              <>
+                <p className="codex-eyebrow mb-2">
+                  {nextIsResume
+                    ? "Lees verder waar je bleef"
+                    : started
+                    ? "Jouw volgende stap"
+                    : "Begin hier"}
+                </p>
+                <Link
+                  to={`/lessen/${next.lesson.slug}`}
+                  className="group flex items-baseline justify-between gap-6"
+                >
+                  <span className="text-[15px] text-codex-ink-soft">
+                    <span className="codex-roman text-[20px] mr-1.5">
+                      {next.lesson.number}
+                    </span>
+                    <span className="codex-display-italic text-codex-ink text-[19px]">
+                      {next.lesson.title}
+                    </span>
+                    <span className="ml-2 font-mono text-[11px] uppercase tracking-[0.18em] text-codex-ink-mute">
+                      {next.lesson.duration}
+                    </span>
+                  </span>
+                  <span className="codex-focus inline-flex items-center gap-1 whitespace-nowrap text-[13.5px] font-medium text-codex-vermilion transition group-hover:gap-2">
+                    Open les
+                    <ChevronRight size={13} strokeWidth={2.2} />
+                  </span>
+                </Link>
+              </>
+            ) : (
+              <>
+                <p className="codex-eyebrow mb-2">Alles afgerond</p>
+                <Link
+                  to="/promptbibliotheek"
+                  className="group flex items-baseline justify-between gap-6"
+                >
+                  <span className="codex-display-italic text-codex-ink text-[19px]">
+                    De hele leerlijn zit erop — bekijk je promptkit.
+                  </span>
+                  <span className="codex-focus inline-flex items-center gap-1 whitespace-nowrap text-[13.5px] font-medium text-codex-vermilion transition group-hover:gap-2">
+                    Open kit
+                    <ChevronRight size={13} strokeWidth={2.2} />
+                  </span>
+                </Link>
+              </>
+            )}
           </div>
         </div>
 
         <aside className="lg:col-span-5">
-          <Marginalia />
+          <Marginalia voortgang={voortgang} />
         </aside>
       </div>
     </section>
@@ -120,7 +182,12 @@ function Opening() {
 }
 
 /* ─── Marginalia (right rail) ───────────────────────────────────────────── */
-function Marginalia() {
+function Marginalia({ voortgang }) {
+  const { modules, promptkitCount, activity } = voortgang;
+  const vol1 = modules[0];
+  const vol2 = modules[1];
+  const recent = activity.slice(0, 3);
+
   return (
     <div className="codex-margin-rule sticky top-24 codex-hairline rounded-none border-l-2 border-codex-vermilion bg-codex-card/60 pl-7 pr-6 py-7">
       <div className="flex items-baseline justify-between gap-4">
@@ -136,58 +203,141 @@ function Marginalia() {
       <ul className="mt-6 space-y-5">
         <ProgressRow
           label="Volume I · Basiscursus AI"
-          pct={42}
-          right="03 van 08"
+          pct={vol1.pct}
+          right={`${String(vol1.done).padStart(2, "0")} van ${String(
+            vol1.total
+          ).padStart(2, "0")}`}
         />
         <ProgressRow
           label="Volume II · Verdieping"
-          pct={12}
-          right="01 van 09"
+          pct={vol2.pct}
+          right={`${String(vol2.done).padStart(2, "0")} van ${String(
+            vol2.total
+          ).padStart(2, "0")}`}
         />
         <ProgressRow
           label="Mijn promptkit"
-          pct={67}
-          right="12 prompts"
+          pct={Math.min(100, promptkitCount * 10)}
+          right={
+            promptkitCount === 1 ? "1 prompt" : `${promptkitCount} prompts`
+          }
         />
       </ul>
 
       <div className="my-7 codex-rule" />
 
-      <ul className="space-y-4">
-        <RecentEntry
-          number="1.3"
-          title="Prompting voor docenten"
-          meta="afgerond · 60 min"
-          status="done"
-        />
-        <RecentEntry
-          number="1.4"
-          title="AI voor lesvoorbereiding"
-          meta="in uitvoering · 22 van 75 min"
-        />
-        <RecentEntry
-          icon="prompt"
-          title="Drie niveaus van dezelfde opdracht"
-          meta="toegevoegd aan mijn kit"
-        />
-      </ul>
+      {recent.length ? (
+        <ul className="space-y-4">
+          {recent.map((a, i) => (
+            <ActivityEntry key={`${a.type}-${a.slug || a.title}-${i}`} entry={a} />
+          ))}
+        </ul>
+      ) : (
+        <p className="text-[13px] leading-relaxed text-codex-ink-soft">
+          Nog geen activiteit. Begin met de{" "}
+          <Link
+            to="/intake"
+            className="codex-focus border-b border-codex-vermilion/50 text-codex-ink hover:text-codex-vermilion"
+          >
+            intake
+          </Link>{" "}
+          of open de eerste les — alles wat je schrijft verschijnt hier.
+        </p>
+      )}
 
       <div className="mt-7 codex-hairline-t pt-5">
-        <div className="flex items-center gap-2.5">
-          <CalendarDays
-            size={14}
-            strokeWidth={1.8}
-            className="text-codex-ink-mute"
-          />
-          <div className="flex-1">
-            <p className="text-[13px] text-codex-ink-soft">
-              Eerstvolgende sessie · woensdag 10 juni · 14:30
-            </p>
-            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-codex-ink-mute mt-0.5">
-              Aventus · live met collega&apos;s
-            </p>
-          </div>
+        <Weekdoel activity={activity} />
+      </div>
+    </div>
+  );
+}
+
+/* Recente activiteit uit de leerreis — les bewerkt / afgerond / prompt. */
+function ActivityEntry({ entry }) {
+  const isPrompt = entry.type === "prompt";
+  const isDone = entry.type === "afgerond";
+  const lesson = !isPrompt
+    ? moduleList.flatMap((m) => m.lessons).find((l) => l.slug === entry.slug)
+    : null;
+  const title = isPrompt ? entry.title : lesson?.title || entry.slug;
+  const meta = isDone
+    ? `afgerond · ${formatRelative(entry.ts)}`
+    : isPrompt
+    ? `toegevoegd aan mijn kit · ${formatRelative(entry.ts)}`
+    : `bewerkt · ${formatRelative(entry.ts)}`;
+
+  return (
+    <li className="flex items-start gap-3">
+      <span
+        className={`codex-roman shrink-0 text-[16px] leading-snug ${
+          isDone
+            ? "text-codex-ink-mute"
+            : isPrompt
+            ? "text-codex-ink"
+            : "text-codex-vermilion"
+        }`}
+      >
+        {isPrompt ? (
+          <Sparkles size={12} strokeWidth={1.8} />
+        ) : (
+          lesson?.number || "·"
+        )}
+      </span>
+      <div className="flex-1">
+        <div
+          className={`text-[13px] leading-snug ${
+            isDone
+              ? "text-codex-ink-mute line-through decoration-codex-ink-faint"
+              : "text-codex-ink"
+          }`}
+        >
+          {title}
         </div>
+        <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-codex-ink-mute mt-0.5">
+          {meta}
+        </div>
+      </div>
+    </li>
+  );
+}
+
+/* Weekdoel — één les per week afronden. Klein, eerlijk, motiverend. */
+function Weekdoel({ activity }) {
+  const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
+  const now = Date.now();
+  const thisWeek = activity.filter((a) => a.ts && now - a.ts < WEEK_MS);
+  const doneThisWeek = thisWeek.filter((a) => a.type === "afgerond").length;
+  const touched = new Set(
+    thisWeek.filter((a) => a.type === "les" && a.slug).map((a) => a.slug)
+  ).size;
+
+  const achieved = doneThisWeek > 0;
+  const text = achieved
+    ? doneThisWeek === 1
+      ? "Weekdoel gehaald — één les afgerond."
+      : `Weekdoel gehaald — ${doneThisWeek} lessen afgerond.`
+    : touched > 0
+    ? touched === 1
+      ? "Je werkte deze week aan één les."
+      : `Je werkte deze week aan ${touched} lessen.`
+    : "Nog geen activiteit deze week.";
+
+  return (
+    <div className="flex items-center gap-2.5">
+      {achieved ? (
+        <CheckCircle2
+          size={14}
+          strokeWidth={1.8}
+          className="text-codex-vermilion"
+        />
+      ) : (
+        <Target size={14} strokeWidth={1.8} className="text-codex-ink-mute" />
+      )}
+      <div className="flex-1">
+        <p className="text-[13px] text-codex-ink-soft">{text}</p>
+        <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-codex-ink-mute mt-0.5">
+          Weekdoel · rond één les af
+        </p>
       </div>
     </div>
   );
@@ -212,38 +362,6 @@ function ProgressRow({ label, pct, right }) {
         <span className="codex-display-italic text-[13px] text-codex-vermilion">
           {pct}%
         </span>
-      </div>
-    </li>
-  );
-}
-
-function RecentEntry({ number, icon, title, meta, status }) {
-  return (
-    <li className="flex items-start gap-3">
-      <span
-        className={`codex-roman shrink-0 text-[16px] leading-snug ${
-          status === "done"
-            ? "text-codex-ink-mute"
-            : icon === "prompt"
-            ? "text-codex-ink"
-            : "text-codex-vermilion"
-        }`}
-      >
-        {icon === "prompt" ? <Sparkles size={12} strokeWidth={1.8} /> : number}
-      </span>
-      <div className="flex-1">
-        <div
-          className={`text-[13px] leading-snug ${
-            status === "done"
-              ? "text-codex-ink-mute line-through decoration-codex-ink-faint"
-              : "text-codex-ink"
-          }`}
-        >
-          {title}
-        </div>
-        <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-codex-ink-mute mt-0.5">
-          {meta}
-        </div>
       </div>
     </li>
   );
@@ -290,7 +408,7 @@ function Chiaroscuro() {
 }
 
 /* ─── III. Chapters — de twee modules ───────────────────────────────────── */
-function Chapters() {
+function Chapters({ voortgang }) {
   return (
     <section className="px-5 py-16 sm:px-8 lg:px-14 lg:py-24">
       <div className="codex-flourish mb-12">
@@ -315,14 +433,21 @@ function Chapters() {
 
       <div className="grid gap-6 lg:grid-cols-2">
         {moduleList.map((m, idx) => (
-          <ChapterCard key={m.id} module={m} chapterRoman={idx === 0 ? "I" : "II"} />
+          <ChapterCard
+            key={m.id}
+            module={m}
+            chapterRoman={idx === 0 ? "I" : "II"}
+            stats={voortgang.modules[idx]}
+            lessonStates={voortgang.lessonStates}
+          />
         ))}
       </div>
     </section>
   );
 }
 
-function ChapterCard({ module: m, chapterRoman }) {
+function ChapterCard({ module: m, chapterRoman, stats, lessonStates }) {
+  const checks = m.lessons.filter((l) => l.isCheck).length;
   return (
     <Link
       to={`/modules/${m.id}`}
@@ -354,7 +479,17 @@ function ChapterCard({ module: m, chapterRoman }) {
         <div className="flex flex-wrap items-center gap-3 font-mono text-[10.5px] uppercase tracking-[0.22em] text-codex-ink-mute">
           <span>{m.durationWeeks} weken</span>
           <span className="text-codex-ink-faint">·</span>
-          <span>4 kennischecks</span>
+          <span>
+            {checks} kennischeck{checks === 1 ? "" : "s"}
+          </span>
+          {stats?.done > 0 && (
+            <>
+              <span className="text-codex-ink-faint">·</span>
+              <span className="text-codex-vermilion-deep">
+                {stats.done} afgerond
+              </span>
+            </>
+          )}
         </div>
         <span className="inline-flex items-center gap-1.5 text-[13.5px] font-medium text-codex-ink transition group-hover:gap-2.5 group-hover:text-codex-vermilion">
           Open
@@ -362,17 +497,30 @@ function ChapterCard({ module: m, chapterRoman }) {
         </span>
       </div>
 
-      {/* lesson strip — minimal */}
+      {/* lesson strip — jouw echte staat per les */}
       <div className="mt-6 flex gap-1.5">
-        {m.lessons.map((l, i) => (
-          <span
-            key={l.slug}
-            className={`h-[2px] flex-1 ${
-              i < 3 ? "bg-codex-vermilion" : "bg-codex-deep"
-            }`}
-            title={l.title}
-          />
-        ))}
+        {m.lessons.map((l) => {
+          const state = lessonStates[l.slug];
+          return (
+            <span
+              key={l.slug}
+              className={`h-[2px] flex-1 ${
+                state === "done"
+                  ? "bg-codex-vermilion"
+                  : state === "working"
+                  ? "bg-codex-vermilion/40"
+                  : "bg-codex-deep"
+              }`}
+              title={`${l.number} · ${l.title}${
+                state === "done"
+                  ? " — afgerond"
+                  : state === "working"
+                  ? " — in uitvoering"
+                  : ""
+              }`}
+            />
+          );
+        })}
       </div>
     </Link>
   );
@@ -392,32 +540,55 @@ function ChapterMeta({ label, value }) {
 }
 
 /* ─── Voortgang ─────────────────────────────────────────────────────────── */
-function Voortgang() {
+function Voortgang({ voortgang }) {
+  const { modules, promptkitCount, doneTotal, lessonsTotal } = voortgang;
+  const tiles = [
+    {
+      l: "Volume I · basis",
+      v: modules[0].pct,
+      suffix: "%",
+      pct: modules[0].pct,
+    },
+    {
+      l: "Volume II · verdieping",
+      v: modules[1].pct,
+      suffix: "%",
+      pct: modules[1].pct,
+    },
+    {
+      l: "Mijn promptkit",
+      v: promptkitCount,
+      suffix: promptkitCount === 1 ? "prompt" : "prompts",
+      pct: Math.min(100, promptkitCount * 10),
+    },
+    {
+      l: "Lessen afgerond",
+      v: doneTotal,
+      suffix: `van ${lessonsTotal}`,
+      pct: lessonsTotal ? Math.round((doneTotal / lessonsTotal) * 100) : 0,
+    },
+  ];
+
   return (
     <section className="codex-hairline-t bg-codex-card/40 px-5 py-16 sm:px-8 lg:px-14">
       <div className="mb-10 flex items-end justify-between gap-6">
         <div>
           <span className="codex-eyebrow">Mijn voortgang</span>
           <h2 className="codex-display mt-3 text-[30px] leading-[1.05] sm:text-[38px]">
-            Vier vakken,{" "}
-            <span className="codex-display-italic text-codex-vermilion">één</span>{" "}
-            leerlijn.
+            Jouw leerlijn,{" "}
+            <span className="codex-display-italic text-codex-vermilion">
+              in cijfers
+            </span>
+            .
           </h2>
         </div>
       </div>
 
       <div className="grid gap-0 codex-hairline overflow-hidden sm:grid-cols-2 lg:grid-cols-4">
-        {[
-          { l: "Volume I · basis", v: 42 },
-          { l: "Volume II · verdieping", v: 12 },
-          { l: "Mijn promptkit", v: 67 },
-          { l: "Reflectiejournaal", v: 30 },
-        ].map((s, i) => (
+        {tiles.map((s, i) => (
           <div
             key={s.l}
-            className={`bg-codex-card p-7 ${
-              i > 0 ? "codex-hairline-l" : ""
-            }`}
+            className={`bg-codex-card p-7 ${i > 0 ? "codex-hairline-l" : ""}`}
           >
             <div className="codex-eyebrow mb-3">{s.l}</div>
             <div className="flex items-baseline gap-2">
@@ -425,13 +596,13 @@ function Voortgang() {
                 {s.v}
               </span>
               <span className="codex-display-italic text-[18px] text-codex-vermilion">
-                %
+                {s.suffix}
               </span>
             </div>
             <div className="mt-4 h-[3px] w-full bg-codex-deep">
               <div
                 className="h-full bg-codex-vermilion"
-                style={{ width: `${s.v}%` }}
+                style={{ width: `${s.pct}%` }}
               />
             </div>
           </div>

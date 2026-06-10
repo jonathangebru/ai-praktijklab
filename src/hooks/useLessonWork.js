@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import * as workClient from "../lib/workClient";
+import { logActivity } from "../lib/voortgang";
 
 /* ─────────────────────────────────────────────────────────────────────────
  * useLessonWork(slug)
@@ -169,6 +170,8 @@ export function useLessonWork(slug) {
     }
     // Push naar de server (best-effort; faalt stil als niet ingelogd).
     workClient.saveLesson(slug, snapshot);
+    // Houd de leerreis bij — voedt "recente activiteit" op het dashboard.
+    if (Object.keys(snapshot).length) logActivity({ type: "les", slug });
   }, [slug]);
 
   const scheduleSave = useCallback(
@@ -254,6 +257,7 @@ export function useLessonWork(slug) {
       setPromptkit(next);
       // Push naar de server (best-effort).
       workClient.savePromptkit(next);
+      logActivity({ type: "prompt", title: entry.title || "Prompt bewaard" });
       return true;
     } catch {
       return false;

@@ -11,15 +11,24 @@ import {
 } from "lucide-react";
 import { PageHeader, Section, Button, Tag, ProgressBar, Footnote, Divider } from "../components/ui";
 
-export function ModulePage({ module: m, progress = {} }) {
+export function ModulePage({ module: m, states = {} }) {
   const tone = m.color === "terra" ? "terra" : "academy";
-  const completedCount = m.lessons.filter((l) => progress[l.slug]).length;
+  const completedCount = m.lessons.filter(
+    (l) => states[l.slug] === "done"
+  ).length;
   const pct = Math.round((completedCount / m.lessons.length) * 100);
+
+  // "Verder waar je was": liefst een les met werk-in-uitvoering, anders de
+  // eerste les die nog niet is afgerond.
+  const current =
+    m.lessons.find((l) => states[l.slug] === "working")?.slug ||
+    m.lessons.find((l) => states[l.slug] !== "done")?.slug ||
+    null;
 
   return (
     <>
       <ModuleHero module={m} tone={tone} pct={pct} completedCount={completedCount} />
-      <ModuleLessons module={m} progress={progress} tone={tone} />
+      <ModuleLessons module={m} states={states} current={current} tone={tone} />
       <ModuleOutcomes module={m} />
       <ModulePraktijk module={m} />
     </>
@@ -112,17 +121,18 @@ function Stat({ label, value }) {
   );
 }
 
-function ModuleLessons({ module: m, progress, tone }) {
+function ModuleLessons({ module: m, states, current, tone }) {
   return (
-    <Section eyebrow="Leerlijn" title="Acht stappen, één leerpad" className="hairline-b">
+    <Section eyebrow="Leerlijn" title="Stap voor stap, één leerpad" className="hairline-b">
       <ol className="space-y-3">
-        {m.lessons.map((l, idx) => (
+        {m.lessons.map((l) => (
           <LessonRow
             key={l.slug}
             lesson={l}
             tone={tone}
-            done={progress[l.slug]}
-            current={idx === 3}
+            done={states[l.slug] === "done"}
+            working={states[l.slug] === "working"}
+            current={l.slug === current}
           />
         ))}
       </ol>
@@ -130,7 +140,7 @@ function ModuleLessons({ module: m, progress, tone }) {
   );
 }
 
-function LessonRow({ lesson: l, tone, done, current }) {
+function LessonRow({ lesson: l, tone, done, working, current }) {
   return (
     <li>
       <Link
@@ -145,9 +155,13 @@ function LessonRow({ lesson: l, tone, done, current }) {
 
         <div className="col-span-7">
           <div className="flex items-center gap-2">
-            <Tag tone={done ? "sage" : "neutral"}>
-              {done ? <CheckCircle2 size={10} strokeWidth={2} /> : <Circle size={10} strokeWidth={2} />}
-              {done ? "Afgerond" : l.difficulty}
+            <Tag tone={done ? "sage" : working ? "terra" : "neutral"}>
+              {done ? (
+                <CheckCircle2 size={10} strokeWidth={2} />
+              ) : (
+                <Circle size={10} strokeWidth={2} />
+              )}
+              {done ? "Afgerond" : working ? "In uitvoering" : l.difficulty}
             </Tag>
             {current && <Tag tone="terra">Verder waar je was</Tag>}
           </div>

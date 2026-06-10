@@ -56,6 +56,7 @@ import {
 import { findLesson } from "../data/modules";
 import { lessonDetails, defaultLesson } from "../data/lessonDetails";
 import { useLessonWork } from "../hooks/useLessonWork";
+import { isDone, setDone } from "../lib/voortgang";
 
 export function Lesson() {
   const { slug } = useParams();
@@ -1364,6 +1365,69 @@ function ContextNav({ module: m, lesson, tone }) {
   );
 }
 
+/* "Klaar met deze les?" — de docent vinkt zelf af. Voedt de voortgang op
+ * het dashboard en de modulepagina's, en synct mee naar de server. */
+function LesAfronden({ lesson }) {
+  const [done, setDoneState] = useState(() => isDone(lesson.slug));
+
+  useEffect(() => {
+    setDoneState(isDone(lesson.slug));
+  }, [lesson.slug]);
+
+  function toggle() {
+    const next = !done;
+    setDone(lesson.slug, next);
+    setDoneState(next);
+    trackEvent("lesson-marked-done", { slug: lesson.slug, done: next });
+  }
+
+  if (done) {
+    return (
+      <div className="mb-5 flex flex-wrap items-center justify-between gap-4 rounded-xl bg-sage-tint px-6 py-5">
+        <div className="flex items-center gap-3">
+          <CheckCircle2 size={18} strokeWidth={1.8} className="text-sage-deep" />
+          <div>
+            <p className="text-[14.5px] font-medium text-sage-deep">
+              Les afgerond — goed bezig.
+            </p>
+            <p className="text-[12.5px] text-sage-deep/80">
+              Je voortgang is bijgewerkt op je overzicht.
+            </p>
+          </div>
+        </div>
+        <button
+          type="button"
+          onClick={toggle}
+          className="text-[12.5px] text-sage-deep/80 underline-offset-2 hover:underline focus-ring rounded"
+        >
+          Maak ongedaan
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="mb-5 flex flex-wrap items-center justify-between gap-4 rounded-xl border border-rule bg-paper-card px-6 py-5">
+      <div>
+        <p className="text-[14.5px] font-medium text-ink">
+          Klaar met deze les?
+        </p>
+        <p className="text-[12.5px] text-ink-soft">
+          Vink af en zie je voortgang groeien — je kunt altijd terugkomen.
+        </p>
+      </div>
+      <button
+        type="button"
+        onClick={toggle}
+        className="inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2 text-[13px] font-medium text-paper-card transition hover:bg-terra focus-ring"
+      >
+        <CheckCircle2 size={14} strokeWidth={1.8} />
+        Markeer als afgerond
+      </button>
+    </div>
+  );
+}
+
 function NextLessonStrip({ lesson, module: m, detail }) {
   const next = useMemo(() => {
     if (detail.nextLesson) {
@@ -1377,6 +1441,7 @@ function NextLessonStrip({ lesson, module: m, detail }) {
   if (!next) {
     return (
       <Section className="hairline-t">
+        <LesAfronden lesson={lesson} />
         <div className="card-elev p-7">
           <Footnote>Module afronding</Footnote>
           <h3 className="mt-2 font-display text-[24px] leading-tight">
@@ -1399,6 +1464,7 @@ function NextLessonStrip({ lesson, module: m, detail }) {
 
   return (
     <Section className="hairline-t">
+      <LesAfronden lesson={lesson} />
       <Link
         to={`/lessen/${next.slug}`}
         className="card-elev group flex items-center justify-between gap-6 p-7 transition hover:border-rule-strong"

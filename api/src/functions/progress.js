@@ -210,6 +210,9 @@ app.http("progress", {
           continue;
         }
 
+        // Overige meta-rijen ("__done__" e.d.) zijn geen lessen — overslaan.
+        if (String(e.rowKey || "").startsWith("__")) continue;
+
         // Gewone les-rij.
         let data = null;
         try {
