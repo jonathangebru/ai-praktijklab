@@ -1,6 +1,6 @@
 export function Logo({ size = 32, monochrome = false }) {
-  const ink = monochrome ? "currentColor" : "#0E1A2B";
-  const accent = monochrome ? "currentColor" : "#2563EB";
+  const ink = monochrome ? "currentColor" : "#231F20";
+  const accent = monochrome ? "currentColor" : "#FF832C";
   return (
     <svg
       width={size}
@@ -11,7 +11,7 @@ export function Logo({ size = 32, monochrome = false }) {
     >
       <rect width="64" height="64" rx="14" fill={ink} />
       <g
-        stroke="#F6F8FA"
+        stroke="#F6F6F3"
         strokeWidth="2.4"
         strokeLinecap="round"
         strokeLinejoin="round"

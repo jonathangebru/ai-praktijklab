@@ -3,25 +3,32 @@
 @tailwind utilities;
 
 /* ──────────────────────────────────────────────────────────────────────────
- * Enterprise-licht thema — wit, diep navy, één helder blauw accent.
- * Geïnspireerd op moderne SaaS (ruim wit, strakke sans, subtiele schaduwen).
- * Klassennamen zijn ongewijzigd; alleen de waarden zijn vernieuwd, zodat
- * alle pagina's in één keer mee-stylen.
+ * Sinqlo-visie — bone-wit, zacht zwart, platte pastel-chips, oranje actie.
+ * Eén grotesk-familie (Hanken Grotesk), royale rondingen, pill-knoppen.
+ *
+ * Bewegingstaal: alles reageert in 0.2s ease (micro 0.1s). Hover is dimmen
+ * (opacity .7) voor knoppen/links of zacht groeien voor visuele elementen —
+ * nooit beide. Eén traag signatuurmoment: de paginawissel (0.65s).
+ * Klassennamen ongewijzigd: alle pagina's stylen in één keer mee.
  * ─────────────────────────────────────────────────────────────────────── */
 
 @layer base {
   :root {
-    --ink: #0e1a2b;
-    --ink-soft: #3d4c61;
-    --ink-mute: #64748b;
-    --paper: #f6f8fa;
+    --ink: #231f20;
+    --ink-soft: #484344;
+    --ink-mute: #8f8f8f;
+    --paper: #f6f6f3;
     --paper-card: #ffffff;
-    --paper-deep: #ebeff4;
-    --terra: #2563eb;
-    --sage: #15803d;
-    --academy: #0f2d4e;
-    --rule: rgba(14, 26, 43, 0.1);
-    --rule-strong: rgba(14, 26, 43, 0.2);
+    --paper-deep: #f3f2f0;
+    --terra: #ff832c;
+    --sage: #3e9b63;
+    --academy: #4d7fb2;
+    --rule: rgba(35, 31, 32, 0.1);
+    --rule-strong: rgba(35, 31, 32, 0.22);
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
   html,
@@ -34,15 +41,15 @@
     overflow-x: hidden;
     background: var(--paper);
     color: var(--ink);
-    font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
-    font-feature-settings: "cv11", "ss01";
+    font-family: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+    font-feature-settings: "ss03";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
 
   ::selection {
-    background: #2563eb2e;
+    background: #ff832c33;
     color: var(--ink);
   }
 
@@ -50,51 +57,63 @@
   h2,
   h3,
   h4 {
-    font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+    font-family: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
     font-weight: 650;
     letter-spacing: -0.022em;
     color: var(--ink);
+  }
+
+  /* Kalmte is het statement: bij reduced motion vrijwel alles uit. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
 @layer components {
   .hairline {
-    border: 1px solid rgba(14, 26, 43, 0.1);
+    border: 1px solid rgba(35, 31, 32, 0.1);
   }
   .hairline-b {
-    border-bottom: 1px solid rgba(14, 26, 43, 0.1);
+    border-bottom: 1px solid rgba(35, 31, 32, 0.1);
   }
   .hairline-t {
-    border-top: 1px solid rgba(14, 26, 43, 0.1);
+    border-top: 1px solid rgba(35, 31, 32, 0.1);
   }
   .hairline-r {
-    border-right: 1px solid rgba(14, 26, 43, 0.1);
+    border-right: 1px solid rgba(35, 31, 32, 0.1);
   }
   .hairline-l {
-    border-left: 1px solid rgba(14, 26, 43, 0.1);
+    border-left: 1px solid rgba(35, 31, 32, 0.1);
   }
 
-  /* Accentwoorden in koppen — vroeger cursief serif, nu zwaar en strak. */
+  /* Accentwoorden in koppen — extra zwaar, zelfde familie (geen italics). */
   .display-italic {
-    font-family: "Inter", sans-serif;
+    font-family: "Hanken Grotesk", sans-serif;
     font-style: normal;
-    font-weight: 750;
+    font-weight: 800;
     letter-spacing: -0.025em;
   }
 
   .eyebrow {
-    font-family: "Inter", sans-serif;
+    font-family: "Hanken Grotesk", sans-serif;
     font-size: 11px;
-    font-weight: 650;
+    font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--ink-mute);
   }
 
   .num-mark {
-    font-family: "Inter", sans-serif;
+    font-family: "Hanken Grotesk", sans-serif;
     font-style: normal;
-    font-weight: 750;
+    font-weight: 800;
     font-feature-settings: "lnum", "tnum";
     letter-spacing: -0.03em;
     color: var(--terra);
@@ -103,14 +122,14 @@
   /* Subtle grid pattern for empty surfaces */
   .grid-paper {
     background-image:
-      linear-gradient(rgba(14, 26, 43, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(14, 26, 43, 0.04) 1px, transparent 1px);
+      linear-gradient(rgba(35, 31, 32, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(35, 31, 32, 0.04) 1px, transparent 1px);
     background-size: 48px 48px;
   }
 
   .dot-paper {
     background-image: radial-gradient(
-      rgba(14, 26, 43, 0.14) 1px,
+      rgba(35, 31, 32, 0.12) 1px,
       transparent 1px
     );
     background-size: 18px 18px;
@@ -119,25 +138,26 @@
   .card {
     background: var(--paper-card);
     border: 1px solid var(--rule);
-    border-radius: 14px;
+    border-radius: 24px;
+    transition: 0.2s ease;
   }
 
   .card-elev {
     background: #ffffff;
     border: 1px solid var(--rule);
-    border-radius: 14px;
-    box-shadow: 0 1px 2px rgba(14, 26, 43, 0.05),
-      0 16px 36px -24px rgba(14, 26, 43, 0.16);
+    border-radius: 24px;
+    box-shadow: 0 1px 2px rgba(35, 31, 32, 0.04),
+      0 14px 32px -22px rgba(35, 31, 32, 0.12);
   }
 
   .pill {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 4px 10px;
-    font-family: "Inter", sans-serif;
+    padding: 4px 11px;
+    font-family: "Hanken Grotesk", sans-serif;
     font-size: 11px;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     border-radius: 999px;
@@ -146,40 +166,33 @@
     color: var(--ink-soft);
   }
 
+  /* Pill-knoppen. Hover = zacht dimmen — het universele Sinqlo-gebaar. */
   .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 12px 18px;
-    border-radius: 10px;
-    font-weight: 550;
+    padding: 12px 22px;
+    border-radius: 999px;
+    font-weight: 600;
     font-size: 14.5px;
     letter-spacing: -0.005em;
-    transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease,
-      box-shadow 0.2s ease;
+    transition: 0.2s ease;
     cursor: pointer;
     border: 1px solid transparent;
+  }
+  .btn:hover {
+    opacity: 0.7;
   }
 
   .btn-primary {
     background: var(--ink);
     color: #ffffff;
   }
-  .btn-primary:hover {
-    background: #1c2c44;
-    transform: translateY(-1px);
-  }
 
   .btn-accent {
     background: var(--terra);
     color: #fff;
-    box-shadow: 0 1px 2px rgba(37, 99, 235, 0.3),
-      0 8px 20px -10px rgba(37, 99, 235, 0.5);
-  }
-  .btn-accent:hover {
-    background: #1d4ed8;
-    transform: translateY(-1px);
   }
 
   .btn-ghost {
@@ -187,17 +200,11 @@
     color: var(--ink);
     border: 1px solid var(--rule-strong);
   }
-  .btn-ghost:hover {
-    background: rgba(14, 26, 43, 0.04);
-  }
 
   .btn-soft {
-    background: var(--paper-card);
+    background: var(--paper-deep);
     color: var(--ink);
     border: 1px solid var(--rule);
-  }
-  .btn-soft:hover {
-    background: var(--paper-deep);
   }
 
   .focus-ring:focus-visible {
@@ -205,28 +212,60 @@
     outline-offset: 2px;
   }
 
-  /* Formuliervelden — rustig wit veld met blauwe focus. */
+  /* Formuliervelden — wit veld, oranje focus. */
   .input-base {
     width: 100%;
-    border-radius: 10px;
-    border: 1px solid var(--rule-strong);
-    background: var(--paper-card);
+    border-radius: 12px;
+    border: 1px solid #dbdbdb;
+    background: #ffffff;
     padding: 10px 13px;
     font-size: 14px;
     color: var(--ink);
-    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    transition: 0.2s ease;
   }
   .input-base::placeholder {
     color: var(--ink-mute);
-    opacity: 0.7;
+    opacity: 0.8;
   }
   .input-base:focus {
     outline: none;
     border-color: var(--terra);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    box-shadow: 0 0 0 3px rgba(255, 131, 44, 0.18);
   }
 
-  /* Scrollbar styling — koel en rustig */
+  /* Hover-gebaren voor componenten: dimmen óf groeien — nooit beide. */
+  .hover-dim {
+    transition: 0.2s ease;
+  }
+  .hover-dim:hover {
+    opacity: 0.7;
+  }
+  .hover-grow {
+    transition: 0.2s ease;
+  }
+  .hover-grow:hover {
+    transform: scale(1.03);
+  }
+
+  /* Zachte marquee — randen lopen uit in het canvas. */
+  .marquee-mask {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      #000 8%,
+      #000 92%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      #000 8%,
+      #000 92%,
+      transparent 100%
+    );
+  }
+
+  /* Scrollbar — licht en rustig */
   ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
@@ -235,12 +274,12 @@
     background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background: rgba(14, 26, 43, 0.18);
+    background: rgba(35, 31, 32, 0.18);
     border-radius: 10px;
     border: 2px solid var(--paper);
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(14, 26, 43, 0.32);
+    background: rgba(35, 31, 32, 0.32);
   }
 }
 
@@ -254,22 +293,22 @@
 
   /* ──────────────────────────────────────────────────────────────────────
    * CODEX-utilities — door het Dashboard gebruikt. Zelfde namen,
-   * enterprise-uitvoering: strakke sans, blauw accent, geen korrel.
+   * Sinqlo-uitvoering: bone, zacht zwart, oranje, geen versiering.
    * ─────────────────────────────────────────────────────────────────── */
 
   .codex-display {
-    font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+    font-family: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
     font-weight: 700;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.028em;
   }
   .codex-display-italic {
-    font-family: "Inter", sans-serif;
+    font-family: "Hanken Grotesk", sans-serif;
     font-style: normal;
-    font-weight: 750;
-    letter-spacing: -0.03em;
+    font-weight: 800;
+    letter-spacing: -0.028em;
   }
 
-  /* Dropcap is een editorial element — in het enterprise-thema uit. */
+  /* Dropcap blijft uit in dit thema. */
   .codex-dropcap::first-letter {
     font-family: inherit;
     font-weight: inherit;
@@ -281,43 +320,42 @@
   }
 
   .codex-roman {
-    font-family: "Inter", sans-serif;
+    font-family: "Hanken Grotesk", sans-serif;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 800;
     font-feature-settings: "lnum", "tnum";
-    color: #2563eb;
+    color: #ff832c;
   }
 
   .codex-eyebrow {
-    font-family: "Inter", sans-serif;
+    font-family: "Hanken Grotesk", sans-serif;
     font-size: 11px;
-    font-weight: 650;
+    font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: #64748b;
+    color: #8f8f8f;
   }
 
   .codex-hairline {
-    border: 1px solid rgba(14, 26, 43, 0.1);
+    border: 1px solid rgba(35, 31, 32, 0.1);
   }
   .codex-hairline-b {
-    border-bottom: 1px solid rgba(14, 26, 43, 0.1);
+    border-bottom: 1px solid rgba(35, 31, 32, 0.1);
   }
   .codex-hairline-t {
-    border-top: 1px solid rgba(14, 26, 43, 0.1);
+    border-top: 1px solid rgba(35, 31, 32, 0.1);
   }
   .codex-hairline-l {
-    border-left: 1px solid rgba(14, 26, 43, 0.1);
+    border-left: 1px solid rgba(35, 31, 32, 0.1);
   }
   .codex-hairline-r {
-    border-right: 1px solid rgba(14, 26, 43, 0.1);
+    border-right: 1px solid rgba(35, 31, 32, 0.1);
   }
   .codex-rule {
     height: 1px;
-    background: rgba(14, 26, 43, 0.1);
+    background: rgba(35, 31, 32, 0.1);
   }
 
-  /* Sectiescheiding — in het enterprise-thema een rustige lijn. */
   .codex-flourish {
     display: flex;
     align-items: center;
@@ -331,15 +369,15 @@
     content: "";
     flex: 1;
     height: 1px;
-    background: rgba(14, 26, 43, 0.08);
+    background: rgba(35, 31, 32, 0.08);
   }
 
   .codex-margin-rule {
-    border-left: 1px solid rgba(14, 26, 43, 0.12);
+    border-left: 1px solid rgba(35, 31, 32, 0.12);
     padding-left: 18px;
   }
 
-  /* Korrel uit — schone vlakken. */
+  /* Schone vlakken — geen korrel of gloed. */
   .codex-grain {
     position: relative;
   }
@@ -352,17 +390,17 @@
   }
 
   .codex-link {
-    border-bottom: 1px solid rgba(37, 99, 235, 0.4);
-    transition: border-color 0.2s ease, color 0.2s ease;
+    border-bottom: 1px solid rgba(255, 131, 44, 0.5);
+    transition: 0.2s ease;
   }
   .codex-link:hover {
-    border-bottom-color: #2563eb;
-    color: #1d4ed8;
+    border-bottom-color: #ff832c;
+    color: #d9620b;
   }
 
   .codex-stagger > * {
     opacity: 0;
-    animation: codex-rise 0.7s cubic-bezier(0.18, 0.74, 0.28, 1) forwards;
+    animation: codex-rise 0.65s ease forwards;
   }
   .codex-stagger > *:nth-child(1) { animation-delay: 60ms; }
   .codex-stagger > *:nth-child(2) { animation-delay: 140ms; }
@@ -374,7 +412,7 @@
   @keyframes codex-rise {
     from {
       opacity: 0;
-      transform: translateY(12px);
+      transform: translateY(14px);
     }
     to {
       opacity: 1;
@@ -393,12 +431,12 @@
     position: absolute;
     inset: -6px;
     border-radius: 999px;
-    border: 1px solid rgba(37, 99, 235, 0.35);
-    opacity: 0.6;
+    border: 1px solid rgba(255, 131, 44, 0.4);
+    opacity: 0.7;
   }
 
   .codex-focus:focus-visible {
-    outline: 2px solid #2563eb;
+    outline: 2px solid #ff832c;
     outline-offset: 3px;
   }
 }

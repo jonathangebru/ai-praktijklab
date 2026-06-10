@@ -5,21 +5,21 @@ export default {
     extend: {
       fontFamily: {
         display: [
-          '"Inter"',
+          '"Hanken Grotesk"',
           "ui-sans-serif",
           "system-ui",
           "-apple-system",
           "sans-serif",
         ],
         codex: [
-          '"Inter"',
+          '"Hanken Grotesk"',
           "ui-sans-serif",
           "system-ui",
           "-apple-system",
           "sans-serif",
         ],
         sans: [
-          '"Inter"',
+          '"Hanken Grotesk"',
           "ui-sans-serif",
           "system-ui",
           "-apple-system",
@@ -29,71 +29,88 @@ export default {
         mono: ['"JetBrains Mono"', "ui-monospace", "SFMono-Regular", "monospace"],
       },
       colors: {
-        /* Enterprise-licht: diep navy op wit, één helder blauw accent. */
+        /* Sinqlo-visie: bone-wit canvas, zacht zwart, platte pastel-chips,
+         * oranje als enige actiekleur. Pastels zijn vlakken — nooit tekst. */
         ink: {
-          DEFAULT: "#0E1A2B",
-          soft: "#3D4C61",
-          mute: "#64748B",
-          faint: "#9AA6B7",
+          DEFAULT: "#231F20",
+          soft: "#484344",
+          mute: "#8F8F8F",
+          faint: "#B7B4AF",
         },
         paper: {
-          DEFAULT: "#F6F8FA",
+          DEFAULT: "#F6F6F3",
           card: "#FFFFFF",
           high: "#FFFFFF",
-          deep: "#EBEFF4",
-          warm: "#E2E8F0",
+          deep: "#F3F2F0",
+          warm: "#E6E4DD",
         },
+        /* Actiekleur — oranje, exclusief voor CTA's en actieve states. */
         terra: {
-          DEFAULT: "#2563EB",
-          deep: "#1D4ED8",
-          soft: "#BFD7FE",
-          tint: "#EFF4FF",
+          DEFAULT: "#FF832C",
+          deep: "#D9620B",
+          soft: "#FFD9BD",
+          tint: "#FFEFE2",
         },
+        /* Pastel-identiteiten: groen (afgerond), blauw (module 02). */
         sage: {
-          DEFAULT: "#15803D",
-          deep: "#14532D",
-          soft: "#BBE7C9",
-          tint: "#ECFDF3",
+          DEFAULT: "#3E9B63",
+          deep: "#27714A",
+          soft: "#C4F3C4",
+          tint: "#E7F9E7",
         },
         academy: {
-          DEFAULT: "#0F2D4E",
-          deep: "#0A1F37",
-          soft: "#C7D7E8",
-          tint: "#E8F0F8",
+          DEFAULT: "#4D7FB2",
+          deep: "#335F8F",
+          soft: "#BDE2F8",
+          tint: "#E9F4FC",
         },
-        /* ─── Codex-tokens (Dashboard) — zelfde namen, enterprise-waarden ── */
+        /* Geel — weekdoel en "in uitvoering". */
+        geel: {
+          DEFAULT: "#FFFF97",
+          deep: "#6F660F",
+          soft: "#F1EC74",
+          tint: "#FFFCD9",
+        },
+        /* Koraal — vrij accent (o.a. voortgangsbalken). */
+        koraal: {
+          DEFAULT: "#FF847E",
+          deep: "#C94840",
+          soft: "#FFC2BE",
+          tint: "#FFE9E8",
+        },
+        /* ─── Codex-tokens (Dashboard) — zelfde namen, Sinqlo-waarden ───── */
         codex: {
-          paper:      "#F6F8FA",
+          paper:      "#F6F6F3",
           card:       "#FFFFFF",
-          deep:       "#E8EDF3",
-          ink:        "#0E1A2B",
-          "ink-soft": "#3D4C61",
-          "ink-mute": "#64748B",
-          "ink-faint":"#9AA6B7",
-          vermilion:  "#2563EB",
-          "verm-deep":"#1D4ED8",
-          "verm-soft":"#BFD7FE",
-          "verm-tint":"#EFF4FF",
-          rule:       "rgba(14,26,43,0.10)",
-          "rule-strong":"rgba(14,26,43,0.24)",
+          deep:       "#ECEAE3",
+          ink:        "#231F20",
+          "ink-soft": "#484344",
+          "ink-mute": "#8F8F8F",
+          "ink-faint":"#B7B4AF",
+          vermilion:  "#FF832C",
+          "verm-deep":"#D9620B",
+          "verm-soft":"#FFD9BD",
+          "verm-tint":"#FFEFE2",
+          rule:       "rgba(35,31,32,0.10)",
+          "rule-strong":"rgba(35,31,32,0.22)",
         },
       },
       letterSpacing: {
-        tightish: "-0.015em",
+        tightish: "-0.02em",
         wider: "0.08em",
         widest: "0.18em",
       },
       boxShadow: {
-        soft: "0 1px 2px rgba(14,26,43,0.05), 0 8px 24px -12px rgba(14,26,43,0.10)",
-        page: "0 30px 60px -30px rgba(14,26,43,0.25)",
-        ring: "0 0 0 1px rgba(14,26,43,0.08)",
+        soft: "0 1px 2px rgba(35,31,32,0.04), 0 10px 28px -16px rgba(35,31,32,0.10)",
+        page: "0 30px 60px -30px rgba(35,31,32,0.22)",
+        ring: "0 0 0 1px rgba(35,31,32,0.08)",
       },
       borderColor: {
-        DEFAULT: "rgba(14,26,43,0.10)",
+        DEFAULT: "rgba(35,31,32,0.10)",
       },
       keyframes: {
         "fade-up": {
-          "0%": { opacity: "0", transform: "translateY(8px)" },
+          "0%": { opacity: "0", transform: "translateY(14px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
         "soft-pulse": {
@@ -104,11 +121,17 @@ export default {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
         },
+        "palette-in": {
+          "0%": { opacity: "0", transform: "scale(0.98) translateY(-6px)" },
+          "100%": { opacity: "1", transform: "scale(1) translateY(0)" },
+        },
       },
       animation: {
-        "fade-up": "fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both",
+        /* Hét trage signatuurmoment: de paginawissel. Al het andere is 0.2s. */
+        "fade-up": "fade-up 0.65s ease both",
         "soft-pulse": "soft-pulse 2.4s ease-in-out infinite",
-        ticker: "ticker 60s linear infinite",
+        ticker: "ticker 40s linear infinite",
+        "palette-in": "palette-in 0.2s ease both",
       },
     },
   },

@@ -204,6 +204,7 @@ function Marginalia({ voortgang }) {
         <ProgressRow
           label="Volume I · Basiscursus AI"
           pct={vol1.pct}
+          bar="bg-koraal"
           right={`${String(vol1.done).padStart(2, "0")} van ${String(
             vol1.total
           ).padStart(2, "0")}`}
@@ -211,6 +212,7 @@ function Marginalia({ voortgang }) {
         <ProgressRow
           label="Volume II · Verdieping"
           pct={vol2.pct}
+          bar="bg-academy"
           right={`${String(vol2.done).padStart(2, "0")} van ${String(
             vol2.total
           ).padStart(2, "0")}`}
@@ -218,6 +220,7 @@ function Marginalia({ voortgang }) {
         <ProgressRow
           label="Mijn promptkit"
           pct={Math.min(100, promptkitCount * 10)}
+          bar="bg-codex-vermilion"
           right={
             promptkitCount === 1 ? "1 prompt" : `${promptkitCount} prompts`
           }
@@ -323,19 +326,19 @@ function Weekdoel({ activity }) {
     : "Nog geen activiteit deze week.";
 
   return (
-    <div className="flex items-center gap-2.5">
+    <div
+      className={`flex items-center gap-2.5 rounded-2xl px-4 py-3 ${
+        achieved ? "bg-geel" : "bg-geel-tint"
+      }`}
+    >
       {achieved ? (
-        <CheckCircle2
-          size={14}
-          strokeWidth={1.8}
-          className="text-codex-vermilion"
-        />
+        <CheckCircle2 size={14} strokeWidth={2} className="text-geel-deep" />
       ) : (
-        <Target size={14} strokeWidth={1.8} className="text-codex-ink-mute" />
+        <Target size={14} strokeWidth={1.8} className="text-geel-deep/70" />
       )}
       <div className="flex-1">
-        <p className="text-[13px] text-codex-ink-soft">{text}</p>
-        <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-codex-ink-mute mt-0.5">
+        <p className="text-[13px] font-medium text-codex-ink">{text}</p>
+        <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-geel-deep/80 mt-0.5">
           Weekdoel · rond één les af
         </p>
       </div>
@@ -343,7 +346,7 @@ function Weekdoel({ activity }) {
   );
 }
 
-function ProgressRow({ label, pct, right }) {
+function ProgressRow({ label, pct, right, bar = "bg-codex-vermilion" }) {
   return (
     <li>
       <div className="mb-1.5 flex items-baseline justify-between gap-3">
@@ -352,14 +355,14 @@ function ProgressRow({ label, pct, right }) {
           {right}
         </span>
       </div>
-      <div className="relative h-[3px] w-full bg-codex-deep">
+      <div className="relative h-[4px] w-full overflow-hidden rounded-full bg-codex-deep">
         <div
-          className="absolute inset-y-0 left-0 bg-codex-vermilion"
+          className={`absolute inset-y-0 left-0 rounded-full transition-all duration-700 ${bar}`}
           style={{ width: `${pct}%` }}
         />
       </div>
       <div className="mt-1 flex items-baseline justify-end">
-        <span className="codex-display-italic text-[13px] text-codex-vermilion">
+        <span className="codex-display-italic text-[13px] text-codex-ink-soft">
           {pct}%
         </span>
       </div>
@@ -367,16 +370,14 @@ function ProgressRow({ label, pct, right }) {
   );
 }
 
-/* ─── II. Chiaroscuro — een dark moment ─────────────────────────────────── */
+/* ─── II. Cijferband — warm beige rustmoment ────────────────────────────── */
 function Chiaroscuro() {
   return (
-    <section className="bg-codex-ink text-codex-paper codex-hairline-b">
+    <section className="bg-paper-warm codex-hairline-b">
       <div className="grid gap-10 px-5 py-12 sm:px-8 lg:grid-cols-12 lg:px-14 lg:py-16">
         <div className="lg:col-span-5">
-          <span className="codex-eyebrow text-codex-ink-faint">
-            Het programma in cijfers
-          </span>
-          <h2 className="codex-display mt-3 text-[34px] leading-[1.05] text-codex-paper sm:text-[44px]">
+          <span className="codex-eyebrow">Het programma in cijfers</span>
+          <h2 className="codex-display mt-3 text-[34px] leading-[1.05] text-codex-ink sm:text-[44px]">
             Zeventien lessen.{" "}
             <span className="codex-display-italic text-codex-vermilion">
               Vier kennischecks.
@@ -392,11 +393,11 @@ function Chiaroscuro() {
             { v: "12+", l: "Casussen uit vo / mbo / hbo" },
             { v: "100", l: "WCAG-toegankelijkheidsscore" },
           ].map((s) => (
-            <div key={s.l} className="codex-hairline-t border-codex-paper/15 pt-4">
-              <dt className="codex-display text-[40px] leading-none sm:text-[52px]">
+            <div key={s.l} className="codex-hairline-t border-codex-ink/15 pt-4">
+              <dt className="codex-display text-[40px] leading-none text-codex-ink sm:text-[52px]">
                 {s.v}
               </dt>
-              <dd className="mt-2 break-words hyphens-auto font-mono text-[10.5px] uppercase tracking-[0.18em] text-codex-paper/70">
+              <dd className="mt-2 break-words hyphens-auto font-mono text-[10.5px] uppercase tracking-[0.18em] text-codex-ink-mute">
                 {s.l}
               </dd>
             </div>
@@ -764,67 +765,54 @@ function ResourceColumn({ eyebrow, number, title, body, to, divider }) {
   );
 }
 
-/* ─── Partners — editorial roll-call ────────────────────────────────────── */
+/* ─── Partners — zachte marquee ─────────────────────────────────────────── */
 function Partners() {
   const list = [
-    { name: "Veluwse Onderwijsgroep", type: "vo", note: "Apeldoorn e.o." },
-    { name: "Etty Hillesum Lyceum", type: "vo", note: "Deventer" },
-    {
-      name: "Aventus",
-      type: "mbo",
-      note: "Apeldoorn · Deventer · Zutphen",
-      anchor: true,
-    },
-    { name: "Saxion", type: "hbo", note: "Enschede · Deventer" },
+    { name: "Aventus", type: "mbo", anchor: true },
+    { name: "Veluwse Onderwijsgroep", type: "vo" },
+    { name: "Etty Hillesum Lyceum", type: "vo" },
+    { name: "Saxion", type: "hbo" },
   ];
+  // Twee identieke helften → de -50%-loop sluit naadloos aan.
+  const strip = [...list, ...list, ...list];
+
   return (
-    <section className="codex-hairline-t px-5 py-16 sm:px-8 lg:px-14 lg:py-20">
-      <div className="codex-flourish mb-12">
-        <span>·</span>
+    <section className="codex-hairline-t py-16 lg:py-20">
+      <div className="px-5 sm:px-8 lg:px-14">
+        <span className="codex-eyebrow">VABOK · samenwerking</span>
+        <h2 className="codex-display mt-3 text-[30px] leading-[1.05] sm:text-[36px]">
+          Vier instellingen,{" "}
+          <span className="codex-display-italic text-codex-vermilion">één</span>{" "}
+          leerlijn.
+        </h2>
       </div>
 
-      <div className="grid gap-10 lg:grid-cols-12">
-        <div className="lg:col-span-4">
-          <span className="codex-eyebrow">VABOK · samenwerking</span>
-          <h2 className="codex-display mt-3 text-[30px] leading-[1.05] sm:text-[36px]">
-            Vier instellingen,{" "}
-            <span className="codex-display-italic text-codex-vermilion">
-              één
-            </span>{" "}
-            leerlijn.
-          </h2>
-        </div>
-
-        <ol className="lg:col-span-8">
-          {list.map((p, i) => (
-            <li
-              key={p.name}
-              className="codex-hairline-t grid grid-cols-[40px_1fr_auto] items-baseline gap-x-6 py-6 first:border-t-0 last:codex-hairline-b"
+      <div className="marquee-mask mt-10 overflow-hidden" aria-hidden="true">
+        <div className="flex w-max animate-ticker items-center gap-4 pr-4 motion-reduce:animate-none motion-reduce:flex-wrap motion-reduce:w-full motion-reduce:px-5">
+          {strip.map((p, i) => (
+            <span
+              key={`${p.name}-${i}`}
+              className="flex shrink-0 items-center gap-3 rounded-full border border-codex-rule bg-codex-card px-6 py-3"
             >
-              <span className="codex-roman text-[22px]">
-                {String(i + 1).padStart(2, "0")}
+              <span className="codex-display text-[18px] text-codex-ink">
+                {p.name}
               </span>
-              <div>
-                <div className="codex-display text-[22px] leading-tight text-codex-ink">
-                  {p.name}
-                  {p.anchor && (
-                    <span className="ml-3 inline-flex items-center gap-1 align-middle font-mono text-[10px] uppercase tracking-[0.22em] text-codex-vermilion-deep">
-                      <span className="inline-block h-1.5 w-1.5 rounded-full bg-codex-vermilion" />
-                      penvoerder
-                    </span>
-                  )}
-                </div>
-                <div className="mt-1 text-[13px] text-codex-ink-mute">
-                  {p.note}
-                </div>
-              </div>
-              <span className="font-mono text-[10.5px] uppercase tracking-[0.22em] text-codex-ink-mute">
+              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-codex-ink-mute">
                 {p.type}
               </span>
-            </li>
+              {p.anchor && (
+                <span className="inline-block h-1.5 w-1.5 rounded-full bg-codex-vermilion" />
+              )}
+            </span>
           ))}
-        </ol>
+        </div>
       </div>
+
+      {/* Toegankelijke, statische opsomming voor schermlezers. */}
+      <p className="sr-only">
+        Partners: Aventus (penvoerder, mbo), Veluwse Onderwijsgroep (vo), Etty
+        Hillesum Lyceum (vo) en Saxion (hbo).
+      </p>
     </section>
   );
 }

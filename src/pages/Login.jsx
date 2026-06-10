@@ -65,16 +65,25 @@ export function Login() {
           </p>
 
           <ul className="mt-8 space-y-3.5">
-            {USPS.map((u) => (
-              <li key={u.text} className="flex items-start gap-3">
-                <span className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-terra-tint text-terra">
-                  <u.icon size={14} strokeWidth={1.9} />
-                </span>
-                <span className="text-[14.5px] leading-relaxed text-ink-soft">
-                  {u.text}
-                </span>
-              </li>
-            ))}
+            {USPS.map((u, i) => {
+              const chips = [
+                "bg-geel text-geel-deep",
+                "bg-sage-soft text-sage-deep",
+                "bg-academy-soft text-academy-deep",
+              ];
+              return (
+                <li key={u.text} className="flex items-start gap-3">
+                  <span
+                    className={`mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-full ${chips[i % 3]}`}
+                  >
+                    <u.icon size={14} strokeWidth={1.9} />
+                  </span>
+                  <span className="text-[14.5px] leading-relaxed text-ink-soft">
+                    {u.text}
+                  </span>
+                </li>
+              );
+            })}
           </ul>
 
           <div className="mt-10 hairline-t pt-6">
@@ -134,7 +143,7 @@ function LoginCard({ login, onRequest }) {
         <button
           type="button"
           onClick={onRequest}
-          className="focus-ring mt-1.5 inline-flex items-center gap-1.5 rounded text-[14px] font-semibold text-terra hover:text-terra-deep"
+          className="btn btn-ghost focus-ring mt-3 w-full"
         >
           Vraag toegang aan
           <ArrowRight size={14} strokeWidth={2} />

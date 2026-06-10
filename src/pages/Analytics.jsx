@@ -469,8 +469,8 @@ function Chart({ points }) {
       >
         <defs>
           <linearGradient id="gActivity" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0%" stopColor="#2563EB" stopOpacity="0.22" />
-            <stop offset="100%" stopColor="#2563EB" stopOpacity="0" />
+            <stop offset="0%" stopColor="#FF832C" stopOpacity="0.22" />
+            <stop offset="100%" stopColor="#FF832C" stopOpacity="0" />
           </linearGradient>
         </defs>
 
@@ -481,7 +481,7 @@ function Chart({ points }) {
               x2={W - padR}
               y1={yFor(t)}
               y2={yFor(t)}
-              stroke="rgba(14,26,43,0.08)"
+              stroke="rgba(35,31,32,0.10)"
               strokeDasharray={i === 0 ? "0" : "2 4"}
             />
             <text
@@ -491,7 +491,7 @@ function Chart({ points }) {
               textAnchor="end"
               fontFamily="JetBrains Mono"
               fontSize="10"
-              fill="rgba(14,26,43,0.5)"
+              fill="rgba(35,31,32,0.55)"
             >
               {t}
             </text>
@@ -499,18 +499,18 @@ function Chart({ points }) {
         ))}
 
         <path d={area} fill="url(#gActivity)" />
-        <path d={line} fill="none" stroke="#2563EB" strokeWidth="2" />
+        <path d={line} fill="none" stroke="#FF832C" strokeWidth="2" />
 
         {data.map((d, i) => (
           <g key={i}>
-            <circle cx={xFor(i)} cy={yFor(d.value)} r="3" fill="#2563EB" />
+            <circle cx={xFor(i)} cy={yFor(d.value)} r="3" fill="#FF832C" />
             <text
               x={xFor(i)}
               y={H - 8}
               textAnchor="middle"
               fontFamily="JetBrains Mono"
               fontSize="10"
-              fill="rgba(14,26,43,0.5)"
+              fill="rgba(35,31,32,0.55)"
             >
               {d.label}
             </text>

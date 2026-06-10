@@ -96,8 +96,10 @@ export function Tag({ children, tone = "neutral" }) {
   const tones = {
     neutral: "bg-paper-card text-ink-soft border-rule",
     terra: "bg-terra-tint text-terra-deep border-terra-soft/60",
-    sage: "bg-sage-tint text-sage-deep border-sage-soft/60",
-    academy: "bg-academy-tint text-academy-deep border-academy-soft/60",
+    sage: "bg-sage-soft text-sage-deep border-sage-soft",
+    academy: "bg-academy-soft text-academy-deep border-academy-soft",
+    geel: "bg-geel text-geel-deep border-geel-soft",
+    koraal: "bg-koraal-tint text-koraal-deep border-koraal-soft/60",
     ink: "bg-ink text-paper-card border-ink",
     paper: "bg-paper text-ink-soft border-rule",
   };
@@ -123,7 +125,13 @@ export function NumberMark({ children, accent = false }) {
 }
 
 export function ProgressBar({ value, label, tone = "terra" }) {
-  const colors = { terra: "bg-terra", sage: "bg-sage", academy: "bg-academy" };
+  const colors = {
+    terra: "bg-terra",
+    sage: "bg-sage",
+    academy: "bg-academy",
+    geel: "bg-geel-soft",
+    koraal: "bg-koraal",
+  };
   return (
     <div className="space-y-1.5">
       {label && (
@@ -193,7 +201,7 @@ export function Quote({ children, attribution }) {
       >
         “
       </span>
-      <p className="font-display text-[22px] font-light italic leading-snug text-ink">
+      <p className="font-display text-[22px] font-medium leading-snug text-ink">
         {children}
       </p>
       {attribution && (

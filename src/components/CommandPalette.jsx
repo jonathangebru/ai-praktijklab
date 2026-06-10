@@ -248,7 +248,7 @@ export function CommandPalette({ open, onOpen, onClose }) {
         className="absolute inset-0 bg-ink/30 backdrop-blur-[2px]"
         onClick={onClose}
       />
-      <div className="relative w-full max-w-xl overflow-hidden rounded-2xl border border-rule bg-paper-card shadow-xl">
+      <div className="animate-palette-in relative w-full max-w-xl overflow-hidden rounded-3xl border border-rule bg-paper-card shadow-xl">
         <div className="flex items-center gap-3 border-b border-rule px-5 py-4">
           <Search size={16} strokeWidth={1.8} className="shrink-0 text-ink-mute" />
           <input

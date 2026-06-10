@@ -83,8 +83,26 @@ export function Layout() {
 }
 
 function TopBar({ crumbs, onOpenNav, onOpenSearch }) {
+  // Sinqlo-gebaar: de balk duikt weg bij omlaag scrollen en glijdt terug
+  // zodra je omhoog beweegt.
+  const [hidden, setHidden] = useState(false);
+  useEffect(() => {
+    let lastY = window.scrollY;
+    function onScroll() {
+      const y = window.scrollY;
+      setHidden(y > 120 && y > lastY);
+      lastY = y;
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="hairline-b sticky top-0 z-30 flex items-center justify-between gap-3 bg-paper/85 px-4 py-3 backdrop-blur-md sm:px-6 lg:gap-4 lg:px-10 lg:py-3.5">
+    <header
+      className={`hairline-b sticky top-0 z-30 flex items-center justify-between gap-3 bg-paper/85 px-4 py-3 backdrop-blur-md transition-transform duration-300 ease-out sm:px-6 lg:gap-4 lg:px-10 lg:py-3.5 ${
+        hidden ? "-translate-y-full" : "translate-y-0"
+      }`}
+    >
       <div className="flex min-w-0 items-center gap-3">
         <button
           type="button"
@@ -157,13 +175,13 @@ function PilotBadge() {
 
 function Footer() {
   return (
-    <footer className="mt-24 bg-ink text-white">
+    <footer className="hairline-t mt-24 bg-paper-deep">
       <div className="grid gap-10 px-5 py-12 sm:px-8 lg:grid-cols-12 lg:px-10">
         <div className="lg:col-span-5">
-          <p className="text-[17px] font-bold tracking-tightish">
+          <p className="text-[17px] font-bold tracking-tightish text-ink">
             AI PraktijkLab
           </p>
-          <p className="mt-2 max-w-sm text-[13px] leading-relaxed text-white/60">
+          <p className="mt-2 max-w-sm text-[13px] leading-relaxed text-ink-mute">
             Praktische AI-professionalisering voor docenten in vo, mbo en
             hbo. Een initiatief van de VABOK-samenwerking, gebouwd door
             Datagrid.
@@ -171,14 +189,14 @@ function Footer() {
         </div>
 
         <div className="lg:col-span-4">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-white/40">
+          <p className="text-[11px] font-bold uppercase tracking-widest text-ink-faint">
             Platform
           </p>
           <ul className="mt-3 space-y-2 text-[13px]">
             <li>
               <Link
                 to="/toegankelijkheid"
-                className="focus-ring rounded text-white/75 transition hover:text-white"
+                className="focus-ring hover-dim rounded text-ink-soft"
               >
                 Toegankelijkheid
               </Link>
@@ -186,7 +204,7 @@ function Footer() {
             <li>
               <Link
                 to="/privacy"
-                className="focus-ring rounded text-white/75 transition hover:text-white"
+                className="focus-ring hover-dim rounded text-ink-soft"
               >
                 Privacy & AVG
               </Link>
@@ -194,7 +212,7 @@ function Footer() {
             <li>
               <Link
                 to="/privacy#contact"
-                className="focus-ring rounded text-white/75 transition hover:text-white"
+                className="focus-ring hover-dim rounded text-ink-soft"
               >
                 Contact
               </Link>
@@ -203,10 +221,10 @@ function Footer() {
         </div>
 
         <div className="lg:col-span-3">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-white/40">
+          <p className="text-[11px] font-bold uppercase tracking-widest text-ink-faint">
             Partners
           </p>
-          <ul className="mt-3 space-y-2 text-[13px] text-white/75">
+          <ul className="mt-3 space-y-2 text-[13px] text-ink-soft">
             <li>Aventus</li>
             <li>Veluwse Onderwijsgroep</li>
             <li>Etty Hillesum Lyceum</li>
@@ -215,10 +233,10 @@ function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-white/10 px-5 py-4 sm:px-8 lg:px-10">
-        <div className="flex flex-col gap-2 text-[11.5px] text-white/45 sm:flex-row sm:items-center sm:justify-between">
+      <div className="hairline-t px-5 py-4 sm:px-8 lg:px-10">
+        <div className="flex flex-col gap-2 text-[11.5px] text-ink-mute sm:flex-row sm:items-center sm:justify-between">
           <span>© 2026 Datagrid · VABOK-samenwerking</span>
-          <span>v0.6 pilot</span>
+          <span>v0.7 pilot</span>
         </div>
       </div>
     </footer>

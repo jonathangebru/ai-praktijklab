@@ -155,7 +155,7 @@ function LessonRow({ lesson: l, tone, done, working, current }) {
 
         <div className="col-span-7">
           <div className="flex items-center gap-2">
-            <Tag tone={done ? "sage" : working ? "terra" : "neutral"}>
+            <Tag tone={done ? "sage" : working ? "geel" : "neutral"}>
               {done ? (
                 <CheckCircle2 size={10} strokeWidth={2} />
               ) : (
