@@ -77,6 +77,7 @@ export function Login() {
         <CasusPreview naarToegang={naarToegang} />
         <CoachSplit />
         <AiActBand naarToegang={naarToegang} />
+        <Prijzen naarToegang={naarToegang} />
         <VoorWie />
         <Faq />
         <Toegang login={login} />
@@ -97,6 +98,7 @@ function Nav({ login, naarToegang }) {
             ["#programma", "Programma"],
             ["#casussen", "Casussen"],
             ["#coach", "AI-coach"],
+            ["#prijzen", "Prijzen"],
             ["#faq", "Vragen"],
           ].map(([href, label]) => (
             <a key={href} href={href} className="hover-dim focus-ring rounded">
@@ -545,6 +547,134 @@ function AiActBand({ naarToegang }) {
   );
 }
 
+/* ─── Prijzen — drie plannen, geankerd aan het CAO-budget ──────────────── */
+function Prijzen({ naarToegang }) {
+  const plannen = [
+    {
+      naam: "Docent",
+      prijs: "€249",
+      eenheid: "per jaar",
+      pitch: "Voor de docent die zelf aan de slag wil — declareerbaar uit je persoonlijke scholingsbudget (€500–600, cao vo/mbo).",
+      punten: [
+        "Alle 5 modules · 36 lessen",
+        "AI-coach, promptbibliotheek en casussen",
+        "Certificaat per module (AI Act art. 4)",
+      ],
+      cta: "Vraag toegang aan",
+      uitgelicht: false,
+    },
+    {
+      naam: "Team",
+      prijs: "€149",
+      eenheid: "per docent · per jaar · vanaf 10",
+      pitch: "Voor vakgroepen en teams die samen AI-bekwaam worden — inclusief inzicht voor de teamleider.",
+      punten: [
+        "Alles uit Docent, voor het hele team",
+        "Managementdashboard (geanonimiseerd)",
+        "AI Act-documentatie per teamlid",
+      ],
+      cta: "Plan een teamdemo",
+      uitgelicht: true,
+    },
+    {
+      naam: "School",
+      prijs: "€4.950",
+      eenheid: "per jaar · tot 50 docenten",
+      pitch: "Schoolbrede licentie als AI-geletterdheidsinfrastructuur — effectief €99 per docent. Daarboven €79 per extra docent.",
+      punten: [
+        "Alles uit Team, schoolbreed",
+        "Bewijslast AI Act voor het bestuur",
+        "Prioriteitsupport en onboarding",
+      ],
+      cta: "Vraag een offerte aan",
+      uitgelicht: false,
+    },
+  ];
+  return (
+    <section id="prijzen" className="hairline-t scroll-mt-24">
+      <div className="mx-auto max-w-6xl px-6 py-20">
+        <span className="eyebrow">Prijzen</span>
+        <h2 className="mt-3 max-w-2xl text-[32px] font-extrabold leading-[1.05] tracking-tightish text-ink sm:text-[40px]">
+          Past binnen het scholingsbudget{" "}
+          <span className="text-terra">dat er al is</span>.
+        </h2>
+        <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-ink-soft">
+          Elke docent in vo en mbo heeft een persoonlijk
+          professionaliseringsbudget van €500–600 per jaar (cao). Eén losse
+          AI-cursusdag kost elders €395–899 — hier krijg je er een jaar lang
+          vijf modules, een AI-coach en certificaten voor.
+        </p>
+
+        <div className="mt-12 grid gap-5 lg:grid-cols-3">
+          {plannen.map((p) => (
+            <article
+              key={p.naam}
+              className={
+                p.uitgelicht
+                  ? "card-elev relative flex flex-col border-2 !border-terra p-8"
+                  : "card relative flex flex-col p-8"
+              }
+            >
+              {p.uitgelicht && (
+                <span className="absolute -top-3.5 left-8 rounded-full bg-terra px-3.5 py-1 text-[10.5px] font-bold uppercase tracking-wider text-white">
+                  Meest gekozen
+                </span>
+              )}
+              <h3 className="text-[15px] font-bold uppercase tracking-wider text-ink-mute">
+                {p.naam}
+              </h3>
+              <div className="mt-3 flex items-baseline gap-2">
+                <span className="text-[44px] font-extrabold leading-none tracking-tightish text-ink">
+                  {p.prijs}
+                </span>
+                <span className="text-[12.5px] font-semibold text-ink-mute">
+                  {p.eenheid}
+                </span>
+              </div>
+              <p className="mt-4 text-[13.5px] leading-relaxed text-ink-soft">
+                {p.pitch}
+              </p>
+              <ul className="mt-5 flex-1 space-y-2.5">
+                {p.punten.map((t) => (
+                  <li key={t} className="flex items-start gap-2.5 text-[13.5px] text-ink-soft">
+                    <CheckCircle2
+                      size={15}
+                      strokeWidth={2}
+                      className={
+                        p.uitgelicht
+                          ? "mt-0.5 shrink-0 text-terra"
+                          : "mt-0.5 shrink-0 text-sage"
+                      }
+                    />
+                    {t}
+                  </li>
+                ))}
+              </ul>
+              <button
+                type="button"
+                onClick={naarToegang}
+                className={
+                  p.uitgelicht
+                    ? "btn btn-accent focus-ring mt-7 w-full"
+                    : "btn btn-ghost focus-ring mt-7 w-full"
+                }
+              >
+                {p.cta}
+              </button>
+            </article>
+          ))}
+        </div>
+
+        <p className="mt-6 text-[12.5px] text-ink-mute">
+          Prijzen excl. btw · elke samenwerking begint met een gratis
+          kennismaking en demo · hbo-instellingen kiezen team- of
+          schoollicentie (professionalisering loopt daar via de werkgever).
+        </p>
+      </div>
+    </section>
+  );
+}
+
 /* ─── Voor wie — marquee ────────────────────────────────────────────────── */
 function VoorWie() {
   const list = [
@@ -598,7 +728,7 @@ function Faq() {
     },
     {
       q: "Wat kost het en hoe starten we?",
-      a: "Vraag toegang aan via het formulier; Datagrid neemt binnen twee werkdagen contact op voor een demo en een prijsafspraak op maat van je instelling. Starten kan per docent, per team of schoolbreed.",
+      a: "Een individueel abonnement kost €249 per jaar — dat past binnen je persoonlijke scholingsbudget (€500–600 volgens de cao vo/mbo). Teams vanaf 10 docenten betalen €149 per docent per jaar, een schoolbrede licentie is €4.950 per jaar tot 50 docenten. Starten begint altijd met een gratis kennismaking via het formulier.",
     },
   ];
   return (
