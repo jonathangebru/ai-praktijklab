@@ -58,8 +58,10 @@ function initialsFrom(name) {
 
 /* Gebruikerskaart onderaan de sidebar — echte naam, rol en uitlog-knop. */
 function UserCard() {
-  const { displayName, hasRole, logout } = useAuth();
-  const roleLabel = hasRole("beheerder")
+  const { displayName, hasRole, logout, isGuest } = useAuth();
+  const roleLabel = isGuest
+    ? "Proeftoegang"
+    : hasRole("beheerder")
     ? "Beheerder"
     : hasRole("manager")
     ? "Management"
