@@ -34,7 +34,13 @@ const DEV_USER = {
 };
 
 /* ─── Tijdelijke gasttoegang ────────────────────────────────────────────── */
-const GUEST_CODE = "onderwijskracht-2026"; // "" = gasttoegang uit
+/* Lijst van geldige gastcodes. Voeg een regel toe voor een nieuwe proeflink;
+ * verwijder een regel om die ene link in te trekken (de andere blijven werken).
+ * Lege lijst = gasttoegang volledig uit. */
+const GUEST_CODES = [
+  "onderwijskracht-2026", // Zakaria · De Onderwijskracht
+  "proef-vonk-7b3k", // vrije proeflink
+];
 const GUEST_FLAG = "praktijklab.guest";
 const GUEST_USER = {
   userId: "guest",
@@ -46,11 +52,11 @@ const GUEST_USER = {
 /* Activeert via ?gast=<code> en onthoudt dat in deze browser. De query-param
  * wordt daarna uit de URL gehaald zodat de code niet blijft rondslingeren. */
 function guestActive() {
-  if (typeof window === "undefined" || !GUEST_CODE) return false;
+  if (typeof window === "undefined" || GUEST_CODES.length === 0) return false;
   try {
     const params = new URLSearchParams(window.location.search);
     if (params.has("gast")) {
-      const ok = params.get("gast") === GUEST_CODE;
+      const ok = GUEST_CODES.includes(params.get("gast"));
       if (ok) {
         try {
           window.localStorage.setItem(GUEST_FLAG, "1");
