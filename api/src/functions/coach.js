@@ -8,9 +8,17 @@
  *   · reflection — docent's reflectie-antwoord
  *   · rubric     — docent's lesopzet + zelfscore
  *   · prompt     — docent's prompt vs modelprompt
- *   · writeblock — docent's stap-antwoord met criteria-check + voorbeeld
+ *   · writeblock — docent's stap-antwoord, deterministisch gescoord tegen een
+ *                  rubric (0-5 per criterium + totaalband + voorbeeld)
  *
- * Response: { ok: true, feedback, suggestions, criteria?, tip?, modelAnswer? }
+ * writeblock + rubric draaien op temperature 0 (reproduceerbaar oordeel);
+ * reflection + prompt iets warmer (vrije coaching). Een meegegeven
+ * context.rubric (+ context.referenceAnswer) verankert de scoring; zonder
+ * rubric leidt het model 3-5 criteria af uit de stap-context.
+ *
+ * Response: { ok, feedback, suggestions, scores?, overall?, criteria?, tip?, modelAnswer? }
+ *   scores:  [{ name, score: 0-5, note }]
+ *   overall: { score, max, band: "sterk"|"op weg"|"nog dun" }
  * Caps: 1000 input tokens (~4000 chars), 800 output tokens.
  * Rate limit: 30 calls / 60s per IP.
  */
@@ -82,8 +90,13 @@ const SYSTEM_PROMPTS = {
   prompt:
     "Je bent een AI-prompt-coach. De docent schreef een prompt in een leersituatie. Vergelijk met de modelprompt en geef 3 concrete verbeterpunten. Max 80 woorden. Nederlands, 'je'. Geen patronisering. Antwoord ALTIJD in JSON met dit format: {\"feedback\": \"<korte vergelijking, max 80 woorden>\", \"suggestions\": [\"<verbeterpunt 1>\", \"<verbeterpunt 2>\", \"<verbeterpunt 3>\"]}",
   writeblock:
-    "Je bent een onderwijscoach. Een docent heeft een antwoord geschreven op een stap in een AI-PD les. Lees het antwoord, vergelijk met de stap-context, en geef: (1) 3-5 criteria die in een goed antwoord aanwezig moeten zijn, elk met status \"yes\" (duidelijk aanwezig), \"partial\" (zwak aanwezig) of \"no\" (ontbreekt). Criteria-namen zijn kort en concreet (max 8 woorden). (2) Eén concrete tip (max 40 woorden) die het grootste verschil maakt. (3) Een voorbeeld van een goed antwoord (max 100 woorden) dat past bij déze stap — geen generieke tekst. Spreek Nederlands. Zeg 'je'. Geen complimenten als opener. Antwoord ALTIJD in JSON: {\"feedback\": \"<korte beoordeling, max 50 woorden>\", \"criteria\": [{\"name\":\"<criterium>\",\"status\":\"yes|partial|no\"}], \"tip\": \"<concrete tip>\", \"modelAnswer\": \"<voorbeeld antwoord>\"}",
+    "Je bent een strenge maar eerlijke onderwijscoach die het antwoord van een docent beoordeelt tegen een rubric. Werk UITSLUITEND op basis van de meegegeven criteria en de stap-context — verzin geen eisen die er niet staan, en beloon geen lengte of vlotte taal op zichzelf. Als er een rubric is meegegeven, scoor je exact op díe criteria in dezelfde volgorde; is er geen rubric, leid dan 3-5 concrete criteria af uit de stap-context. Beoordeel elk criterium op een schaal van 0 t/m 5: 0 = ontbreekt, 2 = aangezet maar te dun, 4 = degelijk, 5 = volledig en concreet. Geef per criterium een korte onderbouwing (max 18 woorden) die letterlijk verwijst naar wat de docent wél of niet schreef. Geef daarna één prioriteit-verbetering (de aanpassing met het grootste effect) en een voorbeeld van een sterk antwoord dat bij déze stap past (gebruik het meegegeven referentie-antwoord als basis als dat er is). Spreek Nederlands, zeg 'je', geen complimenten als opener, geen opgeklopte taal. Antwoord ALTIJD in exact dit JSON-format: {\"feedback\": \"<kernoordeel, 1-2 zinnen, max 45 woorden>\", \"scores\": [{\"name\":\"<criterium, max 8 woorden>\",\"score\":<geheel getal 0-5>,\"note\":\"<onderbouwing, max 18 woorden>\"}], \"tip\": \"<prioriteit-verbetering, max 40 woorden>\", \"modelAnswer\": \"<voorbeeld goed antwoord, max 110 woorden>\"}",
 };
+
+/* Welke modes scoren/beoordelen (deterministisch, temperature 0) versus
+ * genereren vrije coaching (iets warmer). Determinisme telt het zwaarst waar
+ * we een oordeel teruggeven dat reproduceerbaar moet zijn. */
+const SCORING_MODES = new Set(["writeblock", "rubric"]);
 
 function buildUserMessage(mode, input, context) {
   if (mode === "reflection") {
@@ -110,6 +123,22 @@ function buildUserMessage(mode, input, context) {
     return lines.join("\n");
   }
   if (mode === "writeblock") {
+    const rubric = Array.isArray(context?.rubric) ? context.rubric : null;
+    const rubricBlock =
+      rubric && rubric.length
+        ? [
+            "",
+            "RUBRIC — scoor exact op deze criteria, in deze volgorde:",
+            ...rubric.map((c, i) => {
+              const name = typeof c === "string" ? c : c?.name || "";
+              const good = typeof c === "object" ? c?.good || c?.beschrijving : "";
+              return `${i + 1}. ${name}${good ? ` — sterk = ${good}` : ""}`;
+            }),
+          ]
+        : ["", "Geen rubric meegegeven: leid zelf 3-5 concrete criteria af uit de stap-context."];
+    const refBlock = context?.referenceAnswer
+      ? ["", `Referentie-antwoord (gold standard, niet woordelijk delen): ${context.referenceAnswer}`]
+      : [];
     const lines = [
       "Stap-context:",
       context?.stepTitle ? `Titel van de stap: ${context.stepTitle}` : null,
@@ -117,10 +146,12 @@ function buildUserMessage(mode, input, context) {
       context?.voorbeeld ? `Voorbeeld dat in de les staat: ${context.voorbeeld}` : null,
       context?.label ? `Wat docent moest opleveren: ${context.label}` : null,
       context?.hint ? `Hint die docent kreeg: ${context.hint}` : null,
+      ...rubricBlock,
+      ...refBlock,
       "",
       "Antwoord van de docent:",
       input,
-    ].filter(Boolean);
+    ].filter((l) => l !== null && l !== undefined);
     return lines.join("\n");
   }
   return input;
@@ -203,7 +234,7 @@ app.http("coach", {
             { role: "system", content: SYSTEM_PROMPTS[mode] },
             { role: "user", content: userMessage },
           ],
-          temperature: 0.6,
+          temperature: SCORING_MODES.has(mode) ? 0 : 0.5,
           max_tokens: mode === "writeblock" ? 800 : 600,
           response_format: { type: "json_object" },
         }),
@@ -280,7 +311,74 @@ app.http("coach", {
         ? parsed.modelAnswer.trim().slice(0, 1200)
         : null;
 
-    if (!feedback && !criteria && !modelAnswer) {
+    /* writeblock-rubric: 0-5 scores per criterium → afgeleide totaalband.
+     * Bij een meegegeven rubric forceren we namen + volgorde naar die rubric,
+     * zodat de getoonde criteria deterministisch zijn en het model er geen kan
+     * bijverzinnen of weglaten. */
+    const clampScore = (n) => {
+      const x = Math.round(Number(n));
+      return Number.isFinite(x) ? Math.max(0, Math.min(5, x)) : 0;
+    };
+    const rawScores = Array.isArray(parsed?.scores) ? parsed.scores : null;
+    let scores = null;
+    if (rawScores) {
+      const rubric = Array.isArray(ctx?.rubric) ? ctx.rubric : null;
+      if (rubric && rubric.length) {
+        scores = rubric.slice(0, 8).map((c, i) => {
+          const name = (typeof c === "string" ? c : c?.name || `Criterium ${i + 1}`)
+            .toString()
+            .trim()
+            .slice(0, 120);
+          const match =
+            rawScores.find(
+              (s) =>
+                s &&
+                typeof s.name === "string" &&
+                s.name.trim().toLowerCase() === name.toLowerCase()
+            ) ||
+            rawScores[i] ||
+            {};
+          return {
+            name,
+            score: clampScore(match.score),
+            note:
+              typeof match.note === "string" && match.note.trim()
+                ? match.note.trim().slice(0, 200)
+                : "",
+          };
+        });
+      } else {
+        scores = rawScores
+          .filter(
+            (s) =>
+              s &&
+              typeof s === "object" &&
+              typeof s.name === "string" &&
+              s.name.trim()
+          )
+          .slice(0, 8)
+          .map((s) => ({
+            name: s.name.trim().slice(0, 120),
+            score: clampScore(s.score),
+            note:
+              typeof s.note === "string" && s.note.trim()
+                ? s.note.trim().slice(0, 200)
+                : "",
+          }));
+      }
+      if (!scores.length) scores = null;
+    }
+
+    let overall = null;
+    if (scores && scores.length) {
+      const total = scores.reduce((a, s) => a + s.score, 0);
+      const max = scores.length * 5;
+      const pct = max ? total / max : 0;
+      const band = pct >= 0.8 ? "sterk" : pct >= 0.55 ? "op weg" : "nog dun";
+      overall = { score: total, max, band };
+    }
+
+    if (!feedback && !criteria && !scores && !modelAnswer) {
       return {
         status: 502,
         headers: CORS,
@@ -291,7 +389,7 @@ app.http("coach", {
     context.log(
       `COACH_OK ip=${ip} mode=${mode} fbChars=${feedback.length} sugs=${suggestions.length}${
         criteria ? ` crit=${criteria.length}` : ""
-      }`
+      }${scores ? ` scores=${scores.length}/${overall.max} band=${overall.band}` : ""}`
     );
 
     return {
@@ -302,6 +400,8 @@ app.http("coach", {
         feedback,
         suggestions,
         mode,
+        ...(scores ? { scores } : {}),
+        ...(overall ? { overall } : {}),
         ...(criteria ? { criteria } : {}),
         ...(tip ? { tip } : {}),
         ...(modelAnswer ? { modelAnswer } : {}),

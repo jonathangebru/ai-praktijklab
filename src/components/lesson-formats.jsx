@@ -76,6 +76,13 @@ export function FailureCase({ caseData, index, work }) {
               hint="Wat denk je dat AI hier verkeerd doet — en waar in het antwoord?"
               rows={2}
               tone="accent"
+              coachContext={{
+                stepTitle: `Voorspelling — ${c.domain || "casus"}`,
+                stepBody: c.prompt ? `Testprompt aan AI: ${c.prompt}` : undefined,
+                voorbeeld: c.whatToCheck,
+                label: "Voorspel waar AI faalt",
+                hint: "Benoem het type fout én waar in het antwoord het misgaat",
+              }}
             />
           )}
         </div>
@@ -183,6 +190,18 @@ export function CasusLab({ detail, work }) {
             placeholder="1. ...\n2. ...\n3. ...\n4. ..."
             rows={5}
             tone="accent"
+            coachContext={{
+              stepTitle: "Mijn wat-kan-AI matrix",
+              stepBody:
+                "Vier risico's/categorieën die je elke voorbereiding doorloopt, toegespitst op je eigen vak. Concreet en herkenbaar, niet generiek; elk risico met een korte 'zo herken je het'.",
+              voorbeeld: Array.isArray(detail.failureMatrix)
+                ? detail.failureMatrix
+                    .map((r) => `${r.category}: ${r.howToSpot}`)
+                    .join(" · ")
+                : undefined,
+              label: "Mijn eigen wat-kan-AI matrix voor mijn vak",
+              hint: "Welke vier risico's wil jij elke voorbereiding doorlopen?",
+            }}
           />
         </div>
       )}
@@ -287,6 +306,15 @@ export function CasusCard({ caseData, index, work }) {
               label="Eigen reactie — waarom kies je zo?"
               placeholder="Schrijf in eigen woorden waarom je hier zo over denkt — geen ja/nee."
               rows={3}
+              coachContext={{
+                stepTitle: `Eigen positie — ${c.title || "casus"}`,
+                stepBody: c.context,
+                voorbeeld: Array.isArray(c.perspectives)
+                  ? c.perspectives.map((p) => `${p.role}: ${p.view}`).join(" · ")
+                  : undefined,
+                label: "Eigen reactie — waarom kies je zo?",
+                hint: "Onderbouw je positie met minstens één argument; weeg een ander perspectief mee",
+              }}
             />
           )}
         </div>
@@ -409,6 +437,14 @@ export function ActionPlan({ source, title, steps, work }) {
                   hint={s.workspace.hint}
                   placeholder={s.workspace.placeholder}
                   rows={s.workspace.rows || 2}
+                  coachContext={{
+                    stepTitle: s.title,
+                    stepBody: s.body,
+                    label: s.workspace.label,
+                    hint: s.workspace.hint,
+                    rubric: s.workspace.rubric,
+                    referenceAnswer: s.workspace.referenceAnswer,
+                  }}
                 />
               )}
             </div>
@@ -769,6 +805,13 @@ export function PromptLab({ detail, work }) {
             placeholder="1. ...\n2. ...\n3. ...\n4. ..."
             rows={5}
             tone="accent"
+            coachContext={{
+              stepTitle: "Mijn vier-rondes-promptkit",
+              stepBody:
+                "Een herbruikbare promptstructuur voor je eigen vak, gebouwd op de vier rondes (van vage prompt naar scherpe iteratie). Elke stap concreet en in je eigen woorden.",
+              label: "Mijn vier-rondes-promptkit voor eigen vak",
+              hint: "Wat neem je hieruit mee als vaste structuur voor je eigen prompts?",
+            }}
           />
         </div>
       )}

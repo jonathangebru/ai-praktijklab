@@ -47,6 +47,8 @@ export function WriteBlock({
     loading: false,
     error: null,
     feedback: "",
+    scores: null,
+    overall: null,
     criteria: null,
     tip: null,
     modelAnswer: null,
@@ -62,6 +64,8 @@ export function WriteBlock({
       loading: true,
       error: null,
       feedback: "",
+      scores: null,
+      overall: null,
       criteria: null,
       tip: null,
       modelAnswer: null,
@@ -77,6 +81,8 @@ export function WriteBlock({
         loading: false,
         error: null,
         feedback: res.feedback || "",
+        scores: res.scores || null,
+        overall: res.overall || null,
         criteria: res.criteria || null,
         tip: res.tip || null,
         modelAnswer: res.modelAnswer || null,
@@ -101,6 +107,8 @@ export function WriteBlock({
       loading: false,
       error: null,
       feedback: "",
+      scores: null,
+      overall: null,
       criteria: null,
       tip: null,
       modelAnswer: null,
@@ -214,6 +222,7 @@ export function WriteBlock({
 
       {(aiCheck.loading ||
         aiCheck.feedback ||
+        aiCheck.scores ||
         aiCheck.criteria ||
         aiCheck.modelAnswer ||
         aiCheck.error) && (
@@ -221,6 +230,8 @@ export function WriteBlock({
           loading={aiCheck.loading}
           error={aiCheck.error}
           feedback={aiCheck.feedback}
+          scores={aiCheck.scores}
+          overall={aiCheck.overall}
           criteria={aiCheck.criteria}
           tip={aiCheck.tip}
           modelAnswer={aiCheck.modelAnswer}
@@ -241,6 +252,8 @@ function InlineCheckPanel({
   loading,
   error,
   feedback,
+  scores,
+  overall,
   criteria,
   tip,
   modelAnswer,
@@ -248,6 +261,12 @@ function InlineCheckPanel({
   onClose,
 }) {
   const [showModel, setShowModel] = useState(false);
+  const bandTone =
+    overall?.band === "sterk"
+      ? "border-sage/40 bg-sage-tint/50 text-sage-deep"
+      : overall?.band === "op weg"
+        ? "border-academy/40 bg-academy-tint/50 text-academy-deep"
+        : "border-terra-soft/60 bg-terra-tint/40 text-terra-deep";
   return (
     <div
       role="region"
@@ -309,7 +328,39 @@ function InlineCheckPanel({
         </p>
       )}
 
-      {criteria && criteria.length > 0 && !error && (
+      {scores && scores.length > 0 && !error && (
+        <div className="mt-3 border-t border-ink/10 pt-3">
+          {overall && (
+            <div className="mb-2.5 flex items-center justify-between gap-3">
+              <span className="font-mono text-[10px] uppercase tracking-widest text-ink-mute">
+                Rubric-score
+              </span>
+              <span
+                className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-widest ${bandTone}`}
+              >
+                {overall.score}/{overall.max} · {overall.band}
+              </span>
+            </div>
+          )}
+          <ul className="space-y-2.5">
+            {scores.map((s, i) => (
+              <li key={i} className="text-[13px] leading-snug text-ink">
+                <div className="flex items-center justify-between gap-3">
+                  <span className="flex-1">{s.name}</span>
+                  <ScorePips score={s.score} />
+                </div>
+                {s.note && (
+                  <p className="mt-0.5 text-[12px] leading-snug text-ink-mute">
+                    {s.note}
+                  </p>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {!scores && criteria && criteria.length > 0 && !error && (
         <ul className="mt-3 space-y-1.5 border-t border-ink/10 pt-3">
           {criteria.map((c, i) => (
             <li
@@ -361,13 +412,38 @@ function InlineCheckPanel({
         </div>
       )}
 
-      {(feedback || criteria || modelAnswer || error) && !loading && (
+      {(feedback || scores || criteria || modelAnswer || error) && !loading && (
         <p className="mt-3 font-mono text-[9.5px] leading-relaxed text-ink-faint">
-          AI antwoorden zijn niet altijd correct. Behandel als suggestie, niet
-          als waarheid.
+          {scores
+            ? "Deterministische rubric-score (temp 0). Formatief bedoeld — een richting, geen eindcijfer. Jij houdt het oordeel."
+            : "AI antwoorden zijn niet altijd correct. Behandel als suggestie, niet als waarheid."}
         </p>
       )}
     </div>
+  );
+}
+
+function ScorePips({ score }) {
+  const n = Math.max(0, Math.min(5, Math.round(Number(score) || 0)));
+  return (
+    <span
+      className="inline-flex shrink-0 items-center gap-1"
+      title={`${n}/5`}
+      aria-label={`Score ${n} van 5`}
+    >
+      {[1, 2, 3, 4, 5].map((i) => (
+        <span
+          key={i}
+          aria-hidden="true"
+          className={`block h-1.5 w-1.5 rounded-full ${
+            i <= n ? "bg-academy-deep" : "bg-ink/15"
+          }`}
+        />
+      ))}
+      <span className="ml-1 font-mono text-[10px] tabular-nums text-ink-mute">
+        {n}/5
+      </span>
+    </span>
   );
 }
 

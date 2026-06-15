@@ -357,6 +357,8 @@ function Steps({ detail, work }) {
                     voorbeeld: s.voorbeeld,
                     label: s.workspace.label,
                     hint: s.workspace.hint,
+                    rubric: s.workspace.rubric,
+                    referenceAnswer: s.workspace.referenceAnswer,
                   }}
                 />
               )}

@@ -103,6 +103,30 @@ Daarmee schuif je AI van bron naar gereedschap. Het maakt verschil voor de kwali
           placeholder:
             "Je ondersteunt een docent ... op ... Lesduur ... Klas van ... met ... Mijn voorkeur: ...",
           rows: 5,
+          rubric: [
+            {
+              name: "Vak en niveau benoemd",
+              good: "concreet vak én leerjaar/niveau (bv. '3 mavo'), niet 'de onderbouw'",
+            },
+            {
+              name: "Lesduur expliciet",
+              good: "een concrete tijd in minuten staat erin",
+            },
+            {
+              name: "Leerlingkenmerken specifiek",
+              good: "echte kenmerken van déze klas (niveauverschil, gedrag), geen cliché",
+            },
+            {
+              name: "Didactische voorkeur",
+              good: "een eigen voorkeur over werkvorm of opbouw is benoemd",
+            },
+            {
+              name: "Herbruikbaar als rolinstructie",
+              good: "begint met een rol voor de AI en is een sjabloon waarin alleen onderwerp/duur wisselt",
+            },
+          ],
+          referenceAnswer:
+            "Je ondersteunt een docent Nederlands op 3 mavo. Lesduur 60 minuten. Klas van 26 met drie leerlingen op 2F-niveau en een groepje dat snel afhaakt bij langere teksten. Mijn voorkeur: starten met een korte werkvorm, niet met theorie; maximaal twee instructiemomenten van vijf minuten. Geef je antwoord zo dat ik alleen onderwerp en lesduur hoef te wisselen voor een volgende les.",
         },
       },
       {
@@ -131,6 +155,30 @@ Daarmee schuif je AI van bron naar gereedschap. Het maakt verschil voor de kwali
           placeholder:
             "Basis (woordhulp + structuur): ...\nGemiddeld (voorbeeldzin + open einde): ...\nUitdagend (bronnenvergelijking + standpunt): ...",
           rows: 6,
+          rubric: [
+            {
+              name: "Drie niveaus aanwezig",
+              good: "basis, gemiddeld én uitdagend zijn alle drie uitgewerkt",
+            },
+            {
+              name: "Gelijk leerdoel over niveaus",
+              good: "alle drie de varianten werken naar hetzelfde leerdoel toe",
+            },
+            {
+              name: "Steiger per niveau benoemd",
+              good: "elk niveau noemt expliciet zijn eigen steiger (woordhulp, voorbeeld, contextverbreding)",
+            },
+            {
+              name: "Verschil zit in denkstap",
+              good: "niveaus verschillen in cognitieve complexiteit, niet alleen in tekstlengte",
+            },
+            {
+              name: "Lesklaar en concreet",
+              good: "je zou het morgen zo kunnen uitdelen, geen abstracte beschrijving",
+            },
+          ],
+          referenceAnswer:
+            "Leerdoel (alle niveaus): de leerling onderbouwt een standpunt over duurzame mode met minstens twee argumenten. Basis: leerling ordent vier aangeleverde argumenten in voor/tegen met een woordhulp en zinstarters (steiger: structuur + woordhulp). Gemiddeld: leerling schrijft twee eigen argumenten na één uitgewerkt voorbeeld, einde open (steiger: model + open transfer). Uitdagend: leerling vergelijkt twee bronnen die elkaar tegenspreken en kiest beargumenteerd een standpunt (steiger: contextverbreding). Het verschil zit in de denkstap — ordenen versus produceren versus afwegen — niet in het aantal woorden.",
         },
       },
       {
