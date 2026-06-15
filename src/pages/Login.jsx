@@ -76,6 +76,7 @@ export function Login() {
         <Programma />
         <CasusPreview naarToegang={naarToegang} />
         <CoachSplit />
+        <Certificering />
         <AiActBand naarToegang={naarToegang} />
         <Prijzen naarToegang={naarToegang} />
         <VoorWie />
@@ -498,6 +499,98 @@ function CoachSplit() {
           <div className="mt-5 flex items-center justify-between rounded-full border border-rule bg-paper px-5 py-3">
             <span className="text-[13px] text-ink-mute">Bewaar in mijn promptkit…</span>
             <Sparkles size={15} strokeWidth={1.9} className="text-terra" />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─── Certificering — eerlijk: certificaat per module, EDC-ready ─────────── */
+function Certificering() {
+  return (
+    <section id="certificering" className="hairline-t scroll-mt-24 bg-paper-deep/50">
+      <div className="mx-auto max-w-6xl px-6 py-20">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <div>
+            <span className="eyebrow">Certificering</span>
+            <h2 className="mt-3 text-[32px] font-extrabold leading-[1.05] tracking-tightish text-ink sm:text-[40px]">
+              Een certificaat dat <span className="text-terra">telt</span>.
+            </h2>
+            <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-ink-soft">
+              Rond je een module af, dan staat je certificaat klaar — met je
+              naam, de studielast en de behaalde leeruitkomsten. Scholen
+              gebruiken het als onderbouwing van de AI-geletterdheidsplicht uit
+              de EU AI Act (artikel 4).
+            </p>
+            <ul className="mt-7 space-y-3">
+              {[
+                "Per afgeronde module, direct te downloaden",
+                "Met studielast, leeruitkomsten en datum",
+                "Voorbereid op European Digital Credentials (EDC-ready)",
+              ].map((t) => (
+                <li
+                  key={t}
+                  className="flex items-start gap-3 text-[14.5px] text-ink-soft"
+                >
+                  <CheckCircle2
+                    size={16}
+                    strokeWidth={2}
+                    className="mt-0.5 shrink-0 text-sage"
+                  />
+                  {t}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 max-w-lg text-[12.5px] leading-relaxed text-ink-mute">
+              We werken toe naar formele European Digital Credentials met een
+              gekwalificeerd EU-zegel. Tot die tijd documenteert het certificaat
+              je gevolgde scholing — voldoende als bewijs voor de AI Act.
+            </p>
+          </div>
+
+          {/* Certificaat-voorbeeld */}
+          <div className="card-elev p-8" aria-hidden="true">
+            <div className="flex items-center justify-between">
+              <span className="grid h-11 w-11 place-items-center rounded-2xl bg-sage-soft text-sage-deep">
+                <Award size={20} strokeWidth={1.8} />
+              </span>
+              <span className="pill">Module 01</span>
+            </div>
+            <p className="mt-6 text-[11px] font-bold uppercase tracking-widest text-ink-mute">
+              Certificaat van afronding
+            </p>
+            <p className="mt-2 text-[23px] font-extrabold leading-tight tracking-tightish text-ink">
+              Basiscursus AI
+            </p>
+            <p className="mt-1 text-[13.5px] text-ink-soft">
+              behaald door{" "}
+              <span className="font-semibold text-ink">je naam</span>
+            </p>
+            <div className="mt-6 grid grid-cols-2 gap-4 hairline-t pt-5 text-[12.5px]">
+              <div>
+                <p className="font-semibold uppercase tracking-wider text-ink-mute">
+                  Studielast
+                </p>
+                <p className="mt-1 font-bold text-ink">10–14 uur</p>
+              </div>
+              <div>
+                <p className="font-semibold uppercase tracking-wider text-ink-mute">
+                  Onderdelen
+                </p>
+                <p className="mt-1 font-bold text-ink">8 lessen · 2 checks</p>
+              </div>
+            </div>
+            <div className="mt-5 flex items-center gap-2.5 rounded-2xl bg-terra-tint px-4 py-3">
+              <ShieldCheck
+                size={15}
+                strokeWidth={1.9}
+                className="shrink-0 text-terra-deep"
+              />
+              <span className="text-[12.5px] font-semibold text-terra-deep">
+                AI Act art. 4 · bewijs van scholing
+              </span>
+            </div>
           </div>
         </div>
       </div>
