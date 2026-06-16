@@ -7377,6 +7377,1649 @@ const module5Details = {
 
 // Merge batch-content over base. Batch-entries vervangen base-entries met
 // dezelfde slug (batch heeft de uitgebreide/audit-versie).
+
+/* ── Module 06 · AI & werkdruk (Fase 25) ───────────────────────────────── */
+const module6Details = {
+  "werkdruk-inventarisatie": {
+    "format": "diepteles",
+    "summary": "Je brengt één echte werkweek in kaart en leert je taken te scheiden langs twee assen: hoeveel tijd ze kosten en of ze écht delegeerbaar zijn aan AI. Met het delegeer-kwadrant als mentaal model kies je één tijdrovende, delegeerbare bron, bepaal je de kwaliteitsondergrens die je niet wilt verliezen, en schets je een eerste herontworpen workflow. Je eindigt met een eerlijk ijkpunt: tijdwinst telt pas als de kwaliteit minstens gelijk blijft.",
+    "duration": {
+      "total": "60 minuten",
+      "blocks": [
+        {
+          "label": "Aanleiding & kader",
+          "min": 8
+        },
+        {
+          "label": "Werkweek inventariseren",
+          "min": 15
+        },
+        {
+          "label": "In het kwadrant plaatsen",
+          "min": 12
+        },
+        {
+          "label": "Bron & ondergrens kiezen",
+          "min": 12
+        },
+        {
+          "label": "Workflow herontwerpen",
+          "min": 10
+        },
+        {
+          "label": "Reflectie & check",
+          "min": 3
+        }
+      ]
+    },
+    "opening": {
+      "eyebrow": "Aanleiding",
+      "aanleiding": "Het is donderdagavond, half tien. Je hebt vandaag lesgegeven, twee mentorgesprekken gevoerd, een toets nagekeken en tussendoor een ouder teruggebeld. Nu zit je nog aan de planning voor volgende week, een herkansing die je moet samenstellen, en een mailtje aan de sectie dat al twee dagen klaarligt in je hoofd maar niet op papier staat. Je bent niet lui en je werkt niet langzaam. Toch loopt de week vol op een manier die je niet meer overziet.\n\nDe reflex is: harder werken, of een avond extra. Maar dat lost het patroon niet op. Het probleem is zelden dat je te weinig doet. Het probleem is dat je niet scherp hebt wélke taken je tijd opslokken, en welke van die taken eigenlijk niemand specifiek jou hoeft te laten doen. Een eerste toetsversie opstellen, drie varianten van een instructie maken, een lange beleidsmail samenvatten voor je sectie: dat kost uren, maar het is werk dat je kunt voorbereiden met hulp.\n\nDaartegenover staat werk dat alleen jij kunt doen. Inschatten of een leerling vastloopt op de stof of op iets anders. Een conflict in de klas ontvlechten. Beoordelen of een antwoord klopt op vakniveau. Dat kost ook tijd, maar het is geen tijd die weglekt — het is de kern van je vak. AI verschuift die twee soorten werk niet door elkaar; het kan alleen de eerste soort verlichten. Deze les helpt je het verschil zien in je éigen week, niet in een algemeen verhaal.",
+      "waaromNu": "AI-tools zijn inmiddels overal in het onderwijs binnengeslopen, vaak zonder dat iemand bewust koos waar ze wél en niet passen. DigCompEdu plaatst dit onder Professional Engagement: je organiseert je eigen werk en je communicatie professioneel, en je maakt bewuste keuzes over welke digitale middelen je inzet. Bewust kiezen begint met overzicht. Zonder een eerlijk beeld van waar je tijd heen gaat, automatiseer je het verkeerde of je automatiseert niets en blijft de werkdruk staan."
+    },
+    "conceptueel": {
+      "eyebrow": "Conceptueel kader",
+      "intro": "Werkdruk voelt als één grote, ondeelbare berg. Maar als je hem uit elkaar trekt, blijken er twee heel verschillende dingen in te zitten die we vaak op één hoop gooien. Het eerste is volume: er is simpelweg veel te doen. Het tweede is aard: sommige taken vragen jouw oordeel, je relatie met leerlingen en je vakdiepte, en andere vragen vooral dat er iets gemaakt wordt — een concept, een variant, een samenvatting. Die twee verwar je makkelijk, omdat ze allebei tijd kosten en allebei zwaar voelen.\n\nHet onderscheid dat door deze hele module loopt: niet alle werkdruk is AI-oplosbaar. Een taak is pas een goede kandidaat voor delegatie als hij twee dingen tegelijk is — tijdrovend én delegeerbaar. Tijdrovend maar niet-delegeerbaar werk (het beoordelen, het gesprek, de eindverantwoordelijkheid) blijft van jou; daar gaat AI je niet uit redden, en als je het tóch probeert te automatiseren verlies je juist kwaliteit. Tijdrovend én delegeerbaar werk is waar de winst zit: AI levert het ruwe materiaal, jij beoordeelt en bent de afzender.\n\nDelegeerbaar betekent hier niet 'AI doet het en jij kijkt weg'. Het betekent dat AI een eerste concept of een aantal varianten kan aanleveren die jíj vervolgens controleert, bijstuurt en goedkeurt. De delegatie zit in het maken, niet in het verantwoorden. Daarom hoort bij elke delegeerbare taak een kwaliteitsondergrens: de standaard die je hoe dan ook wilt halen, los van wie of wat het eerste concept maakte. Als die ondergrens niet gehaald wordt, is de tijdwinst schijnwinst.\n\nDe kunst is dus niet 'zoveel mogelijk automatiseren', maar scherp sorteren. Welke taken vreten tijd zonder jouw unieke inbreng nodig te hebben? Welke vreten tijd júist omdat ze jouw inbreng nodig hebben? Pas als je dat per taak kunt benoemen, kun je een werkweek herontwerpen zonder iets weg te gooien dat je leerlingen nodig hebben.",
+      "mentalModel": {
+        "naam": "Het delegeer-kwadrant",
+        "beschrijving": "Zet je taken in een vlak met twee assen: hoeveel tijd kost de taak (laag/hoog) en is hij delegeerbaar aan AI (nee/ja). Rechtsboven — veel tijd, wél delegeerbaar — daar zit je winst; dat zijn de eerste kandidaten. Rechtsonder is delegeerbaar maar levert weinig op. Linksboven — veel tijd, niet delegeerbaar — beschermen, niet automatiseren. Linksonder negeer je voorlopig."
+      },
+      "kernbegrippen": [
+        {
+          "term": "Delegeerbaar werk",
+          "uitleg": "Taken waarbij AI een bruikbaar eerste concept of varianten kan leveren die jij controleert: opstellen, herschrijven, samenvatten, varianten maken. Het maken is delegeerbaar, de eindverantwoordelijkheid niet."
+        },
+        {
+          "term": "Niet-delegeerbaar werk",
+          "uitleg": "Taken die jouw oordeel, relatie of vakdiepte vragen: een leerling inschatten, een conflict oplossen, beoordelen of iets vakinhoudelijk klopt. Tijdrovend, maar het ís het werk."
+        },
+        {
+          "term": "Kwaliteitsondergrens",
+          "uitleg": "De minimale standaard die een taak moet halen, ongeacht wie het eerste concept maakte. Tijdwinst onder deze grens is geen winst maar afbraak."
+        },
+        {
+          "term": "Herontworpen workflow",
+          "uitleg": "Een taak opnieuw ingericht zodat AI het ruwe materiaal levert en jij de stappen van controle, bijsturen en goedkeuren bewust houdt."
+        }
+      ]
+    },
+    "learningGoals": [
+      "Je inventariseert één concrete werkweek en benoemt per taak hoeveel tijd die kost en welke inbreng hij van jou vraagt.",
+      "Je plaatst minstens acht eigen taken correct in het delegeer-kwadrant en kunt per plaatsing uitleggen waarom een taak wel of niet delegeerbaar is.",
+      "Je formuleert voor één delegeerbare taak een expliciete kwaliteitsondergrens die je niet wilt verliezen.",
+      "Je schetst een herontworpen workflow voor die taak waarin AI het ruwe materiaal levert en jij de controle- en goedkeurstap behoudt."
+    ],
+    "scenario": {
+      "title": "Werksituatie",
+      "context": "Je hebt een drukke, herkenbare werkweek achter de rug: lessen, nakijkwerk, mentortaken, e-mail, vergaderingen en voorbereiding. Je wilt niet 'iets met AI gaan doen', maar gericht uitzoeken welk deel van je werkdruk je verstandig kunt verlichten zonder kwaliteit in te leveren.",
+      "role": "Docent of mentor in vo, mbo of hbo die de eigen werkweek wil herontwerpen.",
+      "tools": "Een leeg overzicht of spreadsheet voor je weekinventarisatie, deze werkbladen, en een AI-chatbot via je school- of instellingsaccount voor de latere stappen."
+    },
+    "steps": [
+      {
+        "title": "Inventariseer één echte werkweek",
+        "body": "Pak één concrete, afgelopen week — geen ideale week, een echte. Schrijf de taken op die je tijd kostten, niet alleen de lessen maar ook het werk eromheen: nakijken, mailen, plannen, gesprekken, vergaderen, voorbereiden. Schat per taak grof hoeveel tijd hij kostte. Het gaat niet om precisie tot op de minuut, maar om eerlijk overzicht. Dit is het fundament; zonder dit beeld sorteer je straks op gevoel in plaats van op feiten.",
+        "time": "15 min",
+        "voorbeeld": "Een docent Nederlands noteert: 12 essays nakijken (3,5 uur), drie lessen voorbereiden (2 uur), beleidsmail van de teamleider samenvatten voor de sectie (45 min), mentorgesprek met een leerling die thuis zit (1 uur), herkansing samenstellen (1,5 uur), 40 mails (2 uur verspreid).",
+        "workspace": {
+          "field": "werkweek-inventarisatie",
+          "label": "Inventariseer één afgelopen werkweek: lijst minstens acht taken met een grove tijdsinschatting per taak.",
+          "shortLabel": "Weekinventaris",
+          "hint": "Neem ook het 'onzichtbare' werk mee: mail, plannen, korte gesprekken, administratie. Schat tijd grof, niet exact.",
+          "placeholder": "Taak 1 — ... uur\nTaak 2 — ... uur\n...",
+          "rows": 10,
+          "rubric": [
+            {
+              "name": "Minstens acht taken benoemd",
+              "good": "De lijst bevat acht of meer concrete taken, niet alleen 'lesgeven'."
+            },
+            {
+              "name": "Tijd per taak geschat",
+              "good": "Elke taak heeft een grove tijdsinschatting in uren of minuten."
+            },
+            {
+              "name": "Onzichtbaar werk meegenomen",
+              "good": "Mail, plannen, korte gesprekken of administratie staan er ook bij."
+            },
+            {
+              "name": "Concreet en eigen",
+              "good": "De taken komen herkenbaar uit de eigen praktijk, geen algemeenheden."
+            }
+          ],
+          "referenceAnswer": "1. Twaalf essays nakijken met feedback — 3,5 uur. 2. Drie lessen voorbereiden — 2 uur. 3. Beleidsmail teamleider samenvatten voor de sectie — 45 min. 4. Mentorgesprek met een leerling die langdurig thuis zit — 1 uur. 5. Herkansing toets samenstellen — 1,5 uur. 6. Mail beantwoorden (circa 40 berichten) — 2 uur verspreid. 7. Sectievergadering — 1 uur. 8. Cijfers invoeren en administratie — 45 min. 9. Differentiatieopdracht maken voor een snelle groep — 1 uur. 10. Ouder terugbellen over verzuim — 20 min."
+        }
+      },
+      {
+        "title": "Beoordeel per taak: kost dit veel tijd?",
+        "body": "Loop je lijst langs en markeer welke taken écht veel tijd kosten en welke meevallen. Dit is de eerste as van het kwadrant. Wees eerlijk: een taak die je vervelend vindt is niet automatisch tijdrovend, en een taak die je leuk vindt soms juist wel. Het gaat om de uren, niet om het ongemak. Zo voorkom je dat je straks energie steekt in het automatiseren van iets dat nauwelijks tijd kost.",
+        "time": "6 min",
+        "voorbeeld": "Nakijken (3,5 uur) en lessen voorbereiden (2 uur) zijn duidelijk tijdrovend. De mail terugbellen aan een ouder (20 min) valt mee, hoe vervelend ook. De beleidsmail samenvatten (45 min) zit ertussenin maar telt mee omdat het elke week terugkomt.",
+        "workspace": {
+          "field": "tijd-as-markering",
+          "label": "Markeer per taak uit stap 1 of die hoog of laag scoort op tijd, en geef bij twijfelgevallen kort je redenering.",
+          "shortLabel": "Tijd-as",
+          "hint": "Tel ook mee of een taak wekelijks terugkomt: een korte taak die elke week terugkeert kan optellen tot veel tijd.",
+          "placeholder": "Taak 1 — hoog/laag, omdat ...\n...",
+          "rows": 8,
+          "rubric": [
+            {
+              "name": "Elke taak gescoord op tijd",
+              "good": "Bij elke taak uit stap 1 staat hoog of laag."
+            },
+            {
+              "name": "Onderbouwing bij twijfel",
+              "good": "Twijfelgevallen krijgen een korte, eerlijke redenering."
+            },
+            {
+              "name": "Frequentie meegewogen",
+              "good": "Wekelijks terugkerende korte taken worden als optelsom gezien."
+            },
+            {
+              "name": "Tijd losgekoppeld van ongemak",
+              "good": "De score gaat over uren, niet over hoe vervelend de taak is."
+            }
+          ],
+          "referenceAnswer": "Essays nakijken — hoog (3,5 uur, kern van de week). Lessen voorbereiden — hoog (2 uur). Beleidsmail samenvatten — hoog, want klein op zichzelf maar wekelijks terugkerend. Herkansing samenstellen — hoog (1,5 uur). Mail beantwoorden — hoog, omdat 40 losse berichten optellen tot 2 uur. Mentorgesprek — hoog (1 uur). Cijfers invoeren — laag (45 min, maar eenmalig en routineus). Ouder terugbellen — laag in tijd, al weegt het mentaal zwaar; dat ongemak laat ik buiten de tijdscore."
+        }
+      },
+      {
+        "title": "Beoordeel per taak: is dit delegeerbaar aan AI?",
+        "body": "Nu de tweede as. Vraag je bij elke taak af: kan AI hier een bruikbaar eerste concept of varianten leveren die ik daarna controleer, of vraagt deze taak mijn oordeel, mijn relatie of mijn vakdiepte op een manier die niet uit te besteden is? Opstellen, herschrijven, samenvatten en varianten maken zijn meestal delegeerbaar. Een leerling inschatten, een conflict oplossen of beoordelen of een antwoord vakinhoudelijk klopt, is dat niet. Het maken kan delegeerbaar zijn; de eindverantwoordelijkheid blijft bij jou.",
+        "time": "6 min",
+        "voorbeeld": "Een herkansing samenstellen: AI kan een eerste set vragen en varianten leveren, dus delegeerbaar — mits jij ze controleert op niveau en dekking. Het mentorgesprek met de thuiszittende leerling: niet delegeerbaar, dat ís de relatie. De beleidsmail samenvatten: delegeerbaar. Beoordelen of een essay een vier of een zeven is: niet delegeerbaar, dat is jouw oordeel.",
+        "workspace": {
+          "field": "delegeer-as-markering",
+          "label": "Markeer per taak of die delegeerbaar is aan AI (ja/nee) en geef bij elke 'ja' kort aan wélk deel je delegeert en wélk deel je zelf houdt.",
+          "shortLabel": "Delegeer-as",
+          "hint": "Splits binnen een taak: vaak is het máken delegeerbaar en het beoordelen/goedkeuren niet. Benoem die scheidslijn.",
+          "placeholder": "Taak 1 — ja/nee. Delegeerbaar deel: ... Eigen deel: ...\n...",
+          "rows": 8,
+          "rubric": [
+            {
+              "name": "Elke taak gescoord op delegeerbaarheid",
+              "good": "Bij elke taak staat ja of nee."
+            },
+            {
+              "name": "Scheidslijn benoemd bij 'ja'",
+              "good": "Bij delegeerbare taken staat welk deel AI doet en welk deel jij houdt."
+            },
+            {
+              "name": "Niet-delegeerbaar correct herkend",
+              "good": "Oordeel-, relatie- en vakdiepte-taken staan op nee."
+            },
+            {
+              "name": "Eindverantwoordelijkheid bij docent",
+              "good": "Bij elke 'ja' blijft controle en goedkeuren expliciet bij jou."
+            }
+          ],
+          "referenceAnswer": "Herkansing samenstellen — ja. Delegeerbaar: AI levert een eerste set vragen en varianten. Eigen deel: controle op niveau, dekking van de leerstof en eerlijke moeilijkheid. Beleidsmail samenvatten — ja. Delegeerbaar: het inkorten tot kernpunten. Eigen deel: checken of de strekking klopt voordat ik het deel. Lessen voorbereiden — deels ja: AI levert werkvormen en voorbeelden, ik bepaal opbouw en didactiek. Essays beoordelen — nee, het cijfer is mijn oordeel. Mentorgesprek — nee, dat is de relatie. Ouder terugbellen — nee, dat is een persoonlijk gesprek."
+        }
+      },
+      {
+        "title": "Kies één delegeerbare bron uit het kwadrant",
+        "body": "Leg de twee assen over elkaar en kijk wat rechtsboven landt: taken die veel tijd kosten én delegeerbaar zijn. Dat is je winstvak. Kies daaruit één taak om mee te beginnen — niet de moeilijkste, maar een waar de winst tastbaar is en het risico te overzien. Eén bron, niet vijf: je wilt de herontworpen workflow echt kunnen uitproberen, niet alleen op papier bedenken.",
+        "time": "6 min",
+        "voorbeeld": "Rechtsboven staan bij de docent Nederlands: herkansing samenstellen, beleidsmail samenvatten, en deels lessen voorbereiden. Hij kiest de herkansing: het kost 1,5 uur, komt elke periode terug, en een eerste vragenset is goed te controleren. Het mentorgesprek staat linksboven en blijft bewust buiten de keuze.",
+        "workspace": {
+          "field": "gekozen-bron",
+          "label": "Kies één taak rechtsboven in je kwadrant en onderbouw waarom juist deze: tijdwinst, frequentie en beheersbaar risico.",
+          "shortLabel": "Gekozen bron",
+          "hint": "Kies een taak waarvan je het eindresultaat goed kunt beoordelen. Begin niet met de taak met het hoogste afbreukrisico.",
+          "placeholder": "Gekozen taak: ...\nWaarom: tijd ... / frequentie ... / risico ...",
+          "rows": 6,
+          "rubric": [
+            {
+              "name": "Taak komt uit winstvak",
+              "good": "De gekozen taak is zowel tijdrovend als delegeerbaar."
+            },
+            {
+              "name": "Tijdwinst onderbouwd",
+              "good": "Je benoemt hoeveel tijd de taak kost en hoe vaak die terugkomt."
+            },
+            {
+              "name": "Risico ingeschat",
+              "good": "Je legt uit waarom het afbreukrisico te overzien is."
+            },
+            {
+              "name": "Eén bron, niet meer",
+              "good": "Er is één concrete taak gekozen om mee te beginnen."
+            }
+          ],
+          "referenceAnswer": "Gekozen taak: een herkansing voor de toets samenstellen. Waarom: het kost ongeveer 1,5 uur en keert elke periode terug, dus de tijdwinst telt op over het jaar. Een eerste set vragen en varianten is goed te controleren — ik zie meteen of een vraag het juiste niveau heeft en de stof dekt. Het afbreukrisico is beheersbaar omdat ik elke vraag zelf nakijk vóór hij de toets in gaat; een zwakke AI-vraag haalt de eindversie niet. Het mentorgesprek laat ik bewust buiten beschouwing: dat hoort linksboven en blijft van mij."
+        }
+      },
+      {
+        "title": "Bepaal de kwaliteitsondergrens die je niet wilt verliezen",
+        "body": "Voordat je iets herontwerpt, leg je vast wat de taak hoe dan ook moet halen — los van wie of wat het eerste concept maakt. Dit is je ijkpunt. Formuleer drie tot vijf concrete eisen waaraan het eindresultaat moet voldoen om net zo goed of beter te zijn dan wat je nu zelf maakt. Zonder deze ondergrens weet je straks niet of je tijd hebt gewonnen of kwaliteit hebt ingeleverd. Dit is het scharnierpunt van de hele module: tijdwinst telt pas als de kwaliteit minstens gelijk blijft.",
+        "time": "6 min",
+        "voorbeeld": "Voor de herkansing: elke vraag toetst een leerdoel uit de oorspronkelijke toets; de moeilijkheidsgraad is vergelijkbaar; er staat geen dubbelzinnige of foutieve vraagstelling in; de spreiding over de stof is gelijk aan het origineel; en de herkansing is niet simpeler dan de eerste toets, want anders is hij oneerlijk tegenover wie wél in één keer slaagde.",
+        "workspace": {
+          "field": "kwaliteitsondergrens",
+          "label": "Formuleer drie tot vijf concrete kwaliteitseisen die het eindresultaat van je gekozen taak hoe dan ook moet halen.",
+          "shortLabel": "Ondergrens",
+          "hint": "Maak elke eis toetsbaar: 'goed genoeg' is geen eis, 'dekt alle leerdoelen van de oorspronkelijke toets' wel.",
+          "placeholder": "Eis 1 — ...\nEis 2 — ...\nEis 3 — ...",
+          "rows": 7,
+          "rubric": [
+            {
+              "name": "Drie tot vijf eisen benoemd",
+              "good": "Er staan minstens drie en hooguit vijf concrete eisen."
+            },
+            {
+              "name": "Eisen zijn toetsbaar",
+              "good": "Elke eis is na te lopen, geen vage 'kwaliteit' of 'goed genoeg'."
+            },
+            {
+              "name": "Gericht op gelijk of beter",
+              "good": "De eisen borgen minstens het niveau van wat je nu zelf maakt."
+            },
+            {
+              "name": "Vakinhoudelijk verankerd",
+              "good": "De eisen raken niveau, dekking of correctheid van het vak."
+            }
+          ],
+          "referenceAnswer": "1. Elke vraag toetst een leerdoel dat ook in de oorspronkelijke toets zat. 2. De spreiding over de hoofdstukken is gelijk aan het origineel — geen onderwerp oververtegenwoordigd. 3. Het niveau is vergelijkbaar; de herkansing is niet makkelijker dan de eerste toets, anders is hij oneerlijk tegenover wie in één keer slaagde. 4. Geen enkele vraag is dubbelzinnig, vakinhoudelijk onjuist of suggestief geformuleerd. 5. Bij elke open vraag hoort een correctiemodel dat ik kan verdedigen tegenover een leerling. Een herkansing die hier niet aan voldoet, gaat niet de deur uit, hoeveel tijd het concept ook scheelde."
+        }
+      },
+      {
+        "title": "Schets je herontworpen workflow",
+        "body": "Beschrijf nu stap voor stap hoe je de gekozen taak voortaan aanpakt, met AI in de rol van leverancier van ruw materiaal en jij in de rol van controleur en afzender. Benoem expliciet: wat geef je AI als opdracht, wat lever je aan zonder herleidbare gegevens, wat krijg je terug, en op welke punten controleer je tegen je kwaliteitsondergrens voordat het naar leerlingen gaat. Een goede schets maakt zichtbaar waar jouw oordeel in de keten blijft zitten.",
+        "time": "10 min",
+        "voorbeeld": "De docent schetst: ik plak de leerdoelen en het type vragen in de chatbot via mijn schoolaccount, zonder leerlingnamen of cijfers, en vraag om twaalf concept-vragen met spreiding over de hoofdstukken. Ik loop ze langs mijn vijf eisen, schrap of herschrijf wat niet klopt, vul gaten zelf aan, en schrijf de correctiemodellen voor de open vragen zelf. Pas als alle vijf eisen groen zijn, gaat de herkansing de toetsmap in.",
+        "workspace": {
+          "field": "herontworpen-workflow",
+          "label": "Schets stap voor stap je herontworpen workflow: AI levert ruw materiaal, jij controleert tegen je ondergrens en bent afzender. Verwerk een AVG-stap.",
+          "shortLabel": "Workflow",
+          "hint": "Benoem expliciet de controlestap per eis uit stap 5, en de AVG-stap: geen herleidbare leerlinggegevens, schoolaccount, abstraheren.",
+          "placeholder": "1. Ik geef AI: ...\n2. AVG: ...\n3. Ik krijg terug: ...\n4. Ik controleer op: ...\n5. Ik keur goed / verstuur: ...",
+          "rows": 9,
+          "rubric": [
+            {
+              "name": "AI levert ruw materiaal",
+              "good": "De rol van AI is beperkt tot een eerste concept of varianten."
+            },
+            {
+              "name": "Controlestap tegen ondergrens",
+              "good": "Je loopt het resultaat expliciet langs je eisen uit stap 5."
+            },
+            {
+              "name": "Docent is afzender",
+              "good": "De laatste stap is jouw goedkeuring vóór het naar leerlingen gaat."
+            },
+            {
+              "name": "AVG-stap aanwezig",
+              "good": "Geen herleidbare leerlinggegevens; schoolaccount en abstraheren staan erin."
+            },
+            {
+              "name": "Stappen concreet en navolgbaar",
+              "good": "Iemand anders zou de workflow kunnen uitvoeren."
+            }
+          ],
+          "referenceAnswer": "1. Ik geef AI via mijn schoolaccount: de leerdoelen, het aantal vragen, de gewenste spreiding over de hoofdstukken en het type vragen, met de vraag om twaalf concept-vragen plus een variant per vraag. 2. AVG: ik plak geen leerlingnamen, cijfers of herleidbare antwoorden in; ik werk met de abstracte leerdoelen en houd het bij het school-/instellingsaccount. 3. Ik krijg een eerste set vragen met varianten terug. 4. Ik controleer langs mijn vijf eisen: dekt elke vraag een leerdoel, klopt de spreiding, is het niveau gelijk aan het origineel, is geen vraag dubbelzinnig of onjuist, en kan ik een correctiemodel verdedigen. Vakinhoudelijke fouten herschrijf ik zelf; de correctiemodellen voor open vragen schrijf ik zelf. 5. Pas als alle vijf eisen groen zijn, keur ik de herkansing goed en zet ik hem in de toetsmap. Ik ben de afzender; AI heeft alleen het ruwe materiaal geleverd."
+        }
+      }
+    ],
+    "vakvariaties": [
+      {
+        "vak": "Talen (vo)",
+        "body": "Tijdrovend én delegeerbaar: een eerste set leesteksten op niveau, woordenlijsten of varianten van een grammatica-oefening laten opstellen. Niet-delegeerbaar: beoordelen of een leerling de taal écht beheerst en waar de hapering zit. Het oefenmateriaal kun je voorbereiden; de inschatting van vaardigheid blijft van jou."
+      },
+      {
+        "vak": "Exacte vakken (vo/havo-vwo)",
+        "body": "Delegeerbaar: extra oefenopgaven en uitgewerkte voorbeelden in verschillende moeilijkheidsgraden genereren. Niet-delegeerbaar: controleren of de uitwerking vakinhoudelijk klopt — AI rekent geregeld fout of slaat stappen over. De ondergrens hier is hard: elke som die de deur uit gaat, reken je zelf na."
+      },
+      {
+        "vak": "Beroepsgerichte vakken (mbo)",
+        "body": "Delegeerbaar: een eerste opzet van een praktijkopdracht of casus rond een beroepssituatie, plus varianten voor verschillende niveaus. Niet-delegeerbaar: beoordelen of de opdracht klopt met de actuele beroepspraktijk en het kwalificatiedossier. De vakdiepte van het beroep zit in jouw hoofd, niet in het model."
+      },
+      {
+        "vak": "Mentoraat / studieloopbaan",
+        "body": "Delegeerbaar: een algemene structuur voor een ouderavond-presentatie of een sjabloon voor een terugkerende informatiemail. Niet-delegeerbaar: het mentorgesprek zelf, het inschatten van een leerling, de zorgsignalen. Dat hoort linksboven in het kwadrant en blijft daar — het is geen werkdruk om weg te automatiseren, het is je kerntaak."
+      },
+      {
+        "vak": "Hbo / hoger onderwijs",
+        "body": "Delegeerbaar: een eerste concept van een opdrachtbeschrijving, varianten van casussen of een samenvatting van vakliteratuur als startpunt. Niet-delegeerbaar: de inhoudelijke beoordeling van studentwerk en het bepalen of een bron klopt en actueel is. Bij literatuur is bronkritiek jouw werk: AI verzint geregeld referenties."
+      }
+    ],
+    "valkuilen": [
+      {
+        "titel": "Alles op één hoop: 'het is gewoon druk'",
+        "watGebeurtEr": "Je ervaart werkdruk als één ondeelbare berg en concludeert dat AI 'er wel iets aan kan doen' of juist 'er niets aan kan doen', zonder te sorteren. Beide conclusies zijn te grof en je verandert niets.",
+        "fix": "Trek de berg uit elkaar in losse taken en scoor elke taak apart op de twee assen. Pas op taakniveau wordt zichtbaar waar winst zit en waar niet."
+      },
+      {
+        "titel": "Het niet-delegeerbare toch automatiseren",
+        "watGebeurtEr": "Omdat een mentorgesprek of beoordeling veel tijd kost, kom je in de verleiding het uit te besteden. De tijdwinst is direct, maar je levert precies de kwaliteit in die je leerlingen van jou nodig hebben.",
+        "fix": "Bescherm linksboven in het kwadrant expliciet. Tijdrovend én niet-delegeerbaar werk hoort niet in je automatiseringsplannen, hoe zwaar het ook weegt."
+      },
+      {
+        "titel": "Geen ondergrens vooraf",
+        "watGebeurtEr": "Je herontwerpt een workflow en vindt het resultaat 'wel goed genoeg', omdat je geen ijkpunt vooraf had. Je merkt pas later, of nooit, dat de kwaliteit gezakt is.",
+        "fix": "Formuleer de kwaliteitseisen vóórdat je AI inzet, niet erna. Een ondergrens achteraf buigt mee met wat het model toevallig leverde."
+      },
+      {
+        "titel": "Te veel tegelijk herontwerpen",
+        "watGebeurtEr": "Je ziet vijf delegeerbare taken en wilt ze allemaal in één keer aanpakken. Geen enkele workflow wordt af, je raakt het overzicht kwijt en concludeert dat 'het toch niet werkt'.",
+        "fix": "Kies één bron, maak die workflow echt af en toets hem tegen je ondergrens. Pas daarna de tweede."
+      },
+      {
+        "titel": "Ruwe AI-output direct doorsturen",
+        "watGebeurtEr": "Het eerste concept ziet er verzorgd uit, dus je stuurt het ongecontroleerd door naar leerlingen of de sectie. Vakinhoudelijke fouten, een verkeerde toon of een onjuiste bron glippen erdoor — en jij bent de afzender.",
+        "fix": "Bouw de controlestap hard in de workflow: niets gaat de deur uit voordat het langs je ondergrens is gegaan en jij het hebt goedgekeurd."
+      }
+    ],
+    "eindcriteria": [
+      {
+        "criterium": "Inventarisatie",
+        "onder": "Een vage lijst met enkele lessen, geen tijdsinschatting, geen onzichtbaar werk.",
+        "op": "Minstens acht concrete taken met grove tijdsinschatting, inclusief mail, plannen en gesprekken.",
+        "boven": "+ De inventarisatie maakt patronen zichtbaar, zoals taken die wekelijks terugkeren en optellen tot veel tijd."
+      },
+      {
+        "criterium": "Sortering in het kwadrant",
+        "onder": "Taken zijn niet of willekeurig geplaatst; delegeerbaar en niet-delegeerbaar lopen door elkaar.",
+        "op": "Elke taak staat op beide assen gescoord en niet-delegeerbaar werk is correct herkend en beschermd.",
+        "boven": "+ Je benoemt per taak de scheidslijn tussen het delegeerbare máken en het niet-delegeerbare beoordelen."
+      },
+      {
+        "criterium": "Kwaliteitsondergrens",
+        "onder": "Geen eisen vooraf, of alleen vage termen als 'goed genoeg'.",
+        "op": "Drie tot vijf toetsbare, vakinhoudelijke eisen die minstens het huidige niveau borgen.",
+        "boven": "+ De eisen benoemen ook eerlijkheid en correctheid richting leerlingen, niet alleen efficiëntie."
+      },
+      {
+        "criterium": "Herontworpen workflow",
+        "onder": "AI doet alles en de docent kijkt weg; geen controlestap, geen AVG-regel.",
+        "op": "AI levert ruw materiaal, de docent controleert tegen de ondergrens, is afzender en houdt zich aan de AVG.",
+        "boven": "+ De workflow is zo concreet dat een collega hem kan overnemen en de controlepunten herkenbaar terugkomen."
+      }
+    ],
+    "reflection": [
+      "Welke taak in jouw week voelde zwaar maar bleek bij nader inzien helemaal niet tijdrovend — en wat zegt dat over waar je werkdruk echt zit?",
+      "Bij welke taak was je geneigd te zeggen 'die kan AI overnemen', terwijl je bij het benoemen van de kwaliteitsondergrens merkte dat jouw oordeel er toch in moet blijven?",
+      "Als je over een maand terugkijkt op je herontworpen workflow, waaraan zou je dan zien dat je écht tijd hebt gewonnen zónder dat je leerlingen er iets van merkten — behalve dan dat het beter werd?"
+    ],
+    "checklist": [
+      "Ik heb één echte werkweek geïnventariseerd met minstens acht taken en een grove tijdsinschatting per taak.",
+      "Ik heb ook het onzichtbare werk (mail, plannen, korte gesprekken, administratie) meegenomen.",
+      "Ik heb elke taak gescoord op beide assen: tijd (hoog/laag) en delegeerbaar (ja/nee).",
+      "Ik heb niet-delegeerbaar werk (oordeel, relatie, vakdiepte) herkend en bewust beschermd.",
+      "Ik heb één delegeerbare, tijdrovende bron uit het winstvak gekozen om mee te beginnen.",
+      "Ik heb voor die taak drie tot vijf toetsbare kwaliteitseisen vastgelegd vóórdat ik AI inzette.",
+      "Ik heb een herontworpen workflow geschetst waarin AI ruw materiaal levert en ik controleer en afzender ben.",
+      "Mijn workflow bevat een AVG-stap: geen herleidbare leerlinggegevens, schoolaccount, abstraheren."
+    ],
+    "nextLesson": "nakijken-en-feedback"
+  },
+  "nakijken-en-feedback": {
+    "format": "diepteles",
+    "summary": "Nakijken is voor veel docenten de zwaarste, eenzaamste werkdrukpost — en precies de taak waar AI je het verkeerde kan laten doen: het oordeel uitbesteden. In deze les draai je het om. Je legt eerst een rubric vast, laat AI dáártegen conceptfeedback per criterium opstellen, en houdt zelf het keuren, herschrijven en cijferen in handen. Je leert wat je nooit delegeert (het cijfer, de gevoelige boodschap), bouwt een AVG-veilige werkwijze met geanonimiseerd werk, en meet aan het eind je echte tijdwinst per stapel.",
+    "duration": {
+      "total": "65 minuten",
+      "blocks": [
+        {
+          "label": "Aanleiding",
+          "min": 6
+        },
+        {
+          "label": "Conceptueel kader",
+          "min": 14
+        },
+        {
+          "label": "Opdracht + rubric expliciteren",
+          "min": 12
+        },
+        {
+          "label": "AI conceptfeedback per criterium",
+          "min": 12
+        },
+        {
+          "label": "Keuren, herschrijven, grens trekken",
+          "min": 13
+        },
+        {
+          "label": "Tijdwinst meten + verankeren",
+          "min": 8
+        }
+      ]
+    },
+    "opening": {
+      "eyebrow": "Aanleiding",
+      "aanleiding": "Een docent Nederlands op het mbo heeft 28 sollicitatiebrieven op de stapel. Het is donderdagavond, de feedback moet vrijdag terug, en ze weet precies hoe het gaat: bij brief 4 schrijft ze nog drie zinnen onder de tekst, bij brief 19 staat er 'goed gedaan, let op de aanhef'. Niet omdat brief 19 minder aandacht verdient, maar omdat haar accu leeg is. De kwaliteit van feedback zakt met de stapel mee — en dat weet ze, en dat knaagt.\n\nDan probeert ze AI. Ze plakt de eerste brief in een gratis chatbot, vraagt 'geef feedback en een cijfer', en krijgt binnen tien seconden een nette beoordeling met een 7. Het voelt als magie en als verraad tegelijk. De feedback is generiek ('zorg voor een sterke openingszin'), het cijfer komt uit het niets, en — dat realiseert ze zich pas later — er staat nu een herleidbare leerlingbrief op een server buiten de school. Drie problemen in één handeling: het oordeel weggegeven, de feedback te vlak voor déze student, en de privacy geschonden.\n\nDe oplossing is niet 'AI doet het nakijken' en ook niet 'AI blijft eraf'. Het is een werkverdeling. AI is goed in het ráámwerk: per rubriccriterium opschrijven wat het werk laat zien en wat een volgende stap kan zijn — snel, uitputtend, onvermoeibaar bij brief 28 net zo goed als bij brief 1. Jij doet wat AI niet kan: bepalen of dit klopt voor déze student, de toon kiezen, de gevoelige boodschap formuleren, en het cijfer geven. AI levert het ruwe materiaal; jij blijft de afzender en de beoordelaar. In deze les bouw je die werkverdeling stap voor stap, op je eigen opdracht.",
+      "waaromNu": "Feedback en beoordeling vormen de kern van DigCompEdu-gebied 4 (Assessment): docenten zetten digitale technologie in om feedback te verrijken, mits het pedagogisch oordeel en de eindverantwoordelijkheid bij de docent blijven. De AVG voegt een harde randvoorwaarde toe: leerlingwerk is een persoonsgegeven, en het in een publieke AI-tool plakken is een verwerking waarvoor je grondslag en grip nodig hebt. En de modulelijn loopt er dwars doorheen: nakijken is tijdrovend én deels delegeerbaar (het opstellen van concepten), maar het oordeel is tijdrovend én níet delegeerbaar. Wie dat onderscheid niet maakt, verlaagt geen werkdruk maar verschuift verantwoordelijkheid naar een machine die hem niet kan dragen."
+    },
+    "conceptueel": {
+      "eyebrow": "Conceptueel kader",
+      "intro": "Begin bij de scheidslijn die deze hele module draagt: welk deel van nakijken is delegeerbaar en welk deel niet? Nakijken bestaat uit minstens vier handelingen. Eén: het werk lezen en tegen criteria leggen — wat laat dit zien per onderdeel? Twee: dat omzetten in bruikbare feedbacktaal — begrijpelijk, opbouwend, met een volgende stap. Drie: de feedback ijken op déze leerling — klopt deze boodschap voor wie dit schreef, in deze fase, met deze voorgeschiedenis? Vier: een oordeel vellen — voldoende of niet, welk cijfer, met welke consequentie. Handeling één en twee zijn opstelwerk: tijdrovend, herhaalbaar, en daarom delegeerbaar als ruw concept. Handeling drie en vier zijn oordeelswerk: ze vragen kennis van de leerling en het dragen van verantwoordelijkheid, en zijn níet delegeerbaar. AI zet je aan de start van handeling drie in plaats van bij nul. Dat is de tijdwinst — en meteen de grens.\n\nDe spil van de hele werkwijze is de rubric, en die moet vóór de AI komen, niet erna. Een rubric is je expliciete maatstaf: welke criteria beoordeel ik, en wat onderscheidt zwak van sterk per criterium? Geef je AI géén rubric, dan verzint het model zijn eigen maatstaf — meestal een generieke, vlotgeschreven middenmoot die nergens op jouw lesdoel is geijkt. Geef je wél een rubric, dan wordt AI een instrument dat het werk tegen jóuw criteria langsloopt en per criterium een concept levert. Dit is precies de aanpak die het platform deterministisch toepast: de AI-coach in deze les scoort jouw eigen antwoorden op elke stap 0 tot 5 tegen een vooraf vastgelegde rubric, op temperatuur nul zodat hetzelfde antwoord hetzelfde oordeel krijgt. De rubric is wat AI van een gokmachine in een gereedschap verandert — bij het beoordelen van docentantwoorden hier, en bij het beoordelen van leerlingwerk straks.\n\nDan het keuren. AI-conceptfeedback is een eerste versie, geen eindproduct, en de waarde van deze les zit in wat je ermee doet. Je leest de conceptfeedback met drie vragen: klopt dit feitelijk (heeft AI iets gezien dat er niet staat, of iets gemist)? Klopt dit voor déze leerling (is 'wees concreter' behulpzaam voor wie juist verdrinkt in details)? En klopt de toon (geen tien tips voor wie aan twee toe is)? Je schrapt, herschrijft, voegt het ene zinnetje toe dat alleen jij kunt schrijven omdat je deze leerling kent. Wat overblijft is feedback met jouw oordeel erin en jouw naam eronder — sneller tot stand gekomen, maar niet minder van jou.\n\nTot slot de twee dingen die je nooit uitbesteedt, hoe verleidelijk ook. Het cijfer: een beoordeling met rechtsgevolg (bevordering, diplomering, een herkansing) hoort bij de docent en mag niet feitelijk door een model worden bepaald — dat raakt aan het AVG-beginsel dat ingrijpende besluiten niet uitsluitend geautomatiseerd worden genomen. En de gevoelige boodschap: een onvoldoende na maandenlange inzet, een vermoeden van fraude, een student die duidelijk in de knel zit — die woorden kies je zelf, omdat de relatie eronder ligt en omdat een verkeerd gekozen zin hier echte schade doet. AI mag het cijferwerk versnellen; afzender van het oordeel ben en blijf jij.",
+      "mentalModel": {
+        "naam": "De corrector en de eindredacteur",
+        "beschrijving": "AI is de corrector: het loopt het werk langs jouw rubric en levert per criterium een concept — snel en uitputtend, maar zonder kennis van wie dit schreef. Jij bent de eindredacteur: je keurt, schrapt, herschrijft naar déze leerling, en zet het oordeel en de handtekening eronder. Een corrector zonder eindredacteur publiceert ongecontroleerde tekst; een eindredacteur zonder corrector doet bij stapel 28 al het opstelwerk zelf en is uitgeput voor het oordeel dat ertoe doet. De tijdwinst zit in de taakverdeling, niet in het overslaan van de eindredactie."
+      },
+      "kernbegrippen": [
+        {
+          "term": "Rubric-eerst",
+          "uitleg": "Je legt criteria en niveaus vast vóór je AI inschakelt. Zonder rubric verzint het model een eigen, generieke maatstaf; mét rubric loopt het jóuw criteria langs."
+        },
+        {
+          "term": "Conceptfeedback",
+          "uitleg": "AI levert per criterium een eerste versie: wat laat het werk zien, wat is een volgende stap. Het is grondstof om te keuren en herschrijven, geen feedback om door te sturen."
+        },
+        {
+          "term": "Niet-delegeerbaar oordeel",
+          "uitleg": "Het cijfer en de gevoelige boodschap blijven bij jou. Beoordelingen met rechtsgevolg mogen niet feitelijk door een model worden bepaald — dat is jouw verantwoordelijkheid en de AVG-lijn."
+        },
+        {
+          "term": "AVG-veilig nakijken",
+          "uitleg": "Geen herleidbaar leerlingwerk in publieke AI. Anonimiseer of werk in een school-/AVG-conforme omgeving met verwerkersafspraken, en weet of toestemming nodig is."
+        }
+      ]
+    },
+    "learningGoals": [
+      "Je benoemt welke handelingen in het nakijkproces delegeerbaar zijn (concept opstellen) en welke niet (oordeel, cijfer, gevoelige boodschap), en kunt dat onderscheid op een eigen opdracht toepassen.",
+      "Je expliciteert voor één opdracht een rubric met 3 tot 5 criteria en herkenbare niveauomschrijvingen, en gebruikt die als instructie voor AI-conceptfeedback.",
+      "Je keurt AI-conceptfeedback kritisch: je controleert op feitfouten, op passendheid voor déze leerling en op toon, en herschrijft tot feedback die je zelf zou ondertekenen.",
+      "Je richt een AVG-veilige werkwijze in (anonimiseren of conforme omgeving, grondslag/toestemming helder) en meet je tijdwinst per stapel om te bepalen of de aanpak werkt."
+    ],
+    "scenario": {
+      "title": "Werksituatie",
+      "context": "Je hebt een stapel van een opdracht die je regelmatig nakijkt en die tijd kost: brieven, betogen, verslagen, een werkstuk, een uitwerkingsverzameling. Je wilt de feedback per leerling rijker maken zonder dat het nakijken je hele avond opvreet — en zonder het oordeel of de privacy in de waagschaal te stellen. In deze les bouw je de complete werkwijze op één opdracht: rubric vastleggen, AI-conceptfeedback per criterium laten opstellen tegen díe rubric, keuren en herschrijven, de grens markeren van wat je nooit uitbesteedt, en de tijdwinst meten.",
+      "role": "Docent · vo, mbo of hbo — elk vak met open werk dat feedback en een beoordeling vraagt",
+      "tools": "AI-tool met schoolaccount of AVG-conforme omgeving · je bestaande rubric of beoordelingsmodel · één geanonimiseerd voorbeeldwerk om mee te testen"
+    },
+    "steps": [
+      {
+        "title": "Knip het nakijken open — wat is delegeerbaar?",
+        "body": "Pak één opdracht die je regelmatig nakijkt en splits het nakijkwerk in de vier handelingen: lezen-tegen-criteria, omzetten-naar-feedbacktaal, ijken-op-déze-leerling, en oordelen/cijferen. Markeer per handeling of die delegeerbaar is als ruw concept (opstelwerk) of niet-delegeerbaar (oordeelswerk). Schat per handeling hoeveel van je nakijktijd erin gaat zitten. Zo zie je zwart-op-wit waar AI tijd kan winnen (de eerste twee) en waar jij onmisbaar blijft (de laatste twee) — en voorkom je dat je per ongeluk het oordeel meegeeft.",
+        "time": "8 min",
+        "voorbeeld": "Docent Nederlands, mbo niveau 4, opdracht 'sollicitatiebrief'. Lezen-tegen-criteria (structuur, register, foutloosheid, overtuigingskracht): ±40% van de tijd, delegeerbaar als concept. Omzetten naar feedbacktaal: ±25%, delegeerbaar. IJken op déze student (Yassine schrijft sterk maar durft niet stellig te zijn): ±20%, niet-delegeerbaar. Cijfer + eventuele gevoelige boodschap: ±15%, niet-delegeerbaar. Conclusie: ruim 60% is concept-werk dat AI kan voorbereiden; de overige 40% blijft mensenwerk en is juist waar de feedback waarde krijgt.",
+        "workspace": {
+          "field": "nakijken-delegeerbaarheid",
+          "label": "Mijn nakijk-splitsing",
+          "shortLabel": "Splitsing",
+          "hint": "Opdracht · vier handelingen · per handeling delegeerbaar of niet · grove tijdsverdeling",
+          "placeholder": "Opdracht: ...\n1. Lezen-tegen-criteria: ...% — delegeerbaar / niet\n2. Omzetten naar feedbacktaal: ...% — delegeerbaar / niet\n3. IJken op déze leerling: ...% — delegeerbaar / niet\n4. Oordelen + cijferen: ...% — delegeerbaar / niet\nWaar zit mijn grootste tijdwinst, waar blijf ik onmisbaar?",
+          "rows": 8,
+          "rubric": [
+            {
+              "name": "Opdracht concreet benoemd",
+              "good": "Eén specifieke, terugkerende opdracht met vak en niveau, niet 'nakijken in het algemeen'."
+            },
+            {
+              "name": "Vier handelingen onderscheiden",
+              "good": "Lezen, omzetten, ijken en oordelen zijn elk apart benoemd en herkenbaar voor déze opdracht."
+            },
+            {
+              "name": "Delegeerbaarheid juist toegekend",
+              "good": "Opstelwerk (1 en 2) als delegeerbaar, oordeelswerk (3 en 4) als niet-delegeerbaar gemarkeerd, met reden."
+            },
+            {
+              "name": "Tijdsverdeling onderbouwd",
+              "good": "Per handeling een realistische grove schatting die optelt tot 100% en past bij echte ervaring."
+            },
+            {
+              "name": "Conclusie over winst en grens",
+              "good": "Benoemt waar AI tijd wint én waar de docent onmisbaar blijft — niet 'AI doet het nakijken'."
+            }
+          ],
+          "referenceAnswer": "Opdracht: betoog schrijven, havo 4, Nederlands — 26 stuks per ronde. 1. Lezen-tegen-criteria (stelling, argumentatie, structuur, taalverzorging): ±35%, delegeerbaar als concept — AI kan per criterium opschrijven wat het betoog laat zien. 2. Omzetten naar feedbacktaal: ±25%, delegeerbaar — AI levert begrijpelijke formuleringen met een volgende stap. 3. IJken op déze leerling: ±20%, niet-delegeerbaar — voor wie altijd te voorzichtig formuleert is 'scherper stelling nemen' iets anders dan voor wie doordramt; dat weet alleen ik. 4. Oordelen + cijfer + soms een gevoelige boodschap (onvoldoende na veel inzet): ±20%, niet-delegeerbaar — rechtsgevolg en relatie. Grootste tijdwinst: handeling 1 en 2, samen ±60%, daar zet AI mij aan de start in plaats van bij nul. Onmisbaar blijf ik bij 3 en 4: juist daar krijgt feedback waarde en draag ik de verantwoordelijkheid."
+        }
+      },
+      {
+        "title": "Maak je rubric expliciet — vóór de AI",
+        "body": "Schrijf de rubric voor je opdracht volledig uit: 3 tot 5 criteria, en per criterium wat zwak, voldoende en sterk onderscheidt. Heb je al een beoordelingsmodel, maak het dan expliciet genoeg dat een buitenstaander ermee zou kunnen scoren — vage termen als 'goede structuur' vervang je door waarneembaar gedrag ('inleiding, kern en slot zijn herkenbaar afgebakend'). Deze rubric is straks je instructie aan AI: het model loopt hier precies dít langs. Hoe scherper je niveaus, hoe bruikbaarder de conceptfeedback en hoe minder generieke middenmoot je terugkrijgt.",
+        "time": "12 min",
+        "voorbeeld": "Rubric sollicitatiebrief (mbo-4), criterium 'register en toon'. Zwak: te informeel of juist krampachtig formeel; aanhef en afsluiting passen niet bij een formele brief. Voldoende: overwegend passend zakelijk register, een enkele uitschieter. Sterk: consequent zakelijk-beleefd, afgestemd op de functie, zonder stijfheid. Door dit zo op te schrijven kan AI straks niet 'mooie toon' als oordeel geven, maar moet het de brief tegen déze drie niveaus leggen.",
+        "workspace": {
+          "field": "nakijken-rubric",
+          "label": "Mijn expliciete rubric",
+          "shortLabel": "Rubric",
+          "hint": "3-5 criteria · per criterium waarneembaar onderscheid zwak / voldoende / sterk",
+          "placeholder": "Criterium 1: ...\n  zwak: ... | voldoende: ... | sterk: ...\nCriterium 2: ...\n  zwak: ... | voldoende: ... | sterk: ...\nCriterium 3: ...\n  zwak: ... | voldoende: ... | sterk: ...\n(eventueel 4-5)",
+          "rows": 9,
+          "rubric": [
+            {
+              "name": "Drie tot vijf criteria",
+              "good": "Niet één vergaarbak en niet vijftien deelpunten; 3-5 criteria die samen het lesdoel dekken."
+            },
+            {
+              "name": "Waarneembaar geformuleerd",
+              "good": "Criteria beschrijven zichtbaar gedrag in het werk, geen vage kwalificaties als 'goede structuur'."
+            },
+            {
+              "name": "Niveaus onderscheiden zwak/voldoende/sterk",
+              "good": "Per criterium drie herkenbaar verschillende niveaus die je uit elkaar kunt houden bij echt werk."
+            },
+            {
+              "name": "Geijkt op het lesdoel",
+              "good": "De criteria meten wat deze opdracht moet aantonen, niet een generieke schrijfrubric van internet."
+            },
+            {
+              "name": "Bruikbaar als AI-instructie",
+              "good": "Scherp genoeg dat AI het werk hiertegen kan leggen zonder zelf een maatstaf te verzinnen."
+            }
+          ],
+          "referenceAnswer": "Rubric betoog (havo 4), 4 criteria. 1. Stelling — zwak: geen of meervoudige stelling; voldoende: één herkenbare stelling; sterk: één scherpe, betwistbare stelling die de rest stuurt. 2. Argumentatie — zwak: beweringen zonder onderbouwing; voldoende: minstens twee argumenten met enige onderbouwing; sterk: argumenten met bewijs én een weerlegde tegenwerping. 3. Structuur — zwak: gedachtesprongen, geen opbouw; voldoende: herkenbare inleiding-kern-slot; sterk: alinea's met kernzinnen en logische signaalwoorden die de lezer leiden. 4. Taalverzorging — zwak: storende spel-/zinsfouten; voldoende: enkele fouten zonder begripsverlies; sterk: vrijwel foutloos, gevarieerde zinsbouw. Elk niveau beschrijft waarneembaar gedrag, zodat AI de brief hiertegen kan leggen in plaats van een eigen 'mooi betoog'-norm te verzinnen."
+        }
+      },
+      {
+        "title": "Laat AI conceptfeedback opstellen — per criterium, AVG-veilig",
+        "body": "Anonimiseer eerst één voorbeeldwerk (haal naam, klas, herleidbare details eruit) of werk in een AVG-conforme omgeving met verwerkersafspraken — nooit herleidbaar leerlingwerk in een publieke gratis tool. Geef AI dan je rubric én de opdracht: stel per criterium conceptfeedback op (wat laat het werk zien, wat is een volgende stap), maar geef expliciet géén cijfer en geen eindoordeel. Schrijf de prompt op die je gebruikt. Zo krijg je gestructureerde grondstof, per criterium, die je in de volgende stap gaat keuren — en blijft het oordeel buiten de AI.",
+        "time": "12 min",
+        "voorbeeld": "Anonimiseren: 'Yassine' wordt '[leerling]', de stagebedrijf-naam wordt '[bedrijf]'. Prompt: 'Hieronder een sollicitatiebrief van een mbo-4-student en mijn rubric met vier criteria en niveaus. Geef per criterium (1) wat de brief op dit punt laat zien en (2) één concrete volgende stap, in toegankelijke taal. Geef GEEN cijfer en GEEN eindoordeel — die geef ik zelf. [rubric] [geanonimiseerde brief]'. Resultaat: vier blokjes conceptfeedback, één per criterium, klaar om te keuren.",
+        "workspace": {
+          "field": "nakijken-conceptprompt",
+          "label": "Mijn AVG-check + conceptfeedback-prompt",
+          "shortLabel": "Conceptprompt",
+          "hint": "Hoe anonimiseer je / welke omgeving · de prompt met rubric · expliciet géén cijfer",
+          "placeholder": "AVG-aanpak: anonimiseren (...) of conforme omgeving (...)\nWat haal ik weg: ...\nPrompt: 'Hieronder ... mijn rubric ... Geef per criterium wat het werk laat zien + één volgende stap. Geef GEEN cijfer/oordeel.'\nWaarom geen cijfer aan AI: ...",
+          "rows": 8,
+          "rubric": [
+            {
+              "name": "AVG-veilig ingericht",
+              "good": "Werk is geanonimiseerd of in conforme omgeving; expliciet geen herleidbaar leerlingwerk in publieke AI."
+            },
+            {
+              "name": "Wat geanonimiseerd wordt is concreet",
+              "good": "Benoemt welke herleidbare elementen weggaan (naam, klas, bedrijf, specifieke details), niet alleen 'naam'."
+            },
+            {
+              "name": "Rubric in de prompt",
+              "good": "De prompt geeft de eigen rubric mee zodat AI per criterium scoort, niet een eigen maatstaf verzint."
+            },
+            {
+              "name": "Per-criterium-output gevraagd",
+              "good": "Prompt vraagt per criterium wat het werk laat zien én een volgende stap — gestructureerd, niet één brij."
+            },
+            {
+              "name": "Cijfer expliciet uitgesloten",
+              "good": "Prompt verbiedt een cijfer/eindoordeel, met de reden dat de docent dat zelf geeft."
+            }
+          ],
+          "referenceAnswer": "AVG-aanpak: ik werk in de schoolomgeving met verwerkersovereenkomst; voor dit testwerk anonimiseer ik bovendien. Weg: voornaam + achternaam (→ [leerling]), klascode, naam van het stagebedrijf (→ [bedrijf]), en een zin met een herleidbaar privédetail. Prompt: 'Hieronder staan mijn rubric (vier criteria met niveaus zwak/voldoende/sterk) en een geanonimiseerde sollicitatiebrief van een mbo-4-student. Geef per criterium: (1) in twee zinnen wat de brief op dit punt laat zien, gekoppeld aan het rubricniveau, en (2) één concrete, haalbare volgende stap in toegankelijke taal. Geef nadrukkelijk GEEN cijfer en GEEN eindoordeel — die bepaal ik zelf. [rubric] [brief]'. Geen cijfer aan AI, omdat een beoordeling met rechtsgevolg bij mij hoort en niet feitelijk door een model bepaald mag worden."
+        }
+      },
+      {
+        "title": "Keur en herschrijf — klopt dit voor déze leerling?",
+        "body": "Lees de conceptfeedback met drie filters. Feitelijk: heeft AI iets gezien dat er niet staat, of een sterk punt gemist? Schrap of corrigeer. Passend: helpt 'wees concreter' déze leerling, of verdrinkt die juist al in details en is 'durf te schrappen' de echte boodschap? Toon: tien tips voor wie aan twee toe is, demotiveert — kies de twee die er nu toe doen. Herschrijf tot feedback die jij zou ondertekenen, en voeg het ene zinnetje toe dat alleen jij kunt schrijven omdat je deze leerling kent. Noteer per criterium wat je overnam, wat je schrapte en wat je toevoegde.",
+        "time": "8 min",
+        "voorbeeld": "AI-concept bij 'argumentatie': 'Voeg meer argumenten toe en onderbouw ze met bronnen.' Keuren: feitelijk klopt het deels, maar déze leerling heeft al vier argumenten — het probleem is dat ze oppervlakkig blijven. Herschreven: 'Je hebt argumenten genoeg; kies de twee sterkste en werk die diep uit met een voorbeeld. Liever twee overtuigende dan vier halve.' Toegevoegd zinnetje dat alleen de docent kan schrijven: 'Net als bij je vorige betoog — je durft, maar je gaat te snel door.' Generieke tip werd een gerichte, persoonlijke boodschap.",
+        "workspace": {
+          "field": "nakijken-keuren",
+          "label": "Mijn keur- en herschrijfronde",
+          "shortLabel": "Keuren",
+          "hint": "Per criterium: wat overgenomen / geschrapt / herschreven · het persoonlijke zinnetje dat alleen jij kunt schrijven",
+          "placeholder": "Criterium ...:\n  AI-concept: ...\n  Feitelijk klopt: ja/nee — ...\n  Passend voor déze leerling: ...\n  Herschreven naar: ...\nPersoonlijk zinnetje (alleen ik kan dit schrijven): ...",
+          "rows": 8,
+          "rubric": [
+            {
+              "name": "Op feitjuistheid gecontroleerd",
+              "good": "Benoemt of AI iets zag dat er niet staat of iets miste, en corrigeert dat — geen blind overnemen."
+            },
+            {
+              "name": "Geijkt op déze leerling",
+              "good": "Past de boodschap aan op wat déze leerling nodig heeft, niet de generieke standaardtip."
+            },
+            {
+              "name": "Toon en hoeveelheid gedoseerd",
+              "good": "Beperkt tot de paar punten die er nu toe doen; geen tipregen, opbouwend geformuleerd."
+            },
+            {
+              "name": "Herschreven, niet doorgeplakt",
+              "good": "De eindfeedback is in eigen woorden en zou door de docent ondertekend kunnen worden."
+            },
+            {
+              "name": "Persoonlijk, kennend zinnetje toegevoegd",
+              "good": "Bevat minstens één zin die alleen deze docent kan schrijven omdat hij de leerling kent."
+            }
+          ],
+          "referenceAnswer": "Criterium structuur: AI-concept: 'Gebruik duidelijke alineaovergangen en signaalwoorden.' Feitelijk klopt: half — de alinea's zijn er wel, maar de kernzinnen ontbreken, dat zag AI niet. Passend: déze leerling kent signaalwoorden allang, het echte probleem is dat elke alinea pas op het eind verklapt waar hij over gaat. Herschreven naar: 'Zet je kernzin vooraan elke alinea — nu moet ik tot de laatste regel lezen voor ik weet waar je heen wilt. Eén verschuiving per alinea en je betoog wordt meteen overzichtelijker.' Geschrapt: de signaalwoorden-tip (overbodig). Persoonlijk zinnetje: 'Je deed dit bij je vorige tekst precies zo — het is echt jouw enige terugkerende structuurpunt, verder zit het goed in elkaar.' Generieke tip werd een gerichte, herkenbare boodschap met perspectief."
+        }
+      },
+      {
+        "title": "Trek de grens — wat besteed je nooit uit?",
+        "body": "Leg expliciet vast wat in jouw werkwijze nooit naar AI gaat: het cijfer, en de gevoelige boodschap. Bepaal hoe je het cijfer geeft (zelf, op basis van je gekeurde feedback en rubric, niet door AI laten 'voorstellen') en welke situaties om een menselijk gesprek of een zelf-geschreven boodschap vragen in plaats van geschreven AI-feedback: een onvoldoende na zichtbare inzet, een vermoeden van AI-misbruik, een leerling die in de knel zit. Schrijf voor jezelf één regel die je hier altijd aan houdt. Dit is de borg dat tijdwinst geen verantwoordelijkheidsverlies wordt.",
+        "time": "5 min",
+        "voorbeeld": "Grensregel docent hbo: 'AI helpt me sneller bij de feedback per criterium; het cijfer bepaal ik zelf op basis van de rubric en mijn gekeurde feedback, en bij een onvoldoende of een fraudevermoeden schrijf ik de boodschap zelf en plan ik een gesprek — die woorden komen nooit uit een model.' Concreet: bij een student die zichtbaar worstelde maar onvoldoende scoorde, geen AI-feedbacktekst, maar een korte persoonlijke notitie plus een uitnodiging om langs te komen.",
+        "workspace": {
+          "field": "nakijken-grens",
+          "label": "Mijn grens: wat ik nooit uitbesteed",
+          "shortLabel": "Grens",
+          "hint": "Hoe geef je het cijfer · welke situaties vragen een menselijke boodschap · één vaste grensregel",
+          "placeholder": "Cijfer: ik bepaal het door ... (niet: AI stelt voor)\nGevoelige boodschappen die ik zelf schrijf: ...\nSituaties die om een gesprek vragen i.p.v. geschreven feedback: ...\nMijn vaste grensregel: '...'",
+          "rows": 6,
+          "rubric": [
+            {
+              "name": "Cijfer blijft bij de docent",
+              "good": "Beschrijft expliciet dat de docent het cijfer zelf bepaalt op basis van rubric/feedback, niet via een AI-voorstel."
+            },
+            {
+              "name": "Gevoelige boodschappen benoemd",
+              "good": "Noemt concrete situaties (onvoldoende na inzet, fraudevermoeden, leerling in de knel) die de docent zelf afhandelt."
+            },
+            {
+              "name": "Gesprek waar geschreven feedback tekortschiet",
+              "good": "Onderscheidt gevallen die om een menselijk gesprek vragen van gevallen die met gekeurde feedback kunnen."
+            },
+            {
+              "name": "AVG-/rechtsgevolg-grond benoemd",
+              "good": "Koppelt de grens aan verantwoordelijkheid en rechtsgevolg, niet alleen aan gevoel."
+            },
+            {
+              "name": "Eén werkbare vaste regel",
+              "good": "Formuleert één concrete regel die de docent in de praktijk kan toepassen en navertellen."
+            }
+          ],
+          "referenceAnswer": "Cijfer: ik bepaal het zelf door mijn gekeurde feedback naast de rubric te leggen en de niveaus op te tellen; AI stelt nooit een cijfer voor, want een beoordeling met rechtsgevolg mag niet feitelijk door een model worden bepaald (AVG: geen ingrijpend besluit puur geautomatiseerd). Zelf geschreven boodschappen: een onvoldoende na zichtbare inzet, een vermoeden van AI-misbruik, en signalen dat een leerling het zwaar heeft. Die vragen om een gesprek of een persoonlijke notitie, niet om gepolijste AI-feedback die afstandelijk of zelfs kwetsend kan landen. Mijn vaste grensregel: 'AI versnelt mijn concept; het oordeel, het cijfer en elke boodschap die pijn kan doen schrijf ik zelf — ik ben de afzender, niet de doorgeefluik.'"
+        }
+      },
+      {
+        "title": "Meet de tijdwinst en veranker",
+        "body": "Kijk één stapel (of een steekproef ervan) twee keer na: een paar werken op je gebruikelijke manier, een paar met de rubric-eerst-werkwijze, en klok de tijd per werk eerlijk — inclusief het keuren en herschrijven. Vergelijk niet alleen de minuten maar ook de kwaliteit: is de feedback bij stuk 20 nu net zo rijk als bij stuk 1? Bepaal dan of en hoe je het verankert: welke opdrachten lenen zich ervoor, en welke afspraak maak je met jezelf over de AVG-stap (anonimiseren/omgeving) zodat die niet wegvalt onder tijdsdruk. Werkdrukverlaging die je niet meet, is een aanname.",
+        "time": "8 min",
+        "voorbeeld": "Meting docent maatschappijleer, 24 verslagen. Oude manier: gemiddeld 9 min/verslag, feedback merkbaar dunner vanaf stuk 15. Nieuwe manier: 11 min voor de eerste twee (rubric scherpstellen kostte tijd), daarna 6 min/verslag inclusief keuren — en de feedback bij stuk 24 net zo concreet als bij stuk 1. Netto: ±30% sneller over de stapel én gelijkmatiger kwaliteit. Verankering: alleen inzetten bij de drie grote schrijfopdrachten per jaar; de AVG-stap (anonimiseren) als vast eerste blokje in het sjabloon, zodat hij niet vergeten wordt.",
+        "workspace": {
+          "field": "nakijken-tijdwinst",
+          "label": "Mijn tijdwinst-meting + verankering",
+          "shortLabel": "Tijdwinst",
+          "hint": "Tijd oud vs. nieuw (incl. keuren) · kwaliteit over de stapel · waar inzetten · AVG-borging",
+          "placeholder": "Meting: oud ... min/werk, nieuw ... min/werk (incl. keuren)\nKwaliteit bij begin vs. eind van de stapel: ...\nNetto winst: ...\nWaar wél/niet inzetten: ...\nAVG-stap borgen door: ...",
+          "rows": 7,
+          "rubric": [
+            {
+              "name": "Eerlijke meting oud vs. nieuw",
+              "good": "Vergelijkt tijd per werk op beide manieren, inclusief het keuren/herschrijven — niet alleen de AI-stap."
+            },
+            {
+              "name": "Kwaliteit over de stapel meegewogen",
+              "good": "Kijkt of de feedback aan het eind van de stapel net zo rijk is als aan het begin, niet alleen naar minuten."
+            },
+            {
+              "name": "Realistische netto-conclusie",
+              "good": "Trekt een nuchtere conclusie over winst, inclusief de opstartkosten van rubric scherpstellen."
+            },
+            {
+              "name": "Gerichte verankering",
+              "good": "Benoemt voor welke opdrachten het wél en niet loont, in plaats van 'overal voortaan'."
+            },
+            {
+              "name": "AVG-stap geborgd",
+              "good": "Maakt een concrete afspraak waardoor anonimiseren/conforme omgeving niet wegvalt onder tijdsdruk."
+            }
+          ],
+          "referenceAnswer": "Meting: Engels, 22 leesverslagen. Oud: ±8 min/verslag, vanaf stuk 14 merkbaar korter en vlakker. Nieuw: eerste drie ±10 min (rubric en prompt aanscherpen), daarna ±5 min/verslag inclusief keuren en herschrijven; feedback bij stuk 22 even concreet als bij stuk 1. Netto: ruwweg een derde sneller over de hele stapel, en — belangrijker — gelijkmatige kwaliteit zonder de avond-inzakking. Waar wél: de grote schrijf- en verslagopdrachten waar veel terugkerend criteriumwerk in zit. Waar niet: korte, eigenzinnige creatieve opdrachten waar elke reactie maatwerk is — daar wint de rubric weinig. AVG borgen: de anonimiseer-/omgevingstap staat als verplicht eerste blokje in mijn nakijksjabloon en in de prompt, zodat hij ook bij een volle stapel op donderdagavond niet overgeslagen wordt."
+        }
+      }
+    ],
+    "vakvariaties": [
+      {
+        "vak": "Nederlands en talen (vo)",
+        "body": "Schrijfopdrachten zijn de natuurlijke thuisbasis: brieven, betogen, verhalen, samenvattingen. Laat AI per rubriccriterium (inhoud, structuur, register, taalverzorging) een concept opstellen tegen jouw niveaus, en herschrijf naar de leerling. De winst is groot omdat de criteria terugkeren over de hele stapel; de valkuil is dat AI taalfouten 'wegpoetst' in zijn samenvatting — controleer de foutsignalering altijd zelf."
+      },
+      {
+        "vak": "Exacte vakken (vo/havo-vwo)",
+        "body": "Bij practicumverslagen, onderzoeksopdrachten en open vraagstukken kan AI per criterium (vraagstelling, methode, verwerking, conclusie) conceptfeedback geven. Let op: AI is zwak in het beoordelen van de juistheid van een berekening of redenering — gebruik het voor feedback op verslaglegging en structuur, en houd de inhoudelijke nakijk-juistheid strikt bij jezelf."
+      },
+      {
+        "vak": "Mbo · beroepsgerichte opdrachten",
+        "body": "Plannen, adviezen, offertes, reflectieverslagen: laat AI tegen het beoordelingsmodel uit het kwalificatiedossier conceptfeedback opstellen, en keur op beroepsechtheid. Anonimiseer extra zorgvuldig: stage- en klantgegevens zijn ook persoonsgegevens van derden. De gevoelige boodschap (een student die zijn stage dreigt te missen) schrijf en bespreek je altijd zelf."
+      },
+      {
+        "vak": "Hbo · verslagen en essays",
+        "body": "Bij langere academische producten kan AI per beoordelingscriterium (probleemstelling, theoretisch kader, analyse, onderbouwing) een concept geven dat je nakijktijd op de eerste leesronde verkort. Houd het cijfer en de borging van het eindniveau strikt bij jezelf, en wees alert op bronvermeldingen: AI kan in zijn feedback verzonnen verbeterbronnen aandragen die je niet ongezien doorgeeft."
+      },
+      {
+        "vak": "Kunst- en praktijkvakken",
+        "body": "Voor schriftelijke onderdelen (procesverslag, ontwerpverantwoording, reflectie) werkt de rubric-eerst-aanpak; voor het beoordelen van het werkstuk zelf veel minder, omdat AI het maakproduct niet betrouwbaar ziet. Zet AI dus in op de tekst rond het werk, en houd het oordeel over het werk zelf — en zeker het cijfer — volledig bij jezelf."
+      }
+    ],
+    "valkuilen": [
+      {
+        "titel": "Het cijfer toch aan AI vragen",
+        "watGebeurtEr": "Onder tijdsdruk vraag je 'en welk cijfer past hierbij?'. AI noemt een getal, je neemt het over, en feitelijk heeft een model je beoordeling bepaald — met rechtsgevolg voor de leerling en zonder dat jij het oordeel droeg.",
+        "fix": "Verbied het cijfer expliciet in je prompt en in je grensregel. Bepaal het cijfer zelf door je gekeurde feedback naast de rubric te leggen. AI levert het materiaal, niet het oordeel."
+      },
+      {
+        "titel": "Herleidbaar leerlingwerk in publieke AI",
+        "watGebeurtEr": "Je plakt een brief mét naam, klas en bedrijf in een gratis chatbot. Daarmee verwerk je persoonsgegevens van een leerling (en soms van derden) buiten de schoolomgeving, zonder grondslag of grip op wat ermee gebeurt.",
+        "fix": "Anonimiseer vóór invoer (naam, klas, bedrijf, herleidbare details weg) of werk uitsluitend in een AVG-conforme omgeving met verwerkersafspraken. Maak die stap een vast, niet-overslaanbaar eerste blokje."
+      },
+      {
+        "titel": "Conceptfeedback ongekeurd doorsturen",
+        "watGebeurtEr": "De AI-tekst leest netjes, dus je plakt hem onder het werk. De feedback is generiek, mist wat déze leerling nodig heeft, en bevat soms een fout die AI 'zag' maar er niet staat — de leerling merkt dat het niet over hem gaat.",
+        "fix": "Behandel conceptfeedback als eerste versie. Lees met drie filters (feitelijk, passend, toon), schrap, herschrijf, en voeg het persoonlijke zinnetje toe dat alleen jij kunt schrijven. Ondertekenbaar of het gaat niet weg."
+      },
+      {
+        "titel": "Geen rubric — generieke middenmoot",
+        "watGebeurtEr": "Je vraagt 'geef feedback op deze tekst' zonder rubric. AI verzint een eigen, vlakke maatstaf en levert tips die op elk werk passen ('zorg voor een sterke openingszin'), niet geijkt op jouw lesdoel.",
+        "fix": "Leg altijd eerst de rubric vast en geef die mee in de prompt. Zonder rubric is AI een gokmachine; mét rubric loopt het jóuw criteria langs — precies de deterministische aanpak die het platform ook bij het scoren gebruikt."
+      },
+      {
+        "titel": "Tijdwinst aannemen zonder te meten",
+        "watGebeurtEr": "Het voelt sneller, dus je gelooft dat het sneller is. Maar het keuren en herschrijven kost ook tijd, en bij sommige opdrachten verlies je meer aan rubric-scherpstellen dan je wint — je verlaagt geen werkdruk, je verplaatst hem.",
+        "fix": "Klok één stapel eerlijk op beide manieren, inclusief het keuren. Beslis op basis van de meting waar je het inzet en waar niet. Niet alle nakijkwerk is AI-rendabel, en dat eerlijk zien hoort bij de module."
+      }
+    ],
+    "eindcriteria": [
+      {
+        "criterium": "Delegeerbaarheid scherp",
+        "onder": "Nakijken als één blok gezien; oordeel en concept lopen door elkaar.",
+        "op": "De vier handelingen onderscheiden, met opstelwerk delegeerbaar en oordeelswerk niet — toegepast op een eigen opdracht.",
+        "boven": "+ Tijdsverdeling onderbouwd en gebruikt om bewust te kiezen wáár AI loont en waar de docent onmisbaar blijft."
+      },
+      {
+        "criterium": "Rubric-eerst",
+        "onder": "Geen expliciete rubric, of vage termen die AI zelf moet invullen.",
+        "op": "3-5 waarneembaar geformuleerde criteria met onderscheiden niveaus, geijkt op het lesdoel en bruikbaar als AI-instructie.",
+        "boven": "+ Rubric zo scherp dat de conceptfeedback meteen raak is en navolgbaar door een collega toe te passen."
+      },
+      {
+        "criterium": "Keuren en herschrijven",
+        "onder": "AI-feedback ongekeurd of woordelijk doorgegeven.",
+        "op": "Conceptfeedback gefilterd op feitjuistheid, passendheid en toon; herschreven tot ondertekenbare, persoonlijke feedback.",
+        "boven": "+ Per criterium gedocumenteerd wat overgenomen, geschrapt en toegevoegd is, met een zinnetje dat alleen déze docent kon schrijven."
+      },
+      {
+        "criterium": "AVG en grens",
+        "onder": "Herleidbaar werk in publieke AI, of het cijfer/de gevoelige boodschap aan AI overgelaten.",
+        "op": "Werk geanonimiseerd of in conforme omgeving; cijfer en gevoelige boodschap expliciet voorbehouden aan de docent.",
+        "boven": "+ Eén vaste grensregel geformuleerd en de AVG-stap geborgd zodat hij niet wegvalt onder tijdsdruk."
+      }
+    ],
+    "reflection": [
+      "Waar lag tot nu toe jouw eigen verleiding om het oordeel uit te besteden — het cijfer, of misschien de moeilijke boodschap — en wat zegt dat over waar de werkdruk je het hardst raakt?",
+      "Bij welke opdracht in jouw vak levert de rubric-eerst-aanpak het meeste op, en bij welke opdracht verlies je juist meer aan scherpstellen dan je wint — hoe weet je dat zeker?",
+      "Een leerling vraagt: 'Heeft een computer mijn werk nagekeken?' Wat is jouw eerlijke antwoord, en welke werkverdeling tussen jou en AI wil je dat dat antwoord beschrijft?"
+    ],
+    "checklist": [
+      "Eén terugkerende opdracht gekozen en het nakijkwerk in vier handelingen gesplitst (delegeerbaar vs. niet)",
+      "Expliciete rubric geschreven: 3-5 waarneembare criteria met onderscheiden niveaus, geijkt op het lesdoel",
+      "Voorbeeldwerk geanonimiseerd of conforme omgeving gebruikt — geen herleidbaar leerlingwerk in publieke AI",
+      "Conceptfeedback per criterium laten opstellen met de rubric in de prompt, expliciet zónder cijfer",
+      "Conceptfeedback gekeurd op feitjuistheid, passendheid en toon, en herschreven tot ondertekenbare feedback",
+      "Per leerling minstens één persoonlijk zinnetje toegevoegd dat alleen jij kon schrijven",
+      "Grens vastgelegd: cijfer en gevoelige boodschap blijven bij jou, met één vaste grensregel",
+      "Tijdwinst eerlijk gemeten (incl. keuren) en besloten waar je de aanpak wel en niet inzet, met de AVG-stap geborgd"
+    ],
+    "nextLesson": "administratie-en-communicatie"
+  },
+  "administratie-en-communicatie": {
+    "format": "diepteles",
+    "summary": "Je maakt van je terugkerende schrijftaken — mail, oudercommunicatie, verslagen, aankondigingen en planning — een werkbare sjabloonkit met AI als opsteller en jou als verantwoordelijke afzender. Je leert toon en register afstemmen op de ontvanger en doet een echte AVG-check op een ouderbericht. Aan het eind heb je 2-3 herbruikbare sjablonen die je morgen kunt gebruiken, plus een vaste werkwijze om herleidbare leerlinggegevens uit publieke AI te houden. Het uitgangspunt: AI levert het concept, jouw oordeel en handtekening maken het af.",
+    "duration": {
+      "total": "60 minuten",
+      "blocks": [
+        {
+          "label": "Aanleiding & kader",
+          "min": 8
+        },
+        {
+          "label": "Schrijftaken in kaart",
+          "min": 8
+        },
+        {
+          "label": "Sjablonen bouwen",
+          "min": 14
+        },
+        {
+          "label": "Toon & register afstemmen",
+          "min": 12
+        },
+        {
+          "label": "AVG-check op ouderbericht",
+          "min": 10
+        },
+        {
+          "label": "Kit opleveren & reflectie",
+          "min": 8
+        }
+      ]
+    },
+    "opening": {
+      "eyebrow": "Aanleiding",
+      "aanleiding": "Het is donderdag, kwart over vier. Je hebt nog drie mails openstaan: een ouder die voor de tweede keer vraagt waarom haar zoon een onvoldoende heeft, een aankondiging voor de ouderavond die de mentor van je wil hebben, en een korte reactie op een collega over de roosterwijziging. Geen van die drie is moeilijk. Ze kosten je samen toch veertig minuten, omdat je bij elke mail opnieuw begint met de juiste openingszin zoeken, de toon afwegen en checken of je niet te kort of te streng klinkt.\n\nDat is het patroon dat de meeste werkdruk in administratie en communicatie veroorzaakt: niet de moeilijkheid, maar de herhaling en het opnieuw beginnen. Je schrijft dit schooljaar tientallen vergelijkbare berichten — een uitnodiging, een herinnering, een verslagje van een gesprek, een bevestiging. Elk bericht voelt als maatwerk, terwijl de structuur bijna altijd hetzelfde is. Daar zit precies de ruimte die AI kan invullen: het ruwe concept opstellen, varianten aanbieden, de toon aanzetten op zakelijk of warm. Wat AI níet kan, is bepalen wat waar is over déze leerling, of de relatie met déze ouder aanvoelen. Dat blijf jij.\n\nDeze les gaat niet over sneller typen. Hij gaat over het bouwen van een kleine voorraad sjablonen, zodat je niet meer bij nul begint. AI is je opsteller; jij bent de afzender die leest, corrigeert en ondertekent.",
+      "waaromNu": "Communicatie met ouders, collega's en de organisatie is een kerntaak die in DigCompEdu apart benoemd wordt onder Organisational communication: professioneel en doelgericht communiceren met de schoolgemeenschap. AI maakt het opstellen sneller, maar verschuift de verantwoordelijkheid niet. Wie als afzender onder een bericht staat, is verantwoordelijk voor de inhoud, de toon én voor het feit dat er geen herleidbare gegevens via een publiek AI-systeem naar buiten zijn gelekt. Nu de meeste docenten dagelijks toegang hebben tot een AI-assistent, is het de moeite waard om dat gebruik één keer goed in te richten in plaats van het per mail te improviseren."
+    },
+    "conceptueel": {
+      "eyebrow": "Conceptueel kader",
+      "intro": "De rode draad van deze module is dat niet alle werkdruk AI-oplosbaar is. Het loont om je schrijftaken in tweeën te splitsen. Aan de ene kant staan taken die tijdrovend én delegeerbaar zijn: het eerste concept van een mail, drie varianten van een aankondiging, een samenvatting van een gespreksverslag, de standaardtekst van een herinnering. Dat is precies het werk waar AI goed in is — vorm, structuur, register. Aan de andere kant staan taken die tijdrovend zijn maar níet delegeerbaar: oordelen of een onvoldoende terecht is, aanvoelen hoe je een bezorgde ouder geruststelt zonder iets te beloven wat je niet waar kunt maken, en de eindverantwoordelijkheid voor wat er onder jouw naam de deur uitgaat.\n\nAI is in dit werk een opsteller, geen afzender. Een opsteller levert je een concept aan op basis van wat jij invoert. De afzender — jij — leest het, corrigeert feiten, stelt de toon bij en plaatst zijn naam eronder. Dat onderscheid is niet cosmetisch. Het bepaalt waar je je aandacht op richt: niet op het bedenken van de openingszin, maar op het controleren of de inhoud klopt en de relatie dient.\n\nHet tweede principe is register. Een bericht aan een ouder van een twaalfjarige in het vmbo vraagt een andere toon dan een mail aan een collega of een formele brief aan de examencommissie. Register is de mate van formaliteit en de warmte van een tekst. AI kan dat register sturen als je het expliciet vraagt — 'zakelijk maar warm', 'formeel', 'kort en vriendelijk' — maar de standaardtoon van een AI-model is vaak nét te glad, te uitgebreid of te afstandelijk. Die gladheid is de grootste valkuil: een bericht dat correct is maar onpersoonlijk, en daarmee de relatie schaadt.\n\nHet derde principe is AVG-discipline. Zodra je werkt met communicatie over leerlingen en ouders, raak je persoonsgegevens. In een publieke AI-omgeving horen geen namen, geboortedata, klassen-plus-naam-combinaties, diagnoses of andere herleidbare gegevens. Je werkt met een sjabloon vol placeholders en abstraheert: 'een leerling die de afgelopen weken minder aanwezig was'. De concrete naam vul je pas in nadat de tekst uit het AI-systeem terug is, in je eigen mailprogramma.",
+      "mentalModel": {
+        "naam": "Opsteller en afzender",
+        "beschrijving": "AI stelt op; jij verstuurt. De opsteller levert structuur, register en een eerste concept op basis van geanonimiseerde input. De afzender leest, controleert de feiten, stelt de toon bij en ondertekent. De handtekening — letterlijk en figuurlijk — markeert waar de verantwoordelijkheid ligt: altijd bij jou, nooit bij het model."
+      },
+      "kernbegrippen": [
+        {
+          "term": "Sjabloon met placeholders",
+          "uitleg": "Een herbruikbare basistekst waarin variabele delen tussen haakjes staan, zoals [vak], [periode] of [reden]. Je vult de echte gegevens pas in ná het AI-systeem, in je eigen mail."
+        },
+        {
+          "term": "Register",
+          "uitleg": "De mate van formaliteit en warmte van een tekst, afgestemd op de ontvanger. Een mail aan een ouder, een collega en de examencommissie vragen elk een ander register."
+        },
+        {
+          "term": "Abstraheren",
+          "uitleg": "Een concrete situatie zo herformuleren dat hij niet meer naar een individu herleidbaar is, bijvoorbeeld 'een leerling die de afgelopen weken vaker afwezig was' in plaats van een naam."
+        },
+        {
+          "term": "Afzenderverantwoordelijkheid",
+          "uitleg": "Wie het bericht verstuurt, is verantwoordelijk voor inhoud, toon en privacy — ook als AI de tekst opstelde. Het model is opsteller, jij bent juridisch en relationeel de afzender."
+        }
+      ]
+    },
+    "learningGoals": [
+      "Je benoemt minstens vijf van je eigen terugkerende schrijftaken en bepaalt per taak of die delegeerbaar is aan AI of bij jou hoort.",
+      "Je bouwt met AI minstens twee herbruikbare sjablonen met placeholders die je zonder herleidbare gegevens kunt vullen.",
+      "Je stuurt het register van een AI-concept gericht bij naar zakelijk, warm of formeel en herkent de te gladde standaardtoon.",
+      "Je voert een AVG-check uit op een ouderbericht en haalt alle herleidbare gegevens eruit voordat het richting een publiek AI-systeem gaat."
+    ],
+    "scenario": {
+      "title": "Werksituatie",
+      "context": "Je bent mentor en vakdocent. In een gemiddelde week verstuur je een uitnodiging voor een gesprek, een herinnering over een deadline, een reactie op een bezorgde ouder, een aankondiging voor de mentorgroep en een kort verslag van een driehoeksgesprek. Je begint elke keer opnieuw en raakt op donderdagmiddag door je energie heen op precies dit soort taken.",
+      "role": "Mentor en vakdocent die zelf afzender blijft van alle communicatie",
+      "tools": "Een AI-assistent via je school-account (oai-praktijklab of vergelijkbaar), je eigen mailprogramma, en een tekstdocument waarin je je sjablonenkit bewaart."
+    },
+    "steps": [
+      {
+        "title": "Breng je terugkerende schrijftaken in kaart",
+        "body": "Begin niet bij AI, maar bij jezelf. Maak een lijst van de schrijftaken die je dit schooljaar steeds opnieuw doet: mail aan ouders, herinneringen, aankondigingen, korte verslagen, planningsberichten. Zet bij elke taak hoe vaak je hem ongeveer doet en — belangrijker — of het werk delegeerbaar is aan een opsteller of dat het jouw oordeel vraagt. Een uitnodiging voor een ouderavond is delegeerbaar. De inschatting of een leerling dreigt vast te lopen is dat niet; die formuleer je zelf, AI helpt hooguit met de verwoording. Deze splitsing bepaalt waar je sjablonen voor bouwt.",
+        "time": "8 min",
+        "voorbeeld": "Een mentor in het vmbo lijstte op: gespreksuitnodiging (10x/jaar, delegeerbaar), deadline-herinnering (20x, delegeerbaar), reactie op bezorgde ouder (8x, half delegeerbaar — vorm wel, inhoud niet), verslag driehoeksgesprek (15x, vorm delegeerbaar), absentiemelding doorgeven (wekelijks, delegeerbaar). Conclusie: vier van de vijf lenen zich voor een sjabloon.",
+        "workspace": {
+          "field": "schrijftaken-inventarisatie",
+          "label": "Lijst minstens vijf terugkerende schrijftaken op. Zet per taak: hoe vaak per jaar, en of het delegeerbaar is aan AI of jouw oordeel vraagt (of allebei).",
+          "shortLabel": "Schrijftaken",
+          "hint": "Denk aan mail, herinneringen, aankondigingen, verslagen en planning. De vraag is steeds: zit het tijdrovende in de vorm (delegeerbaar) of in het oordeel (niet delegeerbaar)?",
+          "placeholder": "1. Gespreksuitnodiging — 10x/jaar — delegeerbaar (vorm staat vast)\n2. Reactie bezorgde ouder — 8x/jaar — half: toon delegeerbaar, inhoud is mijn oordeel\n3. ...",
+          "rows": 8,
+          "rubric": [
+            {
+              "name": "Minstens vijf concrete taken",
+              "good": "Vijf of meer herkenbare schrijftaken uit de eigen praktijk, geen vage categorieën."
+            },
+            {
+              "name": "Frequentie per taak benoemd",
+              "good": "Bij elke taak staat een ruwe inschatting van hoe vaak die voorkomt, zodat winst zichtbaar wordt."
+            },
+            {
+              "name": "Delegeerbaarheid afgewogen",
+              "good": "Per taak is bepaald of de vorm delegeerbaar is of dat het oordeel bij de docent hoort."
+            },
+            {
+              "name": "Onderscheid vorm versus oordeel",
+              "good": "Minstens één taak is als half-delegeerbaar herkend: vorm wel, inhoud niet."
+            }
+          ],
+          "referenceAnswer": "1. Gespreksuitnodiging ouders — ~10x/jaar — delegeerbaar: structuur en toon liggen vast, alleen datum en reden variëren.\n2. Deadline-herinnering aan mentorgroep — ~20x/jaar — delegeerbaar: standaardvorm, alleen vak en datum wisselen.\n3. Reactie op bezorgde ouder over een cijfer — ~8x/jaar — half delegeerbaar: de toon en opbouw kan AI opstellen, maar of het cijfer terecht is en wat ik beloof, is mijn oordeel.\n4. Kort verslag van een driehoeksgesprek — ~15x/jaar — vorm delegeerbaar: ik dicteer de feiten geanonimiseerd, AI maakt er nette zinnen van; de inschatting blijft van mij.\n5. Aankondiging activiteit/ouderavond — ~6x/jaar — delegeerbaar: volledig vormwerk.\nConclusie: vier taken lenen zich voor een kant-en-klaar sjabloon, één (reactie op ouder) krijgt een sjabloon voor de vorm maar vraagt elke keer mijn eigen oordeel over de inhoud."
+        }
+      },
+      {
+        "title": "Bouw twee tot drie herbruikbare sjablonen met AI",
+        "body": "Kies twee of drie van je delegeerbare taken en laat AI er een sjabloon van maken — geen eenmalige mail, maar een herbruikbaar raamwerk met placeholders. Vraag expliciet om variabele delen tussen haakjes: [naam ontvanger], [vak], [datum], [reden]. Zo houd je herleidbare gegevens automatisch buiten het AI-systeem: je vult de echte naam pas in je mailprogramma in. Geef in je prompt mee voor wie het bericht is, welk doel het heeft en hoe lang het ongeveer mag zijn. Beoordeel het concept daarna kritisch: klopt de structuur, mist er een stap, staat er niets in wat niet waar is?",
+        "time": "14 min",
+        "voorbeeld": "Prompt: 'Maak een herbruikbaar e-mailsjabloon voor een uitnodiging aan een ouder voor een tienminutengesprek. Houd variabele delen tussen vierkante haken: [aanhef], [reden], [twee datumvoorstellen], [contactgegevens]. Toon: zakelijk maar warm, maximaal 120 woorden, je-vorm naar de ouder. Begin niet met een compliment.' Het resultaat sla je op als sjabloon, niet als losse mail.",
+        "workspace": {
+          "field": "sjabloon-bouwen",
+          "label": "Plak hier één sjabloon dat je met AI hebt gebouwd, inclusief de placeholders tussen haakjes. Schrijf er kort onder welke prompt je gebruikte en wat je nog hebt aangepast.",
+          "shortLabel": "Sjabloon",
+          "hint": "Een goed sjabloon heeft variabele delen tussen [haakjes], een vaste structuur en een duidelijk register. Geen echte namen of gegevens in het sjabloon — die horen in je eigen mail.",
+          "placeholder": "SJABLOON: Gespreksuitnodiging\nBeste [aanhef ouder/verzorger],\n[reden voor het gesprek, één zin]\nIk stel voor: [datum 1] of [datum 2]...\n\nPROMPT die ik gebruikte: ...\nWat ik aanpaste: ...",
+          "rows": 12,
+          "rubric": [
+            {
+              "name": "Placeholders tussen haakjes",
+              "good": "Variabele delen staan herkenbaar tussen haakjes; er staan geen echte namen of gegevens in."
+            },
+            {
+              "name": "Vaste, logische structuur",
+              "good": "Het sjabloon heeft een herbruikbare opbouw: aanhef, kern, voorstel/actie, afsluiting."
+            },
+            {
+              "name": "Register expliciet gekozen",
+              "good": "De toon past bij de ontvanger en is bewust gestuurd via de prompt, niet de AI-standaard."
+            },
+            {
+              "name": "Eigen aanpassing benoemd",
+              "good": "De docent beschrijft wat hij na het AI-concept zelf bijstelde — bewijs van afzenderschap."
+            },
+            {
+              "name": "Prompt is herbruikbaar",
+              "good": "De gedeelde prompt benoemt ontvanger, doel, lengte en toon, zodat hij opnieuw bruikbaar is."
+            }
+          ],
+          "referenceAnswer": "SJABLOON: Gespreksuitnodiging ouder\n\nBeste [aanhef: ouder/verzorger van],\n\nIk wil graag even met u in gesprek over [reden, één feitelijke zin, bijv. de voortgang in mijn vak]. Het lukt mij om dat kort en concreet te houden.\n\nZou een van deze momenten u schikken: [datum/tijd 1] of [datum/tijd 2]? Als beide niet passen, hoor ik graag wanneer het u wel uitkomt.\n\nU kunt mij bereiken via [mailadres] of [telefoon/telefonisch spreekuur].\n\nMet vriendelijke groet,\n[eigen naam], [functie]\n\nPROMPT die ik gebruikte: 'Maak een herbruikbaar e-mailsjabloon voor een gespreksuitnodiging aan een ouder. Variabele delen tussen vierkante haken. Toon: zakelijk maar warm, je-vorm naar de ouder, maximaal 110 woorden, begin niet met een compliment of een dankbetuiging.'\n\nWat ik aanpaste: de AI-versie opende met 'Hopelijk gaat alles goed met u' — dat klonk leeg, dus geschrapt. Ook 'graag wil ik u uitnodigen voor een gesprek over de zorgwekkende ontwikkeling' afgezwakt naar een neutrale formulering, omdat de reden per geval verschilt en ik niet bij voorbaat alarmerend wil klinken."
+        }
+      },
+      {
+        "title": "Stem toon en register af op de ontvanger",
+        "body": "Neem één van je concepten en laat AI er drie registervarianten van maken: zakelijk, warm en formeel. Vergelijk ze hardop. Welke past bij déze ontvanger? De truc zit niet in het vragen om 'een vriendelijke mail' — dat levert juist de gladde, onpersoonlijke AI-toon op die de relatie schaadt. Stuur scherper: 'warm maar kort, geen overdreven complimenten', of 'formeel, maar niet afstandelijk'. Let op zinnen die te perfect klinken om van jou te komen; die herschrijf je in je eigen woorden. De toon moet klinken alsof jij het hebt geschreven, want jij bent de afzender.",
+        "time": "12 min",
+        "voorbeeld": "Eén ouderbericht, drie versies. Zakelijk: 'Ik laat u weten dat...'. Warm: 'Ik wilde u even persoonlijk bijpraten over...'. Formeel: 'Hierbij bericht ik u dat...'. Voor een bezorgde ouder van een twaalfjarige kiest de mentor de warme versie, maar schrapt de zin 'Wat fijn dat u zo betrokken bent' — die voelde ingestudeerd en daarmee onecht.",
+        "workspace": {
+          "field": "register-afstemmen",
+          "label": "Plak hier dezelfde boodschap in twee of drie registers (zakelijk/warm/formeel). Kies er één voor een concrete ontvanger en leg in één à twee zinnen uit waarom, en wat je nog bijschaafde.",
+          "shortLabel": "Register",
+          "hint": "Vraag AI niet om 'aardig', maar stuur het register precies. Markeer de te gladde of ingestudeerde zinnen en herschrijf ze in je eigen woorden.",
+          "placeholder": "ZAKELIJK: ...\nWARM: ...\nFORMEEL: ...\n\nGekozen voor: ... omdat de ontvanger ...\nBijgeschaafd: ik schrapte de zin '...' omdat die te glad/onecht klonk.",
+          "rows": 12,
+          "rubric": [
+            {
+              "name": "Minstens twee duidelijke registers",
+              "good": "De varianten verschillen merkbaar in formaliteit en warmte, niet alleen in losse woorden."
+            },
+            {
+              "name": "Keuze gekoppeld aan ontvanger",
+              "good": "De gekozen variant past aantoonbaar bij een concrete ontvanger en situatie."
+            },
+            {
+              "name": "Gladde AI-toon herkend",
+              "good": "Minstens één ingestudeerde of te perfecte zin is benoemd en herschreven."
+            },
+            {
+              "name": "Eigen stem hoorbaar",
+              "good": "De definitieve tekst klinkt alsof de docent zelf de afzender is, niet het model."
+            }
+          ],
+          "referenceAnswer": "Boodschap: een leerling heeft een toets niet gehaald en de ouder wil weten hoe het verder gaat.\n\nZAKELIJK: 'Ik laat u weten dat de toets van vorige week onvoldoende is afgesloten. We pakken dit op met een herkansing in week [x]; tot die tijd oefent uw kind gericht met [onderdeel].'\n\nWARM: 'Ik wilde u even persoonlijk bijpraten. De toets van vorige week is helaas niet goed gegaan, maar dat is goed op te vangen: er komt een herkansing in week [x] en we weten precies aan welk onderdeel we gaan werken.'\n\nFORMEEL: 'Hierbij bericht ik u dat de recente toets onvoldoende is beoordeeld. Conform de afspraken volgt een herkansing in week [x].'\n\nGekozen voor: de warme versie, omdat de ouder bezorgd is over een twaalfjarige en ik de relatie wil houden zonder de onvoldoende te verbloemen.\n\nBijgeschaafd: AI had er 'Maakt u zich vooral geen zorgen!' aan toegevoegd — geschrapt, want dat is een belofte die ik niet kan waarmaken en het klinkt ingestudeerd. 'Helaas niet goed gegaan' liet ik staan: eerlijk en gewoon."
+        }
+      },
+      {
+        "title": "Doe een AVG-check op een ouderbericht",
+        "body": "Pak een echt ouderbericht dat je laatst hebt gestuurd of zou willen sturen, en behandel het alsof het richting een publiek AI-systeem gaat. Markeer alles wat herleidbaar is: voor- en achternaam, klas-plus-naam, geboortedatum, adres, een diagnose of zorgmelding, een combinatie van details die samen naar één leerling wijzen. Vervang elk daarvan door een placeholder of een geabstraheerde formulering. Pas als het bericht echt anoniem is, mag het de prompt in. De concrete gegevens vul je later in je eigen mail in. Dit is geen formaliteit: één naam in een publieke chat is een datalek waarvoor jij als afzender verantwoordelijk bent.",
+        "time": "10 min",
+        "voorbeeld": "Origineel: 'Sasha de Vries uit 2B was de afgelopen drie weken vaak afwezig en lijkt thuis veel spanning te ervaren.' Geanonimiseerd voor AI: 'Een leerling uit de onderbouw was de afgelopen weken vaker afwezig; er lijkt sprake van spanning thuis.' De naam, klas en het herleidbare detail zijn eruit. De echte naam komt pas terug in de definitieve mail in Outlook.",
+        "workspace": {
+          "field": "avg-check-ouderbericht",
+          "label": "Plak een (verzonnen of geanonimiseerd) ouderbericht. Markeer welke gegevens herleidbaar zijn en schrijf de AVG-veilige versie eronder die je wél aan AI zou geven.",
+          "shortLabel": "AVG-check",
+          "hint": "Herleidbaar = naam, klas+naam, geboortedatum, adres, diagnose/zorg, of een combinatie van details die samen naar één leerling wijzen. Abstraheer naar 'een leerling die...'.",
+          "placeholder": "ORIGINEEL (niet in AI plakken):\n...\n\nHERLEIDBAAR: naam, klas, [detail]\n\nAVG-VEILIGE VERSIE (mag wel in AI):\nEen leerling die ...",
+          "rows": 10,
+          "rubric": [
+            {
+              "name": "Herleidbare gegevens benoemd",
+              "good": "Naam, klas-plus-naam en bijzondere details zijn als herleidbaar gemarkeerd."
+            },
+            {
+              "name": "Bijzondere gegevens herkend",
+              "good": "Een zorgmelding, diagnose of thuissituatie is herkend als extra gevoelig."
+            },
+            {
+              "name": "Correct geabstraheerd",
+              "good": "De veilige versie is niet meer naar één individu te herleiden, maar behoudt de kern."
+            },
+            {
+              "name": "Invulvolgorde klopt",
+              "good": "Echte gegevens worden pas ná het AI-systeem ingevuld, in de eigen mailomgeving."
+            }
+          ],
+          "referenceAnswer": "ORIGINEEL (niet in AI plakken):\n'Beste mevrouw Janssen, ik maak me zorgen over Liam uit 1C. Hij was de afgelopen drie weken vier keer afwezig en vertelde mij dat het thuis onrustig is sinds de scheiding. Kunnen we een afspraak maken?'\n\nHERLEIDBAAR: achternaam ouder (Janssen), voornaam leerling (Liam), klas (1C) — die combinatie wijst naar één leerling. Bijzonder/gevoelig: de scheiding thuis en de zorgmelding.\n\nAVG-VEILIGE VERSIE (mag wel in AI):\n'Maak een korte, warme mail aan een ouder. Aanleiding: een leerling uit de onderbouw was de afgelopen weken meerdere keren afwezig en lijkt thuis een lastige periode te hebben. Ik wil een gesprek voorstellen, zonder de privé-situatie in de mail uit te spellen. Variabele delen tussen [haken].'\n\nDe echte naam, klas en de specifieke thuissituatie vul ik pas in de definitieve mail in Outlook in — die gaan nooit door het AI-systeem. De thuissituatie benoem ik in de mail zelf bovendien terughoudend, omdat ouders dat liever in een gesprek bespreken."
+        }
+      },
+      {
+        "title": "Maak een vaste reactie-flow voor een lastige mail",
+        "body": "Niet elke mail past in een sjabloon. Voor de half-delegeerbare taak — bijvoorbeeld een reactie op een bezorgde of boze ouder — bouw je geen kant-en-klare tekst, maar een vaste werkwijze. Jij bepaalt eerst de kern: wat klopt er, wat beloof ik wel en niet, welke toon hoort hierbij. Die kern, geanonimiseerd, geef je aan AI om netjes te verwoorden. Zo blijft het oordeel bij jou en doet AI alleen het taalwerk. Schrijf je flow op als een paar stappen die je elke keer kunt volgen, zodat je ook bij een geladen mail niet hoeft te improviseren.",
+        "time": "8 min",
+        "voorbeeld": "Flow voor een boze ouder: (1) ik schrijf in steekwoorden wat feitelijk klopt en wat ik wel/niet kan beloven; (2) ik abstraheer naar 'een ouder die ontevreden is over een beoordeling'; (3) AI verwoordt het rustig en zonder defensieve toon; (4) ik lees na op feiten en op één menselijke zin die laat zien dat ik de zorg serieus neem; (5) naam en details vul ik in mijn mail in.",
+        "workspace": {
+          "field": "reactie-flow",
+          "label": "Schrijf een vaste flow (4-6 stappen) voor een lastige of half-delegeerbare mail. Maak duidelijk welke stap jouw oordeel is en welke stap AI doet.",
+          "shortLabel": "Reactie-flow",
+          "hint": "Bij een lastige mail levert AI de verwoording, niet het oordeel. Zorg dat jouw beslissingen (wat klopt, wat beloof ik) vóór de AI-stap komen.",
+          "placeholder": "Flow voor: reactie op een ontevreden ouder\n1. Ik bepaal zelf: ...\n2. Ik abstraheer: ...\n3. AI: ...\n4. Ik controleer: ...\n5. Ik vul in en verstuur: ...",
+          "rows": 9,
+          "rubric": [
+            {
+              "name": "Oordeelsstap staat vooraan",
+              "good": "De docent bepaalt feiten en grenzen voordat AI iets verwoordt."
+            },
+            {
+              "name": "AI-rol beperkt tot taal",
+              "good": "AI doet uitsluitend het verwoorden, niet het beoordelen of beloven."
+            },
+            {
+              "name": "Anonimiseringsstap aanwezig",
+              "good": "Er is een expliciete stap die herleidbare gegevens eruit haalt vóór de AI-stap."
+            },
+            {
+              "name": "Controle- en verstuurstap",
+              "good": "Een laatste menselijke check op feiten en toon, en invullen van gegevens in de eigen mail."
+            }
+          ],
+          "referenceAnswer": "Flow voor: reactie op een ontevreden ouder over een beoordeling.\n1. Ik bepaal zelf (oordeel): klopt de beoordeling? Wat kan ik wel toezeggen (uitleg, herkansing) en wat niet (cijfer aanpassen zonder grond)? Dit schrijf ik in steekwoorden.\n2. Ik abstraheer: alle namen, klas en specifieke details eruit; het wordt 'een ouder die het oneens is met een toetsbeoordeling'.\n3. AI (taal): 'Verwoord dit rustig, niet defensief, erken de zorg maar beloof niets buiten deze punten. Zakelijk-warm, max 150 woorden.'\n4. Ik controleer: kloppen de feiten? Staat er geen belofte in die ik niet kan waarmaken? Ik voeg één eigen zin toe die laat zien dat ik de zorg serieus neem.\n5. Ik vul de echte naam en details in Outlook in en verstuur onder mijn eigen naam.\nDe stappen 1 en 4 zijn mijn oordeel; stap 3 is het enige dat AI doet."
+        }
+      },
+      {
+        "title": "Lever je sjabloonkit op",
+        "body": "Bundel wat je hebt gemaakt tot één bruikbare kit: je twee à drie sjablonen, je registerafspraken en je reactie-flow, plus je vaste AVG-regel bovenaan. Schrijf de AVG-regel als een zin die je elke keer voor jezelf herhaalt, bijvoorbeeld: 'Geen namen, klassen of zorgdetails in publieke AI — die vul ik pas in mijn eigen mail in.' Een kit is pas af als je hem morgen kunt pakken zonder na te denken. Noteer ook waar je hem bewaart, zodat je hem terugvindt als het donderdagmiddag kwart over vier is.",
+        "time": "8 min",
+        "voorbeeld": "Een mentor bewaart de kit als één document in de teamomgeving: bovenaan de AVG-regel, daaronder drie sjablonen (uitnodiging, herinnering, aankondiging), de registerafspraak ('ouders: warm-kort; collega's: zakelijk; commissies: formeel') en de flow voor lastige mails. Ze deelt hem met twee collega's die hetzelfde mentoraat doen.",
+        "workspace": {
+          "field": "sjabloonkit-oplevering",
+          "label": "Lever je sjabloonkit op: de AVG-regel bovenaan, een korte inhoudsopgave van je sjablonen, je registerafspraak en waar je de kit bewaart. Wat ga je morgen als eerste gebruiken?",
+          "shortLabel": "Kit",
+          "hint": "Een kit is af als je hem zonder nadenken kunt pakken. AVG-regel bovenaan, sjablonen, registerafspraak, bewaarplek, en een eerste concrete inzet.",
+          "placeholder": "AVG-REGEL: Geen namen/klassen/zorgdetails in publieke AI — invullen doe ik in mijn eigen mail.\n\nKIT BEVAT:\n1. Sjabloon ...\n2. Sjabloon ...\nREGISTERAFSPRAAK: ouders = ...; collega's = ...\nBEWAARD IN: ...\nMORGEN GEBRUIK IK: ...",
+          "rows": 11,
+          "rubric": [
+            {
+              "name": "AVG-regel bovenaan",
+              "good": "Een heldere, herhaalbare regel die herleidbare gegevens uit publieke AI houdt."
+            },
+            {
+              "name": "Minstens twee sjablonen gebundeld",
+              "good": "De eerder gebouwde sjablonen zijn samengebracht en benoemd."
+            },
+            {
+              "name": "Registerafspraak per ontvanger",
+              "good": "Er is een korte afspraak welk register bij welke ontvanger hoort."
+            },
+            {
+              "name": "Vindbaar en deelbaar",
+              "good": "Er staat waar de kit bewaard wordt, zodat hij op een drukke dag terugvindbaar is."
+            },
+            {
+              "name": "Concrete eerste inzet",
+              "good": "De docent benoemt welke taak hij morgen als eerste met de kit oppakt."
+            }
+          ],
+          "referenceAnswer": "AVG-REGEL: Geen namen, klassen, geboortedata of zorgdetails in publieke AI. Ik werk met placeholders en abstraheer naar 'een leerling die...'. Echte gegevens vul ik pas in mijn eigen mailprogramma in.\n\nKIT BEVAT:\n1. Sjabloon gespreksuitnodiging ouder (warm-kort, placeholders voor reden en datums).\n2. Sjabloon deadline-herinnering mentorgroep (zakelijk, placeholders voor vak en datum).\n3. Sjabloon aankondiging activiteit/ouderavond (zakelijk-warm).\n4. Reactie-flow voor lastige ouder-mails (oordeel bij mij, AI doet de taal).\n\nREGISTERAFSPRAAK: ouders = warm en kort, geen overdreven complimenten; collega's = zakelijk en direct; examencommissie/directie = formeel maar niet afstandelijk.\n\nBEWAARD IN: gedeeld document in de mentoren-teamomgeving, gedeeld met de twee parallelmentoren.\n\nMORGEN GEBRUIK IK: de gespreksuitnodiging, voor de twee oudergesprekken die ik deze week nog moet inplannen — dat scheelt me het opnieuw bedenken van de openingszin."
+        }
+      }
+    ],
+    "vakvariaties": [
+      {
+        "vak": "Talen (vo)",
+        "body": "De moderne-vreemde-talendocent gebruikt AI om aankondigingen en oudermails te schrijven, maar laat het model óók een Engelse of Duitse versie maken voor ouders die het Nederlands minder machtig zijn. De afzender controleert de vertaling op toon: een formele groet die in het Nederlands gewoon klinkt, kan in het Engels stijf overkomen."
+      },
+      {
+        "vak": "Exacte vakken (vo/havo-vwo)",
+        "body": "De docent natuurkunde maakt een sjabloon voor het terugkoppelen van praktische-opdrachtresultaten aan ouders. AI verwoordt de structuur; de docent vult zelf de vakinhoudelijke beoordeling in, want of een onderzoeksverslag voldoende is, is geen taal- maar een vakoordeel."
+      },
+      {
+        "vak": "Beroepsgericht (mbo)",
+        "body": "Een mbo-docent communiceert veel met stagebedrijven én met studenten die zelf de ontvanger zijn. Een sjabloon voor een stagebevestiging of een herinnering aan een BPV-deadline scheelt veel herhaalwerk; het register is hier zakelijk-direct, passend bij een beroepscontext."
+      },
+      {
+        "vak": "Mentoraat / zorg (vo en mbo)",
+        "body": "De mentor schrijft de meeste gevoelige berichten: zorgmeldingen, gespreksverslagen, signalen. Juist hier is de AVG-check geen formaliteit. Geen namen, klassen of diagnoses in publieke AI; de mentor abstraheert en gebruikt het sjabloon alleen voor de vorm, nooit voor de inhoudelijke inschatting."
+      },
+      {
+        "vak": "Lerarenopleiding (hbo)",
+        "body": "De hbo-docent communiceert met studenten die bijna-collega zijn, en met praktijkscholen. Een sjabloon voor feedback op een stageverslag of een uitnodiging voor een intervisiebijeenkomst werkt goed; het register schuift naar collegiaal-zakelijk in plaats van het mentortoontje uit het vo."
+      }
+    ],
+    "valkuilen": [
+      {
+        "titel": "De gladde, onpersoonlijke AI-toon",
+        "watGebeurtEr": "Je vraagt om 'een vriendelijke mail' en krijgt een tekst die correct is maar voelt als een formuliertje: te veel complimenten, te uitgebreid, geen eigen stem. De ouder voelt dat het niet persoonlijk is en de relatie koelt af.",
+        "fix": "Stuur het register precies ('warm maar kort, geen overdreven complimenten') en herschrijf minstens één zin in je eigen woorden, zodat de mail klinkt alsof jij hem schreef."
+      },
+      {
+        "titel": "Herleidbare gegevens in publieke AI",
+        "watGebeurtEr": "Je plakt een echte mail met naam en klas in de chat om hem te laten herschrijven. Dat is een datalek: persoonsgegevens van een minderjarige belanden in een systeem buiten de school, en jij bent als afzender verantwoordelijk.",
+        "fix": "Abstraheer altijd vóór de prompt — 'een leerling die...' — en vul echte namen en details pas in je eigen mailprogramma in, ná het AI-systeem."
+      },
+      {
+        "titel": "Te formeel waar warmte nodig is",
+        "watGebeurtEr": "Voor een bezorgde ouder kies je per ongeluk de zakelijke of formele variant. Het bericht is correct, maar koel, en de ouder voelt zich niet serieus genomen in zijn zorg.",
+        "fix": "Bepaal het register bewust op basis van de ontvanger en de situatie. Bij zorg of emotie kies je warm; bij een commissie formeel. Lees terug of de toon bij déze ontvanger past."
+      },
+      {
+        "titel": "AI laten oordelen in plaats van verwoorden",
+        "watGebeurtEr": "Je laat AI niet alleen de mail schrijven maar ook bepalen wat je belooft of hoe je een onvoldoende uitlegt. Het model verzint geruststellingen of toezeggingen die jij niet kunt waarmaken.",
+        "fix": "Bepaal zelf de kern — wat klopt, wat beloof je wel en niet — vóór de AI-stap. AI doet alleen het taalwerk; het oordeel en de belofte blijven van jou."
+      },
+      {
+        "titel": "Eenmalige tekst in plaats van sjabloon",
+        "watGebeurtEr": "Je laat AI elke keer een losse mail maken en begint dus telkens opnieuw. De winst van AI lekt weg in het steeds opnieuw formuleren van dezelfde prompt.",
+        "fix": "Bouw één keer een sjabloon met placeholders en bewaar het in een vindbare kit. Daarna vul je alleen de variabele delen in — geen nieuwe prompt meer nodig."
+      }
+    ],
+    "eindcriteria": [
+      {
+        "criterium": "Sjablonen bruikbaar",
+        "onder": "Eén losse mail gemaakt, geen herbruikbaar sjabloon met placeholders.",
+        "op": "Twee tot drie sjablonen met placeholders, klaar voor direct gebruik.",
+        "boven": "+ Sjablonen gedeeld met collega's en voorzien van een korte gebruiksinstructie."
+      },
+      {
+        "criterium": "Register afgestemd",
+        "onder": "AI-standaardtoon overgenomen zonder bijstellen; klinkt onpersoonlijk.",
+        "op": "Register bewust gekozen per ontvanger; minstens één gladde zin herschreven.",
+        "boven": "+ Een vaste registerafspraak per ontvangertype vastgelegd voor toekomstige berichten."
+      },
+      {
+        "criterium": "AVG-discipline",
+        "onder": "Herleidbare gegevens zouden in een publieke AI-prompt belanden.",
+        "op": "Gegevens consequent geabstraheerd; echte namen pas ingevuld na het AI-systeem.",
+        "boven": "+ Een vaste AVG-regel bovenaan de kit die elke keer als eerste gecheckt wordt."
+      },
+      {
+        "criterium": "Afzenderschap",
+        "onder": "Tekst klakkeloos verstuurd zoals AI hem opstelde.",
+        "op": "Concept gecontroleerd op feiten en toon, en in eigen woorden bijgesteld.",
+        "boven": "+ Een reactie-flow waarin het eigen oordeel structureel vóór de AI-stap komt."
+      }
+    ],
+    "reflection": [
+      "Welke van je terugkerende schrijftaken bleek bij nader inzien helemaal niet delegeerbaar, en wat zegt dat over waar jouw tijd écht naartoe moet?",
+      "Waar merkte je het verschil tussen de standaard-AI-toon en hoe jij zelf zou schrijven, en hoe zou een ouder dat verschil opvatten?",
+      "Welke gegevens stond je vroeger misschien onbewust toe in een AI-prompt, en hoe ga je voorkomen dat dat op een drukke dag weer gebeurt?"
+    ],
+    "checklist": [
+      "Ik heb minstens vijf terugkerende schrijftaken in kaart en weet per taak of die delegeerbaar is.",
+      "Ik heb twee tot drie herbruikbare sjablonen met placeholders gebouwd.",
+      "Mijn sjablonen bevatten geen echte namen of herleidbare gegevens.",
+      "Ik heb het register bewust afgestemd op de ontvanger en de gladde AI-toon herschreven.",
+      "Ik heb een AVG-check gedaan op een ouderbericht en alles herleidbaars geabstraheerd.",
+      "Ik heb een vaste flow voor lastige mails waarin mijn oordeel vóór de AI-stap komt.",
+      "Ik blijf zelf de afzender: ik lees elk concept na op feiten en toon voordat ik verstuur.",
+      "Mijn sjabloonkit is gebundeld, vindbaar opgeslagen en klaar voor gebruik."
+    ],
+    "nextLesson": "check-mod6"
+  },
+  "check-mod6": {
+    "format": "kennischeck",
+    "summary": "Vijf vragen over de kern van Module 6: welke taken je wél en niet aan AI delegeert, waar je oordeel onmisbaar blijft, en hoe je de AVG en de kwaliteitsondergrens bewaakt. Na elke vraag krijg je meteen uitleg, zodat de check ook een herhaling is.",
+    "duration": {
+      "total": "12 min",
+      "blocks": [
+        {
+          "label": "5 vragen",
+          "min": 8
+        },
+        {
+          "label": "Advies",
+          "min": 4
+        }
+      ]
+    },
+    "learningGoals": [
+      "Je herkent welke werkdruktaken tijdrovend én delegeerbaar zijn en welke tijdrovend maar niet delegeerbaar.",
+      "Je weet waar bij feedback en beoordeling het oordeel en het cijfer bij de docent moeten blijven.",
+      "Je kunt de AVG-regel toepassen op leerlingwerk en oudercommunicatie en de kwaliteitsondergrens benoemen."
+    ],
+    "scenario": {
+      "title": "Werkdruk getoetst",
+      "context": "Vijf vragen na de drie dieptelessen (6.1 delegeer-kwadrant, 6.2 feedback en nakijken, 6.3 oudercommunicatie). Een mix van meerkeuze en waar/niet-waar. Bij elke vraag krijg je direct uitleg waarom een antwoord goed of fout is — zo zakt de stof verder in en zie je waar je nog onzeker bent.",
+      "role": "Voor jezelf",
+      "tools": "Geen"
+    },
+    "checkTitle": "Toets je beeld van AI en werkdruk in vijf vragen.",
+    "checkItems": [
+      {
+        "type": "Meerkeuze · delegeer-kwadrant",
+        "q": "Je hebt vier taken op je bordje. Welke hoort thuis in het kwadrant 'tijdrovend én delegeerbaar' — het kwadrant waar AI je echt werk uit handen neemt?",
+        "options": [
+          {
+            "label": "Beslissen welk cijfer een leerling krijgt voor een mondeling.",
+            "explain": "Fout. Een cijfer is een oordeel met gevolgen voor de leerling; dat is tijdrovend maar niet delegeerbaar. Het blijft jouw eindverantwoordelijkheid."
+          },
+          {
+            "label": "Een eerste concept maken van 20 oefenvragen bij een nieuw hoofdstuk.",
+            "explain": "Goed. Oefenvragen opstellen is tijdrovend routinewerk waar AI een bruikbaar ruw concept levert dat jij daarna controleert en bijslijpt — precies het delegeerbare kwadrant."
+          },
+          {
+            "label": "Een moeilijk gesprek voeren met een leerling die dreigt uit te vallen.",
+            "explain": "Fout. Dat draait om relatie en vertrouwen; niet delegeerbaar. AI kan je hooguit helpen je gedachten te ordenen vooraf."
+          },
+          {
+            "label": "Bepalen of een werkstuk voldoende vakdiepte heeft voor een eindbeoordeling.",
+            "explain": "Fout. Dat vraagt vakinhoudelijk oordeel en weegt mee in een beoordeling; tijdrovend maar niet delegeerbaar."
+          }
+        ],
+        "correct": 1
+      },
+      {
+        "type": "Waar of niet waar · feedback",
+        "q": "Stelling: als je AI feedback laat formuleren op leerlingwerk, mag AI ook het cijfer of het eindoordeel bepalen, zolang jij de tekst nog even leest.",
+        "options": [
+          {
+            "label": "Waar",
+            "explain": "Niet waar. Feedback formuleren mag je AI als opsteller laten doen, maar het oordeel en het cijfer blijven bij jou. 'Even lezen' is geen beoordeling — jij weegt, jij beslist, jij bent verantwoordelijk."
+          },
+          {
+            "label": "Niet waar",
+            "explain": "Klopt. AI mag een concept-feedbacktekst leveren, maar het oordeel en het cijfer bepaal jij. Je kent de leerling, het leerdoel en de context; dat oordeel is niet delegeerbaar."
+          }
+        ],
+        "correct": 1
+      },
+      {
+        "type": "Meerkeuze · AVG bij leerlingwerk",
+        "q": "Je wilt AI een werkstuk laten samenvatten zodat je sneller kunt nakijken. Wat is de juiste AVG-handelwijze?",
+        "options": [
+          {
+            "label": "Gewoon het hele werkstuk plakken; het gaat tenslotte over schoolwerk, niet over privégegevens.",
+            "explain": "Fout. Naam, klas, schrijfstijl en inhoud maken een werkstuk herleidbaar tot een persoon. Dat zijn persoonsgegevens en die horen niet in een AI-tool zonder waarborgen."
+          },
+          {
+            "label": "Werk via een school-account/afgeschermde omgeving en haal herleidbare gegevens als naam en klas eruit voordat je iets invoert.",
+            "explain": "Goed. Gebruik de afgeschermde, door de school geregelde omgeving en abstraheer: geen naam, klas of andere herleidbare gegevens. Dan beperk je de verwerking tot wat nodig is."
+          },
+          {
+            "label": "Het werkstuk invoeren in een gratis publieke chatbot, want dat is sneller.",
+            "explain": "Fout. Een willekeurige publieke tool zonder verwerkersovereenkomst en met onduidelijke dataverwerking is juist het risico dat je wilt vermijden."
+          },
+          {
+            "label": "De leerling vooraf even mondeling vragen of het mag; dan is alles geregeld.",
+            "explain": "Fout. Losse mondelinge toestemming regelt de verwerkingsgrondslag, beveiliging en bewaartermijnen niet. De school bepaalt de kaders; jij abstraheert en gebruikt de afgeschermde omgeving."
+          }
+        ],
+        "correct": 1
+      },
+      {
+        "type": "Waar of niet waar · opsteller versus afzender",
+        "q": "Stelling: bij oudercommunicatie mag AI je helpen een mail op te stellen, maar jij blijft de afzender — je leest, past aan en stuurt zelf, onder je eigen naam.",
+        "options": [
+          {
+            "label": "Waar",
+            "explain": "Klopt. AI is opsteller van een ruw concept, jij bent afzender. Je controleert toon, feiten en gevoeligheden, abstraheert herleidbare gegevens en verstuurt onder je eigen verantwoordelijkheid."
+          },
+          {
+            "label": "Niet waar",
+            "explain": "Niet waar. AI als opsteller en jij als afzender is juist de bedoeling. Het onjuiste zou zijn AI ongelezen namens jou te laten communiceren met ouders."
+          }
+        ],
+        "correct": 0
+      },
+      {
+        "type": "Meerkeuze · kwaliteitsondergrens",
+        "q": "Wat is de kwaliteitsondergrens als je AI inzet om werkdruk te verlagen?",
+        "options": [
+          {
+            "label": "Het resultaat moet sneller af zijn dan wanneer je het zelf had gedaan; tijdwinst is wat telt.",
+            "explain": "Fout. Tijdwinst die ten koste gaat van kwaliteit is geen winst. Sneller maar slechter dan jouw eigen ondergrens betekent extra herstelwerk of schade voor de leerling."
+          },
+          {
+            "label": "Het resultaat hoeft maar half te kloppen, want leerlingen merken het verschil toch niet.",
+            "explain": "Fout. Dat is geen ondergrens maar het loslaten ervan. Onjuiste uitleg of feedback schaadt het leren, ook als het niet meteen opvalt."
+          },
+          {
+            "label": "Het eindresultaat is minstens zo goed als wat je zonder AI zou hebben afgeleverd — jij controleert en corrigeert tot dat niveau is gehaald.",
+            "explain": "Goed. AI levert het ruwe materiaal; jij tilt het naar je eigen ondergrens of hoger. Haal je dat niet, dan publiceer of verstuur je het niet. Kwaliteit gaat voor snelheid."
+          },
+          {
+            "label": "Zolang AI het gemaakt heeft, ligt de verantwoordelijkheid voor fouten bij de tool.",
+            "explain": "Fout. De eindverantwoordelijkheid blijft bij jou. Je kunt fouten niet afschuiven op de tool; jij bent degene die controleert en de afzender is."
+          }
+        ],
+        "correct": 2
+      }
+    ],
+    "nextLesson": "casus-tijdwinst-kwaliteit"
+  },
+  "casus-tijdwinst-kwaliteit": {
+    "format": "casusbespreking",
+    "summary": "Drie casussen waarin tijdwinst botst met kwaliteit, relatie of vakmanschap. Je verkent ze vanuit meerdere perspectieven en bepaalt waar voor jou de grens ligt: welke taken AI mag voorbereiden en welke je bewust zelf houdt. De rode draad: AI levert ruw materiaal, jij beoordeelt en bent afzender.",
+    "duration": {
+      "total": "45 minuten",
+      "blocks": [
+        {
+          "label": "Casussen lezen",
+          "min": 8
+        },
+        {
+          "label": "Perspectieven wegen",
+          "min": 12
+        },
+        {
+          "label": "Stellingnames bespreken",
+          "min": 10
+        },
+        {
+          "label": "Eigen grens bepalen (actieplan)",
+          "min": 12
+        },
+        {
+          "label": "Reflectie",
+          "min": 3
+        }
+      ]
+    },
+    "learningGoals": [
+      "Je herkent het verschil tussen taken die tijdrovend én delegeerbaar zijn en taken die tijdrovend maar niet delegeerbaar zijn (oordeel, relatie, vakdiepte, eindverantwoordelijkheid).",
+      "Je kunt in een concrete casus benoemen waar AI-tijdwinst de kwaliteit, de relatie met leerling of ouder, of je eigen vakmanschap ondermijnt — en waar niet.",
+      "Je formuleert voor je eigen praktijk een kwaliteitsondergrens en een lijst taken die je bewust zelf blijft doen, inclusief een AVG-grens."
+    ],
+    "scenario": {
+      "title": "Werksituatie",
+      "context": "Het is een drukke periode: nakijken, oudercontact en toetsen lopen door elkaar. Op je sectie wordt openlijk AI gebruikt om tijd te winnen. Niemand twijfelt dat het sneller kan — de vraag die boven tafel komt is of het ook beter, of soms juist slechter, wordt. In deze les buig je je over drie situaties die echt voorkomen.",
+      "role": "Je bent docent (vo, mbo of hbo) die AI inzet om werkdruk te verlagen en daarbij verantwoordelijk blijft voor de kwaliteit van feedback, communicatie en je eigen vakkunde.",
+      "tools": "Een AI-chatbot via je school-account (zakelijke omgeving, geen training op je invoer), je eigen rubrics en lesmateriaal, je leerlingvolg- en mailsysteem."
+    },
+    "casusbesprekingTitle": "Tijdwinst versus kwaliteit: drie dilemma's",
+    "casusbesprekingIntro": "Elke casus laat zien hoe een terechte wens om tijd te winnen kan omslaan in verlies — van kwaliteit, relatie of vakmanschap. Lees ze, weeg de perspectieven en bepaal daarna waar voor jou de grens ligt.",
+    "cases": [
+      {
+        "title": "Casus A — Feedback volledig uitbesteed",
+        "context": "Een docent Nederlands met grote klassen laat alle schrijfopdrachten door AI van feedback voorzien. De docent plakt elke tekst in de chatbot (via het school-account, zonder namen) en kopieert de uitkomst grotendeels ongelezen terug naar de leerlingen. Het scheelt avonden werk. Na een paar weken vallen drie dingen op: leerlingen herkennen het patroon en ervaren de feedback als onpersoonlijk, sommige opmerkingen kloppen niet (de AI verzint een 'spelfout' die er niet staat of mist een echte denkfout in de redenering), en de docent weet bij een ouderavond niet meer goed wat een specifieke leerling nu eigenlijk lastig vindt. De tijdwinst is echt; de vraag is wat eronder verdwijnt.",
+        "perspectives": [
+          {
+            "role": "De docent",
+            "view": "Zonder AI red ik het nakijken simpelweg niet binnen redelijke uren. Negentig procent van mijn opmerkingen ging toch over dezelfde dingen — interpunctie, alineaopbouw, een te dunne conclusie. Als de AI dat oppakt, houd ik tijd over voor de leerlingen die het echt nodig hebben."
+          },
+          {
+            "role": "De leerling",
+            "view": "De feedback voelt als een sjabloon dat bij iedereen past en bij niemand. Er staat 'mooie inleiding' bij een stuk waar ik zelf weet dat het rammelt, en de echte fout in mijn argument wordt niet genoemd. Ik weet niet meer of mijn docent mijn werk gelezen heeft, en daardoor doe ik er zelf ook minder mee."
+          },
+          {
+            "role": "De examensecretaris / kwaliteitszorg",
+            "view": "Feedback is onderdeel van het leerproces en valt onder onze verantwoordelijkheid. Als opmerkingen feitelijk onjuist zijn of niet bij het werk passen, is dat niet alleen onhandig maar ondermijnt het de betrouwbaarheid van onze beoordeling. De docent blijft de afzender, ook van een fout die de AI heeft gemaakt."
+          }
+        ],
+        "statements": [
+          {
+            "author": "Voorstander van uitbesteden",
+            "quote": "AI doet de eerste laag — taal, structuur, terugkerende fouten — zodat ik mijn schaarse tijd kan steken in de inhoudelijke opmerking die er echt toe doet. Niet uitbesteden, maar voorsorteren."
+          },
+          {
+            "author": "Criticus",
+            "quote": "Feedback die je niet hebt gelezen is geen feedback, het is een gok met jouw naam eronder. Op het moment dat een leerling een onjuiste opmerking als waar aanneemt, heeft de tijdwinst een prijs die de leerling betaalt, niet jij."
+          }
+        ]
+      },
+      {
+        "title": "Casus B — De oudermail die de relatie schaadt",
+        "context": "Een mentor moet een gevoelige ouder mailen over een leerling die de laatste weken vaak afwezig is en waarvan het cijfer keldert. Het is laat, de mentor is moe en laat de AI de mail volledig opstellen. Om een 'goede' mail te krijgen, plakt de mentor de echte naam van de leerling, de absentiedata en een paar zinnen over de thuissituatie in de chatbot. De mail die eruit rolt is correct Nederlands maar formeel en afstandelijk — 'Wij constateren dat uw zoon herhaaldelijk ongeoorloofd afwezig is geweest' — en de mentor stuurt hem ongewijzigd door. De ouder, die toch al gespannen was, reageert gekwetst en defensief; het gesprek dat daarna nodig is kost meer tijd dan de mail ooit bespaarde. En er is een tweede probleem: er zijn herleidbare persoonsgegevens in een AI-omgeving terechtgekomen.",
+        "perspectives": [
+          {
+            "role": "De mentor",
+            "view": "Ik wilde een nette, foutloze mail en niet om half elf 's avonds nog op woorden zitten zoeken. De AI schrijft grammaticaal beter dan ik op dat tijdstip. Dat de toon te koel was, zag ik pas toen de reactie binnenkwam — toen was het al verstuurd."
+          },
+          {
+            "role": "De ouder",
+            "view": "Die mail las als een brief van een instantie, niet als een bericht van de mentor die mijn kind elke dag ziet. Geen vraag hoe het gaat, geen opening voor een gesprek, alleen een constatering. Ik voelde me beschuldigd in plaats van betrokken, en mijn eerste reactie was om in de verdediging te schieten."
+          },
+          {
+            "role": "De functionaris gegevensbescherming (FG)",
+            "view": "Naam, absentiedata en informatie over de thuissituatie zijn samen direct herleidbaar tot één leerling. Die in een AI-chatbot plakken is een verwerking van bijzondere, gevoelige persoonsgegevens buiten onze afspraken om. Ook met een school-account hoort dit niet: je had de situatie kunnen abstraheren of de mail zelf kunnen schrijven."
+          }
+        ],
+        "statements": [
+          {
+            "author": "Voorstander van AI-hulp bij oudercontact",
+            "quote": "Een AI kan prima helpen met de structuur en de toon van een lastige mail — juist als je moe of geïrriteerd bent, voorkomt het dat je iets verstuurt waar je spijt van krijgt. Mits je abstraheert en de mail daarna in je eigen woorden afmaakt."
+          },
+          {
+            "author": "Criticus",
+            "quote": "Een oudermail is relatiewerk, geen tekstproductie. De afzender ben jij, de band is van jou, en de enige die kan inschatten welke toon deze ouder nodig heeft, ben jij. Hier win je geen tijd, je verschuift hem naar het herstelgesprek — plus een AVG-overtreding die je niet meer ongedaan maakt."
+          }
+        ]
+      },
+      {
+        "title": "Casus C — Een jaar leunen, en dan?",
+        "context": "Een docent op het mbo is een jaar geleden enthousiast begonnen met AI voor het maken van rubrics, toetsvragen en lesopdrachten. Het ging hard: in plaats van een middag puzzelen aan een rubric, stond er binnen tien minuten een bruikbare versie. Nu, een jaar later, vraagt een nieuwe collega om samen vanaf nul een rubric voor een beroepsvaardigheid op te stellen — zonder AI, omdat de collega eerst wil snappen hoe je tot de criteria komt. De docent merkt dat het stroef gaat: welke niveaus onderscheid je, welk gedrag hoort bij 'voldoende' versus 'goed', hoe voorkom je dat criteria overlappen? Vaardigheden die er vroeger gewoon waren, voelen nu roestig. De rubrics van het afgelopen jaar waren prima — maar de docent kan niet meer goed beoordelen óf ze prima waren, omdat de eigen maatstaf is weggesleten.",
+        "perspectives": [
+          {
+            "role": "De docent",
+            "view": "Ik heb een jaar lang sneller en met minder stress materiaal gemaakt, en dat was geen luxe. Maar ik schrik ervan dat ik de onderliggende vaardigheid kwijt lijkt te zijn. Het is alsof ik altijd de navigatie aan heb gehad en nu de weg niet meer zelf ken."
+          },
+          {
+            "role": "De nieuwe collega",
+            "view": "Ik wil leren denken in beoordelingscriteria, niet alleen knoppen leren bedienen. Als de ervaren docent het zelf niet meer kan voordoen, mis ik de vakkennis die ik nodig heb om straks een AI-voorstel kritisch te kunnen beoordelen in plaats van het klakkeloos over te nemen."
+          },
+          {
+            "role": "De opleidingsmanager / curriculumcommissie",
+            "view": "Op teamniveau is dit een risico: als de vakinhoudelijke kennis om een rubric te beoordelen wegslijt, kan niemand het AI-materiaal nog tegen het licht houden. Dan delegeren we niet de uitvoering maar het oordeel — en dat is precies wat we niet mogen weggeven. Vakmanschap onderhouden is onderdeel van professionaliteit, geen hobby."
+          }
+        ],
+        "statements": [
+          {
+            "author": "Voorstander van maximaal AI inzetten",
+            "quote": "Je hoeft niet meer alles zelf te kunnen wat een machine sneller doet — een chirurg slijpt zijn eigen scalpels ook niet. Zolang ik een goede rubric herken als ik er een zie, is het zonde om uren te besteden aan het zelf opbouwen ervan."
+          },
+          {
+            "author": "Criticus",
+            "quote": "Je kunt alleen herkennen of een rubric goed is zolang je hem zelf nog zou kunnen maken. Het oordeel en de vaardigheid zijn niet los verkrijgbaar: zodra de vaardigheid roest, roest je oordeel mee, en dan is de AI niet meer je gereedschap maar je blinde vlek."
+          }
+        ]
+      }
+    ],
+    "actionPlan": {
+      "source": "Voor je eigen praktijk",
+      "title": "Waar leg jij de grens?",
+      "steps": [
+        {
+          "title": "Sorteer je taken: delegeerbaar of niet",
+          "body": "Maak twee kolommen voor een typische werkweek. Links: taken die tijdrovend én delegeerbaar zijn — opstellen, varianten maken, samenvatten, een eerste concept, terugkerende taalcorrecties. Rechts: taken die tijdrovend zijn maar niet delegeerbaar — het inhoudelijke oordeel, de relatie met leerling en ouder, de vakdiepte, de eindverantwoordelijkheid. Wees eerlijk over de grijze gevallen: feedback hoort meestal half-en-half, AI sorteert voor maar jij beoordeelt.",
+          "workspace": {
+            "field": "taaksortering-delegeerbaar",
+            "label": "Noteer minstens vier taken in de kolom 'delegeerbaar' en vier in 'niet-delegeerbaar', en benoem bij één grijs geval hoe je het splitst (wat doet AI, wat doe jij).",
+            "placeholder": "Delegeerbaar: ... | Niet-delegeerbaar: ... | Grijs geval (bv. schrijffeedback): AI doet ..., ik beoordeel ...",
+            "rows": 6,
+            "rubric": [
+              {
+                "name": "Beide kolommen gevuld",
+                "good": "Minstens vier concrete taken per kolom, geen vage categorieën maar herkenbare werkzaamheden uit de eigen week."
+              },
+              {
+                "name": "Juiste sortering",
+                "good": "Oordeel, relatie, vakdiepte en eindverantwoordelijkheid staan bij 'niet-delegeerbaar'; opstellen/varianten/samenvatten/eerste concept bij 'delegeerbaar'."
+              },
+              {
+                "name": "Grijs geval gesplitst",
+                "good": "Bij minstens één taak is expliciet benoemd welk deel AI voorbereidt en welk deel de docent zelf beoordeelt."
+              },
+              {
+                "name": "Eerlijkheid",
+                "good": "Er staat ook een taak bij die de docent liever zou uitbesteden maar niet kan, met een reden."
+              }
+            ],
+            "referenceAnswer": "Delegeerbaar: eerste concept van een lesopdracht, varianten op een oefentoets maken, lange leestekst samenvatten tot kernpunten, terugkerende taalcorrecties (interpunctie, spelling) in eerste ronde. Niet-delegeerbaar: het cijfer en het inhoudelijke oordeel over leerlingwerk, gevoelig oudercontact, uitleg van nieuwe lesstof in de klas, eindverantwoordelijkheid voor wat ik als afzender de deur uit doe. Grijs geval — schrijffeedback: AI markeert taal- en structuurfouten en levert een ruwe eerste laag; ik lees elke tekst zelf, controleer of de AI-opmerkingen kloppen, voeg de inhoudelijke kernopmerking toe en schrap onjuistheden. Wat ik liever zou uitbesteden maar niet kan: het beoordelen van een gevoelig betoog, omdat de afweging context en kennis van de leerling vraagt die de AI niet heeft."
+          }
+        },
+        {
+          "title": "Bepaal je kwaliteitsondergrens",
+          "body": "Formuleer één harde ondergrens die geldt voordat AI-materiaal de deur uit mag. Denk aan: niets wat een leerling of ouder ontvangt, gaat ongelezen weg; elke feitelijke opmerking is door mij gecontroleerd; ik ben en blijf de afzender en kan elke zin verantwoorden. Maak het toetsbaar — een regel waarvan je achteraf kunt vaststellen of je hem hebt gevolgd.",
+          "workspace": {
+            "field": "kwaliteitsondergrens",
+            "label": "Schrijf je kwaliteitsondergrens als één of twee toetsbare regels op. Geen intenties ('ik probeer'), maar voorwaarden ('niets gaat weg voordat...').",
+            "placeholder": "Voordat AI-materiaal naar een leerling of ouder gaat, geldt: ...",
+            "rows": 4,
+            "rubric": [
+              {
+                "name": "Toetsbaar geformuleerd",
+                "good": "De regel is achteraf controleerbaar (wel/niet gevolgd), geen vage intentie."
+              },
+              {
+                "name": "Dekt het oordeel",
+                "good": "Maakt expliciet dat de docent het inhoudelijke oordeel en de feitelijke juistheid zelf controleert, niet de AI."
+              },
+              {
+                "name": "Afzenderschap",
+                "good": "Benoemt dat de docent afzender blijft en elke zin kan verantwoorden."
+              },
+              {
+                "name": "Praktisch haalbaar",
+                "good": "De ondergrens is streng maar uitvoerbaar in een drukke week, niet zo hoog dat hij in de praktijk genegeerd wordt."
+              }
+            ],
+            "referenceAnswer": "Mijn kwaliteitsondergrens: (1) Niets wat een leerling of ouder van mij ontvangt, gaat weg voordat ik het volledig heb gelezen en elke feitelijke opmerking heb gecontroleerd — een onjuiste AI-opmerking is mijn fout, niet die van de leerling. (2) Ik ben altijd de afzender: ik kan elke zin verantwoorden en in mijn eigen woorden uitleggen waarom hij er staat. Als ik dat van een passage niet kan, herschrijf of schrap ik hem. Deze regels zijn toetsbaar: achteraf kan ik per bericht vaststellen of ik het heb gelezen, gecontroleerd en kan verantwoorden."
+          }
+        },
+        {
+          "title": "Kies de taken die je bewust zelf houdt",
+          "body": "Kies twee tot drie taken die je principieel zelf blijft doen, óók als AI ze sneller zou kunnen — om je vakmanschap te onderhouden (denk aan casus C). Bijvoorbeeld: minstens één rubric per periode helemaal zelf opbouwen, of de eerste versie van een belangrijke toets zelf schrijven voordat je AI laat meekijken. Leg uit waarom juist déze taken: wat houden ze scherp dat je niet wilt verliezen?",
+          "workspace": {
+            "field": "taken-zelf-houden",
+            "label": "Benoem twee of drie taken die je bewust zelf blijft doen om je vakmanschap te onderhouden, met per taak de reden (welke vaardigheid houd je daarmee scherp).",
+            "placeholder": "Taak 1: ... — houdt scherp: ... | Taak 2: ... — houdt scherp: ...",
+            "rows": 5,
+            "rubric": [
+              {
+                "name": "Concrete taken",
+                "good": "Twee tot drie benoembare taken, geen algemeenheden zoals 'kritisch blijven'."
+              },
+              {
+                "name": "Gericht op vakmanschap",
+                "good": "De taken raken het onderliggende oordeel of de vakdiepte (rubric opbouwen, toets ontwerpen, criteria formuleren), niet alleen uitvoering."
+              },
+              {
+                "name": "Reden expliciet",
+                "good": "Per taak staat welke vaardigheid je ermee onderhoudt en wat je zou verliezen door hem uit te besteden."
+              },
+              {
+                "name": "Ritme benoemd",
+                "good": "Er staat een frequentie of moment bij (per periode, per toets) zodat het een gewoonte wordt en geen voornemen."
+              }
+            ],
+            "referenceAnswer": "Taak 1: Per periode bouw ik minstens één rubric volledig zelf op, vanaf de leerdoelen — houdt scherp: het denken in onderscheidende niveaus en het voorkomen van overlappende criteria, precies de vaardigheid die in casus C wegsleet. Taak 2: De eerste versie van een belangrijke toets schrijf ik zelf voordat ik AI laat meekijken voor varianten of dekking — houdt scherp: mijn gevoel voor wat een vraag valide en op het juiste niveau maakt. Taak 3: Bij gevoelig oudercontact schrijf ik de mail zelf en gebruik AI hooguit als spiegel achteraf ('lees mee op toon') — houdt scherp: mijn vermogen om relatiewerk te doen. Zonder deze gewoontes verlies ik niet alleen de uitvoering maar het oordeel om AI-werk te kunnen beoordelen."
+          }
+        },
+        {
+          "title": "Leg je AVG-grens vast",
+          "body": "Schrijf in één regel wat er nooit ongeabstraheerd in een AI-omgeving terechtkomt, en hoe je het dan wél doet. De vuistregel: geen herleidbare leerling- of oudergegevens in AI. Werk altijd via je school-account, en abstraheer — 'een leerling die de laatste weken vaak afwezig is' in plaats van naam, datums en thuissituatie (casus B). Beschrijf je vervangende werkwijze, zodat de grens praktisch is en je hem ook onder tijdsdruk volhoudt.",
+          "workspace": {
+            "field": "avg-grens-praktijk",
+            "label": "Formuleer je AVG-grens (wat komt nooit in AI) plus je vervangende werkwijze (hoe abstraheer je, of wanneer doe je het zonder AI).",
+            "placeholder": "Nooit in AI: namen, herleidbare combinaties van ... | In plaats daarvan: ik abstraheer naar ... / ik schrijf het zelf wanneer ...",
+            "rows": 5,
+            "rubric": [
+              {
+                "name": "Concrete grens",
+                "good": "Benoemt expliciet dat herleidbare leerling-/oudergegevens (naam, datums, thuissituatie en combinaties daarvan) nooit ongeabstraheerd in AI gaan."
+              },
+              {
+                "name": "School-account",
+                "good": "Noemt het gebruik van het zakelijke school-account in plaats van een privé- of gratis tool."
+              },
+              {
+                "name": "Abstraheren concreet",
+                "good": "Geeft een concreet voorbeeld van abstraheren ('een leerling die...') in plaats van alleen het principe te noemen."
+              },
+              {
+                "name": "Vervangende werkwijze",
+                "good": "Beschrijft wanneer de docent het bewust zonder AI doet, zodat de grens onder tijdsdruk houdbaar is."
+              }
+            ],
+            "referenceAnswer": "Mijn AVG-grens: namen, geboortedata, absentiedata, cijfers gekoppeld aan een persoon en informatie over de thuissituatie gaan nooit ongeabstraheerd in een AI-omgeving — ook niet de combinatie ervan, want juist die maakt herleidbaar. Ik gebruik uitsluitend het zakelijke school-account, nooit een privé- of gratis tool. In plaats daarvan abstraheer ik: 'een leerling in de bovenbouw die de laatste weken vaak afwezig is en wiens resultaten teruglopen' in plaats van naam en datums. Bij echt gevoelige of sterk herleidbare situaties — zoals een mail over de thuissituatie — schrijf ik zelf en gebruik AI hooguit als spiegel op de toon, zonder de gegevens in te voeren. Zo blijft de grens ook om half elf 's avonds houdbaar."
+          }
+        }
+      ]
+    },
+    "reflection": [
+      "In welke van de drie casussen herken je je eigen praktijk het meest, en wat zou daar het eerste signaal zijn dat tijdwinst omslaat in verlies?",
+      "Welke taak besteed je nu uit waarvan je na deze les denkt: dit hoort eigenlijk bij het niet-delegeerbare deel — het oordeel, de relatie of de vakdiepte?",
+      "Hoe zorg je dat je je kwaliteitsondergrens en je AVG-grens óók volhoudt in de drukste week, en niet alleen op een rustige dag?"
+    ],
+    "nextLesson": "praktijkopdracht-6"
+  },
+  "praktijkopdracht-6": {
+    "format": "praktijkopdracht",
+    "summary": "Je kiest één concrete werkdrukbron uit je eigen praktijk, herontwerpt de workflow met AI en meet over twee weken wat het oplevert — in tijd én in kwaliteit. Je legt vooraf vast welke kwaliteitsondergrens je niet wilt verliezen, zodat tijdwinst nooit ten koste gaat van het werk waar je voor staat. Aan het eind weet je niet alleen óf het sneller ging, maar of het ook goed bleef.",
+    "duration": {
+      "total": "3 uur (verspreid over twee weken)",
+      "blocks": [
+        {
+          "label": "Bron kiezen en nulmeting",
+          "min": 30
+        },
+        {
+          "label": "Workflow herontwerpen + AVG-check",
+          "min": 60
+        },
+        {
+          "label": "Twee weken draaien en meten",
+          "min": 30
+        },
+        {
+          "label": "Nameting en kwaliteitsreflectie",
+          "min": 30
+        },
+        {
+          "label": "PeerReview met een collega",
+          "min": 30
+        }
+      ]
+    },
+    "praktijkTitle": "Herontwerp één werkdrukbron en bewijs de winst",
+    "praktijkIntro": "Deze module ging steeds over hetzelfde onderscheid: taken die tijdrovend én delegeerbaar zijn (een eerste concept, varianten, een samenvatting, een ruwe opzet) versus taken die tijdrovend zijn maar niet delegeerbaar (je oordeel, de relatie met de leerling, je vakdiepte, de eindverantwoordelijkheid). Nu maak je dat concreet op één bron. Niet 'AI inzetten voor nakijken' in het algemeen, maar: deze toets, deze klas, deze workflow — en daarna de cijfers op tafel.\n\nDe opdracht is af als je vier dingen hebt: een eerlijke nulmeting (hoeveel tijd kost de taak nu écht, gemeten en niet geschat), een herontworpen workflow waarin glashelder staat wat AI doet en waar jij beslist, een vastgelegde kwaliteitsondergrens (de rubric of norm die níét mag zakken), en een nameting na twee weken met een eerlijke conclusie — ook als die luidt dat het niet werkte. Besluitrijp betekent hier: een collega kan jouw cijfers en workflow lezen en zelf besluiten of die voor hen ook de moeite waard is.",
+    "paths": [
+      {
+        "id": "a",
+        "label": "Nakijken & feedback",
+        "beschrijving": "Voor wie veel tijd kwijt is aan open antwoorden, verslagen, essays of formatieve feedback. Je herontwerpt de feedbackstroom — niet het cijfer. AI helpt met structureren en eerste formuleringen; jij beoordeelt, weegt en bent afzender.",
+        "deliverables": [
+          "Nulmeting: kies één concrete set (bv. 28 betogen van 4-havo of een mbo-praktijkverslag). Klok met een timer hoeveel minuten je nu besteedt aan feedback geven op een representatieve steekproef van 5 werkstukken, en reken om naar de hele set.",
+          "Herontworpen workflow in stappen: noteer per stap wie wat doet. Bijvoorbeeld: AI clustert veelgemaakte fouten uit geanonimiseerde antwoorden → jij kiest de drie waar je op stuurt → AI levert per cluster een feedbackbouwsteen → jij personaliseert en bent afzender. Markeer expliciet de stap waar jouw oordeel onvervangbaar is.",
+          "Kwaliteitsondergrens als rubric (3-5 criteria): leg vast wat goede feedback bij jou minimaal moet hebben — bv. één concreet verbeterpunt met voorbeeld, een toon die de leerling niet ontmoedigt, koppeling aan het rubriccriterium, geen feitfouten. Dit is de norm die níét mag zakken door de tijdwinst.",
+          "AVG-check: beschrijf hoe je leerlingwerk anonimiseert vóór het in AI gaat (namen, klas, herleidbare details eruit), welk school-account/welke tool je gebruikt, en waarom je het cijfer nooit door AI laat bepalen. Eindverantwoordelijkheid en afzenderschap blijven bij jou.",
+          "Nameting: klok bij de tweede set (of tweede ronde) opnieuw de tijd op een vergelijkbare steekproef van 5, met dezelfde meetmethode. Noteer de tijd per werkstuk, niet alleen het totaal.",
+          "Kwaliteitscontrole: leg 3-5 willekeurige feedbacks naast je rubric en scoor ze. Hield de feedback de ondergrens? Noteer minstens één geval waar je AI-tekst hebt moeten bijsturen en waarom.",
+          "Reflectie op winst én verlies: hoeveel tijd bespaarde je netto (winst min de tijd voor anonimiseren en bijsturen)? En: bleef de feedback even goed, beter of slechter — onderbouwd met je rubricscores, niet met een gevoel."
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Administratie & communicatie",
+        "beschrijving": "Voor wie verzuipt in mails, oudercommunicatie, verslagen, formulieren of terugkerende berichten. Je herontwerpt het opstellen — niet het besluiten. AI levert het concept; jij controleert feiten, toon en bent afzender van wat de deur uitgaat.",
+        "deliverables": [
+          "Nulmeting: kies één terugkerend type (bv. oudermail bij zorgsignaal, verslag van een leerlingbespreking, een standaard absentiebericht-met-vervolg). Klok over een week hoeveel minuten je gemiddeld aan één exemplaar besteedt, gemeten over 3-5 echte gevallen.",
+          "Herontworpen workflow in stappen: bv. jij geeft AI de kernpunten in steekwoorden (geabstraheerd) → AI levert een conceptmail in de juiste toon → jij controleert feiten, toon en context → jij verstuurt vanaf je eigen account. Markeer de stap waar jouw besluit en afzenderschap onvervangbaar zijn.",
+          "Kwaliteitsondergrens als rubric (3-5 criteria): wat moet zo'n bericht bij jou minimaal hebben — feitelijk klopt het, de toon past bij déze ouder/situatie, geen toezegging die je niet kunt waarmaken, een duidelijke vervolgstap. Dit is de norm die níét mag zakken.",
+          "AVG-check: beschrijf hoe je communicatie abstraheert (geen naam, geen herleidbaar incident, 'een leerling die meermaals te laat kwam'), welk school-account je gebruikt, en waarom de afweging om iets gevoeligs wél of niet te sturen altijd bij jou ligt — nooit bij AI.",
+          "Nameting: klok over de tweede week opnieuw de gemiddelde tijd per exemplaar over 3-5 gevallen, met dezelfde meetmethode.",
+          "Kwaliteitscontrole: leg 3-5 verstuurde berichten naast je rubric en scoor ze. Hield de communicatie de ondergrens? Noteer minstens één geval waar je het AI-concept stevig hebt moeten herschrijven en waarom.",
+          "Reflectie op winst én verlies: netto tijdwinst (na aftrek van controleren en herschrijven), en of je communicatie even zorgvuldig en passend bleef — onderbouwd met je rubricscores. Was er een type bericht waarbij AI juist géén tijd bespaarde?"
+        ]
+      },
+      {
+        "id": "c",
+        "label": "Planning & lesmateriaal",
+        "beschrijving": "Voor wie veel tijd kwijt is aan lesopzetten, opdrachten, varianten, oefenmateriaal of toetsvragen maken. Je herontwerpt het ontwerpwerk — niet de didactische keuzes. AI levert ruwe varianten en concepten; jij kiest, snoeit en borgt vakinhoud en niveau.",
+        "deliverables": [
+          "Nulmeting: kies één terugkerend product (bv. een lesopzet van 50 minuten, een set van 12 oefenopgaven, drie niveauvarianten van een opdracht). Klok hoeveel tijd je nu besteedt aan één compleet exemplaar, gemeten over een echt geval.",
+          "Herontworpen workflow in stappen: bv. jij geeft leerdoel, niveau en context → AI levert drie ruwe varianten → jij kiest en snoeit op vakinhoud, niveau en didactiek → jij maakt het lesklaar. Markeer de stap waar jouw didactische oordeel en vakdiepte onvervangbaar zijn (AI haalt het niveau of de misconceptie vaak net niet).",
+          "Kwaliteitsondergrens als rubric (3-5 criteria): wat moet jouw lesmateriaal minimaal hebben — vakinhoudelijk correct (geen feitfouten of misconcepties), passend bij het niveau, gekoppeld aan een helder leerdoel, didactisch bruikbaar in jouw klas. Dit is de norm die níét mag zakken.",
+          "AVG-check: lesmateriaal raakt meestal geen leerlinggegevens, maar leg vast dat je geen herleidbare leerlingvoorbeelden of klasinformatie in AI stopt, welk school-account je gebruikt, en dat de vakinhoudelijke eindverantwoordelijkheid (klopt het? past het?) bij jou blijft.",
+          "Nameting: klok bij het tweede vergelijkbare product opnieuw de tijd, met dezelfde meetmethode. Noteer ook hoeveel je hebt moeten snoeien of corrigeren.",
+          "Kwaliteitscontrole: leg het herontworpen materiaal naast je rubric en scoor het. Klopte de vakinhoud? Noteer minstens één misconceptie, feitfout of niveaumissertje dat AI introduceerde en dat jij eruit haalde.",
+          "Reflectie op winst én verlies: netto tijdwinst (na aftrek van snoeien en corrigeren), en of de vakinhoudelijke kwaliteit en het niveau overeind bleven — onderbouwd met je rubricscores. Bij welk type materiaal kostte het corrigeren juist méér dan zelf maken?"
+        ]
+      }
+    ],
+    "peerReview": {
+      "title": "Laat een collega je herontwerp tegen het licht houden",
+      "intro": "Vraag een collega — liefst uit je eigen vakgroep of team — om je nulmeting, workflow en kwaliteitsondergrens te lezen en kritisch op drie punten te reageren. Het gaat niet om een schouderklopje, maar om of jouw cijfers en norm hout snijden voor iemand anders.",
+      "questions": [
+        {
+          "vraag": "Is de tijdwinst geloofwaardig en eerlijk gemeten? Vergeleek ik appels met appels (vergelijkbare set, dezelfde meetmethode) en heb ik de verborgen tijd — anonimiseren, controleren, bijsturen — eerlijk meegerekend?",
+          "workspace": {
+            "field": "peer-tijdwinst",
+            "label": "Reactie collega op de tijdmeting",
+            "placeholder": "Bv. 'Je telt de tijd voor anonimiseren niet mee' of 'De tweede set was makkelijker, dus de winst is overschat'...",
+            "rows": 2
+          }
+        },
+        {
+          "vraag": "Houdt mijn kwaliteitsondergrens stand? Mist er een criterium in mijn rubric dat jij wél belangrijk vindt, of staat de lat te laag — zodat 'kwaliteit behouden' op papier klopt maar in de praktijk niet?",
+          "workspace": {
+            "field": "peer-kwaliteitsgrens",
+            "label": "Reactie collega op de kwaliteitsondergrens",
+            "placeholder": "Bv. 'Ik mis een criterium over toon' of 'Punt 3 is zo ruim dat bijna alles slaagt'...",
+            "rows": 2
+          }
+        },
+        {
+          "vraag": "Zou jij deze workflow overnemen, en zo nee, wat houdt je tegen? Is voor jou helder waar AI stopt en mijn oordeel begint, en zie je een risico dat ik over het hoofd zie?",
+          "workspace": {
+            "field": "peer-overnemen",
+            "label": "Reactie collega op overdraagbaarheid",
+            "placeholder": "Bv. 'Ja, maar ik zou stap 2 zelf doen' of 'Het risico is dat je op AVG-vlak afhankelijk wordt van anonimiseren met de hand'...",
+            "rows": 2
+          }
+        }
+      ]
+    },
+    "reflection": [
+      "Kijk naar je netto tijdwinst én je rubricscores naast elkaar: was de winst de moeite waard, of betaalde je hem (deels) in kwaliteit? Wees concreet — noem het getal en de score, niet een gevoel.",
+      "Welke stap in je workflow bleek het minst delegeerbaar — waar moest jouw oordeel, relatie of vakdiepte er telkens aan te pas komen? Wat zegt dat over waar AI je wél en niet ontlast?",
+      "Stel dat een collega zegt: 'Mooi, dan automatiseer ik dit helemaal.' Wat zou je tegenhouden, en welke ondergrens zou je hen meegeven zodat de tijdwinst niet stilletjes de kwaliteit opeet?"
+    ],
+    "nextLesson": ""
+  }
+};
+
 export const lessonDetails = {
   ...baseLessonDetails,
   ...batchModule1,
@@ -7386,6 +9029,7 @@ export const lessonDetails = {
   ...module3Details,
   ...module4Details,
   ...module5Details,
+  ...module6Details,
 };
 
 export const defaultLesson = (lesson, module) => ({

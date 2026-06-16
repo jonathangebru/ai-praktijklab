@@ -323,6 +323,34 @@ export const modules = {
       { slug: "praktijkopdracht-5", number: "5.6", title: "Praktijkopdracht: teamsessie", duration: "3 uur", goal: "Je verzorgt een echte teamsessie en levert een borgingsplan op.", output: "Gegeven teamsessie + borgingsplan", difficulty: "Praktijk" },
     ],
   },
+
+  "werkdruk-en-organisatie": {
+    id: "werkdruk-en-organisatie",
+    number: "06",
+    title: "AI & werkdruk",
+    tagline: "Tijd terugwinnen zonder in te leveren op kwaliteit",
+    level: "Verdieping",
+    audience: "vo · mbo · hbo",
+    durationWeeks: 4,
+    totalHours: "6–9 uur",
+    color: "academy",
+    intro:
+      "Werkdrukverlaging is de reden waarom de meeste docenten met AI beginnen — en de plek waar de winst het snelst weglekt aan generieke output. Deze module leert je onderscheiden welke taken je veilig aan AI delegeert en welke je bewust zelf houdt, en hoe je tijd terugwint zónder in te leveren op kwaliteit, relatie of vakmanschap. Nakijken, feedback, administratie en communicatie: sneller, met jou als eindverantwoordelijke en met de AVG op orde.",
+    learningOutcomes: [
+      "Je scheidt je werkweek in taken die tijdrovend én delegeerbaar zijn en taken die dat niet zijn.",
+      "Je laat AI feedback opstellen tegen een eigen rubric, terwijl het oordeel en het cijfer bij jou blijven.",
+      "Je versnelt administratie en oudercommunicatie met herbruikbare sjablonen, AVG-conform.",
+      "Je herontwerpt één werkdrukbron, meet de tijdwinst en borgt je kwaliteitsondergrens.",
+    ],
+    lessons: [
+      { slug: "werkdruk-inventarisatie", number: "6.1", title: "Waar je tijd écht weglekt", duration: "60 min", goal: "Je scheidt je werkweek in taken die je aan AI kunt delegeren en taken die je bewust zelf houdt.", output: "Delegeer-kwadrant voor je eigen week", difficulty: "Verdieping" },
+      { slug: "nakijken-en-feedback", number: "6.2", title: "Nakijken en feedback in halve tijd", duration: "70 min", goal: "Je laat AI conceptfeedback opstellen tegen je eigen rubric, terwijl oordeel en cijfer bij jou blijven.", output: "Feedback-workflow + kwaliteitsondergrens", difficulty: "Verdieping" },
+      { slug: "administratie-en-communicatie", number: "6.3", title: "Administratie, mail en oudercommunicatie", duration: "60 min", goal: "Je versnelt terugkerende schrijftaken met herbruikbare sjablonen, AVG-conform en met jou als afzender.", output: "Eigen sjabloonkit voor schrijftaken", difficulty: "Verdieping" },
+      { slug: "check-mod6", number: "✓8", title: "Kennischeck — werkdruk getoetst", duration: "12 min", goal: "Test of delegeren, feedback met behoud van oordeel en AVG zijn geland.", output: "Advies voor de praktijkopdracht", difficulty: "Tussencheck", isCheck: true },
+      { slug: "casus-tijdwinst-kwaliteit", number: "6.4", title: "Casus: tijdwinst versus kwaliteit", duration: "45 min", goal: "Je bepaalt waar voor jou de grens ligt tussen tijdwinst en verlies van kwaliteit, relatie of vakmanschap.", output: "Eigen grenzen en kwaliteitsondergrens", difficulty: "Verdieping" },
+      { slug: "praktijkopdracht-6", number: "6.5", title: "Praktijkopdracht: herontwerp één werkdrukbron", duration: "3 uur", goal: "Je herontwerpt één werkdrukbron met AI, meet de tijdwinst en borgt de kwaliteit.", output: "Herontworpen workflow + tijdmeting", difficulty: "Praktijk" },
+    ],
+  },
 };
 
 export const moduleList = Object.values(modules);
