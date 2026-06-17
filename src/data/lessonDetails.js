@@ -9020,6 +9020,1590 @@ const module6Details = {
   }
 };
 
+
+/* ── Module 07 · AI & toegankelijkheid en inclusie (Fase 26) ───────────── */
+const module7Details = {
+  "toegankelijkheid-basis": {
+    "format": "diepteles",
+    "summary": "Je neemt een bestaand werkblad uit je eigen lessen en maakt het toegankelijker met AI volgens Universal Design for Learning: je spoort drempels op, laat AI een versie op een lager taalniveau maken, voegt een tweede representatie toe en schrijft alt-teksten bij beeld. Onderweg bewaak je zelf of de vakinhoud overeind blijft en of het past bij déze leerlingen. Je levert een verbeterd werkblad plus een korte kwaliteitscheck op die je volgende periode meteen kunt gebruiken. Het mentale model dat blijft hangen: toegankelijkheid is een ontwerpkeuze vooraf, geen lapmiddel achteraf.",
+    "duration": {
+      "total": "60 minuten",
+      "blocks": [
+        {
+          "label": "Aanleiding",
+          "min": 6
+        },
+        {
+          "label": "Conceptueel kader",
+          "min": 10
+        },
+        {
+          "label": "Drempels opsporen",
+          "min": 10
+        },
+        {
+          "label": "Taalniveau verlagen",
+          "min": 12
+        },
+        {
+          "label": "Tweede representatie + alt-tekst",
+          "min": 14
+        },
+        {
+          "label": "Kwaliteitscheck vastleggen",
+          "min": 8
+        }
+      ]
+    },
+    "opening": {
+      "eyebrow": "Aanleiding",
+      "aanleiding": "Een docent economie in 4 havo deelt een werkblad uit over vraag en aanbod. Vol verwachting, want het zit goed in elkaar: een heldere casus, een grafiek, vier verdiepingsvragen. Maar na tien minuten is een kwart van de klas vastgelopen — niet op de economie, op de tekst. De casus begint met 'In een geliberaliseerde markt fluctueert de evenwichtsprijs als gevolg van exogene schokken.' Een leerling met dyslexie haakt af bij de derde lange zin. Een nieuwkomer die wel rekenen kan maar nog worstelt met Nederlands, snapt de grafiek maar niet de opdracht eronder. De inhoud is niet te moeilijk; de verpakking is dat.\n\nDit gebeurt elke dag, op elke school. We ontwerpen lesmateriaal voor de gemiddelde leerling — die niet bestaat — en repareren daarna ad hoc voor wie buiten de boot valt. Een aangepaste versie hier, een mondelinge toelichting daar, een leerling die naar de gang mag om het rustig over te lezen. Dat werkt soms, maar het is brandjes blussen: het kost je elke les opnieuw energie en het komt altijd te laat, namelijk pas als iemand al is vastgelopen.\n\nAI verandert wat hier haalbaar is. Een werkblad op een tweede taalniveau zetten, een schema naast een lap tekst maken, alt-teksten schrijven bij vier afbeeldingen — dat was vroeger een avond werk en is nu een kwartier. Niet omdat AI het overneemt, maar omdat het het zware tilwerk doet terwijl jij de vakinhoudelijke knopen doorhakt. Deze les leert je dat tilwerk goed inzetten — en, minstens zo belangrijk, bewaken waar de machine de plank misslaat.",
+      "waaromNu": "Toegankelijkheid is geen extraatje maar een ontwerpprincipe: Universal Design for Learning (UDL) vraagt om meerdere representaties van dezelfde inhoud, zodat je niet voor één soort leerling ontwerpt. Het DigCompEdu-raamwerk plaatst dit onder 'Empowering Learners' (toegankelijkheid en inclusie, differentiatie). En de UNESCO 'human-centred mindset' houdt de grens scherp: AI vergroot toegankelijkheid, maar de docent kent de leerling en beslist. Nu de tools dit binnen handbereik brengen, verschuift de norm — toegankelijk materiaal wordt het uitgangspunt, niet de uitzondering."
+    },
+    "conceptueel": {
+      "eyebrow": "Conceptueel kader",
+      "intro": "Toegankelijkheid wordt vaak verward met 'het makkelijker maken'. Dat is het niet. Een werkblad toegankelijk maken betekent: dezelfde vakinhoud zo aanbieden dat meer leerlingen erbij kunnen, zonder de inhoud te verschralen. Het verschil is cruciaal. Makkelijker maken haalt iets weg — je schrapt de moeilijke som, je laat de verdiepingsvraag vallen. Toegankelijk maken voegt routes toe — naar dezelfde bestemming, via een helderder tekst, een schema, een uitgewerkt voorbeeld. De economie-leerling van zojuist moet nog steeds vraag en aanbod begrijpen; hij heeft alleen een ingang nodig die niet over een muur van vaktaal loopt.\n\nUniversal Design for Learning (UDL) geeft hier de structuur. Het kernidee komt uit de architectuur: een gebouw met een hellingbaan naast de trap is niet 'aangepast voor rolstoelgebruikers', het is vanaf het begin zo ontworpen dat iedereen erin kan — ook de ouder met kinderwagen en de koerier met een steekkar. UDL vertaalt dat naar onderwijs met drie principes, waarvan deze les er één centraal stelt: bied meerdere representaties van dezelfde inhoud. Niet één tekst die voor de gemiddelde leerling werkt, maar tekst plus schema plus voorbeeld — zodat de leerling een ingang vindt die bij hém past. De andere twee UDL-principes (meerdere manieren van actie/expressie en van betrokkenheid) komen verderop in de module aan bod.\n\nHier doet AI zijn werk. Een tweede taalniveau genereren, een stappenplan destilleren uit een lap tekst, een alt-tekst schrijven — dat is precies het soort herformuleer- en herstructureerwerk waar taalmodellen goed in zijn. Maar let op de scherpe grens die door deze hele module loopt: AI vereenvoudigt taal, maar jij bewaakt of de vakinhoud nog klopt. Een model dat 'evenwichtsprijs' vervangt door 'de prijs waar iedereen blij mee is', heeft de zin leesbaarder gemaakt en de economie kapot. AI levert opties; jij kent het vak en de leerling en beslist welke optie blijft.\n\nEn dan de allerscherpste grens, die in deze module bijzondere persoonsgegevens raakt: AI helpt je materiaal toegankelijker maken voor je klas in het algemeen, maar AI stelt geen diagnose en bepaalt niet welke ondersteuning een individuele leerling nodig heeft. Dat 'deze leerling heeft dyslexie' of 'die leerling heeft een taalachterstand' is jouw observatie en hoort niet in een chatbot. Je ontwerpt toegankelijk materiaal omdat je je klas kent — niet door persoonlijke gegevens in te voeren, maar door je vakkennis en je blik op de groep te gebruiken om de output van AI te wegen.",
+      "mentalModel": {
+        "naam": "Hellingbaan naast de trap",
+        "beschrijving": "Toegankelijkheid is geen aanpassing achteraf maar een ontwerpkeuze vooraf — zoals een gebouw met een hellingbaan náást de trap, niet een trap waar je later met moeite een plank tegenaan legt. Je ontwerpt meerdere routes naar dezelfde inhoud (tekst, schema, voorbeeld), zodat elke leerling een ingang vindt zonder dat jij per leerling apart hoeft te repareren. AI helpt die extra routes snel aanleggen; jij bepaalt of ze op dezelfde bestemming uitkomen."
+      },
+      "kernbegrippen": [
+        {
+          "term": "Universal Design for Learning (UDL)",
+          "uitleg": "Ontwerpprincipe dat lesmateriaal vanaf het begin toegankelijk maakt door meerdere representaties, manieren van expressie en vormen van betrokkenheid te bieden — in plaats van achteraf te repareren voor wie vastloopt."
+        },
+        {
+          "term": "Meerdere representaties",
+          "uitleg": "Dezelfde vakinhoud op meer dan één manier aanbieden — bijvoorbeeld tekst én schema én een uitgewerkt voorbeeld — zodat leerlingen een ingang kunnen kiezen die bij hen past."
+        },
+        {
+          "term": "Taalniveau (referentieniveaus)",
+          "uitleg": "De NL-referentieniveaus voor taal (zoals 1F, 2F, 3F) beschrijven hoe complex tekst is qua woordenschat en zinsbouw. Een tekst op een lager niveau zetten verlaagt de taaldrempel zonder de vakinhoud te schrappen."
+        },
+        {
+          "term": "Alt-tekst",
+          "uitleg": "Een korte tekstbeschrijving bij een afbeelding die de relevante inhoud overbrengt voor wie het beeld niet (goed) ziet — voorgelezen door screenreaders en nuttig bij slecht ladende of onduidelijke beelden."
+        }
+      ]
+    },
+    "learningGoals": [
+      "Je spoort in een bestaand werkblad minstens drie concrete toegankelijkheidsdrempels op en benoemt per drempel wie erdoor wordt geraakt en waarom.",
+      "Je laat AI een versie op een lager taalniveau maken en controleert systematisch of elke kernterm en elke vakinhoudelijke nuance overeind blijft.",
+      "Je laat AI een tweede representatie (schema, uitgewerkt voorbeeld of stappenplan) van dezelfde inhoud maken en beoordeelt of die naar dezelfde bestemming leidt als de oorspronkelijke tekst.",
+      "Je schrijft of beoordeelt alt-teksten bij de afbeeldingen op je werkblad en legt een eigen kwaliteitscheck vast waarmee je toekomstig toegankelijk materiaal beoordeelt."
+    ],
+    "scenario": {
+      "title": "Werksituatie",
+      "context": "Je hebt een bestaand werkblad of opdrachtenblad dat je elk jaar gebruikt — één met tekst en minstens één afbeelding, grafiek of schema. Je weet uit ervaring dat een deel van je klas erop vastloopt, niet op de inhoud maar op de toegang: te dichte tekst, te veel vaktaal in één keer, beeld zonder uitleg. In dit uur maak je dit werkblad toegankelijker volgens UDL, met AI als gereedschap en jouw vakblik als rem.",
+      "role": "Docent · vo, mbo of hbo — elk vak met tekstueel lesmateriaal",
+      "tools": "Eén bestaand werkblad (digitaal, zodat je kunt knippen en plakken) · een AI-chatbot via je school-/werkaccount · de NL-referentieniveaus taal als ijkpunt"
+    },
+    "steps": [
+      {
+        "title": "Spoor de toegankelijkheidsdrempels op",
+        "body": "Pak je werkblad erbij en lees het één keer langzaam, niet als maker maar als de leerling die vastloopt. Markeer concreet wat de toegang blokkeert: een openingszin vol vaktaal, een grafiek zonder bijschrift, een opdracht die drie dingen tegelijk vraagt, een lap tekst zonder kopjes. Noteer per drempel kort wie eronder lijdt en waarom. Dit doe je zelf, zonder AI — want jij kent je klas en de drempels die er echt toe doen. Pas als je weet wát er in de weg staat, kun je AI gericht laten helpen. Begin niet met 'maak dit toegankelijk'; begin met weten wat 'toegankelijk' hier betekent.",
+        "time": "10 min",
+        "voorbeeld": "Werkblad biologie, 3 vmbo, over de bloedsomloop. Drempel 1: de inleiding is één alinea van zeven zinnen zonder tussenkopjes — leerlingen die moeite hebben met lange tekst verliezen de draad. Drempel 2: de termen 'systole', 'diastole' en 'hartslagvolume' staan in dezelfde zin geïntroduceerd, ongedefinieerd — te veel nieuwe vaktaal tegelijk. Drempel 3: het schema van het hart heeft genummerde pijlen maar geen onderschrift dat zegt wat je moet zien — zonder mondelinge toelichting raadselachtig.",
+        "workspace": {
+          "field": "toegankelijkheid-drempels",
+          "label": "Drempelanalyse van mijn werkblad",
+          "shortLabel": "Drempels",
+          "hint": "Min. drie drempels · per drempel: wat blokkeert + wie wordt geraakt + waarom",
+          "placeholder": "Drempel 1: ... — raakt: ... — waarom: ...\nDrempel 2: ... — raakt: ... — waarom: ...\nDrempel 3: ... — raakt: ... — waarom: ...",
+          "rows": 6,
+          "rubric": [
+            {
+              "name": "Aantal en concreetheid",
+              "good": "Minstens drie drempels, elk aangewezen op een concreet tekst- of beeldelement, niet algemeen ('het is moeilijk')."
+            },
+            {
+              "name": "Wie wordt geraakt",
+              "good": "Per drempel benoemd welk type leerling vastloopt (lange tekst, veel vaktaal, beeld zonder uitleg), in algemene termen — geen herleidbare leerling."
+            },
+            {
+              "name": "Oorzaak in de vorm, niet de inhoud",
+              "good": "De drempel ligt aantoonbaar in de toegang (taal, structuur, beeld) en niet in het verschralen van de vakinhoud."
+            },
+            {
+              "name": "Eigen analyse vooraf",
+              "good": "De analyse is door de docent zelf gemaakt vóór AI-inzet, gestuurd door kennis van de groep."
+            }
+          ],
+          "referenceAnswer": "Drempel 1: de inleiding is één alinea van zeven lange zinnen zonder kopjes — raakt: leerlingen die moeite hebben met lange, dichte tekst (o.a. zwakke lezers, dyslexie) — waarom: geen ankerpunten om de structuur te volgen, ze verliezen halverwege de draad. Drempel 2: drie vaktermen ('systole', 'diastole', 'hartslagvolume') worden in één zin tegelijk geïntroduceerd zonder definitie — raakt: alle leerlingen die de termen nog niet kennen, en extra wie een kleinere werkgeheugenbelasting aankan — waarom: te veel nieuwe informatie in één keer, niets om aan vast te haken. Drempel 3: het hartschema heeft genummerde pijlen maar geen onderschrift dat zegt wat je moet zien — raakt: leerlingen die het beeld niet vanzelf 'lezen' en wie afhankelijk is van voorgelezen tekst — waarom: het beeld draagt zonder uitleg geen zelfstandige betekenis. Deze analyse heb ik vóór AI-inzet gemaakt op basis van waar mijn klas vorig jaar vastliep."
+        }
+      },
+      {
+        "title": "Laat AI een versie op een lager taalniveau maken",
+        "body": "Geef AI de tekst van je werkblad (geen leerlinggegevens, alleen het lesmateriaal) en vraag een versie op een concreet lager referentieniveau — bijvoorbeeld van 3F naar 2F. Wees expliciet in je opdracht: zinnen korter, vaktermen behouden maar bij eerste gebruik kort uitleggen, vakinhoud volledig intact. Het sleutelwoord is 'vereenvoudig de taal, niet de inhoud'. Dan komt het belangrijkste deel, dat je zelf doet: leg de twee versies naast elkaar en controleer term voor term. Is 'evenwichtsprijs' nog 'evenwichtsprijs', of is het stilletjes 'eerlijke prijs' geworden? Is een nuance verdwenen die er wél toe deed? Hier ligt de grens van deze module: AI vereenvoudigt taal, jij bewaakt de vakinhoud.",
+        "time": "12 min",
+        "voorbeeld": "Prompt: 'Hieronder staat de inleiding van een biologiewerkblad over de bloedsomloop voor 3 vmbo. Herschrijf op referentieniveau 2F: korte zinnen, één gedachte per zin, tussenkopjes toevoegen. Behoud de vaktermen systole, diastole en hartslagvolume, maar leg elke term bij eerste gebruik in maximaal acht woorden uit. Verander niets aan de biologische inhoud. [tekst]'. Controle achteraf: AI had 'systole' uitgelegd als 'het samenknijpen van het hart' — correct genoeg, maar het had 'diastole' beschreven als 'rusten', wat onnauwkeurig is (het hart vult zich actief). Die uitleg heb ik zelf bijgesteld naar 'de fase waarin het hart zich met bloed vult'.",
+        "workspace": {
+          "field": "toegankelijkheid-taalniveau",
+          "label": "Mijn prompt + vakinhoudelijke controle",
+          "shortLabel": "Taalniveau",
+          "hint": "Plak je prompt · noteer minstens twee plekken waar je de output vakinhoudelijk hebt gecheckt of bijgesteld",
+          "placeholder": "Prompt (met doelniveau + 'inhoud intact'): ...\nGecheckt: term/nuance ... — klopt / bijgesteld naar ...\nGecheckt: term/nuance ... — klopt / bijgesteld naar ...",
+          "rows": 7,
+          "rubric": [
+            {
+              "name": "Concreet doelniveau in prompt",
+              "good": "De prompt noemt een specifiek referentieniveau (bv. 2F) en vraagt expliciet om vaktermen te behouden en bij eerste gebruik kort uit te leggen."
+            },
+            {
+              "name": "Inhoud intact als opdracht",
+              "good": "De prompt zegt nadrukkelijk dat de vakinhoud niet vereenvoudigd of geschrapt mag worden — alleen de taal."
+            },
+            {
+              "name": "Term-voor-term-controle",
+              "good": "De docent heeft minstens twee kernbegrippen of nuances nagelopen en aangegeven of ze kloppen of zijn bijgesteld."
+            },
+            {
+              "name": "Geen leerlinggegevens",
+              "good": "Alleen lesmateriaal is ingevoerd; geen herleidbare gegevens of ondersteuningsbehoeften van individuele leerlingen."
+            }
+          ],
+          "referenceAnswer": "Prompt: 'Hieronder staat de inleiding van een biologiewerkblad over de bloedsomloop voor 3 vmbo. Herschrijf op referentieniveau 2F: korte zinnen, één gedachte per zin, voeg tussenkopjes toe. Behoud de vaktermen systole, diastole en hartslagvolume; leg elke term bij eerste gebruik in maximaal acht woorden uit. Verander niets aan de biologische inhoud — alleen de taal mag eenvoudiger. [tekst]'. Gecheckt: 'systole' — AI gaf 'het samenknijpen van het hart', klopt, behouden. Gecheckt: 'diastole' — AI gaf 'het hart rust', onnauwkeurig want het hart vult zich actief; bijgesteld naar 'de fase waarin het hart zich met bloed vult'. Gecheckt: 'hartslagvolume' — AI had dit per ongeluk weggelaten in de eenvoudige versie; teruggezet met de uitleg 'de hoeveelheid bloed per hartslag'. Alleen lesmateriaal ingevoerd, geen leerlinggegevens."
+        }
+      },
+      {
+        "title": "Laat AI een tweede representatie maken",
+        "body": "Een tweede taalniveau is één route; UDL vraagt om meerdere representaties van dezelfde inhoud. Kies daarom een tweede vorm die bij jouw stof past — een schema, een uitgewerkt voorbeeld of een stappenplan — en laat AI die genereren uit je werkbladtekst. Een proces wordt een stappenplan, een vergelijking wordt een tabel, een abstract begrip wordt een concreet voorbeeld. Beoordeel daarna of die tweede representatie naar dezelfde bestemming leidt: vat het de kerninhoud, of is het een leuk plaatje dat de stof omzeilt? De representatie moet een echte ingang zijn, geen omweg eromheen.",
+        "time": "8 min",
+        "voorbeeld": "Werkblad economie, 4 havo, over hoe een prijs tot stand komt. Tweede representatie: een stappenplan. Prompt: 'Maak van onderstaande uitleg over prijsvorming een stappenplan van maximaal vijf stappen, in eenvoudige taal, dat dezelfde economische logica volgt. [tekst]'. Output: 1. Verkopers bieden een product aan tegen een vraagprijs. 2. Kopers willen het kopen, maar tegen een lagere prijs. 3. Bij een te hoge prijs blijven producten liggen. 4. Verkopers verlagen de prijs tot kopers toehappen. 5. De prijs waarbij vraag en aanbod gelijk zijn, is de evenwichtsprijs. Controle: stap 3 en 4 brengen het marktmechanisme correct over — dezelfde bestemming, andere route.",
+        "workspace": {
+          "field": "toegankelijkheid-tweede-representatie",
+          "label": "Tweede representatie + bestemmingscheck",
+          "shortLabel": "2e representatie",
+          "hint": "Kies vorm (schema/voorbeeld/stappenplan) · plak de AI-output · check: leidt het naar dezelfde inhoud?",
+          "placeholder": "Gekozen vorm: ...\nAI-output: ...\nBestemmingscheck: vat dit de kerninhoud? ... — wat heb ik aangepast: ...",
+          "rows": 7,
+          "rubric": [
+            {
+              "name": "Passende vorm",
+              "good": "De gekozen representatie past bij de aard van de stof (proces→stappenplan, vergelijking→tabel, abstract→voorbeeld)."
+            },
+            {
+              "name": "Echte tweede ingang",
+              "good": "De representatie biedt een andere route naar dezelfde inhoud, geen versimpeling die de kern omzeilt of weglaat."
+            },
+            {
+              "name": "Bestemmingscheck uitgevoerd",
+              "good": "De docent beoordeelt expliciet of de representatie naar dezelfde vakinhoudelijke bestemming leidt en past zo nodig aan."
+            },
+            {
+              "name": "Aansluiting bij de oorspronkelijke tekst",
+              "good": "De representatie en de tekstversie versterken elkaar — een leerling kan beide naast elkaar gebruiken zonder tegenstrijdigheid."
+            }
+          ],
+          "referenceAnswer": "Gekozen vorm: stappenplan (de stof is een proces — prijsvorming). AI-output: 1. Verkopers bieden een product aan tegen een vraagprijs. 2. Kopers willen kopen, maar tegen een lagere prijs. 3. Bij een te hoge prijs blijven producten liggen. 4. Verkopers verlagen de prijs tot kopers toehappen. 5. De prijs waarbij vraag en aanbod gelijk zijn, heet de evenwichtsprijs. Bestemmingscheck: ja, dit vat de kern — het marktmechanisme (overschot dwingt prijs omlaag tot evenwicht) staat correct in stap 3-5. Aangepast: ik heb bij stap 5 de term 'evenwichtsprijs' vetgedrukt en een verwijzing naar de grafiek op het werkblad toegevoegd, zodat het stappenplan en de oorspronkelijke grafiek op elkaar aansluiten in plaats van los te staan."
+        }
+      },
+      {
+        "title": "Schrijf alt-teksten bij de afbeeldingen",
+        "body": "Elke afbeelding, grafiek of schema op je werkblad heeft een alt-tekst nodig: een korte beschrijving die de relevante inhoud overbrengt voor wie het beeld niet (goed) ziet of het niet vanzelf 'leest'. Een goede alt-tekst beschrijft niet hoe het plaatje eruitziet, maar wát een leerling eruit moet halen voor déze opdracht. AI kan een concept schrijven, maar jij weet de leeropbrengst — dus stuur op functie. 'Een blauw schema met pijlen' is nutteloos; 'Schema van de bloedsomloop: bloed stroomt van het hart via de longen terug, daarna naar de rest van het lichaam' brengt de inhoud over. Houd het kort, vakzuiver en gericht op wat de opdracht vraagt.",
+        "time": "10 min",
+        "voorbeeld": "Afbeelding: grafiek met een vraag- en aanbodlijn die elkaar kruisen. Zwakke alt-tekst: 'Een grafiek met twee lijnen.' Sterke alt-tekst: 'Grafiek vraag en aanbod: de aanbodlijn loopt op, de vraaglijn loopt af. Waar ze elkaar kruisen ligt de evenwichtsprijs en de bijbehorende hoeveelheid.' De sterke versie brengt precies over wat de opdracht eronder vraagt, zonder dat de leerling de grafiek hoeft te zien. AI gaf eerst 'twee diagonale lijnen die elkaar snijden in het midden' — visueel correct maar inhoudelijk leeg; bijgesteld naar de functionele versie.",
+        "workspace": {
+          "field": "toegankelijkheid-alt-teksten",
+          "label": "Alt-teksten bij mijn afbeeldingen",
+          "shortLabel": "Alt-teksten",
+          "hint": "Per afbeelding: korte functionele alt-tekst (wat moet de leerling eruit halen, niet hoe het eruitziet)",
+          "placeholder": "Afbeelding 1: alt-tekst: ...\nAfbeelding 2: alt-tekst: ...\n(zwak vs. sterk: noteer kort waarom jouw versie functioneel is)",
+          "rows": 6,
+          "rubric": [
+            {
+              "name": "Functie boven uiterlijk",
+              "good": "De alt-tekst beschrijft wat de leerling uit het beeld moet halen voor de opdracht, niet alleen hoe het beeld eruitziet."
+            },
+            {
+              "name": "Vakzuiver en correct",
+              "good": "De inhoud van de alt-tekst klopt vakinhoudelijk; AI-output is gecontroleerd en zo nodig bijgesteld."
+            },
+            {
+              "name": "Kort en bruikbaar",
+              "good": "De alt-tekst is beknopt (één à twee zinnen) en past bij wat de bijbehorende opdracht vraagt."
+            },
+            {
+              "name": "Dekt alle beelden",
+              "good": "Elke afbeelding, grafiek of schema op het werkblad heeft een alt-tekst gekregen, geen beeld overgeslagen."
+            }
+          ],
+          "referenceAnswer": "Afbeelding 1 (grafiek vraag-aanbod): 'Grafiek vraag en aanbod: de aanbodlijn loopt op, de vraaglijn loopt af. Waar ze elkaar kruisen ligt de evenwichtsprijs en de bijbehorende hoeveelheid.' — functioneel omdat de leerling de evenwichtsprijs kan benoemen zonder het beeld te zien, precies wat de opdracht vraagt. Afbeelding 2 (foto van een markt): 'Foto van een markt met kraampjes; illustreert dat vragers en aanbieders elkaar op één plek ontmoeten.' — kort gehouden omdat de foto decoratief-ondersteunend is en geen meetbare inhoud draagt. AI gaf bij afbeelding 1 eerst 'twee diagonale lijnen die elkaar snijden', visueel maar inhoudelijk leeg; bijgesteld naar de functionele versie. Beide beelden op het werkblad hebben nu een alt-tekst."
+        }
+      },
+      {
+        "title": "Leg je kwaliteitscheck vast",
+        "body": "Toegankelijk materiaal maken wordt pas duurzaam als je een vaste check hebt — anders begin je elk werkblad vanaf nul en hangt het af van je dagvorm. Formuleer drie tot vijf controlepunten die je voortaan langs elk toegankelijk gemaakt werkblad legt. Denk aan: zijn alle vaktermen nog correct, leidt elke representatie naar dezelfde inhoud, heeft elk beeld een functionele alt-tekst, is er niets stilletjes verschraald. Voeg ook de mens-grens toe: deze check vervangt niet je blik op de klas — als je merkt dat een individuele leerling iets anders nodig heeft, is dat jouw observatie en beslissing, niet die van AI. Dit lijstje is jouw kwaliteitsborging voor volgende keer.",
+        "time": "10 min",
+        "voorbeeld": "Kwaliteitscheck van een talendocent: 1. Elke vakterm uit het origineel komt herkenbaar terug in de eenvoudige versie (niet vervangen door een vage omschrijving). 2. De tweede representatie laat ik door een collega 'koud' lezen: snapt die de kern zonder mijn toelichting? 3. Elk beeld heeft een alt-tekst die de opdracht bedient. 4. Ik check of er geen inhoud is geschrapt die in de toets terugkomt. 5. Ik vraag mezelf: voor welke leerling werkt dit nog steeds niet, en is dat iets voor mijn eigen observatie in plaats van voor het materiaal?",
+        "workspace": {
+          "field": "toegankelijkheid-kwaliteitscheck",
+          "label": "Mijn vaste kwaliteitscheck",
+          "shortLabel": "Kwaliteitscheck",
+          "hint": "3-5 controlepunten die je voortaan langs elk toegankelijk werkblad legt · inclusief de mens-grens",
+          "placeholder": "1. ...\n2. ...\n3. ...\n4. ...\n5. (mens-grens) ...",
+          "rows": 6,
+          "rubric": [
+            {
+              "name": "Drie tot vijf controlepunten",
+              "good": "Een concreet, toepasbaar lijstje van 3-5 punten dat je daadwerkelijk langs een werkblad kunt leggen."
+            },
+            {
+              "name": "Vakinhoud geborgd",
+              "good": "Minstens één punt bewaakt dat vaktermen kloppen en geen toetsrelevante inhoud stilletjes is verschraald."
+            },
+            {
+              "name": "Dekt de UDL-elementen",
+              "good": "De check raakt taalniveau, tweede representatie én alt-tekst — niet slechts één aspect."
+            },
+            {
+              "name": "Mens-grens opgenomen",
+              "good": "Eén punt erkent dat de check de docentobservatie niet vervangt en dat individuele ondersteuningsbehoeften niet in AI thuishoren."
+            }
+          ],
+          "referenceAnswer": "1. Elke vakterm uit het origineel komt herkenbaar terug in de eenvoudige versie — niet vervangen door een vage omschrijving die de inhoud verschraalt. 2. Ik vergelijk de eenvoudige versie met het origineel op weggelaten inhoud en check expliciet of niets is geschrapt dat in de toets terugkomt. 3. De tweede representatie (schema/voorbeeld/stappenplan) leidt naar dezelfde bestemming — ik laat een collega 'm koud lezen: snapt die de kern zonder mijn toelichting? 4. Elk beeld heeft een functionele alt-tekst die overbrengt wat de opdracht vraagt, niet hoe het beeld eruitziet. 5. (mens-grens) Deze check borgt het materiaal, niet de individuele leerling: als ik in de klas merk dat iemand iets anders nodig heeft, is dat mijn observatie en beslissing — geen diagnose of ondersteuningsbehoefte van een leerling gaat de AI in."
+        }
+      }
+    ],
+    "vakvariaties": [
+      {
+        "vak": "Talen · vo en mbo",
+        "body": "Bij talen is taalniveau verlagen verraderlijk: je wilt instructies en context toegankelijker, maar de doeltaal of de te analyseren tekst moet juist intact blijven. Laat AI de opdrachtomschrijving en uitleg vereenvoudigen, niet het bronfragment. Een tweede representatie werkt sterk als woordweb of voorbeeldzin naast de grammaticaregel."
+      },
+      {
+        "vak": "Exacte vakken · vo bovenbouw",
+        "body": "Vaktermen en formules zijn niet-onderhandelbaar — daar mag AI niets aan 'versimpelen'. Richt de vereenvoudiging op de contexttekst rond de som en op de opdrachtformulering. Een stappenplan als tweede representatie (eerst dit, dan dat) helpt leerlingen die de procedure kwijtraken in een lap doorlopende tekst."
+      },
+      {
+        "vak": "Beroepsgerichte vakken · mbo",
+        "body": "Werk vanuit de beroepscontext: een werkinstructie of casus mag toegankelijker, maar de vakterm die de student straks op de werkvloer hoort, blijft staan. Alt-teksten zijn hier extra relevant bij technische schema's en stappenfoto's — beschrijf wat de student moet zien om de handeling te kunnen uitvoeren."
+      },
+      {
+        "vak": "Zaakvakken · vo (geschiedenis, aardrijkskunde)",
+        "body": "Bronnen en kaarten zijn het hart van je vak en vragen om sterke alt-teksten: niet 'een oude foto', maar 'foto van een fabriek rond 1900, schoorstenen en arbeiders — illustreert de industrialisatie'. Een tijdlijn of schema als tweede representatie maakt een lap historische tekst grijpbaar zonder de chronologie te verliezen."
+      },
+      {
+        "vak": "Hbo · propedeuse, elk domein",
+        "body": "Studenten lopen sterk uiteen in academische taalvaardigheid en taalachtergrond. Bied een vakinhoudelijk artikel of opdracht in twee taalniveaus aan en laat AI een begrippenschema genereren als tweede ingang. Bewaak dat de academische kern (definities, argumentatiestructuur) overeind blijft — vereenvoudig de taal, niet de denkstap."
+      }
+    ],
+    "valkuilen": [
+      {
+        "titel": "Taal vereenvoudigen en de inhoud meeslepen",
+        "watGebeurtEr": "AI maakt de tekst lekker leesbaar door vaktermen te vervangen door dagelijkse woorden — 'evenwichtsprijs' wordt 'eerlijke prijs', 'fotosynthese' wordt 'planten maken eten'. De leerling leest het vlot en leert het vak verkeerd. In de toets staat de echte term er weer.",
+        "fix": "Schrijf in je prompt expliciet: behoud de vaktermen, leg ze bij eerste gebruik kort uit, vereenvoudig alleen de zinsbouw. Controleer daarna term voor term — dit is jouw vakinhoudelijke werk, niet dat van de machine."
+      },
+      {
+        "titel": "Toegankelijkheid als reparatie achteraf blijven zien",
+        "watGebeurtEr": "Je maakt pas een aangepaste versie als een leerling is vastgelopen. Dat is brandjes blussen: het komt te laat, kost elke keer opnieuw energie, en de leerling heeft de drempel al gevoeld. Je ontwerpt nog steeds voor de gemiddelde leerling die niet bestaat.",
+        "fix": "Verschuif de moeite naar voren. Maak de toegankelijke versie meteen, voor iedereen beschikbaar (de hellingbaan náást de trap). UDL is ontwerp vooraf, geen lapmiddel achteraf — en met AI kost dat geen avond meer."
+      },
+      {
+        "titel": "Alt-tekst die het uiterlijk beschrijft in plaats van de functie",
+        "watGebeurtEr": "De alt-tekst wordt 'een blauwe grafiek met twee lijnen' of 'een afbeelding van het hart'. Technisch is er een alt-tekst, maar de leerling die het beeld niet ziet, kan de opdracht nog steeds niet maken — de inhoud die ertoe doet ontbreekt.",
+        "fix": "Vraag je bij elke alt-tekst af: wat moet de leerling uit dit beeld halen om déze opdracht te maken? Beschrijf dát, kort en vakzuiver. AI mag een concept schrijven, maar jij kent de leeropbrengst en stuurt op functie."
+      },
+      {
+        "titel": "Een diagnose of ondersteuningsbehoefte de chatbot in voeren",
+        "watGebeurtEr": "Om 'beter passend' materiaal te krijgen typ je in de prompt dat een leerling dyslexie heeft of een taalachterstand. Dat zijn bijzondere persoonsgegevens over een individuele leerling — die horen niet in een AI-chatbot, los van hoe nuttig het lijkt.",
+        "fix": "Voer alleen lesmateriaal in, nooit gegevens over een individuele leerling. Ontwerp toegankelijk voor je klas in het algemeen (meerdere representaties) en gebruik je eigen observatie om te wegen wie wat nodig heeft. AI levert opties; jij kent de leerling en beslist."
+      },
+      {
+        "titel": "Eén representatie maken en denken dat je klaar bent",
+        "watGebeurtEr": "Je zet de tekst op een lager niveau en stopt. Goed begin, maar je hebt nog steeds één route. De leerling die niet via tekst binnenkomt maar wel via een schema of voorbeeld, staat nog buiten — UDL vraagt juist om meerdere ingangen.",
+        "fix": "Voeg altijd minstens een tweede representatie toe (schema, voorbeeld of stappenplan) naast de vereenvoudigde tekst. Twee routes naar dezelfde bestemming is het minimum waar UDL om vraagt."
+      }
+    ],
+    "eindcriteria": [
+      {
+        "criterium": "Drempelanalyse",
+        "onder": "Geen analyse, of een vaag 'het is te moeilijk' zonder aanwijsbare drempels.",
+        "op": "Minstens drie concrete drempels aangewezen, met per drempel wie geraakt wordt en waarom, vóór AI-inzet.",
+        "boven": "+ Drempels geordend naar urgentie en gekoppeld aan een gerichte ingreep per drempel."
+      },
+      {
+        "criterium": "Taalniveau met inhoudsbehoud",
+        "onder": "Tekst klakkeloos door AI vereenvoudigd; vaktermen of nuances onbedoeld weggevallen.",
+        "op": "Versie op een concreet lager niveau, met behoud van vaktermen en een term-voor-term-controle door de docent.",
+        "boven": "+ Onnauwkeurigheden in de AI-output gevonden en vakinhoudelijk correct bijgesteld, met motivatie."
+      },
+      {
+        "criterium": "Tweede representatie",
+        "onder": "Alleen één (tekst)versie; geen tweede ingang naar de inhoud.",
+        "op": "Een passende tweede representatie gemaakt en gecheckt op dezelfde vakinhoudelijke bestemming.",
+        "boven": "+ Tweede representatie aangesloten op de tekstversie zodat leerlingen ze naast elkaar kunnen gebruiken."
+      },
+      {
+        "criterium": "Alt-teksten en kwaliteitscheck",
+        "onder": "Geen alt-teksten of slechts uiterlijkbeschrijvingen; geen vaste check.",
+        "op": "Functionele alt-tekst bij elk beeld én een eigen kwaliteitscheck van 3-5 punten vastgelegd.",
+        "boven": "+ Kwaliteitscheck bevat de mens-grens (geen leerlinggegevens, docentobservatie blijft leidend) en is herbruikbaar voor volgend materiaal."
+      }
+    ],
+    "reflection": [
+      "Welke toegankelijkheidsdrempel in je materiaal had je nooit opgemerkt als je het niet door de ogen van een vastlopende leerling had gelezen — en wat zegt dat over hoe je tot nu toe ontwierp?",
+      "AI vereenvoudigde je taal vlot, maar op welk punt sloeg het de vakinhoud mis? Hoe wist je dat, en wat had je gemist als je niet zelf had gecontroleerd?",
+      "Waar ligt voor jou de grens tussen 'materiaal toegankelijk maken voor de klas' (mag in AI) en 'inspelen op de behoefte van een individuele leerling' (jouw observatie, buiten AI) — en hoe houd je die grens scherp in de praktijk?"
+    ],
+    "checklist": [
+      "Werkblad gelezen door de ogen van een vastlopende leerling en minstens drie concrete drempels genoteerd",
+      "Per drempel benoemd wie geraakt wordt en waarom, zonder herleidbare leerlinggegevens",
+      "AI een versie op een concreet lager referentieniveau laten maken met expliciete opdracht 'inhoud intact'",
+      "Eenvoudige versie term voor term gecontroleerd en onnauwkeurigheden vakinhoudelijk bijgesteld",
+      "Een tweede representatie (schema, voorbeeld of stappenplan) gemaakt en gecheckt op dezelfde bestemming",
+      "Functionele alt-tekst geschreven bij elk beeld op het werkblad — functie, niet uiterlijk",
+      "Eigen kwaliteitscheck van 3-5 punten vastgelegd, inclusief de mens-grens",
+      "Alleen lesmateriaal in AI ingevoerd, geen diagnose of ondersteuningsbehoefte van een leerling"
+    ],
+    "nextLesson": "ondersteunende-technologie"
+  },
+  "ondersteunende-technologie": {
+    "format": "diepteles",
+    "summary": "In deze diepteles leer je AI-aangedreven ondersteunende technologie gericht inzetten: voorlezen, dicteren, live ondertiteling, vertaling voor NT2 en hulp bij dyslexie of een visuele/auditieve beperking. Je inventariseert welke drempels in jouw eigen lessen spelen, koppelt elke drempel aan passende tech, en test één tool op je eigen materiaal. Je bepaalt wat de tool wél en niet oplost, en je legt de AVG-grens vast: gegevens over een beperking zijn bijzondere persoonsgegevens en horen niet in een AI-chatbot. Aan het eind heb je een onderbouwde keuze plus een werkende test, niet een vaag voornemen.",
+    "duration": {
+      "total": "60 minuten",
+      "blocks": [
+        {
+          "label": "Aanleiding en kader",
+          "min": 8
+        },
+        {
+          "label": "Drempels inventariseren",
+          "min": 12
+        },
+        {
+          "label": "Drempel aan tech koppelen",
+          "min": 10
+        },
+        {
+          "label": "Eén tool testen op eigen materiaal",
+          "min": 15
+        },
+        {
+          "label": "Grenzen en AVG bepalen",
+          "min": 10
+        },
+        {
+          "label": "Reflectie en checklist",
+          "min": 5
+        }
+      ]
+    },
+    "opening": {
+      "eyebrow": "Aanleiding",
+      "aanleiding": "Een leerling in 3-vmbo leest tergend langzaam. Niet omdat hij de stof niet snapt, maar omdat de letters voor hem dansen. Bij de toets aardrijkskunde haalt hij onvoldoendes die niets zeggen over zijn kennis van klimaatzones en alles over de tijd die hij kwijt is aan ontcijferen. Tot je de tekst door een voorleestool laat voorlezen via een koptelefoon. Plotseling beantwoordt hij de open vragen prima. De drempel zat niet in zijn hoofd, maar in het kanaal.\n\nDit is wat ondersteunende technologie doet: ze haalt een drempel weg zodat de leerling bij de inhoud kan. De stof wordt niet makkelijker, het leerdoel gaat niet omlaag. Een leerling die mag dicteren in plaats van typen, wordt nog steeds afgerekend op de kwaliteit van zijn argumentatie. Een NT2-leerling die de instructie eerst in haar moedertaal naast het Nederlands leest, leert nog steeds de Nederlandse vaktermen. Het enige dat verandert is dat de drempel tussen leerling en inhoud lager wordt.\n\nDe valkuil zit in de andere richting. Een tool die mooi werkt voor de ene leerling kan voor de andere een lapmiddel zijn dat het echte probleem verbergt. En sommige tools vragen om gegevens die helemaal niet in een chatbot horen. Daarom doe je in deze les niet zomaar 'iets met tools', maar werk je systematisch: van drempel naar passende tech naar een echte test op je eigen materiaal.",
+      "waaromNu": "Toegankelijkheid is geen extraatje meer maar een ontwerpkeuze. DigCompEdu noemt onder Empowering Learners expliciet Accessibility & inclusion: je zorgt dat digitale middelen toegankelijk zijn voor álle leerlingen. UNESCO's AI-CFT plaatst daarbij de human-centred mindset voorop: de tool ondersteunt, jij blijft de inhoud en de relatie bewaken. AI maakt ondersteunende technologie nu goedkoper en breder beschikbaar dan ooit, maar dat maakt de vraag wélke drempel je wegneemt alleen maar urgenter."
+    },
+    "conceptueel": {
+      "eyebrow": "Conceptueel kader",
+      "intro": "Ondersteunende technologie (assistive technology) is alles wat een leerling helpt om een taak te doen die anders door een beperking of drempel niet of moeizaam lukt. Dat was vroeger een dure, aparte machine; nu zit het in je telefoon, je browser en je tekstverwerker. AI heeft de kwaliteit van deze tools een sprong laten maken: voorleesstemmen klinken natuurlijk, dicteren herkent spreektaal, live ondertiteling loopt mee met de les, en vertaling is in seconden klaar.\n\nDe denkfout die je wilt vermijden is 'tech eerst'. Je begint niet bij de tool maar bij de drempel. Een drempel is het verschil tussen wat de taak vraagt en wat de leerling op dit moment via het standaardkanaal kan leveren. Leesvaardigheid is een kanaal, niet het leerdoel bij aardrijkskunde. Handschrift is een kanaal, niet het leerdoel bij geschiedenis. Zodra je de drempel los kunt knippen van het leerdoel, kun je gericht een tool kiezen die alleen het kanaal verbreedt en het leerdoel intact laat.\n\nHier raakt de les aan Universal Design for Learning. UDL zegt: ontwerp je lesmateriaal vooraf zo dat het op meerdere manieren toegankelijk is, in plaats van achteraf per leerling een uitzondering te bouwen. Bied de stof in meerdere representaties (tekst én audio), bied meerdere manieren van actie en expressie (typen én dicteren). Ondersteunende technologie wordt dan geen apart spoor voor één leerling, maar een optie die voor iedereen klaarstaat. Dat is meteen het verschil tussen een lapmiddel achteraf en een ontwerpkeuze vooraf.\n\nEn dan de grens. AI levert opties; jij kent de leerling en beslist. Een tool stelt geen diagnose en bepaalt niet welke ondersteuning iemand nodig heeft. Dat blijft jouw observatie, in overleg met de leerling, de ouders en de ondersteuningsstructuur van de school. Gegevens over een beperking, diagnose of ondersteuningsbehoefte zijn bovendien bijzondere persoonsgegevens onder de AVG. Die horen niet in een publieke AI-chatbot, punt. Je gebruikt de tool op de drempel, niet op het dossier van de leerling.",
+      "mentalModel": {
+        "naam": "Drempel weg, leerdoel intact",
+        "beschrijving": "Knip eerst de drempel los van het leerdoel: wat is het kanaal (lezen, schrijven, horen, taal) en wat is de eigenlijke vaardigheid die je toetst? Kies daarna een tool die alleen het kanaal verbreedt. Werkt de leerling nu aan dezelfde inhoud op hetzelfde niveau, dan klopt het. Wordt de taak inhoudelijk makkelijker, dan los je het verkeerde probleem op."
+      },
+      "kernbegrippen": [
+        {
+          "term": "Drempel versus leerdoel",
+          "uitleg": "De drempel is het kanaal dat in de weg zit (lezen, typen, horen, taal); het leerdoel is de vaardigheid die je echt wilt toetsen. Ondersteunende tech verlaagt de drempel zonder het leerdoel te raken."
+        },
+        {
+          "term": "Tekst-naar-spraak en spraak-naar-tekst",
+          "uitleg": "Voorlezen (TTS) opent geschreven tekst voor wie moeizaam leest; dicteren (STT) opent schriftelijke productie voor wie moeizaam typt of schrijft. Beide veranderen het kanaal, niet de opdracht."
+        },
+        {
+          "term": "Universal Design for Learning",
+          "uitleg": "Ontwerp materiaal vooraf met meerdere representaties en meerdere manieren van expressie, zodat ondersteuning een standaardoptie is voor iedereen in plaats van een uitzondering achteraf."
+        },
+        {
+          "term": "Bijzondere persoonsgegevens",
+          "uitleg": "Gegevens over een beperking, diagnose of ondersteuningsbehoefte vallen onder de zwaarste AVG-categorie en horen nooit in een publieke AI-chatbot. Je voert de drempel in, niet wie de leerling is."
+        }
+      ]
+    },
+    "learningGoals": [
+      "Je benoemt voor minstens drie taken in je eigen lessen welke drempel het standaardkanaal opwerpt en welk leerdoel daaronder intact moet blijven.",
+      "Je koppelt elke drempel aan een passende vorm van ondersteunende technologie (voorlezen, dicteren, ondertiteling, vertaling, dyslexie- of zintuig-ondersteuning) en kunt je keuze beargumenteren.",
+      "Je test één tool op je eigen lesmateriaal en beschrijft concreet wat de tool wél oplost en wat niet, inclusief wat de leerling nog zelf moet doen.",
+      "Je formuleert een AVG-grens voor ondersteunende tech, waarbij je expliciet maakt dat gegevens over een beperking bijzondere persoonsgegevens zijn die niet in een publieke AI gaan."
+    ],
+    "scenario": {
+      "title": "Werksituatie",
+      "context": "Je hebt een klas met een paar leerlingen voor wie het standaardmateriaal een drempel opwerpt: één leest moeizaam door dyslexie, één is een NT2-leerling die de vaktaal nog niet beheerst, en één mist door een gehoorbeperking de helft van je klassikale uitleg. Je wilt geen apart spoor per leerling bouwen, maar je materiaal zo inrichten dat de drempels lager worden zonder dat het leerdoel verandert.",
+      "role": "Vakdocent die het eigen lesmateriaal toegankelijker maakt en daarbij binnen de AVG en de ondersteuningsstructuur van de school blijft.",
+      "tools": "Voorleesfunctie (TTS), dicteerfunctie (STT), live ondertiteling/transcriptie, vertaaltool voor NT2, dyslexie-ondersteuning in tekstverwerker; een AI-chatbot op het school-account uitsluitend voor het bewerken van lesmateriaal, niet voor leerlinggegevens."
+    },
+    "steps": [
+      {
+        "title": "Inventariseer de drempels in je eigen lessen",
+        "body": "Begin niet bij de tools maar bij je eigen materiaal. Loop een concrete les of toets na en noteer per taak welk kanaal de leerling moet gebruiken: lezen, schrijven/typen, luisteren, of taalbeheersing Nederlands. Markeer waar dat kanaal voor sommige leerlingen een drempel is die losstaat van het eigenlijke leerdoel. Dit is de belangrijkste stap: als je de drempel niet scherp hebt, kies je straks een tool die het verkeerde probleem oplost.",
+        "time": "12 min",
+        "voorbeeld": "Bij een opdracht economie staat: 'Lees het krantenartikel en leg uit welk markteffect optreedt.' Het leerdoel is 'markteffect herkennen en uitleggen'. De drempel voor je dyslectische leerling is 'een lange lopende tekst lezen' en voor je NT2-leerling 'economische vaktermen in het Nederlands begrijpen'. Het leerdoel is voor allebei identiek; alleen het kanaal verschilt.",
+        "workspace": {
+          "field": "drempel-inventarisatie",
+          "label": "Kies één eigen les of toets en inventariseer minstens drie taken. Noteer per taak: het leerdoel, het kanaal dat nodig is, en de drempel die voor sommige leerlingen ontstaat.",
+          "shortLabel": "Drempels inventariseren",
+          "hint": "Knip leerdoel en kanaal los. Vraag bij elke taak: wat toets ik echt, en welk kanaal moet de leerling gebruiken om dat te laten zien?",
+          "placeholder": "Taak 1 — Leerdoel: ... | Kanaal: ... | Drempel: ...\nTaak 2 — ...\nTaak 3 — ...",
+          "rows": 8,
+          "rubric": [
+            {
+              "name": "Minstens drie concrete taken",
+              "good": "Drie of meer echte taken uit één eigen les of toets, niet abstract maar herkenbaar."
+            },
+            {
+              "name": "Leerdoel en kanaal gescheiden",
+              "good": "Per taak staat het leerdoel los van het kanaal; het is duidelijk wat getoetst wordt en wat slechts het middel is."
+            },
+            {
+              "name": "Drempel benoemt het kanaal",
+              "good": "De drempel zit aantoonbaar in het kanaal (lezen, typen, horen, taal), niet in de inhoud of het niveau."
+            },
+            {
+              "name": "Gekoppeld aan echte leerlingen",
+              "good": "De drempels zijn herkenbaar voor concrete (geabstraheerde) leerlingsituaties in je klas, zonder namen of diagnoses."
+            }
+          ],
+          "referenceAnswer": "Les: economie 4-havo, opdracht marktwerking. Taak 1 — Leerdoel: markteffect herkennen en uitleggen. Kanaal: lang krantenartikel lezen. Drempel: voor een leerling die traag en moeizaam leest kost het ontcijferen zoveel tijd en energie dat de inhoud niet binnenkomt; de drempel is lezen, niet economisch redeneren. Taak 2 — Leerdoel: in eigen woorden een vraagstuk uitwerken. Kanaal: een lopende tekst typen/schrijven. Drempel: voor een leerling die moeizaam formuleert op papier blokkeert het schrijfproces het denken, terwijl ze het mondeling wel helder uitlegt. Taak 3 — Leerdoel: vaktermen begrijpen en toepassen. Kanaal: Nederlandse instructietaal. Drempel: voor een NT2-leerling zit de barrière in de algemene Nederlandse zinnen rond de vakterm, niet in het economische concept zelf. In alle drie de taken blijft het leerdoel identiek; alleen het kanaal werpt voor sommige leerlingen een drempel op."
+        }
+      },
+      {
+        "title": "Koppel elke drempel aan passende ondersteunende tech",
+        "body": "Nu pas komt de tool in beeld. Zet naast elke drempel uit stap 1 de vorm van ondersteunende technologie die precies dat kanaal verbreedt. Leesdrempel: tekst-naar-spraak (voorlezen). Schrijf-/typdrempel: spraak-naar-tekst (dicteren). Luister-/gehoordrempel: live ondertiteling of transcriptie. Taaldrempel NT2: vertaling naast de Nederlandse tekst, niet in plaats van. Visuele beperking: voorlezen, vergroting, schermlezer-vriendelijke opmaak. Kies bewust de tool die alleen het kanaal raakt en het leerdoel intact laat.",
+        "time": "10 min",
+        "voorbeeld": "De leesdrempel bij economie koppel je aan een voorleestool: de leerling luistert het artikel via een koptelefoon en beantwoordt dezelfde vragen. De taaldrempel van de NT2-leerling koppel je aan een tweetalige weergave: de vaktermen blijven Nederlands, maar de omringende instructiezin staat ernaast in haar moedertaal, zodat ze leert wat de term betekent in context.",
+        "workspace": {
+          "field": "drempel-tech-koppeling",
+          "label": "Maak een koppeltabel: zet naast elke drempel uit stap 1 de passende ondersteunende technologie en leg in één zin uit waarom die het kanaal verbreedt zonder het leerdoel te verlagen.",
+          "shortLabel": "Drempel-tech koppelen",
+          "hint": "Eén drempel, één tool, één leerdoel-check. Vraag telkens: verbreedt deze tool alleen het kanaal, of maakt hij de taak inhoudelijk makkelijker?",
+          "placeholder": "Drempel: ... → Tech: ... → Waarom kanaal en niet leerdoel: ...",
+          "rows": 7,
+          "rubric": [
+            {
+              "name": "Elke drempel gekoppeld",
+              "good": "Iedere drempel uit stap 1 heeft een passende, specifieke vorm van ondersteunende tech."
+            },
+            {
+              "name": "Tool past op het kanaal",
+              "good": "De gekozen tool verbreedt precies het kanaal dat de drempel vormt, niet een ander kanaal."
+            },
+            {
+              "name": "Leerdoel-check expliciet",
+              "good": "Per koppeling is beargumenteerd dat het leerdoel intact blijft en alleen het kanaal verandert."
+            },
+            {
+              "name": "Vertaling als steun, niet vervanging",
+              "good": "Bij NT2 staat de vertaling náást het Nederlands als steiger, niet in plaats ervan, zodat de Nederlandse vaktaal doel blijft."
+            }
+          ],
+          "referenceAnswer": "Drempel lezen (dyslexie) → Tech: tekst-naar-spraak, leerling luistert het artikel via koptelefoon → verbreedt alleen het leeskanaal; de leerling beantwoordt dezelfde economievragen op hetzelfde niveau, dus het leerdoel 'markteffect uitleggen' blijft intact. Drempel formuleren op papier → Tech: spraak-naar-tekst, leerling dicteert haar uitwerking en redigeert daarna → verbreedt het productiekanaal; ze wordt nog steeds afgerekend op argumentatie, dus het leerdoel blijft staan. Drempel Nederlandse instructietaal (NT2) → Tech: tweetalige weergave met de vakterm in het Nederlands en de omringende uitleg ernaast in de moedertaal → steiger op het taalkanaal; de Nederlandse vaktermen blijven het doel, de vertaling is tijdelijke steun. Drempel gehoor → Tech: live ondertiteling/transcriptie van mijn klassikale uitleg → verbreedt het luisterkanaal; de leerling krijgt dezelfde inhoud, alleen via tekst in plaats van geluid."
+        }
+      },
+      {
+        "title": "Test één tool op je eigen materiaal",
+        "body": "Theorie wordt pas bruikbaar als je het op je eigen spullen probeert. Kies één tool uit je koppeltabel en draai er een stuk van je echte lesmateriaal doorheen: laat je toetsvraag voorlezen, dicteer een voorbeeldantwoord, vertaal een instructie, of zet live ondertiteling aan tijdens een proefuitleg. Ervaar wat de leerling ervaart. Let op kwaliteit: leest de stem moeilijke woorden goed uit? Herkent het dicteren je vaktermen? Klopt de vertaling van de vakterm of verzint hij iets?",
+        "time": "15 min",
+        "voorbeeld": "Je laat een voorleestool je toetstekst aardrijkskunde voorlezen en hoort dat hij 'het IJsselmeer' correct uitspreekt maar 'stuwwal' verminkt. Of je dicteert een antwoord biologie en ziet dat 'mitochondriën' als 'mitose en triën' verschijnt. Precies dit soort fouten wil je vóór zijn voordat een leerling erop vastloopt.",
+        "workspace": {
+          "field": "tool-test",
+          "label": "Beschrijf je test: welke tool, welk eigen materiaal, en wat er concreet gebeurde. Noteer minstens twee dingen die goed gingen en twee die niet, met een echt voorbeeld uit je vak.",
+          "shortLabel": "Tool testen",
+          "hint": "Gebruik echt materiaal, geen testzin. Let op vaktermen, eigennamen en lange zinnen — daar breken deze tools.",
+          "placeholder": "Tool: ... | Materiaal: ...\nGoed ging: ...\nFout ging: ...\nConcreet voorbeeld: ...",
+          "rows": 8,
+          "rubric": [
+            {
+              "name": "Echt eigen materiaal getest",
+              "good": "De test gebruikt een herkenbaar stuk van het eigen vak, geen losse oefenzin."
+            },
+            {
+              "name": "Concrete observaties",
+              "good": "Minstens twee sterke en twee zwakke punten, specifiek benoemd in plaats van 'werkte aardig'."
+            },
+            {
+              "name": "Vaktermen onder de loep",
+              "good": "Het effect op vaktermen, eigennamen of vakspecifieke notatie is expliciet bekeken."
+            },
+            {
+              "name": "Leerlingperspectief",
+              "good": "Beschreven vanuit wat de leerling zou ervaren, niet alleen vanuit de techniek."
+            }
+          ],
+          "referenceAnswer": "Tool: tekst-naar-spraak op de tekstverwerker | Materiaal: mijn toetstekst aardrijkskunde over IJstijden (ca. 300 woorden). Goed ging: de stem leest het lopende verhaal rustig en natuurlijk voor, en plaatst pauzes bij komma's en punten, waardoor een tragere lezer de inhoud goed kan volgen; ook 'het IJsselmeer' en 'gletsjer' worden correct uitgesproken. Fout ging: 'stuwwal' werd als 'stu-wwal' verminkt en de afkorting 'ca.' werd letterlijk als 'ca' gelezen in plaats van 'circa'; ook werd een opsomming met streepjes als doorlopende zin voorgelezen, waardoor de structuur verdween. Concreet voorbeeld: bij de zin 'De stuwwal bij Nijmegen ontstond in de voorlaatste ijstijd' viel precies de vakterm weg die de leerling moet kennen. Leerlingperspectief: een dyslectische leerling kan de inhoud nu wel volgen, maar zou bij 'stuwwal' in de war raken; ik moet de uitspraak van enkele kernbegrippen vooraf controleren of die termen apart aanbieden."
+        }
+      },
+      {
+        "title": "Bepaal wat de tool wel en niet oplost",
+        "body": "Een eerlijke grens is belangrijker dan enthousiasme. Schrijf op wat de tool daadwerkelijk wegneemt en wat er blijft liggen — voor jou én voor de leerling. Voorlezen lost de leesdrempel op maar leert de leerling niet beter lezen; dat is geen bezwaar zolang lezen niet het leerdoel is, maar bij een leesvaardigheidsles is het juist een lapmiddel. Dicteren lost het typen op maar niet het ordenen van gedachten. Vertaling overbrugt de taal maar bouwt geen Nederlandse woordenschat als je hem permanent inzet. Benoem ook wat de leerling zelf moet blijven doen.",
+        "time": "10 min",
+        "voorbeeld": "Bij de NT2-leerling concludeer je: de vertaaltool zorgt dat ze de economieopdracht nú kan maken (drempel weg), maar als ze elke term laat vertalen leert ze de Nederlandse vaktaal niet. Oplossing: de vertaling is een tijdelijke steiger die je per periode afbouwt, en de vaktermen blijven in het Nederlands het leerdoel.",
+        "workspace": {
+          "field": "wel-niet-oplossen",
+          "label": "Schrijf voor je geteste tool een eerlijk wel/niet-overzicht: wat lost de tool op, wat lost hij niet op, en wat moet de leerling zelf blijven doen. Geef aan in welke situatie de tool een lapmiddel zou worden.",
+          "shortLabel": "Wel/niet bepalen",
+          "hint": "Eerlijk over de grens. Vraag: zou dezelfde tool bij een ander leerdoel ineens een lapmiddel zijn?",
+          "placeholder": "Lost op: ...\nLost niet op: ...\nLeerling moet zelf: ...\nWordt lapmiddel wanneer: ...",
+          "rows": 7,
+          "rubric": [
+            {
+              "name": "Wat de tool oplost",
+              "good": "Helder benoemd welke drempel concreet verdwijnt voor de leerling."
+            },
+            {
+              "name": "Wat blijft liggen",
+              "good": "Eerlijk benoemd wat de tool niet doet en welke vaardigheid onaangetast blijft."
+            },
+            {
+              "name": "Rol van de leerling",
+              "good": "Concreet wat de leerling zelf moet blijven doen, zodat de tool ondersteunt en niet overneemt."
+            },
+            {
+              "name": "Lapmiddel-grens",
+              "good": "Benoemt een situatie waarin dezelfde tool bij een ander leerdoel een lapmiddel wordt."
+            }
+          ],
+          "referenceAnswer": "Lost op: de vertaaltool haalt de Nederlandse taaldrempel weg, zodat de NT2-leerling de economieopdracht nu inhoudelijk kan maken en haar begrip van marktwerking kan laten zien. Lost niet op: de tool bouwt geen Nederlandse vakwoordenschat op; als ze elke term laat vertalen blijft de Nederlandse vaktaal voor haar leeg. Leerling moet zelf: de vaktermen in het Nederlands leren en toepassen, de vertaling alleen gebruiken om de omringende instructie te begrijpen, niet om de term te vervangen. Wordt lapmiddel wanneer: bij een les waar Nederlandse leesvaardigheid of woordenschat zélf het leerdoel is — dan neemt de vertaling juist weg wat de leerling moet oefenen. Daarom zet ik de vertaling in als tijdelijke steiger die ik per periode afbouw en houd ik de Nederlandse vaktermen als blijvend leerdoel."
+        }
+      },
+      {
+        "title": "Doe de AVG-check op ondersteunende tech",
+        "body": "Ondersteunende technologie raakt aan de gevoeligste gegevens die er zijn. Het feit dát een leerling een tool nodig heeft, zegt iets over een beperking of ondersteuningsbehoefte — en dat zijn bijzondere persoonsgegevens onder de AVG, de zwaarste categorie. Die horen niet in een publieke AI-chatbot. De regel is simpel: je voert de drempel of het materiaal in, nooit wie de leerling is. Gebruik tools via het school-account dat de school heeft afgesproken, abstraheer altijd ('een leerling die moeizaam leest', nooit een naam of diagnose), en bewaar afspraken over ondersteuning in het leerlingvolgsysteem, niet in een chatprompt.",
+        "time": "8 min",
+        "voorbeeld": "Fout: 'Maak een aangepaste toets voor Sam, die dyslexie en ADHD heeft, makkelijker.' Hier staan een naam plus twee diagnoses in een publieke AI — bijzondere persoonsgegevens. Goed: je laat de standaardtoets door een voorleestool lezen via het school-account, en in de AI vraag je hooguit 'zet deze toetstekst om naar kortere zinnen', zonder enige verwijzing naar een leerling.",
+        "workspace": {
+          "field": "avg-check-ondersteunend",
+          "label": "Schrijf de AVG-regel voor ondersteunende tech in jouw situatie. Benoem expliciet dat gegevens over een beperking bijzondere persoonsgegevens zijn, geef één fout en één goed voorbeeld, en noem waar ondersteuningsafspraken wél thuishoren.",
+          "shortLabel": "AVG-check",
+          "hint": "De grens: de drempel mag in de tool, de leerling niet. Diagnose, naam en ondersteuningsbehoefte blijven buiten elke publieke AI.",
+          "placeholder": "Regel: ...\nBijzondere persoonsgegevens: ...\nFout: ...\nGoed: ...\nAfspraken horen in: ...",
+          "rows": 7,
+          "rubric": [
+            {
+              "name": "Bijzondere persoonsgegevens benoemd",
+              "good": "Maakt expliciet dat gegevens over een beperking/diagnose/ondersteuningsbehoefte de zwaarste AVG-categorie zijn."
+            },
+            {
+              "name": "Drempel wel, leerling niet",
+              "good": "De regel scheidt het materiaal/de drempel (mag in de tool) van de identiteit en diagnose (mag nooit)."
+            },
+            {
+              "name": "Concreet fout en goed",
+              "good": "Eén herkenbaar fout en één goed voorbeeld die het verschil scherp maken."
+            },
+            {
+              "name": "Juiste bewaarplek",
+              "good": "Benoemt dat ondersteuningsafspraken in het leerlingvolgsysteem/school-account horen, niet in een chatprompt."
+            }
+          ],
+          "referenceAnswer": "Regel: ik voer in een AI-tool alleen lesmateriaal of de drempel in, nooit de identiteit of de ondersteuningsbehoefte van een leerling. Bijzondere persoonsgegevens: het feit dat een leerling dyslexie, een gehoorbeperking of een andere diagnose heeft, valt onder de zwaarste AVG-categorie en mag daarom nooit in een publieke chatbot. Fout: 'Pas deze toets aan voor Lisa, die dyslexie heeft' — naam plus diagnose in een publieke AI. Goed: ik laat de standaardtoets voorlezen via de voorleesfunctie op het school-account, en vraag de AI hooguit 'herschrijf deze instructie in kortere zinnen', zonder enige verwijzing naar een leerling. Afspraken horen in: het leerlingvolgsysteem en het ondersteuningsplan binnen de beveiligde schoolomgeving, besproken met de leerling, ouders en de ondersteuningscoördinator — niet in een chatgeschiedenis."
+        }
+      },
+      {
+        "title": "Borg het mens-centraal en plan de volgende stap",
+        "body": "Sluit af door de tool op zijn plek te zetten: ondersteunend, niet sturend. Leg vast dat de tool een optie levert en dat jij beslist, op basis van wat je bij de leerling ziet en wat in de ondersteuningsstructuur is afgesproken. Plan dan één concrete vervolgstap voor je eigen praktijk: welke tool ga je deze of komende week als standaardoptie inrichten, voor welke taak, en hoe controleer je of het leerdoel intact blijft? Hou het klein en uitvoerbaar, zodat het geen voornemen blijft.",
+        "time": "5 min",
+        "voorbeeld": "Je besluit: 'Vanaf volgende week staat de voorleesfunctie standaard aan bij elke leestoets, voor de hele klas, niet alleen voor één leerling (UDL). Ik controleer vooraf de uitspraak van de vijf belangrijkste vaktermen. De beslissing wie de koptelefoon gebruikt, ligt bij de leerling en mij, niet bij de tool.'",
+        "workspace": {
+          "field": "mens-centraal-vervolg",
+          "label": "Formuleer je borging en vervolgstap: hoe blijf jij mens-centraal de baas over de tool, en wat is je ene concrete actie (tool, taak, termijn, leerdoel-check)?",
+          "shortLabel": "Borgen en plannen",
+          "hint": "AI levert opties, jij beslist. Maak de vervolgstap klein, concreet en met een datum of les eraan gekoppeld.",
+          "placeholder": "Mens-centraal: ik beslis door ...\nVervolgstap: tool ... voor taak ... vanaf ...\nLeerdoel-check: ...",
+          "rows": 6,
+          "rubric": [
+            {
+              "name": "Mens-centraal expliciet",
+              "good": "Maakt duidelijk dat de docent beslist op basis van observatie en relatie, en de tool slechts opties levert."
+            },
+            {
+              "name": "Concrete vervolgstap",
+              "good": "Eén specifieke tool voor een specifieke taak, met termijn — geen vaag voornemen."
+            },
+            {
+              "name": "UDL-denken",
+              "good": "De tool wordt waar mogelijk als standaardoptie voor de hele groep ingericht, niet als uitzondering voor één leerling."
+            },
+            {
+              "name": "Leerdoel-borging",
+              "good": "Benoemt concreet hoe gecontroleerd wordt dat het leerdoel intact blijft."
+            }
+          ],
+          "referenceAnswer": "Mens-centraal: ik beslis welke ondersteuning een leerling krijgt op basis van wat ik in de les zie en wat met de leerling en de ondersteuningscoördinator is afgesproken; de tool stelt geen diagnose en bepaalt niets, hij levert alleen een optie. Vervolgstap: vanaf de toetsweek van volgende maand zet ik de voorleesfunctie standaard als beschikbare optie bij elke leestoets aardrijkskunde, voor de hele klas (UDL), zodat het geen uitzondering voor één leerling is. Leerdoel-check: ik controleer vooraf de uitspraak van de vijf kernbegrippen per toets en kijk na de toets of de scores nu de kennis weerspiegelen in plaats van de leessnelheid; het leerdoel 'aardrijkskundige begrippen toepassen' blijft ongewijzigd."
+        }
+      }
+    ],
+    "vakvariaties": [
+      {
+        "vak": "Nederlands / talen (vo)",
+        "body": "Bij begrijpend lezen met een dyslectische leerling zet je voorlezen in voor teksten waar leesvaardigheid niet het leerdoel is, maar laat je het bij een expliciete technisch-lezen-les juist achterwege — daar zou het een lapmiddel zijn. Bij dicteren let je op of de leerling zijn eigen tekst nog redigeert; de tool levert ruwe spraak, het ordenen blijft werk."
+      },
+      {
+        "vak": "NT2 / nieuwkomersonderwijs (vo/mbo)",
+        "body": "Vertaling naast de Nederlandse instructie haalt de taaldrempel weg zodat de leerling bij de vakinhoud kan, maar je zet hem in als tijdelijke steiger die je afbouwt. De vaktermen blijven Nederlands en blijven het leerdoel; permanente vertaling van álles bouwt geen woordenschat op."
+      },
+      {
+        "vak": "Exacte vakken (havo/vwo)",
+        "body": "Voorlezen en dicteren breken vaak op notatie: een TTS-stem maakt van 'H₂O' iets onbegrijpelijks en dicteersoftware verminkt formules en eenheden. Test daarom expliciet op je vakspecifieke notatie en bied formules apart visueel aan; de tool ondersteunt de lopende tekst, niet de wiskunde zelf."
+      },
+      {
+        "vak": "Praktijk- en beroepsgericht (mbo)",
+        "body": "Live transcriptie van een instructie of veiligheidsbriefing helpt een leerling met een gehoorbeperking om mee te doen op de werkvloer of in de praktijkruimte. Controleer wel of vakjargon en machinenamen correct worden herkend; een verminkte veiligheidsinstructie is gevaarlijker dan geen."
+      },
+      {
+        "vak": "Hbo / hoger onderwijs",
+        "body": "Bij lange hoorcolleges biedt live ondertiteling of een transcriptie achteraf een student met een auditieve of concentratiebeperking gelijke toegang tot de inhoud. De student blijft zelf verantwoordelijk voor het verwerken en samenvatten; de transcriptie is toegang tot de bron, geen vervanging van de studie."
+      }
+    ],
+    "valkuilen": [
+      {
+        "titel": "Tech eerst, drempel later",
+        "watGebeurtEr": "Je kiest een spannende tool en zoekt er een probleem bij, waardoor je het verkeerde kanaal verbreedt of een drempel oplost die er niet was.",
+        "fix": "Begin altijd bij de drempel in je eigen materiaal. Pas als je weet welk kanaal in de weg zit, kies je de tool die precies dát kanaal raakt."
+      },
+      {
+        "titel": "Leerdoel sluipt mee omlaag",
+        "watGebeurtEr": "De tool maakt de taak niet alleen toegankelijker maar ook inhoudelijk makkelijker, waardoor de leerling het leerdoel niet meer haalt maar wel een voldoende krijgt.",
+        "fix": "Doe bij elke koppeling de leerdoel-check: verandert alleen het kanaal, of wordt de inhoud makkelijker? Bij het laatste los je het verkeerde probleem op."
+      },
+      {
+        "titel": "Diagnose of naam in de chatbot",
+        "watGebeurtEr": "Je vraagt de AI om materiaal aan te passen 'voor leerling X met dyslexie' en zet daarmee bijzondere persoonsgegevens in een publieke tool.",
+        "fix": "Voer alleen de drempel of het materiaal in, nooit de identiteit of diagnose. Abstraheer en bewaar ondersteuningsafspraken in het leerlingvolgsysteem."
+      },
+      {
+        "titel": "Vaktermen ongetest vertrouwen",
+        "watGebeurtEr": "Je gaat ervan uit dat voorlezen, dicteren of vertalen je vakjargon goed aankan, en de leerling loopt vast op een verminkte vakterm of formule.",
+        "fix": "Test elke tool eerst op je eigen vaktermen, eigennamen en notatie. Controleer de kernbegrippen handmatig en bied ze waar nodig apart aan."
+      },
+      {
+        "titel": "Eén leerling, apart spoor",
+        "watGebeurtEr": "Je bouwt voor één leerling een uitzondering, wat extra werk geeft, stigmatiseert en niet schaalt naar de volgende leerling met dezelfde drempel.",
+        "fix": "Denk vanuit Universal Design: zet de ondersteuning als standaardoptie klaar voor de hele groep, zodat iedereen die het nodig heeft hem zonder gedoe kan gebruiken."
+      }
+    ],
+    "eindcriteria": [
+      {
+        "criterium": "Drempel losgeknipt van leerdoel",
+        "onder": "Drempel en leerdoel lopen door elkaar; de tool maakt de taak inhoudelijk makkelijker.",
+        "op": "Per taak is de drempel (het kanaal) helder gescheiden van het leerdoel, en de gekozen tool raakt alleen het kanaal.",
+        "boven": "+ Je hebt de scheiding voor meerdere taken systematisch toegepast en kunt per geval de leerdoel-check uitleggen aan een collega."
+      },
+      {
+        "criterium": "Tool getest op eigen materiaal",
+        "onder": "Geen echte test, of alleen op een losse oefenzin; conclusies blijven algemeen.",
+        "op": "Eén tool is op echt eigen materiaal getest, met concrete sterke en zwakke punten inclusief het effect op vaktermen.",
+        "boven": "+ Je hebt een concrete strategie om de zwakke punten op te vangen (kernbegrippen vooraf checken of apart aanbieden)."
+      },
+      {
+        "criterium": "AVG-grens scherp",
+        "onder": "Naam, diagnose of ondersteuningsbehoefte belandt in een publieke AI.",
+        "op": "Alleen materiaal of de drempel gaat de tool in; de regel benoemt expliciet dat diagnosegegevens bijzondere persoonsgegevens zijn.",
+        "boven": "+ Je hebt een werkbare afspraak waar ondersteuningsinformatie wél hoort en deelt die met collega's of je sectie."
+      },
+      {
+        "criterium": "Mens-centraal geborgd",
+        "onder": "De tool bepaalt feitelijk welke ondersteuning de leerling krijgt.",
+        "op": "Jij beslist op basis van observatie en de ondersteuningsstructuur; de tool levert opties en stelt geen diagnose.",
+        "boven": "+ De ondersteuning is als UDL-standaardoptie voor de hele groep ingericht, niet als uitzondering voor één leerling."
+      }
+    ],
+    "reflection": [
+      "Welke drempel in je eigen materiaal had je nooit als 'kanaal' gezien, maar bleek bij nader inzien los te staan van het eigenlijke leerdoel?",
+      "Waar ligt voor jou de grens tussen een tool die een drempel wegneemt en een tool die een vaardigheid overneemt die de leerling juist moet oefenen?",
+      "Hoe zorg je dat de beslissing over welke ondersteuning een leerling krijgt bij jou en de leerling blijft, en niet ongemerkt bij de tool of bij de gewoonte komt te liggen?"
+    ],
+    "checklist": [
+      "Ik heb voor minstens drie taken in mijn eigen materiaal de drempel losgeknipt van het leerdoel.",
+      "Ik heb elke drempel gekoppeld aan een passende vorm van ondersteunende technologie.",
+      "Ik heb bij elke koppeling gecontroleerd dat alleen het kanaal verandert en het leerdoel intact blijft.",
+      "Ik heb één tool getest op echt eigen lesmateriaal en de sterke en zwakke punten genoteerd.",
+      "Ik heb het effect van de tool op mijn vaktermen, eigennamen of notatie expliciet gecheckt.",
+      "Ik voer nooit naam, diagnose of ondersteuningsbehoefte in een publieke AI in en weet dat dit bijzondere persoonsgegevens zijn.",
+      "Ik heb beschreven wat de tool wel en niet oplost en wat de leerling zelf moet blijven doen.",
+      "Ik heb één concrete vervolgstap gepland en geborgd dat ik, niet de tool, beslis over de ondersteuning."
+    ],
+    "nextLesson": "differentiatie-en-sen"
+  },
+  "differentiatie-en-sen": {
+    "format": "diepteles",
+    "summary": "In deze les leer je AI inzetten om te differentiëren naar diverse leerbehoeften — taalbarrières en NT2, leerlingen die meer uitdaging nodig hebben, leerlingen met een concentratie- of structuurbehoefte, en leerlingen met ondersteuningsbehoeften binnen passend onderwijs. Je beschrijft een leerbehoefte geabstraheerd, laat AI meerdere aanpak-opties genereren en weegt per optie of die past bij wat jij van de leerling weet. Je bouwt een gedifferentieerde opdracht met één gelijk leerdoel en bepaalt vooraf hoe je checkt of het werkt. De harde grens: AI stelt geen diagnose en bepaalt niet welke ondersteuning een leerling nodig heeft — jij kent de leerling en beslist.",
+    "duration": {
+      "total": "60 minuten",
+      "blocks": [
+        {
+          "label": "Aanleiding & kader",
+          "min": 8
+        },
+        {
+          "label": "Conceptueel: opties versus diagnose",
+          "min": 10
+        },
+        {
+          "label": "Leerbehoefte abstraheren",
+          "min": 10
+        },
+        {
+          "label": "Opties genereren & wegen",
+          "min": 14
+        },
+        {
+          "label": "Gedifferentieerde opdracht bouwen",
+          "min": 12
+        },
+        {
+          "label": "Check & reflectie",
+          "min": 6
+        }
+      ]
+    },
+    "opening": {
+      "eyebrow": "Aanleiding",
+      "aanleiding": "Je hebt een klas van achtentwintig en geen twee leerlingen die hetzelfde nodig hebben. In dezelfde groep zit een leerling die het Nederlands nog aan het opbouwen is en de opdracht wel snapt maar de tekst niet leest. Twee rijen verder zit iemand die binnen vijf minuten klaar is, zich verveelt en gaat storen. Achterin zit een leerling die afhaakt zodra een opdracht uit meer dan twee stappen bestaat — niet omdat het te moeilijk is, maar omdat het overzicht wegvalt. En je hebt een leerling met een ondersteuningsbehoefte waar in het groepsplan een aanpak voor staat die je in de praktijk telkens opnieuw moet vertalen naar deze specifieke les. Eén opdracht voorbereiden die voor al die leerlingen werkt — daar zit je avond in.\n\nDe verleiding is om AI te vragen: 'wat heeft deze leerling nodig?' En het antwoord klinkt overtuigend. Het noemt termen, het noemt aanpakken, het klinkt alsof er een expert meekijkt. Maar daar gaat het mis. AI kent jouw leerling niet. Het ziet de blik niet waarmee die binnenkomt, het weet niet dat de concentratie wegzakt na de pauze en niet ervoor, en het heeft de gesprekken met ouders en de zorgcoördinator niet gevoerd. Wat AI wél kan, is jou helpen om sneller meerdere kanten op te denken — mits jij precies omschrijft wat je ziet en zelf beslist wat past.\n\nDeze les draait die volgorde om. Je vraagt AI niet om een oordeel over de leerling, je vraagt om opties bij een leerbehoefte die jij beschrijft. Niet 'wat is er met deze leerling', maar 'geef me vier manieren om dit leerdoel toegankelijk te maken voor iemand die nog weinig Nederlands leest'. Jij houdt de pen vast bij de diagnose, de keuze en de relatie. AI verbreedt alleen je gereedschapskist.",
+      "waaromNu": "Differentiëren is in DigCompEdu een kerncompetentie onder 'Empowering Learners': je stemt af op individuele leerbehoeften en geeft elke leerling toegang tot het leerdoel. UNESCO's AI-CFT vraagt om een 'human-centred mindset' — technologie ondersteunt de menselijke beslissing, ze vervangt die niet. En in de Nederlandse context van passend onderwijs ligt de regie bij het team rond de leerling: het ontwikkelingsperspectief, het groepsplan en de observatie van jou als docent. AI mag opties leveren; de pedagogische en didactische beslissing blijft mensenwerk. Nu de tools steeds vlotter klinken, is juist het vasthouden van die grens de vaardigheid die telt."
+    },
+    "conceptueel": {
+      "eyebrow": "Conceptueel kader",
+      "intro": "Differentiëren betekent niet dat iedereen iets anders leert — het betekent dat iedereen bij hetzelfde leerdoel uitkomt langs een route die voor hem of haar begaanbaar is. Dat onderscheid is cruciaal als je AI inzet. Zodra het leerdoel meebeweegt met de leerling, ben je niet meer aan het differentiëren maar aan het verschralen: de NT2-leerling krijgt dan 'iets makkelijkers' in plaats van toegang tot dezelfde stof. AI is goed in het bedenken van routes, maar het bewaakt het leerdoel niet voor je. Dat doe jij. Je geeft het leerdoel als vaste opdracht mee en beoordeelt elke optie op de vraag: brengt dit de leerling bij hetzelfde doel, of bij een ander, lager doel?\n\nDaarnaast loopt door deze hele module één scheidslijn: het verschil tussen een optie en een oordeel. Een optie is 'je zou de tekst kunnen vervangen door een stappenkaart met pictogrammen'. Een oordeel is 'deze leerling heeft een visuele leerstijl en heeft daarom pictogrammen nodig'. Het eerste is een voorstel dat jij toetst aan wat je weet; het tweede is een diagnose die AI niet mag stellen en die zelfs als hij van een mens kwam vaak niet klopt. AI presenteert oordelen graag als opties en opties graag als zekerheden. Jouw werk is om alles wat eruit komt terug te brengen naar de status van voorstel.\n\nUniversal Design for Learning (UDL) geeft je de taal om die voorstellen te ordenen. UDL onderscheidt drie assen: meerdere representaties (hoe wordt de stof aangeboden — tekst, beeld, audio, voorbeeld), meerdere vormen van actie en expressie (hoe laat de leerling zien wat hij kan — schrijven, inspreken, tekenen, bouwen), en meerdere vormen van betrokkenheid (wat maakt het relevant en behapbaar — keuze, context, opbouw). Veel van wat als 'speciale ondersteuning' voelt, is gewoon goed ontwerp dat je vooraf inbouwt voor iedereen. Toegankelijkheid is een ontwerpkeuze vooraf, geen pleister achteraf. AI helpt je die representaties en expressievormen sneller te genereren, maar de keuze welke je inzet voor wíe blijft bij jou.\n\nEn dan de hardste grens. Gegevens over een beperking, een diagnose of een ondersteuningsbehoefte zijn bijzondere persoonsgegevens onder de AVG. Die horen niet in een AI-chatbot — punt. Niet geanonimiseerd, niet 'even snel', niet 'het is toch maar een voorbeeld'. Je abstraheert altijd naar de leerbehoefte, nooit naar de persoon of de diagnose. Niet 'mijn leerling met ADHD', maar 'een opdracht die werkt voor iemand die moeite heeft het overzicht te houden bij meerdere stappen'. Die abstractie is niet alleen juridisch noodzakelijk, ze maakt je vraag ook beter: je dwingt jezelf te beschrijven wat je in gedrág ziet in plaats van te leunen op een label.",
+      "mentalModel": {
+        "naam": "Opties op tafel, beslissing in de stoel",
+        "beschrijving": "AI legt opties op tafel — meerdere routes naar hetzelfde leerdoel. Jij zit in de stoel met zicht op de leerling: je weegt elke optie tegen wat je ziet, weet en met het team hebt afgesproken, en je beslist. AI mag de tafel vullen; het mag nooit in jouw stoel gaan zitten en de diagnose of de keuze overnemen."
+      },
+      "kernbegrippen": [
+        {
+          "term": "Differentiatie naar route, niet naar doel",
+          "uitleg": "Verschillende leerlingen bereiken hetzelfde leerdoel langs een passende route; het doel zelf blijft gelijk en daalt niet mee met de leerling."
+        },
+        {
+          "term": "Optie versus diagnose",
+          "uitleg": "Een optie is een voorstel dat jij toetst aan wat je weet; een diagnose is een oordeel over de leerling dat AI niet mag en niet kan stellen."
+        },
+        {
+          "term": "Universal Design for Learning (UDL)",
+          "uitleg": "Ontwerpprincipe met drie assen — meerdere representaties, meerdere vormen van actie/expressie, meerdere vormen van betrokkenheid — die toegankelijkheid vooraf inbouwen in plaats van achteraf repareren."
+        },
+        {
+          "term": "Geabstraheerde leerbehoefte",
+          "uitleg": "Een omschrijving van wat een leerling in gedrag of toegang nodig heeft, zonder naam, diagnose of herleidbaar detail — de enige vorm waarin een leerbehoefte een AI-tool in mag."
+        }
+      ]
+    },
+    "learningGoals": [
+      "Je beschrijft een leerbehoefte geabstraheerd in observeerbaar gedrag, zonder naam, diagnose of bijzondere persoonsgegevens, en kunt benoemen waarom dat AVG-noodzakelijk is.",
+      "Je laat AI meerdere aanpak-opties bij één gelijk leerdoel genereren en ordent die met de drie assen van UDL.",
+      "Je weegt per optie expliciet of die past bij wat jij van de leerling, het groepsplan en de context weet, en motiveert je keuze.",
+      "Je bouwt een gedifferentieerde opdracht met één gelijk leerdoel en meerdere routes, en bepaalt vooraf één concrete check om te zien of het werkt."
+    ],
+    "scenario": {
+      "title": "Werksituatie",
+      "context": "Je geeft volgende week een les waarin alle leerlingen hetzelfde leerdoel moeten halen, maar je groep is divers: er is een leerling die het Nederlands nog opbouwt (NT2), een leerling die structureel onderpresteert door verveling en meer uitdaging nodig heeft, een leerling die het overzicht verliest bij opdrachten met meerdere stappen, en een leerling met een ondersteuningsbehoefte waarvoor in het groepsplan een aanpak is afgesproken. Je hebt één avond om de opdracht zo te ontwerpen dat iedereen bij het leerdoel uitkomt.",
+      "role": "Docent die zelf de leerlingen kent en de differentiatie ontwerpt; AI is je sparringpartner voor opties, niet je adviseur over leerlingen.",
+      "tools": "Een AI-chatbot via het school- of zakelijke account (geen privé-account), je lesmateriaal, het groepsplan op papier of in het LVS (níet in de AI), en je eigen observaties."
+    },
+    "steps": [
+      {
+        "title": "Zet het gelijke leerdoel vast",
+        "body": "Begin niet bij de leerling maar bij het leerdoel. Formuleer in één zin wat élke leerling aan het eind van de les moet kunnen of kennen. Dit is je anker: alle routes die je straks genereert, moeten hier uitkomen. Door het leerdoel eerst scherp te zetten, voorkom je dat differentiatie verschuift naar 'iets makkelijkers' voor sommigen. Noteer ook kort hoe je nu zou toetsen of het doel is gehaald — dat hergebruik je later bij de check.",
+        "time": "8 min",
+        "voorbeeld": "Aardrijkskunde vmbo-3: 'De leerling kan aan de hand van een klimaatdiagram het klimaattype benoemen en met twee kenmerken onderbouwen.' Het doel is voor iedereen gelijk; de manier waarop een leerling het diagram leest of de onderbouwing geeft, mag straks verschillen.",
+        "workspace": {
+          "field": "gelijk-leerdoel-vastzetten",
+          "label": "Formuleer het gelijke leerdoel voor jouw aankomende les in één toetsbare zin, en noteer in één zin hoe je nu zou checken of het gehaald is.",
+          "shortLabel": "Gelijk leerdoel",
+          "hint": "Eén doel voor de hele groep. Vermijd 'begrijpt' of 'kent' zonder zichtbaar gedrag — gebruik werkwoorden die je kunt waarnemen (benoemen, onderbouwen, toepassen, maken).",
+          "placeholder": "Leerdoel: De leerling kan ... / Check: ik zie dat het gelukt is als ...",
+          "rows": 4,
+          "rubric": [
+            {
+              "name": "Doel is toetsbaar geformuleerd",
+              "good": "Bevat een waarneembaar werkwoord en is in gedrag te checken, niet alleen 'begrijpen' of 'kennen'."
+            },
+            {
+              "name": "Eén gelijk doel voor de hele groep",
+              "good": "Het doel daalt niet mee met de leerling; iedereen werkt naar hetzelfde resultaat."
+            },
+            {
+              "name": "Check is concreet benoemd",
+              "good": "Benoemt een zichtbaar bewijs dat het doel gehaald is, niet 'ik zie het wel'."
+            }
+          ],
+          "referenceAnswer": "Leerdoel: De leerling kan aan de hand van een klimaatdiagram het klimaattype benoemen en dat met minimaal twee kenmerken (temperatuurverloop en neerslag) onderbouwen. Check: het is gelukt als de leerling bij twee onbekende diagrammen het juiste klimaattype kiest én per keuze twee kloppende kenmerken noemt, mondeling of schriftelijk."
+        }
+      },
+      {
+        "title": "Beschrijf de leerbehoefte geabstraheerd",
+        "body": "Kies één leerling uit je groep en vertaal wat je ziet naar een geabstraheerde leerbehoefte. Beschrijf observeerbaar gedrag en wat dat blokkeert in het bereiken van het leerdoel — geen naam, geen diagnose, geen herleidbaar detail. Dit is de AVG-kern van de les: gegevens over een beperking of ondersteuningsbehoefte zijn bijzondere persoonsgegevens en horen niet in een AI-tool. De abstractie beschermt niet alleen de leerling, ze maakt je vraag ook scherper, omdat je gedwongen wordt te benoemen wat er feitelijk in de weg zit.",
+        "time": "10 min",
+        "voorbeeld": "Niet: 'mijn leerling Yusuf is net uit Syrië en kan amper Nederlands.' Wel: 'een leerling die de opdracht inhoudelijk aankan maar de Nederlandse instructietekst nog niet zelfstandig leest; mondeling begrijpt diegene meer dan schriftelijk, en lange zinnen met vaktaal blokkeren het starten.'",
+        "workspace": {
+          "field": "leerbehoefte-abstraheren",
+          "label": "Beschrijf de leerbehoefte van één leerling geabstraheerd: welk waarneembaar gedrag zie je en wat blokkeert dat in het bereiken van het leerdoel? Geen naam, geen diagnose, geen herleidbaar detail.",
+          "shortLabel": "Leerbehoefte abstraheren",
+          "hint": "Schrijf alsof je het straks letterlijk in een AI-chatbot plakt. Lees terug: zou een collega kunnen raden om wie het gaat? Dan verder abstraheren. Vervang elk label door het gedrag eronder.",
+          "placeholder": "Een leerling die ... (gedrag), waardoor het starten/lezen/afmaken/uitgedaagd worden ... (blokkade t.o.v. het leerdoel).",
+          "rows": 5,
+          "rubric": [
+            {
+              "name": "Geen herleidbare of bijzondere gegevens",
+              "good": "Geen naam, diagnose, herkomst of detail waarmee de leerling te herkennen is; geen bijzondere persoonsgegevens."
+            },
+            {
+              "name": "Gedrag is observeerbaar beschreven",
+              "good": "Benoemt wat je feitelijk ziet of hoort, niet een label of een aangenomen oorzaak."
+            },
+            {
+              "name": "Blokkade is gekoppeld aan het leerdoel",
+              "good": "Maakt duidelijk wat de leerbehoefte precies in de weg zet bij dit specifieke leerdoel."
+            },
+            {
+              "name": "Bruikbaar als AI-invoer",
+              "good": "De omschrijving kan zo in een AI-tool zonder AVG-bezwaar en is concreet genoeg om opties op te genereren."
+            }
+          ],
+          "referenceAnswer": "Een leerling die de inhoud van aardrijkskunde goed aankan, maar de Nederlandse instructietekst nog niet zelfstandig leest. Mondeling begrijpt diegene duidelijk meer dan schriftelijk; lange zinnen met vaktaal (klimaattype, neerslagverdeling) blokkeren het zelfstandig starten. Het leerdoel — een klimaattype benoemen en onderbouwen — is haalbaar zodra de taal van de instructie en de diagram-uitleg toegankelijker is. Geen naam, herkomst of diagnose: de behoefte zit in toegang tot schriftelijke vaktaal, niet in de denkstof."
+        }
+      },
+      {
+        "title": "Laat AI meerdere opties genereren",
+        "body": "Geef AI nu drie dingen in één prompt: het gelijke leerdoel, de geabstraheerde leerbehoefte, en de expliciete opdracht om meerdere routes naar hetzelfde doel te geven — niet één 'beste' aanpak en geen oordeel over de leerling. Vraag bewust om variatie langs de UDL-assen: andere representatie, andere expressievorm, andere opbouw. Door om meerdere opties te vragen houd je de regie: je krijgt materiaal om uit te kiezen, geen advies om op te volgen. Voeg toe dat AI geen diagnose stelt en geen aannames doet over de oorzaak.",
+        "time": "8 min",
+        "voorbeeld": "Promptkern: 'Leerdoel: [...]. Leerbehoefte (geabstraheerd): [...]. Geef vier verschillende routes naar exact dit leerdoel voor deze behoefte. Varieer in hoe de stof wordt aangeboden en hoe de leerling laat zien wat hij kan. Stel geen diagnose en doe geen aannames over de oorzaak. Houd het leerdoel in elke route gelijk.'",
+        "workspace": {
+          "field": "opties-genereren-prompt",
+          "label": "Schrijf de prompt waarmee je AI meerdere routes naar hetzelfde leerdoel laat genereren bij jouw geabstraheerde leerbehoefte. Bouw de drie elementen en de anti-diagnose-instructie expliciet in.",
+          "shortLabel": "Optie-prompt",
+          "hint": "Vraag expliciet om meerdere opties (3-4) en om variatie in representatie én expressie. Verbied diagnose en aannames over de oorzaak. Herhaal dat het leerdoel in elke route gelijk blijft.",
+          "placeholder": "Leerdoel: ... Leerbehoefte (geabstraheerd): ... Geef [aantal] routes ... Varieer in ... Stel geen diagnose ...",
+          "rows": 6,
+          "rubric": [
+            {
+              "name": "Leerdoel én leerbehoefte zijn meegegeven",
+              "good": "Beide staan expliciet en geabstraheerd in de prompt; geen herleidbare gegevens."
+            },
+            {
+              "name": "Vraagt om meerdere routes",
+              "good": "Vraagt expliciet om 3-4 opties in plaats van één beste aanpak of een advies."
+            },
+            {
+              "name": "Stuurt op UDL-variatie",
+              "good": "Vraagt om variatie in representatie en/of expressievorm, niet alleen makkelijkere tekst."
+            },
+            {
+              "name": "Verbiedt diagnose en aannames",
+              "good": "Instrueert AI geen diagnose te stellen en geen oorzaak aan te nemen, en het leerdoel gelijk te houden."
+            }
+          ],
+          "referenceAnswer": "Leerdoel: de leerling kan aan de hand van een klimaatdiagram het klimaattype benoemen en met twee kenmerken onderbouwen. Leerbehoefte (geabstraheerd): een leerling die de inhoud aankan maar de Nederlandse instructietekst nog niet zelfstandig leest; mondeling sterker dan schriftelijk, lange zinnen met vaktaal blokkeren het starten. Geef vier verschillende routes naar exact dit leerdoel. Varieer in hoe de stof wordt aangeboden (tekst, beeld, gesproken, voorbeeld) en in hoe de leerling laat zien wat hij kan (schrijven, inspreken, aanwijzen). Stel geen diagnose en doe geen aannames over de oorzaak van de leerbehoefte. Houd het leerdoel in elke route exact gelijk en verlaag het niet."
+        }
+      },
+      {
+        "title": "Weeg elke optie tegen wat jij weet",
+        "body": "Nu komt het deel dat AI niet kan: jij legt elke gegenereerde optie naast wat je van de leerling, het groepsplan en de context weet. Loop de opties één voor één langs en noteer per optie waarom die wel of niet past — op grond van jouw kennis, niet van de tekst van AI. Hier bewaak je de grens tegen over-reliance: een vlot geformuleerde optie is niet automatisch een goede. Schrap wat niet past, pas aan wat half past, en houd de optie(s) over die echt bij déze leerling aansluiten. Een optie afwijzen met een reden is net zo waardevol als er een kiezen.",
+        "time": "8 min",
+        "voorbeeld": "AI stelt voor: 'laat de leerling de opdracht inspreken in plaats van schrijven'. Jouw weging: 'inspreken past, want mondeling is diegene sterker — maar niet klassikaal, dat blokkeert juist; dus inspreken op de gang of via audio thuis.' Een andere optie ('geef een woordenlijst vooraf') wijs je af: 'die heb ik vorig blok geprobeerd, diegene gebruikt de lijst niet zelfstandig.'",
+        "workspace": {
+          "field": "opties-wegen",
+          "label": "Neem de opties die AI gaf (of plak ze hier kort samengevat) en weeg elke optie: past die bij wat jij van de leerling, het groepsplan en de context weet? Motiveer per optie behouden, aanpassen of afwijzen.",
+          "shortLabel": "Opties wegen",
+          "hint": "Per optie: behouden / aanpassen / afwijzen + jouw reden. Leun op je eigen observatie en op afspraken uit het groepsplan, niet op hoe overtuigend de AI-tekst klinkt. Een onderbouwde 'nee' telt mee.",
+          "placeholder": "Optie 1: behouden, want ... Optie 2: aanpassen naar ..., want ... Optie 3: afwijzen, want ...",
+          "rows": 6,
+          "rubric": [
+            {
+              "name": "Elke optie krijgt een oordeel",
+              "good": "Behouden, aanpassen of afwijzen is per optie expliciet benoemd."
+            },
+            {
+              "name": "Weging leunt op eigen kennis",
+              "good": "De motivatie verwijst naar wat de docent van de leerling, het groepsplan of de context weet, niet naar de AI-tekst."
+            },
+            {
+              "name": "Minstens één onderbouwde afwijzing",
+              "good": "Wijst minimaal één optie af met een concrete reden, als teken dat AI niet klakkeloos wordt gevolgd."
+            },
+            {
+              "name": "Past binnen afspraken",
+              "good": "De gekozen aanpak botst niet met het groepsplan of het ontwikkelingsperspectief en respecteert teamafspraken."
+            }
+          ],
+          "referenceAnswer": "Optie 1 (klimaatdiagram met gesproken uitleg via audio): behouden, want mondeling begrijpt diegene meer dan schriftelijk en dit haalt de leesdrempel weg zonder het denkwerk te versimpelen. Optie 2 (inspreken in plaats van schrijven onderbouwing): aanpassen — inspreken past, maar niet klassikaal; dat blokkeert juist. Op de gang of als audio-opname thuis. Optie 3 (vaktermenlijst vooraf): afwijzen, want vorig blok geprobeerd en de lijst werd niet zelfstandig gebruikt; dit past niet bij wat ik zie. Optie 4 (visuele stappenkaart bij de diagram): behouden en combineren met optie 1; sluit aan bij de afspraak in het groepsplan om instructie visueel te ondersteunen. Geen van de gekozen routes verlaagt het leerdoel."
+        }
+      },
+      {
+        "title": "Bouw de gedifferentieerde opdracht met gelijk leerdoel",
+        "body": "Giet de gekozen route(s) in één opdracht die het leerdoel voor iedereen gelijk houdt maar meerdere ingangen biedt. Denk aan een basisroute en één of twee alternatieve routes naar hetzelfde eindpunt — niet drie losse opdrachten, maar één opdracht met keuze in representatie en expressie. Zo wordt de differentiatie onderdeel van het ontwerp (Universal Design) in plaats van een uitzondering die opvalt. Laat AI je desgewenst helpen de routes netjes te formuleren, maar bewaak zelf dat het leerdoel in elke route gelijk blijft.",
+        "time": "10 min",
+        "voorbeeld": "Eén opdracht 'Bepaal het klimaattype': iedereen krijgt dezelfde twee diagrammen en hetzelfde doel. Route A: lees de tekstuele uitleg en schrijf de onderbouwing. Route B: bekijk de diagram met gesproken uitleg en spreek je onderbouwing in. Route C (voor wie meer uitdaging wil): voeg een derde, afwijkend diagram toe en verklaar waarom dat een grensgeval is. Allemaal hetzelfde leerdoel, andere route.",
+        "workspace": {
+          "field": "gedifferentieerde-opdracht",
+          "label": "Schrijf de gedifferentieerde opdracht uit: één gelijk leerdoel, meerdere routes (representatie/expressie). Maak zichtbaar dat elke route bij hetzelfde eindpunt uitkomt.",
+          "shortLabel": "Opdracht bouwen",
+          "hint": "Eén opdracht, niet drie losse. Benoem het gemeenschappelijke leerdoel bovenaan en daaronder de routes. Check per route: komt deze écht bij hetzelfde doel uit, of bij een lager doel?",
+          "placeholder": "Leerdoel (voor iedereen): ... Route A: ... Route B: ... Route C (uitdaging): ... Eindpunt voor alle routes: ...",
+          "rows": 7,
+          "rubric": [
+            {
+              "name": "Eén gelijk leerdoel bovenaan",
+              "good": "Het leerdoel staat expliciet en geldt voor alle routes; het daalt in geen enkele route mee."
+            },
+            {
+              "name": "Meerdere echte routes",
+              "good": "Biedt minimaal twee ingangen die variëren in representatie en/of expressie, geen drie losse opdrachten."
+            },
+            {
+              "name": "Routes komen bij hetzelfde eindpunt",
+              "good": "Elke route leidt aantoonbaar naar hetzelfde resultaat; geen verkapte verlaging van het niveau."
+            },
+            {
+              "name": "Differentiatie is ingebouwd, niet uitzondering",
+              "good": "De keuze is onderdeel van de opdracht voor iedereen (UDL), niet een opvallende aparte versie voor één leerling."
+            }
+          ],
+          "referenceAnswer": "Leerdoel (voor iedereen): bepaal bij twee klimaatdiagrammen het klimaattype en onderbouw je keuze met twee kenmerken. Route A: lees de tekstuele uitleg bij de diagrammen en schrijf je onderbouwing op. Route B: bekijk de diagrammen met de ingesproken uitleg (QR-code) en spreek je onderbouwing in via audio. Route C (uitdaging): doe route A of B én verklaar bij een derde, lastig diagram waarom het een grensgeval tussen twee klimaattypen is. Eindpunt voor alle routes: het juiste klimaattype plus twee kloppende kenmerken per diagram. Iedereen wordt op hetzelfde leerdoel beoordeeld; alleen de weg ernaartoe verschilt."
+        }
+      },
+      {
+        "title": "Bepaal je check en grens",
+        "body": "Sluit af met de vraag die over-reliance tegengaat: hoe weet je straks of het werkte? Formuleer één concrete, waarneembare check waaraan je in of na de les ziet of de leerling het leerdoel langs de gekozen route haalde — en wat je doet als het niet werkt. Leg in één zin ook de grens vast: AI heeft hier opties geleverd, jij hebt de leerling-kennis, de keuze en de check gehouden. Dit is het moment om expliciet te maken dat de evaluatie bij jou ligt en niet bij de tool die de opties bedacht.",
+        "time": "6 min",
+        "voorbeeld": "Check: 'Ik zie het als gelukt als de leerling via route B twee diagrammen correct benoemt mét twee kenmerken, zonder dat ik de tekst hoef voor te lezen. Lukt het niet, dan blijkt of de drempel de taal was of de stof — bij stof pas ik de uitleg aan, bij taal de representatie.' Grens: 'AI gaf de routes; ik koos op basis van wat ik van deze leerling weet en ik beoordeel zelf of het leerdoel gehaald is.'",
+        "workspace": {
+          "field": "check-en-grens",
+          "label": "Formuleer één concrete check waaraan je ziet of de gekozen route werkt (en wat je doet als het niet werkt), plus één zin die de mens-machine-grens vastlegt.",
+          "shortLabel": "Check & grens",
+          "hint": "De check moet waarneembaar zijn en aan het leerdoel gekoppeld. Benoem ook een vervolgactie bij 'werkt niet'. Sluit af met wie de leerling-kennis, de keuze en de evaluatie houdt.",
+          "placeholder": "Check: ik zie dat het werkt als ... Als het niet werkt: ... Grens: AI leverde opties; ik hou ...",
+          "rows": 5,
+          "rubric": [
+            {
+              "name": "Check is waarneembaar en doelgekoppeld",
+              "good": "Beschrijft een zichtbaar bewijs dat de leerling het gelijke leerdoel langs de route haalde."
+            },
+            {
+              "name": "Vervolgactie bij falen benoemd",
+              "good": "Maakt concreet wat je doet als de route niet werkt, met onderscheid tussen taal/representatie en stof."
+            },
+            {
+              "name": "Mens-machine-grens expliciet",
+              "good": "Legt vast dat AI opties leverde en dat de docent de leerling-kennis, keuze en evaluatie houdt."
+            },
+            {
+              "name": "Geen verschuiving naar AI-oordeel",
+              "good": "De evaluatie van of het werkte ligt bij de docent, niet bij de tool."
+            }
+          ],
+          "referenceAnswer": "Check: het werkt als de leerling via route B beide diagrammen correct benoemt én per diagram twee kloppende kenmerken inspreekt, zonder dat ik de instructietekst hoef voor te lezen. Als het niet werkt: ik ga na of de drempel taal of stof was — klopte het klimaattype maar niet de onderbouwing, dan zit het in de stof en pas ik de uitleg aan; bleef het starten haperen, dan zit het in de representatie en versterk ik de gesproken uitleg. Grens: AI leverde de routes als opties; ik koos op grond van wat ik van deze leerling en het groepsplan weet, en ik beoordeel zelf of het leerdoel gehaald is. De tool stelt geen diagnose en bepaalt niet welke ondersteuning passend is."
+        }
+      }
+    ],
+    "vakvariaties": [
+      {
+        "vak": "Nederlands / NT2 (vo onderbouw)",
+        "body": "Bij een leesopdracht over een nieuwsbericht houd je het leerdoel 'hoofdgedachte benoemen en met een zin onderbouwen' gelijk. Laat AI routes genereren: dezelfde tekst met audio-ondersteuning, een versie met de kernzinnen gemarkeerd, of de leerling die de hoofdgedachte mondeling inspreekt. Jij kiest welke route past bij wat je van de taalvaardigheid ziet — AI bepaalt het niveau niet."
+      },
+      {
+        "vak": "Wiskunde (mbo)",
+        "body": "Het leerdoel 'een lineaire vergelijking opstellen bij een praktijksituatie' blijft staan. Voor een student die vastloopt op meerdere stappen laat je AI een gestructureerde stappenkaart en een uitgewerkt voorbeeld-eerst-variant genereren; voor wie meer uitdaging wil een open praktijkcasus zonder voorgestructureerde stappen. Eén doel, andere instap."
+      },
+      {
+        "vak": "Biologie (vo bovenbouw)",
+        "body": "Bij 'het verloop van een feedbacksysteem uitleggen' laat je AI meerdere representaties maken: een schema, een gesproken uitleg en een stap-voor-stap tekst. Voor een leerling met een concentratie- of structuurbehoefte kies je de variant met afgebakende stappen en tussenchecks; de stof en het toetsdoel blijven identiek aan die van de rest."
+      },
+      {
+        "vak": "Beroepsgerichte praktijk / techniek (mbo)",
+        "body": "Het leerdoel 'een werkstuk volgens werktekening maken' blijft gelijk. Voor een student die de geschreven werkinstructie moeizaam volgt, laat je AI een visuele stappenkaart met foto's per handeling genereren als alternatieve representatie. De beoordeling gaat over het werkstuk, niet over of iemand de tekst las."
+      },
+      {
+        "vak": "Onderzoeksvaardigheden (hbo)",
+        "body": "Bij 'een onderzoeksvraag afbakenen' houd je het doel gelijk maar bied je routes: een student die meer uitdaging zoekt krijgt een casus met tegenstrijdige bronnen, een student die structuur nodig heeft een ingevuld voorbeeld en een afbakenschema. AI levert de varianten; jij weegt welke past en bewaakt dat het eindproduct hetzelfde academische niveau heeft."
+      }
+    ],
+    "valkuilen": [
+      {
+        "titel": "AI als diagnose-instrument",
+        "watGebeurtEr": "Je vraagt 'wat heeft deze leerling?' of plakt gedragsbeschrijvingen in de hoop op een label. AI levert een overtuigend klinkend oordeel dat geen grond heeft en dat je niet mag laten leiden.",
+        "fix": "Vraag nooit naar de leerling, vraag naar opties bij een geabstraheerde leerbehoefte. Diagnose en ondersteuningsbehoefte bepaal je met het team rond de leerling, nooit met een chatbot."
+      },
+      {
+        "titel": "Bijzondere persoonsgegevens invoeren",
+        "watGebeurtEr": "Je typt 'mijn leerling met dyslexie/ADHD/een TOS' in de AI. Dat zijn bijzondere persoonsgegevens — die horen helemaal niet in een AI-chatbot, ook niet geanonimiseerd of 'als voorbeeld'.",
+        "fix": "Abstraheer altijd naar observeerbaar gedrag en de leerbehoefte zonder diagnose of naam. Lees terug of een collega zou kunnen raden om wie het gaat; zo niet, dan is het veilig genoeg."
+      },
+      {
+        "titel": "Het leerdoel zakt mee",
+        "watGebeurtEr": "Een 'makkelijkere' route blijkt bij nader inzien een lager leerdoel: de NT2-leerling krijgt minder stof in plaats van dezelfde stof toegankelijker. Differentiatie wordt verschraling.",
+        "fix": "Geef het leerdoel als vaste opdracht mee en toets elke route: komt die bij exact hetzelfde eindpunt uit? Een route die het doel verlaagt, schrap je of herontwerp je."
+      },
+      {
+        "titel": "Over-reliance op de vlotte optie",
+        "watGebeurtEr": "De best geformuleerde AI-optie wint, niet de optie die bij jouw leerling past. Je neemt het advies over zonder het tegen je eigen observatie te leggen.",
+        "fix": "Weeg elke optie expliciet tegen wat je weet en wijs er minstens één onderbouwd af. De overtuigingskracht van de tekst zegt niets over de geschiktheid voor déze leerling."
+      },
+      {
+        "titel": "Differentiatie als opvallende uitzondering",
+        "watGebeurtEr": "Eén leerling krijgt een zichtbaar aparte 'speciale' versie, wat ongemak of stigma geeft, en de rest van de groep profiteert nergens van het ontwerp.",
+        "fix": "Bouw de keuze in voor iedereen (UDL): meerdere routes als standaard binnen één opdracht. Toegankelijkheid vooraf ontwerpen is voor de hele klas winst, niet een uitzondering voor één."
+      }
+    ],
+    "eindcriteria": [
+      {
+        "criterium": "AVG en grens",
+        "onder": "Diagnose, naam of bijzondere persoonsgegevens zijn (deels) in de AI beland, of AI is om een oordeel over de leerling gevraagd.",
+        "op": "De leerbehoefte is volledig geabstraheerd ingevoerd en AI is alleen om opties gevraagd, niet om een diagnose.",
+        "boven": "+ Je kunt aan een collega uitleggen waarom een ondersteuningsbehoefte een bijzonder persoonsgegeven is en hoe je abstractie standaard inbouwt in je werkwijze."
+      },
+      {
+        "criterium": "Gelijk leerdoel behouden",
+        "onder": "De routes leiden naar verschillende of lagere doelen; differentiatie is verschraling geworden.",
+        "op": "Eén gelijk leerdoel staat vast en elke route komt aantoonbaar bij hetzelfde eindpunt uit.",
+        "boven": "+ De routes zijn als UDL-ontwerp ingebouwd voor de hele groep, met keuze in representatie én expressie."
+      },
+      {
+        "criterium": "Eigen weging zichtbaar",
+        "onder": "AI-opties zijn overgenomen zonder toetsing aan eigen kennis; geen optie is afgewezen.",
+        "op": "Elke optie is gewogen tegen wat je van de leerling en het groepsplan weet, met minstens één onderbouwde afwijzing.",
+        "boven": "+ De weging verwijst expliciet naar observatie en teamafspraken en maakt de pedagogische keuze navolgbaar."
+      },
+      {
+        "criterium": "Check op werking",
+        "onder": "Er is geen concrete check; of het werkte blijft 'ik zie het wel' of wordt aan de tool overgelaten.",
+        "op": "Er is één waarneembare, aan het leerdoel gekoppelde check plus een vervolgactie als het niet werkt.",
+        "boven": "+ De check onderscheidt of een blokkade in taal/representatie of in de stof zit en stuurt de vervolgaanpak gericht bij."
+      }
+    ],
+    "reflection": [
+      "Waar betrapte je jezelf erop dat je AI eigenlijk om een oordeel over de leerling vroeg in plaats van om opties — en hoe herken je dat moment de volgende keer eerder?",
+      "Welke van de gegenereerde opties wees je af, en wat zegt jouw reden daarvoor over kennis die alleen jij over deze leerling hebt en die geen tool kan vervangen?",
+      "Als je terugkijkt op de gedifferentieerde opdracht: waar zit het risico dat een route stilletjes het leerdoel verlaagt, en hoe houd je dat scherp bij volgende lessen?"
+    ],
+    "checklist": [
+      "Ik heb één gelijk, toetsbaar leerdoel vastgezet dat voor alle routes geldt.",
+      "Ik heb de leerbehoefte geabstraheerd beschreven in observeerbaar gedrag, zonder naam, diagnose of bijzondere persoonsgegevens.",
+      "Ik heb AI alleen om meerdere opties gevraagd en expliciet diagnose en aannames over de oorzaak verboden.",
+      "Ik heb elke optie gewogen tegen wat ik van de leerling en het groepsplan weet en minstens één optie onderbouwd afgewezen.",
+      "Ik heb de routes via een school- of zakelijk account verwerkt, niet via een privé-account.",
+      "Ik heb één gedifferentieerde opdracht gebouwd met gelijk leerdoel en meerdere ingangen (UDL).",
+      "Ik heb gecontroleerd dat geen enkele route het leerdoel verlaagt.",
+      "Ik heb één waarneembare check en een vervolgactie bepaald, en de evaluatie ligt bij mij, niet bij de tool."
+    ],
+    "nextLesson": "check-mod7"
+  },
+  "check-mod7": {
+    "format": "kennischeck",
+    "summary": "Vijf vragen over de kern van Module 7: toegankelijkheid als ontwerpkeuze vooraf, AI als hulp bij taal en representaties, en de grens dat AI geen diagnose stelt en geen ondersteuning bepaalt. Na elke vraag krijg je meteen uitleg, zodat de check ook een herhaling is.",
+    "duration": {
+      "total": "12 min",
+      "blocks": [
+        {
+          "label": "5 vragen",
+          "min": 8
+        },
+        {
+          "label": "Advies",
+          "min": 4
+        }
+      ]
+    },
+    "learningGoals": [
+      "Je herkent toegankelijkheid (UDL) als ontwerpkeuze vooraf en niet als lapmiddel achteraf, en weet dat AI opties levert terwijl jij de leerling kent en beslist.",
+      "Je weet dat AI taal kan vereenvoudigen en meerdere representaties kan maken, maar dat jij de vakinhoud en het leerdoel bewaakt — drempels weg, lat niet omlaag.",
+      "Je past de AVG-regel toe dat gegevens over een beperking, diagnose of ondersteuningsbehoefte bijzondere persoonsgegevens zijn die niet in een publieke AI-chatbot horen."
+    ],
+    "scenario": {
+      "title": "Toegankelijkheid getoetst",
+      "context": "Vijf vragen na de drie dieptelessen (7.1 toegankelijk lesmateriaal met UDL, 7.2 ondersteunende technologie, 7.3 differentiëren voor diverse leerbehoeften). Een mix van meerkeuze en waar/niet-waar. Bij elke vraag krijg je direct uitleg waarom een antwoord goed of fout is — zo zakt de stof verder in en zie je waar je nog onzeker bent.",
+      "role": "Voor jezelf",
+      "tools": "Geen"
+    },
+    "checkTitle": "Toets je beeld van AI, toegankelijkheid en inclusie in vijf vragen.",
+    "checkItems": [
+      {
+        "type": "Meerkeuze · toegankelijkheid als ontwerpkeuze",
+        "q": "Universal Design for Learning (UDL) zegt iets over wanneer je toegankelijkheid regelt. Welke aanpak past daarbij — en waar kan AI je daarin helpen?",
+        "options": [
+          {
+            "label": "Je maakt je les voor 'de gemiddelde leerling' en als achteraf blijkt dat een leerling vastloopt, vraag je AI snel een aangepaste versie.",
+            "explain": "Fout. Dit is precies het lapmiddel-achteraf dat UDL wil voorkomen. Wie steeds achteraf moet repareren, ontwerpt voor een leerling die niet bestaat en laat de leerling eerst vastlopen voordat er iets gebeurt."
+          },
+          {
+            "label": "Je ontwerpt vooraf met variatie ingebouwd — meerdere representaties, meerdere manieren om te laten zien wat je kunt — en gebruikt AI om die varianten sneller te maken.",
+            "explain": "Goed. UDL is een ontwerpkeuze vooraf: je bouwt de variatie meteen in, zodat zo veel mogelijk leerlingen zonder aparte aanpassing meekunnen. AI is hier handig om die varianten (een tekst op twee niveaus, een schema naast de lopende tekst) sneller te produceren — jij houdt de regie over wat je maakt."
+          },
+          {
+            "label": "Je laat AI bepalen welke leerlingen een aangepaste versie nodig hebben en maakt alleen voor hen iets aparts.",
+            "explain": "Fout. Bepalen wie wat nodig heeft is jouw professionele oordeel, niet dat van AI. En aparte versies 'voor sommigen' is juist het tegenovergestelde van universeel ontwerpen vooraf."
+          },
+          {
+            "label": "Toegankelijkheid is iets voor het zorgteam; in je gewone lesontwerp hoef je er geen rekening mee te houden.",
+            "explain": "Fout. Toegankelijkheid begint in het gewone lesontwerp van elke docent — dat is de kern van passend onderwijs en UDL. Het zorgteam vult aan, maar neemt het ontwerp niet over."
+          }
+        ],
+        "correct": 1
+      },
+      {
+        "type": "Waar of niet waar · taal vereenvoudigen versus vakinhoud",
+        "q": "Stelling: als je AI een vaktekst op een lager taalniveau laat zetten zodat meer leerlingen hem kunnen lezen, mag je de uitkomst zonder controle gebruiken, want vereenvoudigen is een veilige bewerking.",
+        "options": [
+          {
+            "label": "Waar",
+            "explain": "Niet waar. Bij vereenvoudigen sneuvelt vaak juist de vakinhoud: een precieze term wordt een vaag woord, een nuance verdwijnt, of er sluipt een feitelijke fout in. AI zet de taal makkelijker, maar jij bewaakt of de vakinhoud nog klopt — anders maak je de tekst toegankelijker én onjuist."
+          },
+          {
+            "label": "Niet waar",
+            "explain": "Klopt. AI vereenvoudigt de taal, maar jij controleert of de vakinhoud overeind blijft. Vereenvoudigen mag de drempel verlagen, niet de inhoud verminken: termen, oorzaak-gevolg en nuances moeten kloppen. Drempel weg, vakinhoud intact."
+          }
+        ],
+        "correct": 1
+      },
+      {
+        "type": "Meerkeuze · ondersteunende technologie",
+        "q": "Een leerling gebruikt voorleessoftware en spraak-naar-tekst om teksten te verwerken en antwoorden te geven. Wat is hier het juiste uitgangspunt?",
+        "options": [
+          {
+            "label": "De ondersteunende technologie haalt een drempel weg (lezen/schrijven), terwijl het leerdoel — bijvoorbeeld een tekst begrijpen of een redenering opbouwen — onveranderd blijft.",
+            "explain": "Goed. Ondersteunende technologie neemt de drempel weg die niets met het leerdoel te maken heeft, zodat de leerling kan laten zien wat hij inhoudelijk kan. Het leerdoel zelf gaat niet omlaag — je meet nog steeds begrip of redenering, alleen via een toegankelijke route."
+          },
+          {
+            "label": "Omdat de leerling hulpmiddelen gebruikt, moet je het leerdoel verlagen; anders is het niet eerlijk tegenover de rest.",
+            "explain": "Fout. Een drempel wegnemen is iets anders dan de lat verlagen. Juist door het leerdoel gelijk te houden behandel je de leerling als volwaardig en eerlijk: hij toont dezelfde vaardigheid, langs een toegankelijke weg."
+          },
+          {
+            "label": "Hulpmiddelen zijn een vorm van spieken; je kunt dan niet meer beoordelen wat de leerling echt kan.",
+            "explain": "Fout. Voorleessoftware of spraak-naar-tekst geeft geen antwoorden — het haalt alleen de lees- of schrijfdrempel weg. Wat de leerling inhoudelijk levert, blijft zijn eigen prestatie en is gewoon te beoordelen."
+          },
+          {
+            "label": "Je laat de software zelf bepalen welk niveau de opdracht voor deze leerling moet hebben.",
+            "explain": "Fout. Het niveau en het leerdoel bepaal jij, niet de tool. Ondersteunende technologie is een hulpmiddel voor toegang, geen instrument dat onderwijsbeslissingen voor je neemt."
+          }
+        ],
+        "correct": 0
+      },
+      {
+        "type": "Waar of niet waar · AI en diagnose",
+        "q": "Stelling: als je een AI-chatbot beschrijft hoe een leerling zich gedraagt en wat hij lastig vindt, mag je AI laten vaststellen welke beperking of stoornis er speelt en welke ondersteuning de leerling nodig heeft.",
+        "options": [
+          {
+            "label": "Waar",
+            "explain": "Niet waar. AI stelt geen diagnose en bepaalt geen ondersteuning — dat is voorbehouden aan bevoegde professionals (orthopedagoog, gz-psycholoog, arts) in samenspel met school, leerling en ouders. AI kent de leerling niet; jij kent hem, observeert en signaleert, en schakelt het zorgteam in. AI levert hooguit algemene werkvormen, geen oordeel over een persoon."
+          },
+          {
+            "label": "Niet waar",
+            "explain": "Klopt. AI stelt geen diagnose en bepaalt niet welke ondersteuning een leerling nodig heeft. Dat is mensenwerk van bevoegde professionals binnen passend onderwijs. Jij signaleert vanuit observatie en relatie en schakelt het zorgteam in; AI vervangt dat oordeel niet."
+          }
+        ],
+        "correct": 1
+      },
+      {
+        "type": "Meerkeuze · bijzondere persoonsgegevens en AVG",
+        "q": "Je wilt advies over hoe je een leerling met een ondersteuningsbehoefte het beste helpt. Wat is de juiste AVG-handelwijze als je daarvoor AI raadpleegt?",
+        "options": [
+          {
+            "label": "Je beschrijft de leerling met naam, klas en diagnose in een gratis publieke chatbot, zodat het advies zo gericht mogelijk is.",
+            "explain": "Fout. Gegevens over een beperking, diagnose of ondersteuningsbehoefte zijn bijzondere persoonsgegevens — extra beschermd onder de AVG. Met naam en klas erbij zijn ze direct herleidbaar. Dit hoort op geen enkele manier in een publieke AI-chatbot."
+          },
+          {
+            "label": "Je stelt je vraag algemeen en zonder herleidbare gegevens — geen naam, klas of diagnose — bijvoorbeeld: 'welke werkvormen helpen bij het toegankelijk maken van een leestekst?' — via de afgeschermde omgeving van je school.",
+            "explain": "Goed. Je vraagt om algemene werkvormen zonder enige herleidbare informatie, via de door de school geregelde afgeschermde omgeving. De diagnose en het concrete plan bespreek je met het zorgteam, niet met een chatbot. Zo houd je de bijzondere persoonsgegevens buiten de AI."
+          },
+          {
+            "label": "Je laat de naam weg maar plakt de diagnose en de thuissituatie er wel in; zonder naam is het immers niet meer herleidbaar.",
+            "explain": "Fout. Een diagnose plus klas, vak en thuissituatie maken een leerling vaak alsnog herleidbaar, zeker in een kleine setting. En een diagnose is op zichzelf al een bijzonder persoonsgegeven — dat hoort niet in een AI-chatbot, met of zonder naam."
+          },
+          {
+            "label": "Je vraagt de leerling even mondeling of het oké is en plakt daarna alle gegevens in de chatbot.",
+            "explain": "Fout. Losse mondelinge toestemming regelt niets rond bijzondere persoonsgegevens, beveiliging of bewaartermijnen. Deze gegevens horen sowieso niet in een AI-chatbot; je abstraheert en houdt de concrete casus bij het zorgteam."
+          }
+        ],
+        "correct": 1
+      }
+    ],
+    "nextLesson": "casus-inclusie-bias"
+  },
+  "casus-inclusie-bias": {
+    "format": "casusbespreking",
+    "summary": "Drie casussen waarin de belofte van AI voor toegankelijkheid botst met bias, over-reliance en privacy. Je weegt elke situatie vanuit meerdere perspectieven en bepaalt waar voor jou de grens ligt: wat mag AI voorbereiden en aandrijven, en welk oordeel over een leerling houd je bewust zelf. De rode draad: AI levert opties en vergroot toegankelijkheid, maar stelt geen diagnose en kent de leerling niet — jij wel.",
+    "duration": {
+      "total": "45 minuten",
+      "blocks": [
+        {
+          "label": "Casussen lezen",
+          "min": 8
+        },
+        {
+          "label": "Perspectieven wegen",
+          "min": 12
+        },
+        {
+          "label": "Stellingnames bespreken",
+          "min": 10
+        },
+        {
+          "label": "Eigen grens bepalen (actieplan)",
+          "min": 12
+        },
+        {
+          "label": "Reflectie",
+          "min": 3
+        }
+      ]
+    },
+    "learningGoals": [
+      "Je herkent bias in AI-gegenereerd lesmateriaal — eenzijdige, westerse of stereotype voorbeelden — en weet hoe je die opspoort en repareert zodat elke leerling zich erin kan herkennen.",
+      "Je benoemt de grens tussen wat AI bij ondersteuningsbehoeften wél en níét mag doen: opties leveren en toegankelijkheid vergroten versus inschatten, indelen of feitelijk een diagnose stellen — dat laatste is en blijft mensenwerk.",
+      "Je formuleert voor je eigen praktijk hoe je mens-centraal blijft werken en een harde AVG-grens hanteert: gegevens over een beperking, diagnose of ondersteuningsbehoefte horen niet in een AI-chatbot."
+    ],
+    "scenario": {
+      "title": "Werksituatie",
+      "context": "Je werkt in een klas met een breed palet aan leerlingen: verschillende thuistalen en achtergronden, een paar leerlingen met een ondersteuningsbehoefte, en de gewone spreiding in niveau en tempo. AI helpt je om materiaal op niveau te zetten, meerdere representaties te maken en ondersteunende technologie aan te drijven. Dat scheelt en het maakt je lessen toegankelijker. Tegelijk merk je dat de tool soms eenzijdige voorbeelden geeft, dat een differentiatie-advies verdacht stellig klinkt, en dat je in de verleiding komt om net iets te veel over een leerling in te typen. In deze les buig je je over drie situaties die echt voorkomen.",
+      "role": "Je bent docent (vo, mbo of hbo) die AI inzet om toegankelijkheid en inclusie te vergroten, en die verantwoordelijk blijft voor de inschatting van wat een leerling nodig heeft en voor de relatie met die leerling.",
+      "tools": "Een AI-chatbot via je school-account (zakelijke omgeving, geen training op je invoer), je eigen lesmateriaal en rubrics, een differentiatie- of niveautool, en je leerlingvolgsysteem — dat laatste blijft buiten de AI-chatbot."
+    },
+    "casusbesprekingTitle": "Toegankelijkheid versus bias, over-reliance en privacy: drie dilemma's",
+    "casusbesprekingIntro": "Elke casus laat zien hoe een terechte wens om toegankelijker en inclusiever les te geven kan omslaan in het tegendeel — een groep die zich niet herkent, een leerling die verkeerd wordt ingeschat, of gevoelige gegevens die op de verkeerde plek belanden. Lees ze, weeg de perspectieven en bepaal daarna waar voor jou de grens ligt.",
+    "cases": [
+      {
+        "title": "Casus A — Het lesmateriaal waarin niet iedereen voorkomt",
+        "context": "Een docent maatschappijleer laat AI een lessenserie en bijbehorende voorbeelden genereren over 'het gezin' en 'werk en inkomen'. Het materiaal is netjes, goed leesbaar en op niveau. Maar bij het tweede gebruik valt iets op: de voorbeeldgezinnen bestaan vrijwel allemaal uit een vader-moeder-twee-kinderen-huishouden, de namen in de sommen en casussen zijn bijna zonder uitzondering Nederlandse, de beroepen die langskomen zijn 'typisch witteboorden', en in een oefening over feestdagen komen alleen kerst en Pasen voor. Een deel van de klas — leerlingen met een andere thuistaal of achtergrond, leerlingen uit een eenoudergezin of pleeggezin — herkent zichzelf nergens in. Een leerling vraagt halverwege de les of 'mensen zoals wij ook in de boeken voorkomen'. De docent schrikt: het materiaal voelde neutraal, maar het beeld dat het uitstraalt is dat niet, en de leerlingen die buiten beeld vallen, haken ongemerkt af.",
+        "perspectives": [
+          {
+            "role": "De docent",
+            "view": "Ik vroeg de AI om 'voorbeelden over gezinnen en werk' en kreeg keurig materiaal terug — ik dacht er geen seconde over na dat het eenzijdig zou zijn. Pas toen die leerling die vraag stelde, zag ik het patroon. De bias zat niet in mijn bedoeling, maar wel in wat ik klakkeloos overnam. Ik ben de afzender van dit materiaal, dus ook van het beeld dat het uitdraagt."
+          },
+          {
+            "role": "De leerling die zich niet herkent",
+            "view": "In elk voorbeeld gaat het over een gezin dat niet op het mijne lijkt, met namen die niet op de mijne lijken. Het lijkt klein, maar het telt op: de boodschap die ik eruit haal is dat de 'gewone' situatie een andere is dan de mijne, en dat ik de uitzondering ben. Daardoor voelt de les minder van mij, en let ik minder op."
+          },
+          {
+            "role": "De zorg- of inclusiecoördinator",
+            "view": "Representatie in lesmateriaal is geen randzaak; het raakt de kern van inclusief onderwijs en kansengelijkheid. AI-modellen reproduceren de patronen in hun trainingsdata, en die data is overwegend westers en stereotype. Als we dat ongecontroleerd overnemen, versterken we precies de bias die we in de klas willen tegengaan. De docent moet het materiaal tegen het licht houden vóór gebruik, niet erna."
+          }
+        ],
+        "statements": [
+          {
+            "author": "Voorstander van AI voor lesmateriaal",
+            "quote": "AI maakt het juist makkelijker om divers materiaal te maken dan ooit — ik kan in één prompt vragen om voorbeelden met uiteenlopende namen, gezinsvormen en achtergronden. De tool is niet het probleem; een luie prompt en geen controle achteraf zijn dat."
+          },
+          {
+            "author": "Criticus",
+            "quote": "De bias zit niet in de prompt maar in het model, en die zie je niet als je het materiaal alleen op taal en niveau leest. Wie ervan uitgaat dat AI-output 'neutraal' is, exporteert een eenzijdig wereldbeeld naar de hele klas zonder het door te hebben — en de leerlingen die buiten beeld vallen, betalen de prijs."
+          }
+        ]
+      },
+      {
+        "title": "Casus B — Het differentiatie-advies dat als diagnose ging tellen",
+        "context": "Een docent wiskunde is enthousiast over een AI-differentiatietool: je voert een paar gemaakte opdrachten en kenmerken in, en de tool stelt een leerroute voor met 'passend' niveau en tempo. Voor één leerling geeft de tool consequent een laag niveau aan en adviseert 'extra basisoefening, vermoedelijk zwak in rekenvaardigheid'. De docent neemt dit over, zet de leerling structureel op het laagste spoor en gaat ervan uit dat het beeld klopt — de tool zegt het tenslotte met stelligheid. Wat de tool niet weet: de leerling had die periode veel verzuim door ziekte, beheerst de stof in een andere context juist goed, en raakt door het lage spoor gedemotiveerd en onderpresteert daardoor steeds verder. Het AI-advies werd zo geen hulpmiddel maar een self-fulfilling prophecy. Toen de mentor de leerling sprak, bleek het beeld niet te kloppen — maar er waren al weken verloren, en de leerling had het label 'zwak' al geïnternaliseerd.",
+        "perspectives": [
+          {
+            "role": "De docent",
+            "view": "De tool gaf een helder, onderbouwd advies en ik heb veertig leerlingen — dan is het verleidelijk om dat te volgen. Maar ik realiseer me nu dat ik een statistische gok ben gaan behandelen als een feit over deze leerling. De tool zag een paar foute opdrachten; ik had moeten zien dat er een zieke leerling achter zat die de aansluiting kwijt was."
+          },
+          {
+            "role": "De leerling die verkeerd is ingeschat",
+            "view": "Ik werd op het laagste niveau gezet terwijl ik gewoon lessen had gemist door ziekte. Niemand vroeg het me. Het voelde alsof een computer had besloten dat ik het niet kon, en na een paar weken ben ik dat zelf ook gaan geloven. Hoe meer ik op dat spoor zat, hoe minder ik nog liet zien wat ik wél kon."
+          },
+          {
+            "role": "De orthopedagoog / het zorgteam",
+            "view": "Een AI-tool ziet patronen in data, maar stelt geen diagnose en kan de oorzaak achter een prestatie niet kennen — verzuim, motivatie, taalbarrière, een slechte dag zien er in de cijfers hetzelfde uit. 'Vermoedelijk zwak in rekenvaardigheid' is precies de formulering die niet thuishoort in zo'n tool: dat is een inschatting die observatie, gesprek en professionele afweging vraagt. AI levert een signaal, hooguit een hypothese; de docent toetst die aan wat hij ziet en hoort."
+          }
+        ],
+        "statements": [
+          {
+            "author": "Voorstander van AI-differentiatie",
+            "quote": "Bij grote klassen is het onmogelijk om iedereen continu zelf in te schatten; een tool die signalen oppikt die ik mis, helpt me juist gerichter te kijken. Het advies is een startpunt, geen eindstation — zolang ik dat zo gebruik, win ik er leerlingen mee in plaats van ze te verliezen."
+          },
+          {
+            "author": "Criticus",
+            "quote": "Een advies dat 'vermoedelijk zwak' zegt en dat je overneemt, is in de praktijk een diagnose met een ander woord ervoor. AI kent de leerling niet, kent de oorzaak niet en draagt geen verantwoordelijkheid — en zodra je het beeld als feit behandelt, maak je het waar. De grens van AI ligt precies hier: bij het oordeel over wie deze leerling is en wat hij nodig heeft."
+          }
+        ]
+      },
+      {
+        "title": "Casus C — Goede ondersteuning, of toch de privacy van de leerling?",
+        "context": "Een mentor wil een leerling met een ondersteuningsbehoefte echt goed helpen. De leerling heeft dyslexie en daarnaast een angststoornis waarvoor hij in behandeling is; bepaalde werkvormen werken averechts. De mentor wil AI gebruiken om aangepaste opdrachten, een hulpmiddelenadvies en een ondersteunende aanpak te laten genereren, en denkt: hoe meer context ik geef, hoe beter het advies. Hij staat op het punt om de diagnose, de naam van de leerling, de behandelinformatie en een paar zinnen uit het ontwikkelingsperspectiefplan in de chatbot te plakken. Een collega houdt hem net op tijd tegen: dit zijn bijzondere persoonsgegevens over gezondheid, en die horen niet in een AI-chatbot — ook niet via het school-account, ook niet met de beste bedoelingen. De vraag die overblijft: hoe ondersteun je deze leerling dan wél goed met AI, zonder die grens te overschrijden?",
+        "perspectives": [
+          {
+            "role": "De mentor",
+            "view": "Ik wil deze leerling het beste geven, en ik dacht oprecht dat een betere context tot een beter advies zou leiden. Dat de diagnose en behandelinformatie er niet in mogen, snap ik nu — maar het frustreert me, want ik wil geen generiek advies dat aan deze leerling voorbijgaat. De vraag is hoe ik AI laat helpen zonder de leerling bloot te geven."
+          },
+          {
+            "role": "De leerling en zijn ouders",
+            "view": "Dat de mentor zo betrokken is, waarderen we. Maar de informatie over de diagnose en de behandeling is van ons en hoort bij de zorg, niet bij een tool van een bedrijf. We willen dat onze zoon ondersteund wordt, niet dat zijn meest kwetsbare informatie ergens belandt waar we geen zicht op hebben. Vraag het ons, betrek de behandelaar — maar plak het niet in een chatbot."
+          },
+          {
+            "role": "De functionaris gegevensbescherming (FG)",
+            "view": "Gegevens over gezondheid, een beperking, een diagnose of een ondersteuningsbehoefte zijn bijzondere persoonsgegevens onder de AVG. Daar geldt een streng verbod op verwerking buiten strikt afgebakende kaders — en die in een AI-chatbot invoeren valt daar niet onder, ook niet met een school-account. Het goede nieuws: je hebt die gegevens niet nodig om AI nuttig in te zetten. Vraag om een algemene aanpak voor dyslexie of voor faalangstreducerende werkvormen, zonder iets wat tot deze leerling herleidbaar is. De diagnose-informatie blijft in het beveiligde leerlingdossier en bij de mensen die er beroepsmatig over gaan."
+          }
+        ],
+        "statements": [
+          {
+            "author": "Voorstander van maximale context",
+            "quote": "Een advies is zo goed als de informatie die je geeft — een algemene vraag levert een algemeen antwoord op dat deze leerling niet verder helpt. Als het school-account zegt dat het veilig is, waarom zou ik dan niet de hele situatie schetsen zodat de tool echt iets kan met dit specifieke geval?"
+          },
+          {
+            "author": "Criticus",
+            "quote": "Je kunt prima een scherp, bruikbaar advies krijgen zonder één herleidbaar gegeven: vraag naar 'werkvormen die faalangst verminderen' en 'hulpmiddelen bij dyslexie', niet naar deze jongen met deze diagnose. Bijzondere persoonsgegevens horen simpelweg niet in een chatbot — geen account-instelling verandert dat. De grens is hier niet 'hoeveel mag', maar 'wat hoort er principieel niet thuis'."
+          }
+        ]
+      }
+    ],
+    "actionPlan": {
+      "source": "Voor je eigen praktijk",
+      "title": "Toegankelijk, eerlijk en mens-centraal: jouw werkwijze",
+      "steps": [
+        {
+          "title": "Bouw een bias-check in je workflow",
+          "body": "Maak van het controleren op bias een vaste stap vóór je AI-materiaal gebruikt, niet een toevallige ontdekking achteraf (casus A). Loop het materiaal langs op representatie: welke namen, gezinsvormen, achtergronden, beroepen, feestdagen en rolverdelingen komen voor — en wie komt er nergens in? Formuleer ook een prompt-gewoonte die diversiteit vooraf afdwingt. Het uitgangspunt is Universal Design: je ontwerpt toegankelijkheid vooraf in, je repareert hem niet pas als een leerling zich beklaagt.",
+          "workspace": {
+            "field": "bias-check-workflow",
+            "label": "Noteer drie tot vijf concrete controlevragen waarmee je AI-lesmateriaal op bias checkt, plus één promptregel die je voortaan toevoegt om diversiteit vooraf af te dwingen.",
+            "placeholder": "Controlevragen: 1) Welke namen/achtergronden komen voor en wie ontbreekt? 2) ... | Promptregel die ik standaard toevoeg: '...'",
+            "rows": 6,
+            "rubric": [
+              {
+                "name": "Concrete controlevragen",
+                "good": "Drie tot vijf toetsbare vragen die naar representatie kijken (namen, gezinsvormen, achtergronden, rolverdeling, feestdagen), geen vage 'let op bias'."
+              },
+              {
+                "name": "Wie ontbreekt",
+                "good": "Minstens één vraag richt zich expliciet op wie er níét in voorkomt, niet alleen op wat erin staat."
+              },
+              {
+                "name": "Prompt-gewoonte vooraf",
+                "good": "Bevat een concrete promptregel die diversiteit aan de voorkant afdwingt, in lijn met Universal Design (ontwerp vooraf, geen lapmiddel achteraf)."
+              },
+              {
+                "name": "Vast moment",
+                "good": "De check is gekoppeld aan een vast moment in de workflow (vóór gebruik in de klas), zodat het een gewoonte is en geen toeval."
+              }
+            ],
+            "referenceAnswer": "Controlevragen voor mijn bias-check (vóór ik AI-materiaal gebruik): (1) Welke namen, gezinsvormen en achtergronden komen voor — en is dat een eenzijdig of een gevarieerd beeld? (2) Wie komt er nergens in voor die wél in mijn klas zit (andere thuistaal, eenoudergezin, pleeggezin, niet-westerse achtergrond)? (3) Welke rolverdelingen, beroepen en feestdagen worden als 'normaal' neergezet, en zit daar een stereotype in? (4) Zou een leerling uit mijn klas zich hierin kunnen herkennen, of is hij steeds de uitzondering? (5) Klopt het feitelijk en doet het recht aan de werkelijkheid? Promptregel die ik standaard toevoeg: 'Gebruik gevarieerde, niet-stereotype voorbeelden met diverse namen, gezinsvormen en achtergronden, en vermijd het impliciet als norm neerzetten van één type huishouden of cultuur.' De check doe ik altijd vóór gebruik in de klas — ik ben de afzender van het materiaal, dus ook van het beeld dat het uitdraagt."
+          }
+        },
+        {
+          "title": "Trek de grens tussen signaal en oordeel",
+          "body": "Leg voor jezelf vast waar de grens van AI ligt bij ondersteuningsbehoeften (casus B). De vuistregel: AI mag een signaal of hypothese leveren en opties aandragen, maar het oordeel over wie deze leerling is en wat hij nodig heeft, is en blijft mensenwerk — gebaseerd op observatie, gesprek en je kennis van de leerling. Schrijf op welke woorden in een AI-advies een alarmbel moeten zijn ('vermoedelijk zwak', 'plaats op niveau X', 'waarschijnlijk dit') en wat je dan doet in plaats van overnemen. Dit is de human-centred mindset in de praktijk: AI levert opties, jij beslist.",
+          "workspace": {
+            "field": "grens-signaal-oordeel",
+            "label": "Formuleer je grensregel (wat mag AI wel/niet bij het inschatten van een leerling) en noteer twee tot drie signaalwoorden in een advies die voor jou een stopteken zijn, met wat je dan doet.",
+            "placeholder": "Mijn grensregel: AI mag ... maar nooit ... | Stopwoorden: 'vermoedelijk zwak' → ik doe in plaats daarvan: ...",
+            "rows": 5,
+            "rubric": [
+              {
+                "name": "Grens helder",
+                "good": "Maakt expliciet dat AI een signaal/hypothese en opties levert, maar dat het oordeel over de leerling (inschatting, indeling, diagnose) bij de docent blijft."
+              },
+              {
+                "name": "Signaalwoorden benoemd",
+                "good": "Twee tot drie concrete formuleringen die een alarmbel zijn ('vermoedelijk', 'plaats op', 'waarschijnlijk zwak'), niet alleen het principe."
+              },
+              {
+                "name": "Vervangende handeling",
+                "good": "Bij elk stopwoord staat wat de docent dan doet (observeren, in gesprek gaan, oorzaak achterhalen) in plaats van het advies overnemen."
+              },
+              {
+                "name": "Mens-centraal",
+                "good": "De regel verankert observatie, gesprek en relatie als basis van het oordeel — in lijn met de human-centred mindset (AI levert opties, docent beslist)."
+              }
+            ],
+            "referenceAnswer": "Mijn grensregel: AI mag patronen signaleren en mij opties aanreiken (een werkvorm, een leerroute, een hypothese om te checken), maar AI stelt geen diagnose en bepaalt niet welk niveau of welke ondersteuning een leerling nodig heeft — dat oordeel baseer ik op observatie, een gesprek met de leerling en mijn kennis van zijn situatie. Stopwoorden die een alarmbel zijn: (1) 'vermoedelijk zwak in ...' → in plaats van overnemen ga ik na waar de prestatie vandaan komt (verzuim, motivatie, taal, een slechte dag) en praat ik met de leerling. (2) 'plaats op niveau X' → ik behandel dit als suggestie, niet als besluit, en check of het strookt met wat ik zelf zie. (3) 'waarschijnlijk dit/dat' → ik lees 'waarschijnlijk' als 'nog niet geweten' en zoek de ontbrekende context. Een advies wordt bij mij nooit een self-fulfilling prophecy: AI levert opties, ik ken de leerling en beslis."
+          }
+        },
+        {
+          "title": "Zet je AVG-grens voor ondersteuningsgegevens vast",
+          "body": "Schrijf in één heldere regel wat er nooit in een AI-chatbot terechtkomt, en hoe je AI dan wél nuttig inzet bij ondersteuning (casus C). De harde grens: gegevens over een beperking, diagnose, behandeling of ondersteuningsbehoefte zijn bijzondere persoonsgegevens en horen niet in een AI-chatbot — ook niet via het school-account, ook niet met de beste bedoelingen. Beschrijf je vervangende werkwijze: vraag om een algemene aanpak ('werkvormen die faalangst verminderen', 'hulpmiddelen bij dyslexie') zonder iets wat tot een leerling herleidbaar is. Zo blijft de leerling beschermd én krijg je een bruikbaar advies.",
+          "workspace": {
+            "field": "avg-grens-ondersteuning",
+            "label": "Formuleer je AVG-grens (wat komt nooit in AI) en je vervangende werkwijze (hoe vraag je een bruikbaar advies zonder herleidbare of bijzondere gegevens). Geef minstens één concreet voorbeeld van een 'geabstraheerde' prompt.",
+            "placeholder": "Nooit in AI: diagnose, behandelinformatie, naam, ondersteuningsbehoefte herleidbaar tot een leerling | In plaats daarvan vraag ik: '...'",
+            "rows": 5,
+            "rubric": [
+              {
+                "name": "Bijzondere gegevens benoemd",
+                "good": "Maakt expliciet dat gegevens over beperking, diagnose, gezondheid of ondersteuningsbehoefte bijzondere persoonsgegevens zijn die niet in een AI-chatbot horen — ook niet via het school-account."
+              },
+              {
+                "name": "Geen schijnoplossing",
+                "good": "Geeft niet de indruk dat een account-instelling of 'het is veilig' de grens opheft; de grens is principieel, niet technisch."
+              },
+              {
+                "name": "Geabstraheerde prompt",
+                "good": "Bevat een concreet voorbeeld van een algemene, niet-herleidbare vraag ('hulpmiddelen bij dyslexie', 'faalangstreducerende werkvormen')."
+              },
+              {
+                "name": "Waar de gegevens wél horen",
+                "good": "Benoemt dat de gevoelige informatie in het beveiligde dossier blijft en bij de mensen die er beroepsmatig over gaan (zorgteam, behandelaar, ouders)."
+              }
+            ],
+            "referenceAnswer": "Mijn AVG-grens: gegevens over een beperking, diagnose, behandeling, gezondheid of een specifieke ondersteuningsbehoefte van een leerling komen nooit in een AI-chatbot — dit zijn bijzondere persoonsgegevens en daar verandert geen school-account of 'het is veilig'-instelling iets aan; de grens is principieel, niet technisch. Ook geen naam, klas of combinatie die tot één leerling herleidbaar is. In plaats daarvan vraag ik geabstraheerd om een algemene aanpak, bijvoorbeeld: 'Geef werkvormen die faalangst bij wiskunde verminderen' en 'Welke ondersteunende hulpmiddelen en aanpakken helpen leerlingen met dyslexie bij langere leesteksten?' — zonder enige verwijzing naar déze leerling. De diagnose- en behandelinformatie blijft in het beveiligde leerlingdossier en bij de mensen die er beroepsmatig over gaan: het zorgteam, de behandelaar en de ouders. Zo krijg ik een bruikbaar advies en blijft de leerling beschermd."
+          }
+        },
+        {
+          "title": "Borg dat je mens-centraal blijft",
+          "body": "Leg vast hoe je voorkomt dat AI ongemerkt het stuur overneemt bij toegankelijkheid en inclusie. Benoem twee tot drie momenten waarop de mens — jij, de leerling, de ouders, het zorgteam — bewust aan zet is en niet de tool: bijvoorbeeld het gesprek met de leerling vóór je een AI-advies volgt, een collega of zorgcoördinator die meekijkt bij een ingrijpende beslissing, en de leerling zelf een stem geven in wat helpt. AI vergroot toegankelijkheid en levert opties; de relatie, de observatie en het besluit blijven van mensen. Maak het concreet en ritmisch, zodat het een gewoonte wordt en geen voornemen.",
+          "workspace": {
+            "field": "mens-centraal-borgen",
+            "label": "Benoem twee of drie vaste momenten waarop de mens bewust aan zet is in plaats van de tool, met per moment wie betrokken is en wat er besloten of besproken wordt.",
+            "placeholder": "Moment 1: vóór ik een AI-advies volg → ik spreek de leerling, we bepalen samen ... | Moment 2: bij een ingrijpende beslissing → ... kijkt mee ...",
+            "rows": 5,
+            "rubric": [
+              {
+                "name": "Concrete momenten",
+                "good": "Twee tot drie benoembare momenten, geen algemeenheden zoals 'kritisch blijven'."
+              },
+              {
+                "name": "Mens aan zet",
+                "good": "Bij elk moment is duidelijk dat een mens beslist of weegt (docent, leerling, ouders, zorgteam), niet de tool."
+              },
+              {
+                "name": "Leerling een stem",
+                "good": "Minstens één moment geeft de leerling zelf een stem in wat helpt — in lijn met het actief betrekken van leerlingen."
+              },
+              {
+                "name": "Ritme of trigger",
+                "good": "Er staat een vast moment of trigger bij (vóór een advies volgen, bij een ingrijpende beslissing), zodat het een gewoonte wordt."
+              }
+            ],
+            "referenceAnswer": "Vaste momenten waarop de mens aan zet is, niet de tool: (1) Vóór ik een AI- of tooladvies over niveau of aanpak volg, spreek ik de leerling kort: klopt dit beeld, wat speelt er, wat helpt jou? De leerling heeft een stem in wat werkt; ik volg geen advies over zijn hoofd heen. (2) Bij een ingrijpende beslissing — een leerling structureel op een ander spoor, of twijfel over een ondersteuningsbehoefte — kijkt een collega, mentor of de zorgcoördinator mee, en betrek ik waar nodig de ouders. Eén tool en één docent beslissen dat niet alleen. (3) Na een paar weken evalueer ik met de leerling of de gekozen aanpak werkt, en stel ik bij op basis van wat ik zie en hoor, niet van wat de tool blijft herhalen. Zo levert AI opties en vergroot het de toegankelijkheid, terwijl de observatie, de relatie en het besluit van mensen blijven."
+          }
+        }
+      ]
+    },
+    "reflection": [
+      "In welke van de drie casussen herken je je eigen praktijk het meest, en wat zou daar het eerste signaal zijn dat de goede bedoeling omslaat in bias, een verkeerde inschatting of een privacyrisico?",
+      "Waar betrap je jezelf erop dat je AI-output (lesmateriaal of een advies) als 'neutraal' of 'waar' behandelt, terwijl het eigenlijk een gekleurde of statistische gok is die jouw oordeel vraagt?",
+      "Hoe zorg je dat je AVG-grens rond ondersteuningsgegevens en je mens-centrale werkwijze óók standhouden op een drukke dag, juist als een leerling snel goede hulp nodig heeft?"
+    ],
+    "nextLesson": "praktijkopdracht-7"
+  },
+  "praktijkopdracht-7": {
+    "format": "praktijkopdracht",
+    "summary": "Module 07 sluit niet af met een toets maar met bewijs: je maakt één bestaande les of materiaal aantoonbaar toegankelijker met AI en toetst of het werkt voor de doelgroep. Drie paden — taal & lezen, sensorisch & ondersteunende technologie, of differentiatie & diverse leerbehoeften. Elk pad zeven deliverables, met een drempelanalyse vooraf, een AVG-check op bijzondere persoonsgegevens, een check bij de leerlingen zelf en een eerlijke reflectie op wat wel en niet werkte. Peer review door een collega in drie vragen, en een transferhaak na inzet in de klas: was de drempel echt weg? Het bewijs zit niet in je herontwerp — het zit in wat een leerling die eerst vastliep nu wél kan.",
+    "duration": {
+      "total": "3 uur (excl. lesuitvoering)",
+      "blocks": [
+        {
+          "label": "Pad kiezen + drempelanalyse vooraf",
+          "min": 30
+        },
+        {
+          "label": "Herontwerp met AI + tweede representatie",
+          "min": 45
+        },
+        {
+          "label": "AVG-check op bijzondere persoonsgegevens",
+          "min": 15
+        },
+        {
+          "label": "Peer review aanvragen + verwerken",
+          "min": 25
+        },
+        {
+          "label": "Check bij de doelgroep voorbereiden",
+          "min": 20
+        },
+        {
+          "label": "Inzet in de klas (buiten deze tijd)",
+          "min": 0
+        },
+        {
+          "label": "Reflectie + transferhaak plannen",
+          "min": 45
+        }
+      ]
+    },
+    "praktijkTitle": "Kies één pad. Maak één les aantoonbaar toegankelijker. Toets bij de doelgroep. Na inzet: was de drempel echt weg?",
+    "praktijkIntro": "'Toegankelijker' is geen gevoel en geen vinkje — het is een meetbaar verschil voor een concrete leerling. Het betekent dat een drempel die er eerst was, er na jouw herontwerp aantoonbaar minder is: een tekst die op niveau leesbaar werd, een afbeelding die met alt-tekst nu ook voor een screenreader bestaat, een opdracht die nu drie ingangen heeft in plaats van één. Je begint daarom niet bij de tool maar bij de drempel: welke leerling liep waar vast, en waarom? AI levert vervolgens opties — teksten op niveau, een tweede representatie, alt-tekst, ondertiteling, gedifferentieerde varianten — maar AI kent jouw leerling niet. Jij wel. AI stelt geen diagnose, bepaalt niet welke ondersteuning iemand nodig heeft, en mag de observatie en relatie die jij met je groep hebt niet vervangen.\n\nJe toetst of het werkt op de enige plek waar dat kan: bij de doelgroep zelf. Een herontworpen tekst die jij makkelijker vindt, kan voor een NT2-leerling nog steeds struikelen op één onbekend werkwoord — dat hoor je pas als je het vraagt of laat lezen. Universal Design for Learning is hier de leidraad: toegankelijkheid is een ontwerpkeuze vooraf voor alle leerlingen, geen lapmiddel achteraf voor één. En één regel staat boven alles: gegevens over een beperking, diagnose of ondersteuningsbehoefte zijn bijzondere persoonsgegevens — die horen niet in een AI-chatbot, nooit, ook niet 'even abstract'. Je werkt met het materiaal en de drempel, niet met de leerling als casus.",
+    "paths": [
+      {
+        "id": "a",
+        "label": "Pad A — taal & lezen (niveau, NT2, leesbaarheid)",
+        "beschrijving": "Voor wie een tekst, opdracht of instructie heeft waar leerlingen op de táál vastlopen: te hoog leesniveau, te lange zinnen, vaktaal zonder uitleg, of materiaal dat NT2-leerlingen buitensluit. Je kiest één concreet stuk (een bronfragment, een toetsvraag, een werkbladinstructie) en maakt het leesbaarder met AI — zonder de vakinhoud te verschralen. De kunst zit in het verschil tussen vereenvoudigen en versimpelen: een havo-3-brontekst op B1 zetten mag de denkstap niet wegpoetsen. Je maakt naast de herschreven versie een tweede representatie (bijvoorbeeld een woordenlijst met de zes kernbegrippen, of een leesschema), en je toetst bij een leerling uit de doelgroep of de drempel echt lager werd.",
+        "deliverables": [
+          "Pad A gekozen + het concrete materiaal benoemd (welke les, welk fragment) en de doelgroep in één zin — zonder naam of diagnose van een leerling",
+          "Drempelanalyse vooraf: waar lopen leerlingen op de taal vast (leesniveau, zinslengte, vaktaal, NT2) en hoe weet je dat — uit observatie, niet uit een AI-inschatting",
+          "Herontworpen tekst met AI: de tekst op het doelniveau (bv. B1) gezet, met je prompt en minstens één plek waar je AI hebt teruggestuurd omdat het de vakinhoud te plat maakte",
+          "Tweede representatie: een woordenlijst met de kernbegrippen, een leesschema of een audioversie — zodat er een tweede ingang naast de tekst is (UDL: meerdere representaties)",
+          "AVG-check: bevestiging dat er geen herleidbare leerling- of ondersteuningsgegevens in de AI zaten; je werkte met het materiaal, niet met de leerling als casus",
+          "Check bij de doelgroep: één of twee leerlingen lazen de nieuwe versie en je noteerde waar het nog struikelde (welk woord, welke zin) — niet of ze het 'leuker' vonden",
+          "Reflectie van 250 woorden: wat werkte (welke drempel ging echt omlaag) en wat niet (waar bleef de tekst te moeilijk, of werd hij juist te dun) — eerlijk over wat AI hier niet kon"
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Pad B — sensorisch & ondersteunende technologie (alt-tekst, voorlezen, ondertiteling)",
+        "beschrijving": "Voor wie materiaal heeft dat alleen via één zintuig werkt en daarmee leerlingen buitensluit: een werkblad vol ongelabelde afbeeldingen of grafieken, een instructievideo zonder ondertiteling, een PDF die een screenreader niet kan lezen, of een opdracht die alleen visueel te volgen is. Je maakt het materiaal toegankelijk voor wie slechtziend, slechthorend of dyslectisch is, of voor wie ondersteunende technologie gebruikt. AI helpt je alt-teksten te schrijven, ondertiteling te genereren, een tekst voor te laten lezen of een document te herstructureren — maar jíj controleert of de alt-tekst de afbeelding ook echt vervangt en of de ondertiteling klopt. Foute alt-tekst is erger dan geen.",
+        "deliverables": [
+          "Pad B gekozen + het concrete materiaal benoemd en de sensorische drempel in één zin (visueel-alleen, audio-alleen, niet screenreader-leesbaar) — zonder leerling als casus",
+          "Drempelanalyse vooraf: welke leerlingen of welke ondersteunende technologie lopen hier vast, en op welk onderdeel precies (welke afbeelding, welke video)",
+          "Herontworpen materiaal: alt-teksten bij de afbeeldingen/grafieken, of ondertiteling, of een screenreader-leesbare versie — met AI gegenereerd én door jou gecontroleerd op juistheid",
+          "Tweede representatie of tool: dezelfde inhoud via een tweede kanaal (bv. een voorleesversie naast de tekst, een transcript naast de video) zodat de leerling kan kiezen (UDL)",
+          "AVG-check: bevestiging dat geen gegevens over een beperking of ondersteuningsbehoefte in de AI zijn ingevoerd — alt-tekst maak je over de áfbeelding, niet over de leerling",
+          "Check bij de doelgroep: getoetst met de ondersteunende technologie zelf (screenreader, ondertiteling aan) of met een leerling die het gebruikt — werkte het, of klopte de alt-tekst net niet",
+          "Reflectie van 250 woorden: wat werkte en wat niet — waar maakte AI een alt-tekst die mooi klonk maar de afbeelding niet vervíng, en wat heb je daar handmatig moeten corrigeren"
+        ]
+      },
+      {
+        "id": "c",
+        "label": "Pad C — differentiatie & diverse leerbehoeften (SEN, hoogbegaafd, concentratie)",
+        "beschrijving": "Voor wie een opdracht heeft die maar één ingang kent en daarmee een deel van de groep verliest: te weinig houvast voor wie structuur nodig heeft, te weinig uitdaging voor wie sneller gaat, te veel prikkels of te lange stukken voor wie moeite heeft met concentratie. Je maakt van één opdracht een set varianten — bijvoorbeeld een versie met meer stappen en voorbeelden, een verdiepende versie, en een versie met kortere brokken — zodat meer leerlingen een passende ingang hebben. AI genereert snel varianten; jouw werk is bepalen welke variant bij welke behoefte hoort, want dat vraagt dat je je leerlingen kent. AI weet niet wie wat nodig heeft, en mag dat ook niet bepalen.",
+        "deliverables": [
+          "Pad C gekozen + de opdracht benoemd en de leerbehoeften die nu buiten de boot vallen in één zin (structuur, uitdaging, concentratie) — beschreven als behoefte, niet als diagnose",
+          "Drempelanalyse vooraf: welke leerbehoeften vangt de huidige opdracht niet, en hoe merk je dat in de klas — uit observatie en werk, niet uit een AI-inschatting of een dossier",
+          "Herontworpen materiaal: minstens twee varianten van de opdracht naast het origineel (bv. meer-houvast en verdieping), met AI gemaakt en door jou bijgesteld op vakinhoud",
+          "Tweede representatie of keuze-ingang: leerlingen kunnen kiezen hoe ze laten zien wat ze kunnen — tekst, schema, mondeling of beeld (UDL: actie & expressie, meerdere ingangen)",
+          "AVG-check: bevestiging dat geen gegevens over diagnose, ondersteuningsbehoefte of dossier in de AI zaten — je vroeg om varianten van de ópdracht, niet om aanpassingen voor een leerling",
+          "Check bij de doelgroep: leerlingen kozen of kregen een variant en je noteerde of de juiste variant bij de juiste behoefte landde — koos de snelle leerling de verdieping, hielp de structuur",
+          "Reflectie van 250 woorden: wat werkte en wat niet — waar gaf differentiatie meer leerlingen een ingang, en waar werd het versnippering of moest jíj alsnog beslissen wat AI niet kon"
+        ]
+      }
+    ],
+    "peerReview": {
+      "title": "Collega-feedback in drie vragen — vóór je het inzet",
+      "intro": "Vraag één collega — het liefst iemand met blik op passend onderwijs, taal of de zorgstructuur — om binnen drie werkdagen je herontwerp te bekijken vóór je het in de klas inzet. Geen oordeel, wel scherpe observaties langs drie vragen: is de drempel echt weg, klopt de inhoud nog, en zit er geen privacy- of inclusielek in?",
+      "questions": [
+        {
+          "vraag": "Leg de oude en de nieuwe versie naast elkaar: is de drempel die ik beschreef hier aantoonbaar lager geworden, of voelt het vooral anders zonder dat het toegankelijker is? Waar zou een leerling uit de doelgroep nog steeds vastlopen?",
+          "workspace": {
+            "field": "po7-review-vraag-1",
+            "label": "Antwoord collega op vraag 1 + wat jij ermee doet",
+            "shortLabel": "Review vraag 1",
+            "hint": "Waar ziet de collega nog een drempel · wat pas je aan vóór de inzet",
+            "placeholder": "Collega over de drempel: ...\nWat ik aanpas vóór de inzet: ...",
+            "rows": 5
+          }
+        },
+        {
+          "vraag": "Is de vakinhoud bij het toegankelijker maken intact gebleven, of heeft AI iets wezenlijks weggepoetst — een denkstap, een nuance, een leerdoel? En klopt de tweede representatie (alt-tekst, woordenlijst, variant) inhoudelijk echt?",
+          "workspace": {
+            "field": "po7-review-vraag-2",
+            "label": "Antwoord collega op vraag 2 + wat jij ermee doet",
+            "shortLabel": "Review vraag 2",
+            "hint": "Welke inhoud verschraalde of welke alt-tekst klopt net niet · jouw correctie",
+            "placeholder": "Collega over de inhoud: ...\nWat ik herstel: ...",
+            "rows": 5
+          }
+        },
+        {
+          "vraag": "Zit er ergens een privacy- of inclusielek? Heb ik per ongeluk iets over een specifieke leerling, een beperking of een ondersteuningsbehoefte in de AI gezet — en sluit deze oplossing per ongeluk een andere groep uit dan ik bedoelde?",
+          "workspace": {
+            "field": "po7-review-vraag-3",
+            "label": "Antwoord collega op vraag 3 + wat jij ermee doet",
+            "shortLabel": "Review vraag 3",
+            "hint": "Welk privacy- of uitsluitingsrisico ziet de collega · jouw aanpassing",
+            "placeholder": "Collega over privacy/inclusie: ...\nWat ik aanpas: ...",
+            "rows": 5
+          }
+        }
+      ]
+    },
+    "reflection": [
+      "Begon je herontwerp bij de drempel van een concrete leerling of bij de tool die je wilde proberen? Wat zou er anders zijn gegaan als je de andere route had genomen — en wat zegt dat over hoe je AVG en mens-centraal werken in de praktijk borgt?",
+      "Wat vertelde de check bij de doelgroep je dat je eigen oordeel over je herontwerp níet vertelde? Noem het concrete moment waarop een leerling iets liet zien dat jouw aanname onderuithaalde — en wat dat betekent voor hoe je voortaan toegankelijkheid toetst.",
+      "Universal Design zegt: ontwerp vooraf voor de breedte, niet achteraf voor de uitzondering. Welke van jouw aanpassingen zou je standaard in je materiaal opnemen voor álle leerlingen, en welke collega of sectieafspraak heb je nodig om dat van een eenmalige les een gewoonte te maken?"
+    ],
+    "nextLesson": ""
+  }
+};
+
 export const lessonDetails = {
   ...baseLessonDetails,
   ...batchModule1,
@@ -9030,6 +10614,7 @@ export const lessonDetails = {
   ...module4Details,
   ...module5Details,
   ...module6Details,
+  ...module7Details,
 };
 
 export const defaultLesson = (lesson, module) => ({

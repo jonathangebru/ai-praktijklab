@@ -10,6 +10,7 @@ import {
   GraduationCap,
   FlaskConical,
   Gauge,
+  Accessibility,
   LineChart,
   TrendingUp,
   LogOut,
@@ -32,6 +33,7 @@ const nav = [
       { to: "/modules/ai-beleid", label: "AI-beleid & de AI Act", icon: Scale, eyebrow: "Module 04" },
       { to: "/modules/groei-en-team", label: "Groei & team", icon: Users, eyebrow: "Module 05" },
       { to: "/modules/werkdruk-en-organisatie", label: "AI & werkdruk", icon: Gauge, eyebrow: "Module 06" },
+      { to: "/modules/toegankelijkheid-en-inclusie", label: "AI & toegankelijkheid", icon: Accessibility, eyebrow: "Module 07" },
     ],
   },
   {

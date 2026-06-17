@@ -351,6 +351,34 @@ export const modules = {
       { slug: "praktijkopdracht-6", number: "6.5", title: "Praktijkopdracht: herontwerp één werkdrukbron", duration: "3 uur", goal: "Je herontwerpt één werkdrukbron met AI, meet de tijdwinst en borgt de kwaliteit.", output: "Herontworpen workflow + tijdmeting", difficulty: "Praktijk" },
     ],
   },
+
+  "toegankelijkheid-en-inclusie": {
+    id: "toegankelijkheid-en-inclusie",
+    number: "07",
+    title: "AI & toegankelijkheid",
+    tagline: "Elke leerling bij de les — toegankelijk ontwerpen met AI",
+    level: "Verdieping",
+    audience: "vo · mbo · hbo",
+    durationWeeks: 4,
+    totalHours: "6–9 uur",
+    color: "sage",
+    intro:
+      "Toegankelijkheid is geen lapmiddel achteraf maar een ontwerpkeuze vooraf. Deze module leert je AI inzetten om lesmateriaal voor meer leerlingen bruikbaar te maken — teksten op niveau, meerdere representaties, ondersteunende technologie en differentiatie naar diverse leerbehoeften. De rode draad is mens-centraal: AI levert opties en haalt drempels weg, maar stelt geen diagnose en bepaalt niet welke ondersteuning een leerling nodig heeft. Jij kent de leerling en beslist; gegevens over een beperking of ondersteuningsbehoefte horen nooit in een AI-chatbot.",
+    learningOutcomes: [
+      "Je maakt bestaand lesmateriaal toegankelijker met AI volgens Universal Design for Learning.",
+      "Je koppelt ondersteunende technologie aan concrete drempels zonder het leerdoel te verlagen.",
+      "Je differentieert naar diverse leerbehoeften terwijl jij — niet AI — de leerling inschat en beslist.",
+      "Je maakt één eigen les aantoonbaar toegankelijker en toetst of de drempel echt weg is.",
+    ],
+    lessons: [
+      { slug: "toegankelijkheid-basis", number: "7.1", title: "Toegankelijk lesmateriaal met AI", duration: "60 min", goal: "Je maakt bestaand materiaal toegankelijker met AI volgens Universal Design for Learning.", output: "Toegankelijker werkblad + alt-teksten", difficulty: "Verdieping" },
+      { slug: "ondersteunende-technologie", number: "7.2", title: "Ondersteunende technologie en AI", duration: "60 min", goal: "Je koppelt ondersteunende technologie aan concrete drempels in je lessen.", output: "Drempel-naar-tool overzicht", difficulty: "Verdieping" },
+      { slug: "differentiatie-en-sen", number: "7.3", title: "Differentiëren voor diverse leerbehoeften", duration: "60 min", goal: "Je differentieert met AI naar diverse leerbehoeften terwijl jij de leerling inschat en beslist.", output: "Gedifferentieerde opdracht, gelijk leerdoel", difficulty: "Verdieping" },
+      { slug: "check-mod7", number: "✓9", title: "Kennischeck — toegankelijkheid getoetst", duration: "12 min", goal: "Test UDL, ondersteunende technologie en de grens van AI bij ondersteuningsbehoeften.", output: "Advies voor de praktijkopdracht", difficulty: "Tussencheck", isCheck: true },
+      { slug: "casus-inclusie-bias", number: "7.4", title: "Casus: inclusie, bias en de grens van AI", duration: "45 min", goal: "Je herkent bias in AI-output en bepaalt waar de grens van AI ligt bij ondersteuningsbehoeften.", output: "Eigen grenzen rond inclusie en AI", difficulty: "Verdieping" },
+      { slug: "praktijkopdracht-7", number: "7.5", title: "Praktijkopdracht: maak één les toegankelijker", duration: "3 uur", goal: "Je maakt één les aantoonbaar toegankelijker met AI en toetst of de drempel weg is.", output: "Toegankelijker gemaakte les + check", difficulty: "Praktijk" },
+    ],
+  },
 };
 
 export const moduleList = Object.values(modules);
