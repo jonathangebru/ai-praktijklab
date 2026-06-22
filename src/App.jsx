@@ -19,6 +19,7 @@ import { Analytics } from "./pages/Analytics";
 import { Privacy } from "./pages/Privacy";
 import { Toegankelijkheid } from "./pages/Toegankelijkheid";
 import { MijnVoortgang } from "./pages/MijnVoortgang";
+import { Paden } from "./pages/Paden";
 
 /* Tussenstaat terwijl /.auth/me wordt opgehaald. */
 function Splash() {
@@ -65,6 +66,7 @@ function AppRoutes() {
         <Route path="/" element={<Dashboard />} />
         <Route path="/intake" element={<Intake />} />
         <Route path="/voortgang" element={<MijnVoortgang />} />
+        <Route path="/leerpaden" element={<Paden />} />
         <Route path="/modules/basiscursus-ai" element={<Module1 />} />
         <Route path="/modules/ai-geletterdheid" element={<Module2 />} />
         <Route path="/modules/ai-geletterdheid-onderwijzen" element={<Module3 />} />
