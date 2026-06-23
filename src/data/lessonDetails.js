@@ -8515,7 +8515,7 @@ const module6Details = {
       "Ik blijf zelf de afzender: ik lees elk concept na op feiten en toon voordat ik verstuur.",
       "Mijn sjabloonkit is gebundeld, vindbaar opgeslagen en klaar voor gebruik."
     ],
-    "nextLesson": "check-mod6"
+    "nextLesson": "planning-en-materiaal"
   },
   "check-mod6": {
     "format": "kennischeck",
@@ -10085,7 +10085,7 @@ const module7Details = {
       "Ik heb gecontroleerd dat geen enkele route het leerdoel verlaagt.",
       "Ik heb één waarneembare check en een vervolgactie bepaald, en de evaluatie ligt bij mij, niet bij de tool."
     ],
-    "nextLesson": "check-mod7"
+    "nextLesson": "meertaligheid-nt2"
   },
   "check-mod7": {
     "format": "kennischeck",
@@ -11636,7 +11636,7 @@ const module8Details = {
       "Eigen werkdefinitie geschreven: voorspeller, geen wetende machine; geen database, geen rekenmachine",
       "Controle-checklist van 3-5 punten vastgelegd, inclusief de AVG-grens (geen leerlinggegevens in gratis consumenten-AI)"
     ],
-    "nextLesson": "check-mod8"
+    "nextLesson": "multimodaal-werken"
   },
   "check-mod8": {
     "format": "kennischeck",
@@ -12245,6 +12245,1082 @@ const module8Details = {
   }
 };
 
+
+/* ── Extra dieptelessen 6.4 / 7.4 / 8.4 (Fase 30) ───────────────── */
+const moduleExtraDetails = {
+  "planning-en-materiaal": {
+    "format": "diepteles",
+    "summary": "Je zet AI in voor de planmatige kant van je werk: een periode- of jaarplanning schetsen, een lessenreeks-skelet opzetten en bestaand lesmateriaal snel differentiëren naar meerdere niveaus. AI maakt de eerste versie, jij toetst op leerdoel, opbouw en haalbaarheid en bewaakt je kwaliteitsondergrens. Je legt vast waar de tijdwinst pas telt — als de kwaliteit minstens gelijk blijft — en bepaalt welke planningskeuzes je bewust zelf maakt. Aan het eind heb je een planningsskelet plus één werkblad in drie niveaus die je morgen kunt gebruiken.",
+    "duration": {
+      "total": "65 minuten",
+      "blocks": [
+        {
+          "label": "Aanleiding & kader",
+          "min": 8
+        },
+        {
+          "label": "Periodeplanning schetsen",
+          "min": 12
+        },
+        {
+          "label": "Lessenreeks-skelet bouwen",
+          "min": 12
+        },
+        {
+          "label": "Werkblad in drie niveaus",
+          "min": 14
+        },
+        {
+          "label": "Kwaliteitsondergrens vastleggen",
+          "min": 10
+        },
+        {
+          "label": "Wat je zelf plant & oplevering",
+          "min": 9
+        }
+      ]
+    },
+    "opening": {
+      "eyebrow": "Aanleiding",
+      "aanleiding": "Het is begin van een nieuwe periode en je staat voor een leeg sjabloon. Acht weken, één hoofdstuk, een toets aan het eind, en ergens halverwege een projectweek die je rooster doormidden hakt. Je weet ongeveer waar je naartoe wilt, maar het uitschrijven — week voor week, les voor les, met de juiste opbouw en genoeg lucht voor uitloop — kost je elke periode opnieuw een halve zaterdag. En als je eenmaal draait, merk je dat je voor de havo-klas hetzelfde werkblad gebruikt als voor de vmbo-klas, terwijl de helft het te makkelijk vindt en de andere helft afhaakt.\n\nDat is het patroon waar deze les over gaat. De tijd lekt niet weg in het bedenken wat er moet gebeuren — dat weet je als vakdocent vaak prima — maar in het uitschrijven, herschikken en in varianten gieten van plannen en materiaal. Precies dat vormwerk is waar AI een bruikbare eerste versie van kan leveren: een periodeplanning in een tabel, een lessenreeks-skelet met leerdoelen per les, drie niveauvarianten van hetzelfde werkblad. Wat AI níet kan, is weten dat jouw derde klas vorig jaar vastliep op de breuken, dat de meivakantie je week 6 inkort, of dat de havo-bovenbouw dit jaar uitzonderlijk zwak instroomt. Dat weet jij.\n\nDeze les gaat dus niet over AI die je planning maakt. Hij gaat over AI als snelle eerste-versie-maker, met jou als regisseur die toetst op leerdoel, opbouw en haalbaarheid. De rode draad is dezelfde als in les 6.1: tijdwinst telt pas als de kwaliteit minstens gelijk blijft, en jij blijft eindverantwoordelijk en afzender van wat er voor je leerlingen ligt.",
+      "waaromNu": "Lesmateriaal selecteren, maken en aanpassen, en het werk plannen, vallen in DigCompEdu onder Digital Resources en Professional Engagement: het doelgericht ontwerpen en organiseren van je onderwijs. AI versnelt het opstellen, maar verschuift het ontwerpoordeel niet. Of een lessenreeks logisch opbouwt naar het leerdoel, of een planning haalbaar is binnen jouw rooster en klas, en of een differentiatievariant écht een ander niveau raakt en niet alleen kortere zinnen heeft — dat zijn vakdidactische oordelen die bij jou blijven. Nu vrijwel elke docent dagelijks een AI-assistent binnen handbereik heeft, loont het om de planmatige routine één keer goed in te richten in plaats van hem elke periode opnieuw te improviseren."
+    },
+    "conceptueel": {
+      "eyebrow": "Conceptueel kader",
+      "intro": "De kern van planmatig docentwerk is een keten: van een globale jaarlijn, via een periodeplanning, naar een concrete lessenreeks, naar het materiaal voor de losse les. Op elk niveau neem je beslissingen — wat komt eerst, hoeveel tijd krijgt het, waar zit de toets, hoe differentieer je — en op elk niveau bestaat het werk uit een denkdeel (wat moet er gebeuren en waarom) en een vormdeel (het uitschrijven, herschikken, in een tabel of werkblad gieten). Het denkdeel is jouw vakdidactische oordeel. Het vormdeel is grotendeels delegeerbaar aan een opsteller.\n\nDaar zit precies de scheidslijn die deze les hanteert. AI is een snelle eerste-versie-maker: geef het een hoofdstuk, een aantal weken en een leerdoel, en je krijgt binnen een minuut een planningsskelet of een lessenreeks terug. Dat skelet is bijna nooit meteen goed — het kent jouw klas niet, jouw rooster niet, jouw uitloop niet — maar het is wél een bruikbaar vertrekpunt dat je veel sneller bijstuurt dan dat je vanaf nul begint. Jij bent de regisseur: je leest het skelet, toetst het op leerdoel, opbouw en haalbaarheid, en herschikt tot het klopt.\n\nDie drie toetsstenen keren steeds terug. Leerdoel: brengt deze planning of dit materiaal de leerling daadwerkelijk naar wat hij moet kunnen, of dwaalt het af naar wat toevallig leuk of makkelijk te maken is? Opbouw: lopen de stappen logisch op, bouwt elke les voort op de vorige, staat de toets op de juiste plek? Haalbaarheid: past het in de echte weken die je hebt, met vakanties, uitval en uitloop erin verwerkt, of is het een papieren ideaal dat in week 3 al spaak loopt? Een AI-skelet scoort vaak goed op opbouw maar slecht op haalbaarheid, omdat het je context niet kent.\n\nBij differentiatie komt daar een extra eis bij. AI kan moeiteloos drie versies van een werkblad maken, maar het verschil is vaak oppervlakkig: kortere zinnen, een plaatje erbij, een paar vragen minder. Echte differentiatie raakt het cognitieve niveau — de mate van zelfstandigheid, de complexiteit van de denkstap, de hoeveelheid ondersteuning (scaffolding) — niet alleen de opmaak. Hier helpt het kader van Universal Design for Learning (UDL): bied variatie in hoe leerlingen de stof aangereikt krijgen en hoe ze hun begrip kunnen tonen, zodat meer leerlingen hetzelfde leerdoel halen. AI levert de varianten; jij beoordeelt of ze echt een ander niveau bedienen. En omdat planning soms verleidt om leerlingnamen of ondersteuningsbehoeften mee te geven ('plan rekening houdend met de drie leerlingen met dyslexie in 2B'), geldt ook hier de AVG-regel: geen herleidbare leerlinggegevens in planning-prompts. Je plant op groepsniveau en in algemene termen; de individuele afstemming maak je zelf, op basis van wat jij over je leerlingen weet.",
+      "mentalModel": {
+        "naam": "Eerste-versie-maker en regisseur",
+        "beschrijving": "AI maakt de eerste versie van je planning of materiaal; jij bent de regisseur die hem op het scherm krijgt en bijstuurt. De maker levert snel een skelet of variant op basis van leerdoel, weken en niveau. De regisseur toetst dat op leerdoel, opbouw en haalbaarheid, herschikt naar de echte klas en het echte rooster, en bewaakt de kwaliteitsondergrens. De eerste versie is nooit het eindproduct — de regie maakt het bruikbaar."
+      },
+      "kernbegrippen": [
+        {
+          "term": "Planningsskelet",
+          "uitleg": "Een ruwe eerste versie van een periode- of jaarplanning met weken, onderwerpen en mijlpalen, bedoeld als vertrekpunt dat je bijstuurt — niet als kant-en-klare planning."
+        },
+        {
+          "term": "Drie toetsstenen",
+          "uitleg": "Leerdoel, opbouw en haalbaarheid: de drie vragen waarmee je elk AI-skelet beoordeelt — brengt het naar het leerdoel, loopt het logisch op, past het in je echte weken en klas?"
+        },
+        {
+          "term": "Echte differentiatie",
+          "uitleg": "Variatie die het cognitieve niveau en de ondersteuning raakt (denkstap, zelfstandigheid, scaffolding), niet alleen de opmaak zoals kortere zinnen of minder vragen."
+        },
+        {
+          "term": "Planning op groepsniveau",
+          "uitleg": "Je plant in algemene, geanonimiseerde termen ('een groep met een brede niveauspreiding') zonder namen of ondersteuningsbehoeften; de individuele afstemming maak jij, buiten de AI om."
+        }
+      ]
+    },
+    "learningGoals": [
+      "Je laat AI een periodeplanning schetsen en stuurt die bij op leerdoel, opbouw en haalbaarheid tot hij in je echte weken en klas past.",
+      "Je bouwt met AI een lessenreeks-skelet waarin elke les een helder leerdoel heeft dat voortbouwt op de vorige.",
+      "Je differentieert één bestaand werkblad in drie niveaus en beoordeelt of de varianten écht een ander cognitief niveau raken en niet alleen de opmaak.",
+      "Je legt je kwaliteitsondergrens voor planning en materiaal vast en bepaalt welke planningskeuzes je bewust zelf maakt zonder AI."
+    ],
+    "scenario": {
+      "title": "Werksituatie",
+      "context": "Je staat aan het begin van een nieuwe periode van acht weken en moet één hoofdstuk plannen voor twee parallelklassen met een verschillend niveau. Er ligt een toets aan het eind, een projectweek doorbreekt week 5, en je hebt een bestaand werkblad uit vorig jaar dat voor de ene klas te makkelijk en voor de andere te lastig is. Je wilt een werkbare periodeplanning, een lessenreeks-skelet en een werkblad in drie niveaus, zonder er een hele zaterdag aan kwijt te zijn.",
+      "role": "Vakdocent die zelf regisseur en eindverantwoordelijke blijft van planning en materiaal",
+      "tools": "Een AI-assistent via je school-account (oai-praktijklab of vergelijkbaar), je bestaande hoofdstuk- en toetsoverzicht, je roosterkalender met vakanties, en een document waarin je het planningsskelet en de werkbladvarianten bewaart."
+    },
+    "steps": [
+      {
+        "title": "Laat een periodeplanning schetsen en stuur hem bij",
+        "body": "Begin niet bij het lege sjabloon, maar geef AI de bouwstenen die jij al kent: het onderwerp, het aantal weken, het aantal lesuren per week, het einddoel en de toets, plus de momenten waarop je rooster doorbroken wordt. Vraag om een periodeplanning in een tabel met per week het onderwerp, het lesdoel en een mijlpaal. Het eerste skelet is een vertrekpunt, geen eindproduct: toets het meteen op je drie toetsstenen. Klopt de opbouw richting het leerdoel? Past het in je échte weken — met de vakantie en de projectweek erin? Is er ruimte voor uitloop, of staat elke week bomvol? Stuur bij door te benoemen wat er mis is en het AI te laten herschikken. Geef geen leerlingnamen of ondersteuningsbehoeften mee; je plant op groepsniveau.",
+        "time": "12 min",
+        "voorbeeld": "Prompt: 'Schets een periodeplanning voor 8 weken aardrijkskunde, hoofdstuk Klimaat, 2 lesuren per week, voor een havo-3-klas. Einddoel: leerlingen kunnen klimaatzones verklaren en koppelen aan menselijke activiteit. Toets in week 8. In week 5 is er een projectweek (geen reguliere lessen). Geef een tabel met per week: onderwerp, lesdoel, mijlpaal. Houd één week lucht voor uitloop.' Het skelet zette de toetsstof veel te laat; de docent stuurde bij: 'Schuif de moeilijke verklaringsstof naar voren, zodat week 7 een oefen- en herhaalweek wordt vóór de toets.'",
+        "workspace": {
+          "field": "periodeplanning-schets",
+          "label": "Plak het periodeplanning-skelet dat AI maakte en schrijf eronder wat je hebt bijgestuurd op leerdoel, opbouw of haalbaarheid. Benoem minstens één ding dat AI miste omdat het jouw klas of rooster niet kent.",
+          "shortLabel": "Periodeplanning",
+          "hint": "Geef AI de weken, lesuren, het einddoel, de toets en de roosteronderbrekingen. Toets het skelet op leerdoel, opbouw en haalbaarheid. Geen leerlingnamen of ondersteuningsbehoeften in de prompt.",
+          "placeholder": "PROMPT die ik gebruikte: ...\n\nSKELET (samengevat per week):\nWeek 1: ...\nWeek 2: ...\n\nBIJGESTUURD: AI miste [vakantie/uitloop/...]; ik heb [...] verschoven omdat ...",
+          "rows": 12,
+          "rubric": [
+            {
+              "name": "Bouwstenen meegegeven in prompt",
+              "good": "De prompt bevat weken, lesuren, einddoel, toets en roosteronderbrekingen, zodat het skelet realistisch is."
+            },
+            {
+              "name": "Getoetst op leerdoel en opbouw",
+              "good": "De docent beoordeelt of de planning logisch naar het leerdoel opbouwt en de toets op de juiste plek staat."
+            },
+            {
+              "name": "Haalbaarheid gecheckt",
+              "good": "Vakantie, projectweek en uitloop zijn in de echte weken verwerkt; geen papieren ideaal."
+            },
+            {
+              "name": "Eigen bijsturing benoemd",
+              "good": "De docent beschrijft minstens één concrete aanpassing die AI niet kon maken omdat het de context niet kent."
+            },
+            {
+              "name": "Geen herleidbare leerlinggegevens",
+              "good": "De planning blijft op groepsniveau; er staan geen namen of ondersteuningsbehoeften in de prompt."
+            }
+          ],
+          "referenceAnswer": "PROMPT die ik gebruikte: 'Schets een periodeplanning voor 8 weken aardrijkskunde, hoofdstuk Klimaat, 2 lesuren per week, havo-3. Einddoel: leerlingen kunnen klimaatzones verklaren en koppelen aan menselijke activiteit. Toets week 8. Week 5 is projectweek (geen reguliere lessen). Tabel met per week: onderwerp, lesdoel, mijlpaal. Houd één week lucht voor uitloop. Geen leerlingnamen.'\n\nSKELET (samengevat per week): W1 introductie klimaat vs. weer; W2 klimaatzones benoemen; W3 oorzaken klimaatverschillen; W4 verklaren met breedteligging/zeestromen; W5 projectweek (geen les); W6 menselijke invloed; W7 herhaling + oefentoets; W8 toets.\n\nBIJGESTUURD: AI plande aanvankelijk de zwaarste verklaringsstof (W4) vlak vóór de projectweek, waardoor er een gat van twee weken viel tussen aanleren en oefenen. Dat kent het systeem niet — het weet niet dat mijn klas dit type stof snel weer kwijt is. Ik heb de oefenmomenten naar W3 en W4 zelf gehaald en W7 als volledige herhaalweek vóór de toets ingericht. Ook miste het skelet dat W2 een korte week is door een studiemiddag; ik heb daar het lesdoel ingekort tot alleen 'zones herkennen'. De planning blijft op groepsniveau: de drie leerlingen die extra ondersteuning nodig hebben, regel ik zelf binnen de les, niet in de prompt."
+        }
+      },
+      {
+        "title": "Bouw een lessenreeks-skelet met een leerdoel per les",
+        "body": "Zoom in van de periode naar de afzonderlijke lessen. Laat AI een lessenreeks-skelet maken: per les een helder, toetsbaar leerdoel, een korte opbouw (introductie, kern, afsluiting) en de werkvorm. De belangrijkste toets hier is de opbouw: bouwt elke les voort op de vorige, en brengt de reeks de leerling stap voor stap naar het periodedoel? AI maakt geregeld lessen die los van elkaar staan of die te veel in één les proppen. Jij herkent dat, omdat jij weet hoeveel een klas in vijftig minuten echt verwerkt. Schrap, splits of voeg samen tot de reeks ademt. Let ook op of de leerdoelen écht toetsbaar zijn ('de leerling kan...') en niet vaag ('de leerling maakt kennis met...').",
+        "time": "12 min",
+        "voorbeeld": "Prompt: 'Werk week 3 en 4 uit tot een lessenreeks van vier lessen van 50 minuten over het verklaren van klimaatverschillen. Per les: één toetsbaar leerdoel (de leerling kan...), opbouw in introductie/kern/afsluiting, en een werkvorm. Bouw op van herkennen naar zelfstandig verklaren.' AI propte drie verklaringsfactoren in les 1; de docent splitste dat: 'Behandel in les 1 alleen breedteligging, in les 2 zeestromen, zodat leerlingen elke factor eerst los begrijpen voordat ze combineren.'",
+        "workspace": {
+          "field": "lessenreeks-skelet",
+          "label": "Plak het lessenreeks-skelet (vier tot vijf lessen) en markeer per les het leerdoel. Schrijf eronder waar je de opbouw hebt bijgestuurd: welke les was te vol, welk leerdoel te vaag, waar miste de doorbouw?",
+          "shortLabel": "Lessenreeks",
+          "hint": "Toets vooral de opbouw: bouwt elke les voort op de vorige en zijn de leerdoelen toetsbaar ('de leerling kan...')? Een AI-reeks propt vaak te veel in één les.",
+          "placeholder": "LES 1 — leerdoel: ... | opbouw: ... | werkvorm: ...\nLES 2 — leerdoel: ...\nLES 3 — ...\nLES 4 — ...\n\nBIJGESTUURD: les [x] was te vol → gesplitst; leerdoel les [y] was vaag → herschreven als 'de leerling kan...'; doorbouw ontbrak tussen ...",
+          "rows": 12,
+          "rubric": [
+            {
+              "name": "Toetsbaar leerdoel per les",
+              "good": "Elke les heeft een concreet, toetsbaar leerdoel in 'de leerling kan...'-vorm, geen vage kennismaking."
+            },
+            {
+              "name": "Logische doorbouw",
+              "good": "De lessen bouwen aantoonbaar op elkaar voort, van herkennen naar zelfstandig toepassen."
+            },
+            {
+              "name": "Realistische lesbelasting",
+              "good": "Geen les is overladen; de docent heeft te volle lessen herkend en gesplitst of geschrapt."
+            },
+            {
+              "name": "Eigen regie zichtbaar",
+              "good": "De docent benoemt concrete ingrepen op de AI-opbouw, niet alleen instemming met het skelet."
+            }
+          ],
+          "referenceAnswer": "LES 1 — leerdoel: de leerling kan uitleggen hoe breedteligging de temperatuur beïnvloedt. | opbouw: intro met wereldkaart / kern: breedteligging stap voor stap / afsluiting: drie locaties ordenen. | werkvorm: klassikale uitleg + duo-opdracht.\nLES 2 — leerdoel: de leerling kan de invloed van zeestromen op het klimaat beschrijven. | werkvorm: animatie + invuldiagram.\nLES 3 — leerdoel: de leerling kan breedteligging en zeestromen combineren om een klimaat te verklaren. | werkvorm: casusopdracht in tweetallen.\nLES 4 — leerdoel: de leerling kan zelfstandig een onbekend klimaat verklaren met beide factoren. | werkvorm: individuele oefentoetsvraag + nabespreking.\n\nBIJGESTUURD: AI zette in les 1 drie factoren tegelijk (breedteligging, zeestromen, hoogteligging). Dat is te veel voor 50 minuten en doorbreekt de opbouw; ik heb het gesplitst zodat elke factor eerst los wordt begrepen. Het oorspronkelijke leerdoel van les 4 was 'de leerling maakt kennis met klimaatverklaring' — te vaag en niet toetsbaar — herschreven naar 'zelfstandig een onbekend klimaat verklaren'. Hoogteligging heb ik bewust uit deze reeks gelaten; die hoort in het volgende deelhoofdstuk, anders wordt de toets te breed."
+        }
+      },
+      {
+        "title": "Differentieer één werkblad in drie niveaus",
+        "body": "Pak een bestaand werkblad — een dat je vorig jaar gebruikte — en laat AI er drie niveauvarianten van maken: een basisversie met meer ondersteuning, de standaardversie, en een verdiepende versie. Geef expliciet mee wat de niveaus moeten onderscheiden: niet alleen kortere zinnen, maar de mate van zelfstandigheid, het aantal denkstappen en de hoeveelheid scaffolding (voorbeelden, tussenstappen, een ingevuld begin). Hier is de toets het scherpst: AI levert vaak nepdifferentiatie — dezelfde vragen met grotere letters. Beoordeel of de basisversie écht meer steun geeft en de verdiepende versie écht een grotere denkstap vraagt, allemaal naar hetzelfde leerdoel. Dit sluit aan bij UDL: meer leerlingen halen hetzelfde doel via verschillende routes. AVG: het werkblad bevat geen leerlinggegevens, en je benoemt de doelgroep in algemene termen, niet als 'voor de zwakke leerlingen in 2B'.",
+        "time": "14 min",
+        "voorbeeld": "Prompt: 'Maak van dit werkblad over klimaatverklaring drie niveauversies, allemaal gericht op hetzelfde leerdoel. Basis: meer scaffolding (een uitgewerkt voorbeeld vooraf, tussenstappen ingevuld, kleinere denkstappen). Standaard: zoals het origineel. Verdieping: minder steun, een open transferopdracht met een onbekende casus. Verander niet alleen de opmaak maar het cognitieve niveau.' De basisversie kreeg een ingevuld voorbeeld en stapsgewijze vragen; de docent zag dat de verdiepingsversie alleen een vraag had toegevoegd en stuurde bij: 'Vervang de laatste vraag door een casus zonder gegeven antwoordstructuur, zodat de leerling zelf de aanpak kiest.'",
+        "workspace": {
+          "field": "werkblad-drie-niveaus",
+          "label": "Beschrijf het bestaande werkblad kort en plak (of vat samen) de drie niveauversies die AI maakte. Beoordeel per versie of het verschil écht het cognitieve niveau raakt of alleen de opmaak. Wat heb je bijgestuurd?",
+          "shortLabel": "Differentiatie",
+          "hint": "Echte differentiatie zit in zelfstandigheid, denkstappen en scaffolding — niet in lettergrootte of een plaatje. Toets of basis méér steun geeft en verdieping een grótere denkstap vraagt, naar hetzelfde leerdoel.",
+          "placeholder": "ORIGINEEL WERKBLAD (onderwerp + leerdoel): ...\n\nBASIS: wat onderscheidt het echt? ...\nSTANDAARD: ...\nVERDIEPING: wat onderscheidt het echt? ...\n\nNEPDIFFERENTIATIE die ik herkende: ...\nBIJGESTUURD: ...",
+          "rows": 13,
+          "rubric": [
+            {
+              "name": "Eén leerdoel, drie routes",
+              "good": "Alle drie de versies richten zich op hetzelfde leerdoel; alleen de route ernaartoe verschilt."
+            },
+            {
+              "name": "Echt cognitief verschil",
+              "good": "Basis biedt aantoonbaar meer scaffolding en verdieping vraagt een grotere denkstap, niet enkel andere opmaak."
+            },
+            {
+              "name": "Nepdifferentiatie herkend",
+              "good": "De docent benoemt minstens één plek waar AI alleen de vorm veranderde en stuurt dat bij."
+            },
+            {
+              "name": "UDL-gedachte toegepast",
+              "good": "De varianten laten meer leerlingen hetzelfde doel halen via verschillende ondersteuning of toepassing."
+            },
+            {
+              "name": "AVG en algemene doelgroep",
+              "good": "Geen leerlinggegevens in het materiaal; de doelgroep is in algemene termen benoemd, niet als individuen."
+            }
+          ],
+          "referenceAnswer": "ORIGINEEL WERKBLAD (onderwerp + leerdoel): vijf vragen waarbij de leerling van vijf steden het klimaat verklaart met breedteligging en zeestromen. Leerdoel: de leerling kan een klimaat verklaren met beide factoren.\n\nBASIS: bovenaan een volledig uitgewerkt voorbeeld (één stad, stap voor stap voorgedaan). De vragen zijn opgeknipt in deelvragen ('1a Op welke breedte ligt de stad? 1b Warm of koud zeestroom? 1c Combineer.'), met een woordbank van vaktermen. Dit geeft echt meer steun, niet alleen kortere zinnen.\n\nSTANDAARD: het origineel; de leerling verklaart zelfstandig zonder tussenstappen.\n\nVERDIEPING: één onbekende casus (een fictieve stad met alleen coördinaten en een kaartfragment), zonder gegeven antwoordstructuur — de leerling kiest zelf de aanpak en moet ook een tegenintuïtief geval verklaren (warme stad op hoge breedte door een warme zeestroom).\n\nNEPDIFFERENTIATIE die ik herkende: AI's eerste verdiepingsversie was simpelweg het standaardwerkblad met één extra vraag en een groter lettertype — zelfde denkniveau. Geschrapt.\n\nBIJGESTUURD: verdieping vervangen door de open transfercasus hierboven, zodat de denkstap echt groter is. Bij de basisversie heb ik de woordbank zelf toegevoegd, omdat AI vaktermen zonder uitleg liet staan. De doelgroep noem ik 'leerlingen die nog steun bij de tussenstappen nodig hebben', niet bij naam of klas — ik koppel de versies pas in de les zelf aan individuele leerlingen, op basis van wat ik over ze weet."
+        }
+      },
+      {
+        "title": "Leg je kwaliteitsondergrens voor planning en materiaal vast",
+        "body": "Tijdwinst telt pas als de kwaliteit minstens gelijk blijft. Maak dat concreet voor planning en materiaal: schrijf op wat het minimumniveau is waaronder je een AI-skelet of -werkblad niet de klas in laat gaan. Denk aan eisen als: elk leerdoel is toetsbaar en gekoppeld aan het periodedoel; de planning past in de echte weken inclusief uitloop; elke differentiatieversie raakt aantoonbaar een ander niveau; er staan geen feitelijke fouten of verzonnen voorbeelden in. Deze ondergrens is je rem: haalt een AI-product hem niet na jouw bijsturing, dan gebruik je het niet, hoe snel het ook ging. Zo voorkom je dat tijdwinst stilletjes kwaliteitsverlies wordt — extra herstelwerk later of zwakker onderwijs nu.",
+        "time": "10 min",
+        "voorbeeld": "Een docent legde vast: '(1) Elke les heeft een toetsbaar leerdoel dat naar de toets leidt. (2) De planning heeft minstens één uitloopweek en houdt rekening met vakanties. (3) Elke differentiatieversie verschilt in denkstap of scaffolding, niet alleen in opmaak. (4) Ik heb elk werkblad zelf nagerekend/nagelezen op fouten. Haalt het dit niet, dan ga ik er zelf overheen of gebruik ik mijn oude versie.'",
+        "workspace": {
+          "field": "kwaliteitsondergrens-planning",
+          "label": "Leg je kwaliteitsondergrens vast voor AI-gemaakte planning en materiaal: vier tot zes concrete eisen waaronder je het niet de klas in laat gaan. Maak elke eis controleerbaar.",
+          "shortLabel": "Ondergrens",
+          "hint": "Een goede ondergrens is een checklist die je kunt afvinken, geen vaag voornemen. Denk aan toetsbaarheid van leerdoelen, haalbaarheid van de planning, echte differentiatie en feitelijke juistheid.",
+          "placeholder": "MIJN ONDERGRENS — AI-planning/materiaal gaat pas de klas in als:\n1. ...\n2. ...\n3. ...\n4. ...\nAls het dit niet haalt na mijn bijsturing: ...",
+          "rows": 9,
+          "rubric": [
+            {
+              "name": "Vier tot zes concrete eisen",
+              "good": "De ondergrens bestaat uit controleerbare eisen, niet uit algemene wensen als 'goede kwaliteit'."
+            },
+            {
+              "name": "Leerdoel en opbouw geborgd",
+              "good": "Minstens één eis bewaakt toetsbare leerdoelen en de koppeling aan het periode-/toetsdoel."
+            },
+            {
+              "name": "Haalbaarheid en differentiatie",
+              "good": "Eisen borgen dat de planning in de echte weken past en dat differentiatie echt niveau raakt."
+            },
+            {
+              "name": "Feitelijke controle",
+              "good": "Er is een eis dat de docent het materiaal zelf op fouten en verzonnen voorbeelden controleert."
+            },
+            {
+              "name": "Heldere remwerking",
+              "good": "Het is duidelijk wat er gebeurt als een product de ondergrens niet haalt: niet gebruiken of zelf herstellen."
+            }
+          ],
+          "referenceAnswer": "MIJN ONDERGRENS — AI-planning/materiaal gaat pas de klas in als:\n1. Elke les en elk werkblad heeft een toetsbaar leerdoel ('de leerling kan...') dat aantoonbaar naar het periode- en toetsdoel leidt.\n2. De periodeplanning past in mijn echte weken: vakanties en roosteronderbrekingen zijn verwerkt en er is minstens één uitloopweek.\n3. Elke differentiatieversie verschilt in denkstap, zelfstandigheid of scaffolding — niet alleen in opmaak; ik kan per versie benoemen wát het niveauverschil is.\n4. Ik heb het materiaal zelf nagelezen op feitelijke fouten en verzonnen voorbeelden; geen enkel voorbeeld of gegeven gaat ongecontroleerd de klas in.\n5. Er staan geen herleidbare leerlinggegevens in en de differentiatie is op groepsniveau geformuleerd.\n\nAls het dit niet haalt na mijn bijsturing: ik gebruik het niet. Dan val ik terug op mijn beproefde versie van vorig jaar of schrijf het deel dat rammelt zelf. Snel maar onder mijn ondergrens kost me later meer tijd dan het oplevert."
+        }
+      },
+      {
+        "title": "Bepaal bewust wat je zélf plant",
+        "body": "Niet alles wat je kunt delegeren, moet je delegeren. Sommige planningskeuzes zijn het hart van je vakmanschap en wil je bewust zelf maken — niet omdat AI ze niet kan opschrijven, maar omdat het oordeel erachter van jou moet komen. Denk aan: waar je de moeilijke stof plaatst op basis van wat jouw klas vorig jaar lastig vond, hoe je een gevoelig of complex onderwerp opbouwt, welke leerling je bij welke differentiatieversie zet, en waar je bewust ruimte laat voor wat de klas op dat moment nodig heeft. Schrijf op welke planningskeuzes voor jou in dit blok 'eigen werk' zijn en waarom. Zo houd je AI in zijn rol van eerste-versie-maker en bewaak je dat jij de regisseur blijft, ook als de tijdwinst verleidt om alles uit handen te geven.",
+        "time": "9 min",
+        "voorbeeld": "Een docent noteerde: 'Het AI-skelet en de werkbladen laat ik maken en stuur ik bij. Maar drie dingen plan ik zelf: (1) waar de breuken-stof komt, want die liep vorig jaar vast en moet vroeg en met extra herhaling; (2) de koppeling leerling-niveauversie, want dat ken ik en mag niet in een prompt; (3) een lege bufferles in week 4, omdat ik weet dat deze klas tegen die tijd verzadigd raakt.'",
+        "workspace": {
+          "field": "zelf-plannen",
+          "label": "Benoem drie tot vier planningskeuzes in dit blok die je bewust zelf maakt, zonder AI, en leg per keuze uit waarom dat oordeel bij jou hoort.",
+          "shortLabel": "Zelf plannen",
+          "hint": "Zoek de keuzes die jouw kennis van déze klas, dit vak of deze leerlingen vragen — daar waar AI alleen een algemeen skelet kan leveren. De koppeling leerling-niveau hoort hier altijd thuis (AVG).",
+          "placeholder": "DIT PLAN IK ZELF:\n1. ... — omdat ...\n2. ... — omdat ...\n3. ... — omdat ...\nWAT AI WEL MAG: ...",
+          "rows": 9,
+          "rubric": [
+            {
+              "name": "Drie tot vier eigen keuzes",
+              "good": "De docent benoemt concrete planningskeuzes die hij bewust zelf maakt, geen vage categorieën."
+            },
+            {
+              "name": "Onderbouwd vanuit context",
+              "good": "Per keuze is duidelijk waarom het oordeel kennis van de klas, het vak of de leerling vereist."
+            },
+            {
+              "name": "Leerling-niveaukoppeling zelf",
+              "good": "Het koppelen van leerlingen aan differentiatieversies wordt als eigen, niet-delegeerbaar werk benoemd (AVG)."
+            },
+            {
+              "name": "Rolverdeling helder",
+              "good": "Het is duidelijk wat AI wél mag voorbereiden, zodat de scheidslijn met het eigen werk scherp is."
+            }
+          ],
+          "referenceAnswer": "DIT PLAN IK ZELF:\n1. De plaatsing van de zwaarste verklaringsstof — omdat ik weet dat mijn havo-3 die vorig jaar pas in de tweede ronde echt snapte; ik zet hem vroeg en plan extra herhaling, iets wat een algemeen AI-skelet niet kan weten.\n2. Welke leerling welke werkbladversie krijgt — omdat dit oordeel berust op wat ik over individuele leerlingen weet, en die gegevens horen sowieso niet in een AI-prompt (AVG). De koppeling maak ik in de les, in mijn eigen administratie.\n3. Een lege bufferles in week 4 — omdat ik aanvoel dat deze klas rond die tijd verzadigd raakt en een adempauze nodig heeft; dat is regie op het ritme, geen planbaar gegeven.\n4. De opbouw van de klimaat-en-armoede-context — een gevoelig onderwerp dat ik zelf wil kaderen, omdat de toon en de voorbeelden afhangen van wie er in mijn klas zit.\n\nWAT AI WEL MAG: het periodeskelet schetsen, het lessenreeks-raamwerk opzetten en de drie werkbladversies als eerste versie maken. Ik blijf de regisseur die bijstuurt, koppelt en de eindbeslissing neemt."
+        }
+      }
+    ],
+    "vakvariaties": [
+      {
+        "vak": "Talen (vo)",
+        "body": "De talendocent laat AI een lessenreeks rond een leesvaardigheidsthema schetsen en differentieert één tekstopdracht in drie niveaus: basis met woordhulp en geleide vragen, standaard, en verdieping met een open analysevraag bij een ongekende tekst. De docent controleert of de teksten qua niveau kloppen en of de moeilijkere versie echt meer taalbeschouwing vraagt, niet alleen een langere tekst."
+      },
+      {
+        "vak": "Exacte vakken (vo/havo-vwo)",
+        "body": "De wiskundedocent laat een periodeplanning schetsen waarin oefentijd en toetsstof slim verdeeld zijn, en differentieert een sommenblad: basis met uitgewerkte voorbeeldsommen en tussenstappen, verdieping met bewijs- of transferopgaven. Cruciaal is dat de docent élke som zelf narekent — AI maakt rekenfouten en verzint soms onmogelijke opgaven."
+      },
+      {
+        "vak": "Beroepsgericht (mbo)",
+        "body": "De mbo-docent plant een lessenreeks rond een beroepsproduct en laat AI een opdrachtkaart in twee niveaus maken: een met meer voorgestructureerde stappen voor beginnende studenten en een met een open beroepsopdracht voor gevorderden. De koppeling aan kwalificatie-eisen en de beoordeling van het eindproduct blijven docentwerk."
+      },
+      {
+        "vak": "Zaakvakken / mens & maatschappij (vo)",
+        "body": "De docent geschiedenis of aardrijkskunde laat een hoofdstukplanning schetsen met bronopdrachten en differentieert een bronnenanalyse: basis met geleide vragen bij de bron, verdieping met een vergelijking van twee bronnen en een eigen standpunt. De docent waakt dat de bronnen kloppen en niet door AI verzonnen of verkeerd toegeschreven zijn."
+      },
+      {
+        "vak": "Lerarenopleiding (hbo)",
+        "body": "De hbo-docent gebruikt AI om een moduleplanning en een lessenreeks voor aanstaande docenten te schetsen, en differentieert een opdracht naar studiejaar: een sterker gescaffolde versie voor eerstejaars, een onderzoeksmatige voor ouderejaars. Tegelijk modelleert de docent het regisseursgedrag hardop, zodat studenten zien hoe je een AI-skelet kritisch bijstuurt in plaats van overneemt."
+      }
+    ],
+    "valkuilen": [
+      {
+        "titel": "Het AI-skelet klakkeloos overnemen",
+        "watGebeurtEr": "De planning ziet er compleet en netjes uit, dus je gebruikt hem zoals hij is. In week 3 loopt het spaak: de toetsstof staat te laat, er is geen uitloop, en de vakantie is genegeerd. De tijdwinst verdampt in reparatiewerk.",
+        "fix": "Behandel elk skelet als een eerste versie. Toets het altijd op je drie toetsstenen — leerdoel, opbouw, haalbaarheid — en verwerk je echte weken, vakanties en uitloop voordat je het vastlegt."
+      },
+      {
+        "titel": "Nepdifferentiatie aanzien voor differentiatie",
+        "watGebeurtEr": "AI levert drie versies die alleen verschillen in lettergrootte, zinslengte of aantal vragen. Het cognitieve niveau is identiek, dus de sterke leerlingen vervelen zich nog steeds en de zwakke leerlingen krijgen niet meer steun.",
+        "fix": "Vraag expliciet om verschil in denkstap, zelfstandigheid en scaffolding, en controleer per versie wát het niveauverschil is. Kun je dat niet benoemen, dan is het geen echte differentiatie en stuur je bij."
+      },
+      {
+        "titel": "Leerlinggegevens in de planning-prompt",
+        "watGebeurtEr": "Je geeft AI mee 'plan rekening houdend met de drie leerlingen met dyslexie en de zorgleerling in 2B'. Dat zijn bijzondere persoonsgegevens in een publieke AI-omgeving — een datalek waarvoor jij verantwoordelijk bent.",
+        "fix": "Plan op groepsniveau en in algemene termen ('een groep met een brede niveauspreiding'). De koppeling van individuele leerlingen aan versies of aanpak maak je zelf, buiten de AI om, in je eigen administratie."
+      },
+      {
+        "titel": "Vage leerdoelen die niets sturen",
+        "watGebeurtEr": "Het lessenreeks-skelet zit vol doelen als 'de leerling maakt kennis met...' of 'de leerling ervaart...'. Die zijn niet toetsbaar, dus je weet aan het eind van de les niet of het geland is en de toets sluit niet aan.",
+        "fix": "Eis toetsbare leerdoelen in 'de leerling kan...'-vorm, gekoppeld aan het periode- en toetsdoel. Herschrijf elk vaag doel voordat je de reeks vastlegt."
+      },
+      {
+        "titel": "Tijdwinst als doel op zich nemen",
+        "watGebeurtEr": "Omdat het zo snel ging, accepteer je een planning of werkblad dat onder je gebruikelijke niveau zit. Het scheelde een uur, maar het onderwijs is zwakker en dat merk je pas bij de toetsresultaten.",
+        "fix": "Houd je kwaliteitsondergrens als rem. Tijdwinst telt alleen als de kwaliteit minstens gelijk blijft. Haalt een AI-product die grens niet na bijsturing, dan gebruik je het niet."
+      }
+    ],
+    "eindcriteria": [
+      {
+        "criterium": "Periodeplanning haalbaar",
+        "onder": "AI-skelet overgenomen zonder rekening te houden met echte weken, vakanties of uitloop.",
+        "op": "Planning bijgestuurd tot hij in de echte weken past, inclusief uitloop en roosteronderbrekingen.",
+        "boven": "+ Planning bewust afgestemd op wat déze klas vorig jaar lastig vond, met herhaling op de juiste plek."
+      },
+      {
+        "criterium": "Lessenreeks opgebouwd",
+        "onder": "Losse lessen met vage of niet-toetsbare doelen; geen duidelijke doorbouw.",
+        "op": "Elke les heeft een toetsbaar leerdoel en de reeks bouwt logisch op naar het periodedoel.",
+        "boven": "+ Te volle lessen herkend en gesplitst; de reeks ademt en sluit naadloos aan op de toets."
+      },
+      {
+        "criterium": "Echte differentiatie",
+        "onder": "Drie versies die alleen in opmaak verschillen; zelfde cognitieve niveau.",
+        "op": "Drie versies die in denkstap, zelfstandigheid of scaffolding verschillen, naar hetzelfde leerdoel.",
+        "boven": "+ Per versie benoemd wát het niveauverschil is, met UDL-onderbouwing, en op groepsniveau geformuleerd."
+      },
+      {
+        "criterium": "Kwaliteit geborgd",
+        "onder": "Tijdwinst gepakt zonder controle; feiten en differentiatie ongecontroleerd de klas in.",
+        "op": "Een vastgelegde ondergrens met controleerbare eisen die het materiaal moet halen vóór gebruik.",
+        "boven": "+ De ondergrens werkt als echte rem: producten die hem niet halen worden niet gebruikt of zelf hersteld."
+      }
+    ],
+    "reflection": [
+      "Bij welke van de drie toetsstenen — leerdoel, opbouw of haalbaarheid — bleek het AI-skelet het zwakst, en wat zegt dat over wat AI van jouw context niet kan weten?",
+      "Welke planningskeuze besloot je bewust zelf te maken, en wat zou er verloren gaan als je die toch aan AI had overgelaten?",
+      "Waar lag voor jou in dit blok het kantelpunt waarop tijdwinst zou omslaan in kwaliteitsverlies, en hoe ga je dat in de drukte van een nieuwe periode bewaken?"
+    ],
+    "checklist": [
+      "Ik heb AI een periodeplanning laten schetsen en bijgestuurd op leerdoel, opbouw en haalbaarheid.",
+      "Mijn planning past in de echte weken, met vakanties, roosteronderbrekingen en minstens één uitloopweek.",
+      "Ik heb een lessenreeks-skelet waarin elke les een toetsbaar leerdoel heeft dat voortbouwt op de vorige.",
+      "Ik heb één bestaand werkblad in drie niveaus gedifferentieerd die écht in cognitief niveau verschillen.",
+      "Ik heb nepdifferentiatie herkend en bijgestuurd waar AI alleen de opmaak veranderde.",
+      "Er staan geen herleidbare leerlinggegevens of ondersteuningsbehoeften in mijn planning-prompts.",
+      "Ik heb mijn kwaliteitsondergrens voor planning en materiaal vastgelegd als controleerbare eisen.",
+      "Ik heb bepaald welke planningskeuzes ik bewust zelf maak en blijf de regisseur en eindverantwoordelijke."
+    ],
+    "nextLesson": "check-mod6"
+  },
+  "meertaligheid-nt2": {
+    "format": "diepteles",
+    "summary": "Je zet AI in om taalbarrières te verlagen voor NT2-leerlingen en nieuwkomers zonder de vakinhoud te verschralen: je vereenvoudigt een vaktekst naar taalniveau 2F en checkt of de inhoud klopt, maakt een meertalige woordhulp, en biedt instructies in een tweede taal aan terwijl het Nederlandse leerdoel overeind blijft. Onderweg bewaak je zelf de vakbegrippen — AI-vertaling slaat die geregeld mis — en je legt vast waar de grens ligt: AI ondersteunt de taal, jij beoordeelt de inhoud en kent de leerling. Je levert toegankelijk gemaakt materiaal plus een AVG-check op die je meteen kunt gebruiken. Het mentale model dat blijft hangen: je voegt taalroutes toe naar dezelfde bestemming, je haalt geen inhoud weg.",
+    "duration": {
+      "total": "60 minuten",
+      "blocks": [
+        {
+          "label": "Aanleiding",
+          "min": 6
+        },
+        {
+          "label": "Conceptueel kader",
+          "min": 10
+        },
+        {
+          "label": "Tekst naar 2F + inhoudscheck",
+          "min": 12
+        },
+        {
+          "label": "Meertalige woordhulp",
+          "min": 12
+        },
+        {
+          "label": "Instructie in tweede taal",
+          "min": 12
+        },
+        {
+          "label": "AVG-check + grens vastleggen",
+          "min": 8
+        }
+      ]
+    },
+    "opening": {
+      "eyebrow": "Aanleiding",
+      "aanleiding": "Een docent biologie in een gemengde mbo-klas Zorg & Welzijn deelt een opdracht uit over hygiëne en infectiepreventie. Twee weken geleden is er een nieuwkomer ingestroomd — een student uit Syrië die in eigen land al een jaar verpleegkunde deed, het vak dus kent, maar het Nederlands nog nauwelijks leest. Naast haar zit een student die hier opgroeide maar thuis Turks spreekt en met geschreven vaktaal worstelt. De opdracht begint met 'Beschrijf de transmissieroute van een nosocomiale infectie en motiveer de bijbehorende interventie.' De nieuwkomer kent het concept — ze heeft het in het Arabisch geleerd — maar komt niet door de zin. De inhoud is binnen bereik; de taal staat ervoor.\n\nDit is een ander probleem dan een leerling die de stof te moeilijk vindt. Hier is de stof juist haalbaar — soms al beheerst — en blokkeert alleen de taal de toegang. De reflex is dan om de opdracht 'makkelijker' te maken: de term eruit, de motivatievraag schrappen, een invuloefening ervoor in de plaats. Daarmee verlaag je het leerdoel en doe je de nieuwkomer tekort, want zij kan de denkstap wél maken. Wat ze nodig heeft is geen lagere lat, maar een taalroute naar diezelfde lat.\n\nAI verandert wat hier in een tussenuur haalbaar is. Een vaktekst naar een lager taalniveau zetten, een woordhulp Nederlands-Arabisch-Turks bij de kernbegrippen maken, een instructie naast het Nederlands ook in een tweede taal aanbieden — dat was vroeger onmogelijk zonder een tolk of een vertaler, en is nu een kwartier werk. Niet omdat AI het vak overneemt, maar omdat het het taalwerk doet terwijl jij de vakbegrippen bewaakt. Deze les leert je dat inzetten — en, even belangrijk, zien waar de machine een vakterm de verkeerde kant op vertaalt.",
+      "waaromNu": "Dit sluit direct aan op UDL uit les 7.1: je voegt routes toe naar dezelfde inhoud, je haalt geen inhoud weg. Taal is voor NT2-leerlingen en nieuwkomers vaak de drempel die UDL 'meerdere representaties' moet wegnemen. Het DigCompEdu-raamwerk plaatst dit onder 'Empowering Learners' — toegankelijkheid, inclusie en differentiatie — en de UNESCO human-centred mindset houdt de grens scherp: AI vergroot de taaltoegang, maar de docent kent de leerling, beoordeelt de vakinhoud en beslist. Nu de tools meertalige ondersteuning binnen handbereik brengen, kun je nieuwkomers bij de vakinhoud houden in plaats van ze met een verschraalde versie aan de kant te zetten."
+    },
+    "conceptueel": {
+      "eyebrow": "Conceptueel kader",
+      "intro": "Voor NT2-leerlingen en nieuwkomers loopt de drempel bijna altijd over de taal, niet over de denkstap. Dat onderscheid is de kern van deze les. 'De stof is te moeilijk' vraagt om iets aan de inhoud doen; 'de taal staat voor de stof' vraagt om iets aan de taal doen. Verwar je die twee, dan verlaag je het leerdoel voor een leerling die de inhoud juist aankan — en dat is precies wat je niet wilt. Een nieuwkomer die in eigen land al wiskunde, scheikunde of verpleegkunde deed, heeft geen makkelijker vak nodig maar een ingang die niet over een muur van Nederlandse vaktaal loopt.\n\nDit is dezelfde beweging als UDL in les 7.1: routes toevoegen, niet inhoud weghalen. Waar je daar een tweede taalniveau of een schema toevoegde, voeg je hier een taalroute toe — een vereenvoudigde Nederlandse versie, een meertalige woordhulp, een instructie in de moedertaal. De bestemming blijft het Nederlandse leerdoel. De leerling moet uiteindelijk in het Nederlands kunnen functioneren; de tweede taal is een steiger naar dat doel, geen vervanging ervan. Een woordhulp Nederlands-Arabisch is geen omweg om het Nederlands heen, maar een brug erheen.\n\nHier doet AI zijn werk — en hier ligt ook zijn grootste valkuil. Een vaktekst naar 2F herschrijven, een begrippenlijst in drie talen genereren, een opdracht vertalen: dat is precies herformuleer- en vertaalwerk waar taalmodellen goed in zijn. Maar AI-vertaling kan vakbegrippen verkeerd vertalen, en dat zie je niet als je de doeltaal niet beheerst. 'Evenwichtsprijs', 'celdeling', 'transmissieroute' — een model kiest soms een dagelijks woord waar een vakterm hoort, of een term uit een ander domein. Het ziet er vloeiend uit en is vakinhoudelijk fout. De grens van deze module loopt hier dwars doorheen: AI ondersteunt de taal, jij beoordeelt de vakinhoud. Controleren blijft jouw werk, ook — juist — bij vertaling.\n\nEn dan de allerscherpste grens, die hier bijzondere persoonsgegevens raakt. Dát je materiaal toegankelijker maakt, doe je voor je klas in het algemeen. Maar 'deze leerling is een nieuwkomer uit land X', 'die leerling heeft een taalachterstand' of 'die heeft NT2-ondersteuning nodig' zijn gegevens over een individuele leerling en over een ondersteuningsbehoefte — dat zijn (bijzondere) persoonsgegevens en die horen niet in een gratis consumenten-AI. Je voert alleen lesmateriaal in. Je ontwerpt meertalige routes omdat je je groep kent, niet door iemands achtergrond in een chatbot te typen. En de keuze welke route bij wélke leerling past, is jouw observatie en beslissing — niet die van AI.",
+      "mentalModel": {
+        "naam": "Taalroute naar dezelfde lat",
+        "beschrijving": "Voor een NT2-leerling of nieuwkomer is de taal de drempel, niet de inhoud. Je legt daarom een extra taalroute aan — een eenvoudiger Nederlandse versie, een meertalige woordhulp, een instructie in de moedertaal — naar exact dezelfde bestemming: het Nederlandse leerdoel. Je verlaagt de lat niet, je bouwt er een ingang naartoe. AI legt die taalroute snel aan; jij bewaakt dat de vakbegrippen onderweg niet sneuvelen en dat de route bij hét Nederlandse doel uitkomt."
+      },
+      "kernbegrippen": [
+        {
+          "term": "NT2 (Nederlands als tweede taal)",
+          "uitleg": "Leerlingen die Nederlands als tweede taal leren — vaak naast een sterke moedertaal en, bij nieuwkomers, soms naast vakkennis die in een andere taal is opgebouwd. De taal is de drempel, niet per se de denkstap."
+        },
+        {
+          "term": "Taalniveau (referentieniveaus, 2F)",
+          "uitleg": "De NL-referentieniveaus (zoals 1F, 2F, 3F) beschrijven hoe complex tekst is qua woordenschat en zinsbouw. Een tekst naar 2F brengen verlaagt de taaldrempel — kortere zinnen, frequentere woorden — zonder de vakinhoud te schrappen."
+        },
+        {
+          "term": "Meertalige woordhulp",
+          "uitleg": "Een korte lijst kernbegrippen met de Nederlandse vakterm naast de vertaling in de moedertaal én een eenvoudige Nederlandse omschrijving. Een brug náár het Nederlands, geen vervanging ervan."
+        },
+        {
+          "term": "Brontaal-steiger naar het leerdoel",
+          "uitleg": "Ondersteuning in de moedertaal (een vertaalde instructie, een begrip in de eigen taal) als tijdelijke steiger waarmee de leerling de Nederlandse vakinhoud bereikt — het Nederlandse leerdoel blijft het eindpunt, de tweede taal is het hulpmiddel."
+        }
+      ]
+    },
+    "learningGoals": [
+      "Je herschrijft met AI een eigen vaktekst naar referentieniveau 2F en controleert systematisch of elke vakterm en elke vakinhoudelijke nuance overeind blijft.",
+      "Je maakt met AI een meertalige woordhulp bij de kernbegrippen van een les en checkt of de vakterm correct is vertaald, of laat dit door een betrouwbare bron of native spreker verifiëren.",
+      "Je biedt een instructie of opdracht in een tweede taal aan terwijl het Nederlandse leerdoel het eindpunt blijft, en je bepaalt waar de tweede taal steiger is en waar het Nederlands moet blijven.",
+      "Je voert een AVG-check uit op je werkwijze en legt vast waar de grens ligt: AI ondersteunt de taal, geen herleidbare leerlinggegevens of ondersteuningsbehoeften in een gratis consumenten-AI, jij beoordeelt de vakinhoud."
+    ],
+    "scenario": {
+      "title": "Werksituatie",
+      "context": "Je hebt een les met een NT2-leerling, een recent ingestroomde nieuwkomer of een groep waarin de Nederlandse vaktaal voor een deel de drempel is — niet de inhoud. Je pakt één bestaande tekst of opdracht en maakt die toegankelijker langs de taal: een versie op 2F, een meertalige woordhulp bij de kernbegrippen, en een instructie die je ook in een tweede taal aanbiedt. Het Nederlandse leerdoel blijft staan; AI is het taalgereedschap en jouw vakblik is de rem.",
+      "role": "Docent · vo, mbo of hbo — elk vak met NT2-leerlingen of nieuwkomers",
+      "tools": "Eén bestaande vaktekst of opdracht (digitaal) · een AI-chatbot via je school-/werkaccount · de NL-referentieniveaus taal als ijkpunt · zo mogelijk een betrouwbare bron of native spreker om vertalingen van vaktermen te verifiëren"
+    },
+    "steps": [
+      {
+        "title": "Herschrijf de vaktekst naar 2F en check de inhoud",
+        "body": "Pak je vaktekst en geef AI alleen het lesmateriaal — geen leerlinggegevens — met de opdracht om naar een concreet lager referentieniveau te herschrijven, bijvoorbeeld van 3F naar 2F. Wees expliciet: kortere zinnen, één gedachte per zin, frequentere woorden voor de gewone taal, maar vaktermen behouden en bij eerste gebruik kort uitleggen. Het sleutelwoord is 'vereenvoudig de taal, niet de inhoud' — precies de UDL-lijn uit les 7.1. Dan komt het belangrijkste, dat je zelf doet: leg de twee versies naast elkaar en controleer term voor term of de vakinhoud klopt. Is een vakterm stilletjes een dagelijks woord geworden? Is een nuance verdwenen die er wél toe deed? Hier ligt de grens: AI vereenvoudigt de taal, jij bewaakt de vakinhoud.",
+        "time": "12 min",
+        "voorbeeld": "Tekst mbo Zorg & Welzijn over infectiepreventie, niveau 3F. Prompt: 'Hieronder staat een tekst over infectiepreventie voor mbo niveau 3. Herschrijf op referentieniveau 2F: korte zinnen, één gedachte per zin, voeg tussenkopjes toe. Behoud de vaktermen transmissieroute, nosocomiale infectie en interventie; leg elke term bij eerste gebruik in maximaal acht woorden uit. Verander niets aan de vakinhoud — alleen de taal mag eenvoudiger. [tekst]'. Controle achteraf: AI had 'nosocomiale infectie' uitgelegd als 'een infectie die je krijgt' — te vaag, want het gaat juist om een infectie die in een zorginstelling ontstaat. Bijgesteld naar 'een infectie die je oploopt in een zorginstelling'. Daarnaast had AI 'interventie' vervangen door 'wat je doet'; teruggezet als vakterm met de uitleg 'de maatregel die je neemt'.",
+        "workspace": {
+          "field": "meertaligheid-tekst-2f",
+          "label": "Mijn 2F-prompt + vakinhoudelijke controle",
+          "shortLabel": "Tekst naar 2F",
+          "hint": "Plak je prompt (met doelniveau + 'inhoud intact') · noteer minstens twee plekken waar je de vakinhoud hebt gecheckt of bijgesteld",
+          "placeholder": "Prompt (doelniveau 2F + 'vaktermen behouden, inhoud intact'): ...\nGecheckt: term/nuance ... — klopt / bijgesteld naar ...\nGecheckt: term/nuance ... — klopt / bijgesteld naar ...",
+          "rows": 7,
+          "rubric": [
+            {
+              "name": "Concreet doelniveau in prompt",
+              "good": "De prompt noemt een specifiek referentieniveau (bv. 2F) en vraagt expliciet om vaktermen te behouden en bij eerste gebruik kort uit te leggen."
+            },
+            {
+              "name": "Taal eenvoudiger, inhoud intact",
+              "good": "De prompt zegt nadrukkelijk dat alleen de taal eenvoudiger mag en dat de vakinhoud niet vereenvoudigd of geschrapt wordt."
+            },
+            {
+              "name": "Term-voor-term-controle door docent",
+              "good": "De docent heeft minstens twee vaktermen of nuances nagelopen en aangegeven of ze kloppen of zijn bijgesteld — niet klakkeloos overgenomen."
+            },
+            {
+              "name": "Geen leerlinggegevens ingevoerd",
+              "good": "Alleen lesmateriaal is ingevoerd; geen herkomst, taalachtergrond of ondersteuningsbehoefte van een leerling."
+            }
+          ],
+          "referenceAnswer": "Prompt: 'Hieronder staat een tekst over infectiepreventie voor mbo niveau 3. Herschrijf op referentieniveau 2F: korte zinnen, één gedachte per zin, voeg tussenkopjes toe. Behoud de vaktermen transmissieroute, nosocomiale infectie en interventie; leg elke term bij eerste gebruik in maximaal acht woorden uit. Verander niets aan de vakinhoud — alleen de taal mag eenvoudiger. [tekst]'. Gecheckt: 'nosocomiale infectie' — AI gaf 'een infectie die je krijgt', te vaag; bijgesteld naar 'een infectie die je oploopt in een zorginstelling'. Gecheckt: 'interventie' — AI had de vakterm vervangen door 'wat je doet'; teruggezet als 'interventie' met uitleg 'de maatregel die je neemt'. Gecheckt: 'transmissieroute' — AI behield de term en gaf 'de weg waarlangs een ziektekiem zich verspreidt', klopt, behouden. Alleen het lesmateriaal ingevoerd, geen gegevens over een leerling of zijn achtergrond."
+        }
+      },
+      {
+        "title": "Maak een meertalige woordhulp bij de kernbegrippen",
+        "body": "Een eenvoudiger Nederlandse versie is één route; een nieuwkomer die de kernbegrippen in zijn moedertaal al kent, heeft baat bij een brug daartussen. Laat AI een woordhulp maken bij de tien tot vijftien kernbegrippen van je les: de Nederlandse vakterm, een eenvoudige Nederlandse omschrijving én de vertaling in de moedertaal van je leerling. Dat is een brug náár het Nederlands, geen vervanging ervan — de Nederlandse term staat altijd vooraan, want dat is het doel. Hier komt de eerlijkheid over wat AI niet kan: een vertaling die er vloeiend uitziet, kan een vakterm verkeerd kiezen, en als je de doeltaal niet leest, zie je dat niet. Markeer daarom welke vertalingen je vakinhoudelijk niet kunt verifiëren, en laat die zo mogelijk checken door een betrouwbare bron of een native spreker. AVG: voer alleen de begrippen in, niet voor wélke leerling deze hulp is bedoeld.",
+        "time": "12 min",
+        "voorbeeld": "Aardrijkskunde 2 vmbo, thema klimaat, voor een Oekraïens-talige nieuwkomer. Prompt: 'Maak een woordhulp bij deze tien aardrijkskundetermen. Geef per term: 1) de Nederlandse vakterm, 2) een uitleg in eenvoudig Nederlands van max. tien woorden, 3) de Oekraïense vertaling. Het is voor een aardrijkskundeles, vertaal de termen in die vakbetekenis. [termen]'. Controle: bij 'neerslag' gaf AI een Oekraïens woord dat ook 'sediment/bezinksel' kan betekenen — een andere vakbetekenis. Omdat ik het Oekraïens niet lees, heb ik dit gemarkeerd en aan een Oekraïens-talige collega gevraagd; die bevestigde dat de meteorologische term een andere was. Aangepast. Dit laat zien waarom je vertalingen van vaktermen niet blind kunt vertrouwen.",
+        "workspace": {
+          "field": "meertaligheid-woordhulp",
+          "label": "Meertalige woordhulp + verificatie",
+          "shortLabel": "Woordhulp",
+          "hint": "Plak de prompt + enkele rijen (NL-term · NL-uitleg · vertaling) · markeer welke vertalingen je niet zelf kunt verifiëren en hoe je die checkt",
+          "placeholder": "Prompt: ...\nWoordhulp (NL-term · eenvoudige uitleg · vertaling): ...\nNiet zelf te verifiëren: ... — gecheckt via ... / nog te checken",
+          "rows": 7,
+          "rubric": [
+            {
+              "name": "NL-term vooraan als doel",
+              "good": "Elke rij begint met de Nederlandse vakterm plus een eenvoudige Nederlandse uitleg; de vertaling is een brug náár het Nederlands, niet de hoofdzaak."
+            },
+            {
+              "name": "Vakbetekenis gevraagd",
+              "good": "De prompt vraagt expliciet om de vertaling in de vakbetekenis (niet de dagelijkse betekenis) en noemt het vak/de context."
+            },
+            {
+              "name": "Eerlijk over niet-verifieerbare vertaling",
+              "good": "De docent markeert welke vertalingen hij zelf niet kan verifiëren en regelt een check (betrouwbare bron of native spreker), in plaats van ze blind over te nemen."
+            },
+            {
+              "name": "AVG: alleen begrippen ingevoerd",
+              "good": "Alleen de vakbegrippen zijn ingevoerd; niet voor welke individuele leerling of welke taalachtergrond de hulp bedoeld is, in een gratis consumenten-AI."
+            }
+          ],
+          "referenceAnswer": "Prompt: 'Maak een woordhulp bij deze tien aardrijkskundetermen voor een klimaatles in 2 vmbo. Geef per term: 1) de Nederlandse vakterm, 2) een uitleg in eenvoudig Nederlands van max. tien woorden, 3) de Oekraïense vertaling in de aardrijkskundige vakbetekenis. [termen]'. Voorbeeldrijen: 'neerslag · water dat uit de lucht naar beneden valt · [Oekr.]'; 'klimaat · het gemiddelde weer over veel jaren · [Oekr.]'; 'broeikaseffect · warmte die in de dampkring blijft hangen · [Oekr.]'. Niet zelf te verifiëren: alle Oekraïense vertalingen — ik lees geen Oekraïens. 'Neerslag' bleek door AI vertaald met een woord dat ook 'bezinksel' betekent; gemarkeerd en gecheckt bij een Oekraïens-talige collega, die de juiste meteorologische term gaf — aangepast. De overige termen laat ik dezelfde collega nalopen voordat ik de woordhulp uitdeel. Alleen de begrippen ingevoerd, niet voor welke leerling de hulp bedoeld is."
+        }
+      },
+      {
+        "title": "Bied de instructie aan in een tweede taal — met behoud van het Nederlandse leerdoel",
+        "body": "Een nieuwkomer kan op een opdracht vastlopen op de instructie, terwijl de denktaak zelf haalbaar is. Laat AI daarom de instructie of opdrachtomschrijving naast het Nederlands ook in de moedertaal aanbieden — niet om het Nederlands te omzeilen, maar zodat de leerling weet wat er gevraagd wordt en de denkstap in het Nederlands kan maken. Bepaal hierbij bewust de grens: wat blijft Nederlands (het leerdoel, de termen die de leerling moet leren, het antwoord) en waar is de tweede taal alleen een steiger (de procedurele instructie, de context)? De doeltaal als steiger, het Nederlands als bestemming. Zet de talen naast elkaar, niet in plaats van elkaar — zodat de leerling de stap naar het Nederlands blijft maken. Controleer ook hier de vertaling van vaktermen voor je het uitdeelt.",
+        "time": "12 min",
+        "voorbeeld": "Wiskunde 3 havo, een toepassingsopdracht over de stelling van Pythagoras, voor een Arabisch-talige nieuwkomer die het concept in eigen land beheerste. Aanpak: de procedurele instructie ('Bereken de lengte van de schuine zijde. Rond af op één decimaal. Schrijf je berekening op.') bied ik tweetalig aan — Nederlands met daaronder Arabisch — zodat ze weet wát te doen. Maar de term 'rechthoekszijde', 'schuine zijde' en het antwoord houd ik Nederlands, want dat is het leerdoel en daar wordt ze op getoetst. Zo bereikt ze via de Arabische steiger het Nederlandse doel, in plaats van de hele opgave in het Arabisch te maken en het Nederlands over te slaan. De Arabische vertaling van 'schuine zijde' heb ik laten checken; AI had eerst een term gekozen die 'helling' betekent.",
+        "workspace": {
+          "field": "meertaligheid-tweetalige-instructie",
+          "label": "Tweetalige instructie + grens leerdoel",
+          "shortLabel": "Tweede taal",
+          "hint": "Noteer: wat bied je in twee talen aan (steiger) · wat blijft Nederlands (leerdoel) · welke vertaling heb je gecheckt",
+          "placeholder": "Tweetalig (steiger): ...\nBlijft Nederlands (leerdoel): ...\nVakterm-vertaling gecheckt: ... — klopt / bijgesteld\nWaarom dit het Nederlandse leerdoel intact laat: ...",
+          "rows": 7,
+          "rubric": [
+            {
+              "name": "Tweede taal als steiger, niet als vervanging",
+              "good": "De tweede taal ondersteunt de procedurele instructie/context; de talen staan naast elkaar zodat de leerling de stap naar het Nederlands blijft maken."
+            },
+            {
+              "name": "Nederlands leerdoel blijft het eindpunt",
+              "good": "De docent benoemt expliciet wat Nederlands blijft (leerdoel, te leren vaktermen, het antwoord/de toets) — de lat wordt niet verlaagd."
+            },
+            {
+              "name": "Vakterm-vertaling gecontroleerd",
+              "good": "De vertaling van de vaktermen is gecheckt of gemarkeerd als nog te verifiëren, niet blind uitgedeeld."
+            },
+            {
+              "name": "AVG-bewust",
+              "good": "Alleen de instructie/opdracht is ingevoerd; geen gegevens over welke leerling dit is of welke taalachtergrond hij heeft."
+            }
+          ],
+          "referenceAnswer": "Tweetalig (steiger): de procedurele instructie 'Bereken de lengte van de schuine zijde. Rond af op één decimaal. Schrijf je berekening op.' bied ik aan in het Nederlands met daaronder de Arabische vertaling, zodat de leerling weet wát gevraagd wordt. Blijft Nederlands (leerdoel): de vaktermen 'rechthoekszijde' en 'schuine zijde', de berekening en het antwoord — daar wordt de leerling op getoetst, dus die maakt ze in het Nederlands. Vakterm-vertaling gecheckt: de Arabische vertaling van 'schuine zijde' gaf AI eerst als een woord dat 'helling' betekent; gecheckt bij een Arabisch-talige collega en bijgesteld naar de meetkundige term. Waarom dit het Nederlandse leerdoel intact laat: de tweede taal helpt haar de opdracht begrijpen, maar de denkstap, de termen en het antwoord blijven Nederlands — ze bereikt via de steiger hetzelfde leerdoel als de rest van de klas. Alleen de opdracht ingevoerd, geen gegevens over de leerling."
+        }
+      },
+      {
+        "title": "Voer de AVG-check uit",
+        "body": "Deze les raakt bijzondere persoonsgegevens, dus de AVG-check is geen formaliteit. Loop je hele werkwijze na op één vraag: heb ik op enig moment iets ingevoerd dat herleidbaar is tot een individuele leerling of tot een ondersteuningsbehoefte? 'Maak materiaal voor mijn nieuwkomer uit Eritrea met een taalachterstand' is precies wat niet mag in een gratis consumenten-AI: het zegt iets over de herkomst en de ondersteuningsbehoefte van een aanwijsbaar persoon. Je voert alleen lesmateriaal en losse begrippen in. Onderscheid daarbij de gratis consumentenversie (waar je niets persoonlijks invoert) van een eventuele school- of AVG-conforme omgeving met een verwerkersovereenkomst — maar zelfs daar geldt: dataminimalisatie, en gegevens over een ondersteuningsbehoefte horen er niet zomaar in. Leg vast hoe je het deed en hoe je het anoniem hield.",
+        "time": "4 min",
+        "voorbeeld": "AVG-check van een talendocent: 'Ik heb de teksten, opdrachten en begrippenlijsten ingevoerd zonder te vermelden voor wie. Ik heb de doeltaal in algemene termen gekozen (Arabisch, Oekraïens) op basis van mijn klas, niet door te typen dat leerling X uit land Y komt of NT2-ondersteuning krijgt. Ik gebruik de gratis consumentenversie, dus ik voer principieel niets persoonlijks in. Had ik een school-AVG-omgeving gehad, dan nog hield ik gegevens over een taalachterstand of ondersteuningsbehoefte erbuiten — dat is mijn observatie, niet iets voor de tool.'",
+        "workspace": {
+          "field": "meertaligheid-avg-check",
+          "label": "Mijn AVG-check",
+          "shortLabel": "AVG-check",
+          "hint": "Noteer: wat heb je wél ingevoerd · wat hield je eruit (herkomst, taalachterstand, ondersteuningsbehoefte) · gratis vs. AVG-conforme omgeving",
+          "placeholder": "Wel ingevoerd: ...\nBewust eruit gehouden (herleidbaar / ondersteuningsbehoefte): ...\nOmgeving: gratis consumentenversie / school-AVG-omgeving — gevolg: ...",
+          "rows": 6,
+          "rubric": [
+            {
+              "name": "Geen herleidbare leerlinggegevens",
+              "good": "Alleen lesmateriaal en begrippen ingevoerd; geen naam, herkomst of andere herleidbare gegevens van een individuele leerling."
+            },
+            {
+              "name": "Geen ondersteuningsbehoefte ingevoerd",
+              "good": "Expliciet benoemd dat een taalachterstand of NT2-/ondersteuningsbehoefte als (bijzonder) persoonsgegeven buiten de AI is gehouden."
+            },
+            {
+              "name": "Onderscheid gratis vs. AVG-omgeving",
+              "good": "De docent maakt onderscheid tussen de gratis consumentenversie en een school-/AVG-conforme omgeving en past het gedrag daarop aan, met dataminimalisatie als grondhouding."
+            },
+            {
+              "name": "Doeltaal in algemene termen gekozen",
+              "good": "De keuze voor een doeltaal is in algemene termen gemaakt (op basis van de groep), niet door de herkomst van een aanwijsbare leerling in te voeren."
+            }
+          ],
+          "referenceAnswer": "Wel ingevoerd: de teksten, opdrachten en losse begrippenlijsten — puur lesmateriaal. Bewust eruit gehouden: dat het materiaal voor een specifieke nieuwkomer is, uit welk land die komt, en dat er een taalachterstand of NT2-ondersteuningsbehoefte speelt — dat zijn (bijzondere) persoonsgegevens over een aanwijsbaar persoon en die gaan niet de AI in. De doeltaal (Arabisch) heb ik in algemene termen gekozen op basis van mijn groep, niet door de herkomst van leerling X te typen. Omgeving: ik gebruik de gratis consumentenversie, dus ik voer principieel niets persoonlijks in. Had ik een school-AVG-conforme omgeving met verwerkersovereenkomst gehad, dan nog hield ik de ondersteuningsbehoefte erbuiten en paste ik dataminimalisatie toe — wie wat nodig heeft is mijn observatie, niet iets voor de tool."
+        }
+      },
+      {
+        "title": "Bepaal waar je de grens legt",
+        "body": "Sluit af met de vraag die deze les mens-centraal houdt: waar ligt de grens tussen wat AI doet en wat van jou blijft? Formuleer drie tot vijf punten die je voortaan vasthoudt bij meertalige ondersteuning. Denk aan: AI ondersteunt de taal, ik beoordeel de vakinhoud; vertalingen van vaktermen check ik of laat ik verifiëren; de tweede taal is een steiger, het Nederlandse leerdoel blijft het eindpunt; geen herleidbare leerlinggegevens of ondersteuningsbehoeften in een gratis consumenten-AI. Voeg de scherpste toe: ik kén de leerling — of de denkstap haalbaar is en welke taalroute past, is mijn inschatting, niet die van AI. Dit lijstje is je grens voor de volgende keer, zodat je niet per les opnieuw hoeft af te wegen.",
+        "time": "4 min",
+        "voorbeeld": "Grenslijst van een docent burgerschap: 1. AI vereenvoudigt en vertaalt; ik beoordeel of de vakinhoud en de vaktermen kloppen. 2. Vertalingen die ik niet zelf lees, markeer ik en laat ik checken — ik deel ze niet blind uit. 3. De moedertaal is een steiger naar het Nederlandse leerdoel; het antwoord en de te leren termen blijven Nederlands. 4. Ik voer nooit in voor wélke leerling materiaal is of dat iemand een taalachterstand heeft. 5. Of de denkstap haalbaar is en welke route past, beslis ik op basis van wat ik in de klas zie — AI levert het ruwe materiaal, ik ken de leerling.",
+        "workspace": {
+          "field": "meertaligheid-grens",
+          "label": "Waar ik de grens leg",
+          "shortLabel": "Grens",
+          "hint": "3-5 punten die je vasthoudt · inclusief de mens-grens (jij kent de leerling, beoordeelt de inhoud, beslist) en de AVG-grens",
+          "placeholder": "1. AI doet de taal, ik beoordeel ...\n2. Vertaling vaktermen: ...\n3. Tweede taal = steiger, Nederlands = ...\n4. AVG: ...\n5. (mens-grens) Ik ken de leerling: ...",
+          "rows": 6,
+          "rubric": [
+            {
+              "name": "Taal vs. vakinhoud afgebakend",
+              "good": "Minstens één punt legt vast dat AI de taal ondersteunt maar de docent de vakinhoud en vaktermen beoordeelt."
+            },
+            {
+              "name": "Vertaalcontrole geborgd",
+              "good": "Eén punt borgt dat vertalingen van vaktermen worden gecontroleerd of geverifieerd, niet blind overgenomen."
+            },
+            {
+              "name": "Steiger vs. Nederlands leerdoel",
+              "good": "Eén punt houdt vast dat de tweede taal een steiger is en het Nederlandse leerdoel het eindpunt blijft — de lat wordt niet verlaagd."
+            },
+            {
+              "name": "Mens- en AVG-grens opgenomen",
+              "good": "De lijst bevat de AVG-grens (geen herleidbare gegevens/ondersteuningsbehoefte in gratis consumenten-AI) én erkent dat de docent de leerling kent en beslist."
+            }
+          ],
+          "referenceAnswer": "1. AI vereenvoudigt en vertaalt de taal; ik beoordeel of de vakinhoud en de vaktermen kloppen — dat blijft mijn werk. 2. Vertalingen van vaktermen die ik niet zelf lees, markeer ik en laat ik checken door een betrouwbare bron of native spreker; ik deel niets ongeverifieerds uit. 3. De moedertaal is een steiger naar het Nederlandse leerdoel; de te leren termen en het antwoord blijven Nederlands, zodat ik de lat niet verlaag maar er een ingang naartoe bouw. 4. AVG: ik voer nooit in voor wélke leerling het materiaal is, uit welk land iemand komt of dat er een taalachterstand of ondersteuningsbehoefte speelt — niet in de gratis consumentenversie, en met dataminimalisatie ook niet zomaar in een school-AVG-omgeving. 5. (mens-grens) Of de denkstap voor déze leerling haalbaar is en welke taalroute past, beslis ik op basis van wat ik in de klas zie — AI levert opties en ruw materiaal, ik ken de leerling en beoordeel de inhoud."
+        }
+      }
+    ],
+    "vakvariaties": [
+      {
+        "vak": "Talen · vo en mbo",
+        "body": "Bij talen is meertaligheid dubbel oppassen: je wilt instructie en context toegankelijk maken, maar het bronfragment in de doeltaal én de te leren Nederlandse structuren moeten juist intact blijven. Laat AI de opdrachtomschrijving vereenvoudigen of vertalen, niet het te analyseren fragment. Een woordhulp werkt sterk, maar bij talen is de vertaling van een grammaticale term (bijvoorbeeld 'lijdend voorwerp') extra foutgevoelig — laat die verifiëren."
+      },
+      {
+        "vak": "Exacte vakken · vo bovenbouw en mbo",
+        "body": "Vaktermen, symbolen en formules zijn niet-onderhandelbaar en mogen door geen enkele taalingreep 'versimpelen'. Richt de vereenvoudiging en de vertaling op de contexttekst rond de som en op de procedurele instructie. Nieuwkomers die het vak in eigen land deden, profiteren juist hier: het concept zit er vaak al, alleen de Nederlandse termen en de opdrachttaal vormen de drempel. Een tweetalige instructie naast een Nederlands antwoord houdt het leerdoel scherp."
+      },
+      {
+        "vak": "Beroepsgerichte vakken · mbo",
+        "body": "Werk vanuit de beroepscontext: een werkinstructie of casus mag toegankelijker en zo nodig tweetalig, maar de vakterm die de student straks op de werkvloer en in de Nederlandse beroepspraktijk hoort, blijft Nederlands. Een meertalige woordhulp bij de beroepsterminologie helpt enorm, maar verifieer de vertaling — een verkeerd vertaalde veiligheids- of zorgterm is op de werkvloer geen detail."
+      },
+      {
+        "vak": "Zaakvakken · vo (burgerschap, geschiedenis, aardrijkskunde)",
+        "body": "Hier is veel begrippentaal en context die voor nieuwkomers een hoge drempel vormt, terwijl de denkstappen vaak goed te volgen zijn. Een meertalige woordhulp bij abstracte begrippen ('democratie', 'industrialisatie', 'neerslag' in de vakbetekenis) maakt veel los. Let op begrippen die in de moedertaal een andere lading hebben — laat die vertalingen checken voordat je ze uitdeelt."
+      },
+      {
+        "vak": "Hbo · propedeuse, elk domein en de ISK-doorstroom",
+        "body": "Studenten lopen sterk uiteen in academische taalvaardigheid en taalachtergrond; sommigen stromen door uit het anderstalig onderwijs of de ISK. Bied een vakinhoudelijk artikel in twee taalniveaus en een begrippenschema als ingang, en gebruik een tweede taal als tijdelijke steiger richting de Nederlandse academische taal. Bewaak dat de academische kern — definities, argumentatiestructuur, de te beheersen Nederlandse vaktaal — het eindpunt blijft."
+      }
+    ],
+    "valkuilen": [
+      {
+        "titel": "Vertaling van een vakterm blind vertrouwen",
+        "watGebeurtEr": "AI levert een vloeiende vertaling en je deelt die uit zonder te checken, omdat je de doeltaal niet leest. Maar het model koos een dagelijks woord waar een vakterm hoorde, of een term uit een ander domein — 'neerslag' werd 'bezinksel', 'schuine zijde' werd 'helling'. De leerling leert het vak verkeerd in zijn eigen taal.",
+        "fix": "Behandel een vertaalde vakterm net zo kritisch als een vereenvoudigde Nederlandse term. Vraag in de prompt expliciet om de vakbetekenis, markeer wat je niet zelf kunt verifiëren, en laat het checken door een betrouwbare bron of native spreker voordat je het uitdeelt. Controleren blijft jouw werk, ook bij vertaling."
+      },
+      {
+        "titel": "Taal vereenvoudigen en de inhoud meeslepen",
+        "watGebeurtEr": "AI maakt de tekst lekker leesbaar door vaktermen te vervangen door dagelijkse woorden — 'interventie' wordt 'wat je doet', 'transmissieroute' verdwijnt. De NT2-leerling leest het vlot en mist juist de term die in de toets en op de werkvloer terugkomt.",
+        "fix": "Schrijf in je prompt: behoud de vaktermen, leg ze bij eerste gebruik kort uit, vereenvoudig alleen de zinsbouw. Controleer daarna term voor term — dezelfde UDL-lijn als in 7.1: je verlaagt de taaldrempel, je haalt de inhoud niet weg."
+      },
+      {
+        "titel": "De tweede taal het Nederlandse leerdoel laten vervangen",
+        "watGebeurtEr": "Je biedt de hele opdracht én het antwoordveld in de moedertaal aan. De leerling maakt de opgave comfortabel in zijn eigen taal en oefent het Nederlands juist níét — terwijl Nederlands functioneren het uiteindelijke doel is. De steiger is een omweg om het doel heen geworden.",
+        "fix": "Houd de tweede taal bij de instructie en context (de steiger) en laat het leerdoel, de te leren termen en het antwoord Nederlands. Zet de talen naast elkaar, niet in plaats van elkaar, zodat de leerling de stap naar het Nederlands blijft maken."
+      },
+      {
+        "titel": "Een ondersteuningsbehoefte of herkomst de chatbot in voeren",
+        "watGebeurtEr": "Om 'beter passend' materiaal te krijgen typ je 'maak dit voor mijn nieuwkomer uit Eritrea met een taalachterstand'. Dat zijn gegevens over de herkomst en de ondersteuningsbehoefte van een aanwijsbare leerling — (bijzondere) persoonsgegevens die niet in een gratis consumenten-AI horen, hoe nuttig het ook lijkt.",
+        "fix": "Voer alleen lesmateriaal en losse begrippen in. Kies de doeltaal in algemene termen op basis van je groep. Onderscheid de gratis consumentenversie van een school-AVG-omgeving, pas dataminimalisatie toe, en houd wie-wat-nodig-heeft bij je eigen observatie."
+      },
+      {
+        "titel": "De taal vereenvoudigen waar het probleem de inhoud is",
+        "watGebeurtEr": "Je behandelt elke worsteling als een taalprobleem en blijft vereenvoudigen, terwijl een leerling de denkstap zelf niet maakt. Andersom verlaag je soms het leerdoel voor een nieuwkomer die de inhoud juist beheerst en alleen de taal nog mist.",
+        "fix": "Maak vooraf het onderscheid: ligt de drempel bij de taal of bij de inhoud? Bij taal voeg je een taalroute toe naar dezelfde lat; bij inhoud is er een ander gesprek nodig. Dat onderscheid maak jij op basis van wat je in de klas ziet — AI kan het niet voor je inschatten."
+      }
+    ],
+    "eindcriteria": [
+      {
+        "criterium": "Tekst naar 2F met inhoudsbehoud",
+        "onder": "Tekst klakkeloos door AI vereenvoudigd; vaktermen of nuances onbedoeld weggevallen.",
+        "op": "Versie op een concreet lager niveau (bv. 2F) met behoud van vaktermen en een term-voor-term-controle door de docent.",
+        "boven": "+ Onnauwkeurigheden in de AI-output gevonden en vakinhoudelijk correct bijgesteld, met motivatie."
+      },
+      {
+        "criterium": "Meertalige woordhulp",
+        "onder": "Vertaalde begrippenlijst zonder NL-context of zonder enige verificatie van de vaktermen.",
+        "op": "Woordhulp met NL-term, eenvoudige NL-uitleg en vertaling in de vakbetekenis; niet-verifieerbare vertalingen gemarkeerd.",
+        "boven": "+ Niet-verifieerbare vertalingen daadwerkelijk gecheckt via een betrouwbare bron of native spreker en zo nodig bijgesteld."
+      },
+      {
+        "criterium": "Tweede taal als steiger naar het leerdoel",
+        "onder": "Hele opdracht en antwoord in de moedertaal; het Nederlandse leerdoel verdwijnt of de lat wordt verlaagd.",
+        "op": "Instructie/context tweetalig als steiger; leerdoel, te leren termen en antwoord blijven Nederlands.",
+        "boven": "+ Bewust afgebakend wat steiger is en wat Nederlands blijft, met motivatie waarom het leerdoel intact blijft."
+      },
+      {
+        "criterium": "AVG en mens-grens",
+        "onder": "Herkomst, taalachtergrond of ondersteuningsbehoefte ingevoerd, of geen onderscheid gratis vs. AVG-omgeving.",
+        "op": "Alleen lesmateriaal ingevoerd; AVG-check uitgevoerd met onderscheid gratis consumentenversie vs. school-AVG-omgeving.",
+        "boven": "+ Een vastgelegde grens waarin de docent de inhoud beoordeelt, de leerling kent en beslist, en geen ondersteuningsbehoefte in AI komt."
+      }
+    ],
+    "reflection": [
+      "Welke vakterm zou AI in een vertaling verkeerd hebben gekozen zonder dat je het had gemerkt — en wat zegt dat over hoeveel je een vertaalde vakterm kunt vertrouwen als je de doeltaal niet leest?",
+      "Waar lag bij jouw nieuwkomer of NT2-leerling de drempel echt: bij de taal of bij de inhoud? Hoe weet je dat, en wat had je over het hoofd gezien als je het automatisch als taalprobleem had behandeld?",
+      "Waar leg jij de grens tussen de tweede taal als steiger (helpt naar het Nederlandse leerdoel) en de tweede taal als omweg (vervangt het leerdoel) — en hoe houd je die grens vast als een leerling het liefst alles in de eigen taal zou doen?"
+    ],
+    "checklist": [
+      "Eén vaktekst naar een concreet lager referentieniveau (bv. 2F) laten herschrijven met expliciete opdracht 'vaktermen behouden, inhoud intact'",
+      "De vereenvoudigde versie term voor term gecontroleerd en onnauwkeurigheden vakinhoudelijk bijgesteld",
+      "Een meertalige woordhulp gemaakt met NL-term, eenvoudige NL-uitleg en vertaling in de vakbetekenis",
+      "Vertalingen van vaktermen die je niet zelf kunt verifiëren gemarkeerd en laten checken door een betrouwbare bron of native spreker",
+      "Een instructie tweetalig aangeboden als steiger, met het Nederlandse leerdoel, de te leren termen en het antwoord in het Nederlands",
+      "AVG-check uitgevoerd: alleen lesmateriaal ingevoerd, geen herkomst, taalachterstand of ondersteuningsbehoefte in een gratis consumenten-AI",
+      "Onderscheid gemaakt tussen de gratis consumentenversie en een school-/AVG-conforme omgeving, met dataminimalisatie als grondhouding",
+      "Een eigen grens vastgelegd: AI ondersteunt de taal, jij beoordeelt de vakinhoud, kent de leerling en beslist"
+    ],
+    "nextLesson": "check-mod7"
+  },
+  "multimodaal-werken": {
+    "format": "diepteles",
+    "summary": "Moderne AI kan méér dan tekst: een afbeelding of diagram analyseren, een PDF samenvatten en bevragen, en spraak omzetten naar tekst of tekst voorlezen. Deze les leert je de vier modaliteiten — tekst, beeld, spraak en bestand — en vooral wanneer multimodaal je echt tijd of kwaliteit oplevert versus wanneer het afleidt. Je oefent met het analyseren van beeld, het bevragen van een lang document en spraak-naar-tekst, en je verifieert elke keer de output. De rode draad: kies de modaliteit die bij de taak past, niet omdat het kan — en bewaak de AVG-grens dat herleidbaar leerlingwerk niet in een gratis consumenten-AI hoort.",
+    "duration": {
+      "total": "65 minuten",
+      "blocks": [
+        {
+          "label": "Aanleiding",
+          "min": 6
+        },
+        {
+          "label": "Conceptueel kader",
+          "min": 10
+        },
+        {
+          "label": "Beeld analyseren en verifiëren",
+          "min": 12
+        },
+        {
+          "label": "Bestand bevragen en samenvatten",
+          "min": 14
+        },
+        {
+          "label": "Spraak en modaliteitskeuze",
+          "min": 13
+        },
+        {
+          "label": "Vastleggen en reflectie",
+          "min": 10
+        }
+      ]
+    },
+    "opening": {
+      "eyebrow": "Aanleiding",
+      "aanleiding": "Het is donderdagmiddag en je hebt drie dingen op je bureau die niets met elkaar te maken lijken te hebben. Een collega heeft je een foto gestuurd van een schoolbord vol aantekeningen uit een vergadering die je miste — je zou de besluiten even overtypen. Daarnaast ligt een pdf van 28 pagina's: het nieuwe examenprogramma voor jouw vak, waar ergens drie wijzigingen in staan die je moet doorvoeren in je toetsplan. En je hebt zelf een spraakmemo ingesproken in de auto, omdat je een idee had voor een nieuwe opdracht en het anders zou vergeten. Drie keer 'even iets verwerken', drie keer voelt het als werk dat je liever niet zelf doet.\n\nEen jaar geleden zou je dit allemaal handmatig hebben opgepakt: het bord overtikken, de pdf doorbladeren op zoek naar die wijzigingen, je memo terugluisteren en uitschrijven. Nu kan een AI-assistent in principe alle drie aan: hij kan de foto van het bord 'lezen', de pdf samenvatten en bevragen, en je spraakmemo omzetten naar nette tekst. Dat is de belofte van multimodaal werken — AI die niet alleen tekst in en uit doet, maar ook beeld, spraak en bestanden aankan.\n\nMaar precies daar zit ook de valkuil. Multimodaal voelt slim, dus je gaat het overal voor inzetten — ook waar het je niets oplevert of waar het je zelfs op het verkeerde been zet. De AI 'leest' het bord vlot, maar verwart een 7 met een 1 in een lastig leesbaar getal. Hij vat de pdf overtuigend samen, maar laat juist de derde wijziging weg die je zocht. En dat memo-idee? Dat had je in twintig seconden zelf kunnen uittypen. De vraag van deze les is niet óf AI deze dingen kan, maar wanneer het je echt helpt — en hoe je voorkomt dat een vlotte multimodale output je een fout in de maag splitst.",
+      "waaromNu": "Multimodaliteit is de snelst veranderende laag van AI: welke modellen beeld, spraak en bestanden aankunnen, en hoe goed, verschuift per kwartaal. Dat maakt het juist nu belangrijk om het patróón te leren in plaats van de feature van vandaag — welke modaliteit past bij welke taak. Dit sluit aan op het UNESCO AI Competency Framework for Teachers (Deepen-niveau: je past toe en kiest bewust per context) en op DigCompEdu, waar het bewust en kritisch selecteren van digitale bronnen en hulpmiddelen een kerncompetentie is. En het bouwt direct voort op deze module: multimodale taken vragen vaak een groter model (8.2), en ook bij beeld en bestand kan het model met volle overtuiging iets verkeerds 'zien' (8.3) — verifiëren blijft dus nodig, ongeacht de modaliteit."
+    },
+    "conceptueel": {
+      "eyebrow": "Conceptueel kader",
+      "intro": "Begin met wat 'multimodaal' eigenlijk betekent, want het woord klinkt technischer dan het is. Een modaliteit is simpelweg een vorm waarin informatie binnenkomt of uitgaat: tekst, beeld, geluid. Een multimodale assistent kan meer dan één van die vormen aan. Concreet zijn er voor jou als docent vier soorten verkeer: tekst erin en eruit (de klassieke chat), beeld erin (een foto, scan of diagram laten analyseren) en soms beeld eruit (een illustratie of schema laten genereren), spraak erin (dicteren, een opname laten uitschrijven) en spraak eruit (tekst laten voorlezen), en bestanden erin (een pdf, document of dataset laten samenvatten of bevragen). Het is dezelfde onderliggende assistent; alleen het soort materiaal dat er in en uit gaat, verandert.\n\nHet cruciale inzicht is dat een andere modaliteit het model niet betrouwbaarder maakt — vaak juist onbetrouwbaarder. Toen je in 8.3 leerde dat een taalmodel een tekstvoorspeller is die overtuigend kan hallucineren, gold dat voor tekst. Bij beeld en bestand komt er een stap bíj: het model moet eerst 'waarnemen' wat er op de afbeelding of in het document staat, en dat waarnemen is feilbaar. Het kan een handgeschreven 'a' voor een 'o' aanzien, een staaf in een grafiek verkeerd aflezen, of bij een lange pdf een passage uit het midden simpelweg overslaan. Daarna voorspelt het, net als bij tekst, het meest plausibele vervolg — en dat vervolg klinkt even stellig of de waarneming nu klopte of niet. Multimodaal stapelt dus twee foutbronnen: verkeerd zien én verkeerd voorspellen.\n\nDaar komt de tweede les uit deze module bij: multimodale taken zijn zwaarder. Een afbeelding of een lange pdf 'aankijken' vraagt meestal een groter, sterker model dan een mailtje herschrijven (8.2). Een klein, snel model kan tekst prima aan maar struikelt eerder over een rommelige scan of een document van veertig pagina's. De modaliteit dwingt hier dus mede je modelkeuze af, los van hoe complex de denkstap zelf is. En er is een derde, harde laag: de AVG. Zodra je een foto, scan of bestand uploadt, gaat de inhoud daarvan de tool in. Bij een gescande toets, een foto van een klassensituatie of een document met namen en cijfers betekent dat: herleidbare leerlinggegevens in het systeem. In een gratis consumenten-AI is dat niet toegestaan — wat je uploadt kan voor training gebruikt worden en elders opduiken.\n\nDe gezonde grondhouding is daarom omgekeerd aan de hype. Niet 'wat kan deze tool allemaal?', maar 'wat vraagt déze taak?'. Soms is beeld of spraak precies de juiste vorm — een diagram laten uitleggen, een lange dictee-opname omzetten — en bespaart het je echt tijd of levert het kwaliteit op die je met tekst niet had bereikt. En soms is multimodaal een omweg: je had het sneller zelf overgetypt, of je voert er gegevens mee in die er nooit in hadden gemogen. Het verschil zien is de vaardigheid van deze les.",
+      "mentalModel": {
+        "naam": "Kies de modaliteit die bij de taak past, niet omdat het kan",
+        "beschrijving": "Voor elke taak stel je twee vragen. Eén: in welke vorm zit de informatie en in welke vorm wil ik het terug — moet er echt beeld, spraak of een bestand bij, of is tekst genoeg? Twee: wat win ik hier — tijd of kwaliteit die ik anders niet had? Als beide antwoorden ja zijn, is multimodaal de juiste keuze. Zo niet, dan is het een omweg. En altijd geldt: een andere modaliteit maakt de output niet betrouwbaarder, dus verifiëren blijft nodig, en herleidbaar leerlingmateriaal blijft uit de gratis consumenten-AI."
+      },
+      "kernbegrippen": [
+        {
+          "term": "Modaliteit",
+          "uitleg": "De vorm waarin informatie binnenkomt of uitgaat: tekst, beeld, spraak of een bestand. Een multimodale assistent kan meer dan één van die vormen verwerken."
+        },
+        {
+          "term": "Gestapelde foutbron",
+          "uitleg": "Bij beeld en bestand moet het model eerst correct waarnemen wat er staat én daarna correct voorspellen; beide stappen kunnen falen, dus de kans op een overtuigende fout is groter dan bij pure tekst."
+        },
+        {
+          "term": "Context-venster bij bestanden",
+          "uitleg": "De hoeveelheid tekst die een model in één keer kan overzien. Bij een lange pdf bepaalt dit of het hele document echt wordt meegenomen of dat het begin of midden stilletjes wegvalt uit de samenvatting."
+        },
+        {
+          "term": "Upload-AVG-grens",
+          "uitleg": "Alles wat je uploadt — foto, scan, document — gaat de tool in. Herleidbaar leerlingmateriaal (gescande toetsen, foto's, namen-en-cijfers) mag daarom nooit in een gratis consumenten-AI; dat hoort in een afgeschermde school- of AVG-conforme omgeving."
+        }
+      ]
+    },
+    "learningGoals": [
+      "Je benoemt de vier modaliteiten (tekst, beeld, spraak, bestand) en bepaalt per taak welke vorm past en wat multimodaal je oplevert versus wanneer het een omweg is.",
+      "Je laat een afbeelding of diagram analyseren en verifieert de output zelf, omdat het model kan 'verkeerd zien' en dat even stellig presenteert als een juiste waarneming.",
+      "Je laat een lang document of pdf samenvatten en bevragen, controleert de samenvatting tegen de bron op weggelaten of verzonnen punten, en houdt rekening met het context-venster.",
+      "Je past de AVG-regel toe dat herleidbaar leerlingmateriaal (gescande toetsen, foto's, namen en cijfers) niet in een gratis consumenten-AI hoort, en kiest de juiste omgeving of abstraheert."
+    ],
+    "scenario": {
+      "title": "Werksituatie",
+      "context": "Je bereidt een lesweek voor en hebt materiaal in drie vormen: een foto van een handgeschreven schema en een diagram uit een methode, een pdf van 28 pagina's met het herziene examenprogramma, en een eigen ingesproken spraakmemo met lesideeën. Je wilt elk stuk efficiënt verwerken zonder dat een vlotte AI-output je een fout oplevert.",
+      "role": "Docent vo/mbo/hbo · willekeurig vak, materiaal in beeld, bestand en spraak",
+      "tools": "Een multimodale AI-assistent (school-/AVG-conforme omgeving voor alles met leerlinggegevens; gratis consumentenversie alleen voor anoniem materiaal), met beeld-, bestands- en spraakfuncties"
+    },
+    "steps": [
+      {
+        "title": "Inventariseer je materiaal en kies per stuk de modaliteit",
+        "body": "Voordat je iets uploadt, leg je je materiaal naast elkaar en bepaal je per stuk: in welke vorm zit het, en is een andere modaliteit hier echt nodig of had ik het sneller zelf gedaan? Dit voorkomt de meest voorkomende valkuil — multimodaal inzetten omdat het kan. Voor elk stuk noteer je de modaliteit (tekst/beeld/spraak/bestand) én de winst (tijd, kwaliteit, of geen). Stukken zonder winst doe je gewoon zelf.",
+        "time": "10 min",
+        "voorbeeld": "Foto van het bord met drie korte besluiten → modaliteit beeld, maar winst gering: drie regels tik ik in twintig seconden zelf over, en de AI kan een getal verkeerd lezen. Doe ik zelf. Pdf van 28 pagina's, drie wijzigingen zoeken → bestand, winst groot: het document doorzoeken kost mij tien minuten, bevragen een halve. Doen. Diagram uit de methode dat ik aan leerlingen wil uitleggen → beeld, winst in kwaliteit: ik wil een toegankelijke uitleg-tekst die ik zelf nakijk. Doen. Spraakmemo van twee minuten → spraak, winst gemiddeld: uitschrijven scheelt typen, mits ik het corrigeer.",
+        "workspace": {
+          "field": "modaliteit-inventarisatie",
+          "label": "Inventariseer drie tot vijf stukken werk die je deze week moet verwerken. Noteer per stuk: de modaliteit, of multimodaal nodig is, en welke concrete winst (tijd of kwaliteit) het oplevert — of waarom je het zelf doet.",
+          "shortLabel": "Inventarisatie",
+          "hint": "Schrijf per stuk: vorm + modaliteit + winst (tijd/kwaliteit/geen). Wees eerlijk over de stukken die je sneller zelf doet.",
+          "placeholder": "Stuk 1 — vorm: ... | modaliteit: ... | winst: ... | besluit: AI / zelf\nStuk 2 — ...\nStuk 3 — ...",
+          "rows": 8,
+          "rubric": [
+            {
+              "name": "Minstens drie stukken benoemd",
+              "good": "Er staan drie tot vijf concrete stukken werk met hun vorm."
+            },
+            {
+              "name": "Modaliteit per stuk gekozen",
+              "good": "Bij elk stuk staat tekst, beeld, spraak of bestand expliciet benoemd."
+            },
+            {
+              "name": "Winst eerlijk beoordeeld",
+              "good": "Per stuk staat de concrete winst (tijd of kwaliteit) of de reden om het zelf te doen."
+            },
+            {
+              "name": "Minstens één 'zelf doen'",
+              "good": "Ten minste één stuk wordt bewust niet aan AI gegeven omdat de winst te klein is."
+            },
+            {
+              "name": "Geen modaliteit om de modaliteit",
+              "good": "Geen enkel stuk gaat naar AI puur omdat het kan; er staat steeds een reden."
+            }
+          ],
+          "referenceAnswer": "Stuk 1 — vorm: foto van het bord, drie besluiten | modaliteit: beeld | winst: gering, drie regels typ ik in twintig seconden en het risico op een verkeerd gelezen getal weegt niet op | besluit: zelf. Stuk 2 — vorm: pdf 28 pagina's examenprogramma | modaliteit: bestand | winst: groot, ik moet drie wijzigingen vinden, bevragen scheelt tien minuten zoeken | besluit: AI (school-omgeving, geen leerlinggegevens erin). Stuk 3 — vorm: diagram uit de methode | modaliteit: beeld | winst: kwaliteit, ik wil een toegankelijke uitleg op 2F-niveau die ik zelf nakijk | besluit: AI. Stuk 4 — vorm: spraakmemo twee minuten met lesideeën | modaliteit: spraak | winst: gemiddeld, uitschrijven scheelt typen | besluit: AI, daarna corrigeren. Stuk 5 — vorm: kort rooster-mailtje opstellen | modaliteit: tekst | winst: tijd | besluit: AI, klein niveau. Mijn lijn: alleen multimodaal waar het tijd of kwaliteit oplevert; de bordfoto doe ik zelf omdat de winst te klein is en de foutkans reëel."
+        }
+      },
+      {
+        "title": "Laat een afbeelding of diagram analyseren — en verifieer wat het 'ziet'",
+        "body": "Geef het model een afbeelding (een diagram, grafiek, schema of foto van materiaal — géén herleidbaar leerlingwerk) en vraag een concrete analyse of uitleg. Het cruciale tweede deel is de verificatie: het model presenteert zijn waarneming even stellig of die nu klopt of niet, dus je controleert elk feitelijk detail tegen wat je zelf op het beeld ziet. Let speciaal op getallen, labels, richtingen en kleine tekst — daar zit de meeste 'verkeerd gezien'-fout.",
+        "time": "12 min",
+        "voorbeeld": "Je uploadt een grafiek van vraag en aanbod en vraagt: 'Beschrijf wat deze grafiek toont en leg het evenwichtspunt uit in taal voor 3 vmbo.' De AI geeft een vlotte uitleg, maar leest het snijpunt af op de verkeerde as en noemt een prijs die er niet staat. Bij verificatie zie je dat: je corrigeert de afgelezen waarde, controleert dat de aanbodlijn inderdaad oploopt zoals beschreven, en houdt alleen de uitleg die klopt. De toegankelijke formulering was de winst; het aflezen deed jij.",
+        "workspace": {
+          "field": "beeld-analyse-verificatie",
+          "label": "Beschrijf een afbeelding of diagram dat je laat analyseren, je prompt, wat de AI eruit haalde, en je verificatie: welke feitelijke details klopten, welke niet, en hoe je dat zag. Borg de AVG.",
+          "shortLabel": "Beeld + check",
+          "hint": "Noem minstens één detail dat je narekende tegen het beeld zelf (getal, label, richting). Benoem expliciet dat het geen herleidbaar leerlingwerk is.",
+          "placeholder": "Afbeelding: ...\nPrompt: ...\nAI-output: ...\nGeverifieerd — klopt: ... | klopt niet: ... | hoe gezien: ...\nAVG: ...",
+          "rows": 9,
+          "rubric": [
+            {
+              "name": "Concrete afbeelding en prompt",
+              "good": "Het is duidelijk welk beeld en welke gerichte vraag aan de AI is gegeven."
+            },
+            {
+              "name": "Output benoemd",
+              "good": "Er staat concreet wat de AI uit het beeld haalde, niet alleen 'het werkte'."
+            },
+            {
+              "name": "Echte verificatie",
+              "good": "Minstens één feitelijk detail is tegen het beeld zelf nagerekend, met hoe dat gebeurde."
+            },
+            {
+              "name": "Fout of bevestiging gevonden",
+              "good": "Er staat expliciet wat klopte en wat niet — of, bij geen fout, dat alles is nagelopen."
+            },
+            {
+              "name": "AVG geborgd",
+              "good": "Geen herleidbaar leerlingwerk; voor schoolmateriaal de juiste omgeving of geanonimiseerd."
+            }
+          ],
+          "referenceAnswer": "Afbeelding: een grafiek van vraag en aanbod uit mijn methode — lesmateriaal, geen leerlinggegevens. Prompt: 'Beschrijf wat deze grafiek toont en leg het evenwichtspunt uit in korte zinnen voor 3 vmbo; verzin geen waarden die er niet staan.' AI-output: een heldere uitleg dat de aanbodlijn oploopt, de vraaglijn afloopt en dat het snijpunt het evenwicht is — plus een evenwichtsprijs van '40 euro'. Geverifieerd — klopt: de richting van beide lijnen en de uitleg van het snijpunt kloppen, dat zie ik direct op het beeld. Klopt niet: de '40 euro' staat nergens op de as; de grafiek heeft helemaal geen getallen op de prijsas. Hoe gezien: ik legde de uitleg naast het beeld en zocht de genoemde waarde — die bestond niet, het model had hem ingevuld. Aanpassing: ik schrapte het bedrag en liet de evenwichtsprijs als 'het punt waar de lijnen elkaar kruisen' staan. AVG: dit is methodemateriaal, geen leerlingwerk; ik had sowieso nooit een foto van een leerlingtoets in de gratis tool gezet."
+        }
+      },
+      {
+        "title": "Laat een lange pdf samenvatten en bevragen — en check tegen de bron",
+        "body": "Upload een lang document (een beleidsstuk, examenprogramma, handleiding — geen herleidbare leerlinggegevens) en doe twee dingen: laat het samenvatten en stel er gerichte vragen aan. Hier speelt het context-venster: bij een lang document kan het model het begin of midden onopgemerkt overslaan, waardoor de samenvatting compleet lijkt maar een kernpunt mist. Je controleert daarom steekproefsgewijs tegen de bron — vooral de punten die jij zocht — en vraagt het model expliciet om vindplaatsen (paginanummer of kopje) zodat je het kunt natrekken.",
+        "time": "14 min",
+        "voorbeeld": "Je laadt het examenprogramma van 28 pagina's en vraagt: 'Vat de drie belangrijkste inhoudelijke wijzigingen ten opzichte van vorig jaar samen en geef bij elke wijziging het paginanummer.' De AI noemt er twee overtuigend, met pagina's die kloppen, maar mist de derde — een wijziging in de weging die op pagina 19 staat. Omdat je gericht naar 'drie wijzigingen' zocht en de vindplaatsen narekent, valt het je op dat er één ontbreekt. Je bladert zelf naar het deel over weging, vindt de derde, en voegt hem toe. De samenvatting was een vliegende start; de volledigheidscheck deed jij.",
+        "workspace": {
+          "field": "bestand-bevragen-check",
+          "label": "Beschrijf het document, je samenvattings- en vraagprompt, wat de AI teruggaf, en je controle tegen de bron: welk punt klopte, wat ontbrak of was verzonnen, en hoe het context-venster meespeelde. Borg de AVG.",
+          "shortLabel": "Bestand + check",
+          "hint": "Vraag om vindplaatsen (pagina/kopje) en reken minstens één kernpunt na in het document zelf. Benoem of het venster het hele stuk aankon.",
+          "placeholder": "Document: ...\nSamenvat-prompt + vraag: ...\nAI-output: ...\nControle tegen bron — klopt: ... | ontbrak/verzonnen: ...\nContext-venster: ...\nAVG: ...",
+          "rows": 9,
+          "rubric": [
+            {
+              "name": "Document en prompts concreet",
+              "good": "Het document, de samenvat-opdracht en minstens één gerichte vraag zijn duidelijk."
+            },
+            {
+              "name": "Vindplaatsen gevraagd",
+              "good": "De prompt vraagt om pagina's of kopjes zodat de output natrekbaar is."
+            },
+            {
+              "name": "Controle tegen de bron",
+              "good": "Minstens één kernpunt is in het document zelf nagezocht, niet alleen bij de AI."
+            },
+            {
+              "name": "Volledigheid beoordeeld",
+              "good": "Er staat of iets ontbrak of verzonnen was, met aandacht voor het context-venster bij lange tekst."
+            },
+            {
+              "name": "AVG geborgd",
+              "good": "Geen herleidbare leerling-/oudergegevens in het document; school-/AVG-conforme omgeving waar nodig."
+            }
+          ],
+          "referenceAnswer": "Document: het herziene examenprogramma van mijn vak, 28 pagina's, openbaar — geen leerlinggegevens. Samenvat-prompt + vraag: 'Vat de drie belangrijkste inhoudelijke wijzigingen ten opzichte van het vorige programma samen, met bij elke wijziging het paginanummer; als je een wijziging niet zeker kunt plaatsen, zeg dat.' AI-output: twee wijzigingen helder beschreven met kloppende pagina's (een toegevoegd domein op p. 7, een geschrapte deeltaak op p. 12), maar slechts twee in plaats van drie. Controle tegen bron — klopt: de twee genoemde wijzigingen vond ik terug op de opgegeven pagina's. Ontbrak: de derde wijziging — een gewijzigde weging — staat op p. 19 en was niet genoemd; ik vond hem door zelf naar het wegingsdeel te bladeren. Context-venster: het document is lang; vermoedelijk is het middendeel minder volledig meegenomen, want juist daar zat de gemiste wijziging. Vervolg: ik vroeg gericht 'staat er iets over weging of normering gewijzigd?' en toen kwam p. 19 wel boven. AVG: openbaar document, dus geen probleem; had het leerlingdata bevat, dan alleen in de schoolomgeving of geanonimiseerd."
+        }
+      },
+      {
+        "title": "Probeer spraak-naar-tekst en bepaal waar dicteren of voorlezen helpt",
+        "body": "Spreek een korte tekst in (een lesidee, een conceptmail, een set aantekeningen) en laat die omzetten naar tekst — of laat omgekeerd een tekst voorlezen. Spraak-naar-tekst is sterk als je sneller praat dan typt of onderweg bent, maar het maakt karakteristieke fouten: vaktermen, namen en interpunctie. Je corrigeert het transcript dus altijd. Daarna bepaal je waar spraak jou structureel iets oplevert versus waar typen sneller was. Let op de AVG: een ingesproken memo die de naam of situatie van een leerling bevat, is net zo herleidbaar als geschreven tekst.",
+        "time": "13 min",
+        "voorbeeld": "Je dicteert in de auto een idee voor een opdracht: 'Maak een opdracht waarin leerlingen een grafiek over CO2-uitstoot moeten interpreteren.' Het transcript maakt er 'CO2-uitstoot' netjes van, maar verandert 'interpreteren' in 'in te preteren' en laat alle interpunctie weg. Je corrigeert dat in een halve minuut en houdt een bruikbare basis over. Je conclusie: voor langere, losse gedachten onderweg wint dicteren; voor een rijtje korte feiten aan je bureau typ je sneller. Een memo met een leerlingnaam zou je nooit zo inspreken in een gratis tool.",
+        "workspace": {
+          "field": "spraak-modaliteit-besluit",
+          "label": "Beschrijf je spraak-experiment (dicteren of voorlezen), welke fouten het transcript maakte en hoe je die corrigeerde, en je conclusie: voor welke taken levert spraak jou tijd of kwaliteit op en voor welke niet? Borg de AVG.",
+          "shortLabel": "Spraak + besluit",
+          "hint": "Noem minstens één concrete transcriptiefout (vakterm, naam, interpunctie). Trek een besluit over wanneer spraak voor jou wél en niet loont.",
+          "placeholder": "Experiment: ...\nTranscriptiefouten + correctie: ...\nSpraak loont voor: ...\nSpraak loont niet voor: ...\nAVG: ...",
+          "rows": 8,
+          "rubric": [
+            {
+              "name": "Concreet experiment",
+              "good": "Er staat wat is ingesproken of voorgelezen en in welke situatie."
+            },
+            {
+              "name": "Transcriptiefout benoemd",
+              "good": "Minstens één typische fout (vakterm, naam, interpunctie) is genoemd met de correctie."
+            },
+            {
+              "name": "Besluit over waar het loont",
+              "good": "Er staat concreet voor welke taken spraak tijd of kwaliteit oplevert en voor welke niet."
+            },
+            {
+              "name": "Eerlijk over de grens",
+              "good": "Het besluit erkent dat spraak niet altijd sneller is dan typen."
+            },
+            {
+              "name": "AVG geborgd",
+              "good": "Een ingesproken memo met leerlinggegevens hoort niet in een gratis consumenten-AI; benoemd of vermeden."
+            }
+          ],
+          "referenceAnswer": "Experiment: ik dicteerde onderweg een lesidee — 'maak een interpretatie-opdracht bij een grafiek over CO2-uitstoot voor 4 havo'. Transcriptiefouten + correctie: 'interpretatie' werd 'in terpretatie', 'CO2' werd correct herkend maar 'havo' werd 'havoo', en alle interpunctie ontbrak; in een halve minuut rechtgezet. Spraak loont voor: langere losse gedachten en ideeën die ik onderweg of pratend beter formuleer dan typend, en voor het uitschrijven van een ingesproken vergaderverslag dat ik daarna redigeer. Spraak loont niet voor: korte, precieze rijtjes (data, getallen, namen) aan mijn bureau — daar typ ik foutlozer en sneller, en het corrigeren van het transcript kost meer dan het scheelt. Eerlijke grens: spraak is een startversneller, geen eindproduct; ik lees elk transcript na. AVG: ik spreek nooit een memo met een leerlingnaam of -situatie in een gratis tool in — dat is even herleidbaar als geschreven tekst; zulke notities maak ik in de beveiligde schoolomgeving of geabstraheerd."
+        }
+      },
+      {
+        "title": "Verbind multimodaal met het niveau-denken: dwingt de taak een groter model af?",
+        "body": "Trek de lijn door naar 8.2. Een afbeelding, een lange pdf of een rommelige scan 'aankijken' is zwaarder werk dan tekst herschrijven; vaak vraagt het een groter model en bij lange documenten een groot context-venster. Loop je multimodale taken van vandaag langs en bepaal per taak of de modaliteit een opschaling afdwingt — los van hoe complex de denkstap zelf is. Zo voorkom je dat je een dik document door een klein, snel model haalt dat de helft mist, of dat je standaard het zwaarste model pakt voor een simpele beeldtaak.",
+        "time": "8 min",
+        "voorbeeld": "Diagram laten uitleggen → multimodaal, maar de denkstap is licht; een middelgroot model met beeld volstaat. Pdf van 28 pagina's bevragen → groot context-venster nodig, anders valt het midden weg; dat dwingt mijn modelkeuze af, niet het niveau van de vraag. Rommelige handgeschreven scan ontcijferen → groter, sterker model, want klein leest de krabbel slecht. Korte spraakmemo uitschrijven → de transcriptie zelf is licht; pas de redactie erna bepaalt of ik opschaal.",
+        "workspace": {
+          "field": "multimodaal-niveau-koppeling",
+          "label": "Loop je multimodale taken langs en bepaal per taak of de modaliteit een groter model of een groot context-venster afdwingt — los van de complexiteit van de denkstap. Formuleer er een vuistregel bij.",
+          "shortLabel": "Modaliteit→niveau",
+          "hint": "Markeer per taak: dwingt beeld/bestand een opschaling af? Onderscheid de zwaarte van de modaliteit van de zwaarte van de vraag.",
+          "placeholder": "Taak 1 — modaliteit: ... | dwingt op naar groot/venster? ... | waarom\nTaak 2 — ...\nVuistregel: ...",
+          "rows": 8,
+          "rubric": [
+            {
+              "name": "Taken gekoppeld aan niveau",
+              "good": "Bij elke multimodale taak staat of de modaliteit een groter model of venster afdwingt."
+            },
+            {
+              "name": "Modaliteit vs. denkstap onderscheiden",
+              "good": "Het is duidelijk dat de zwaarte van de vorm los staat van de zwaarte van de vraag."
+            },
+            {
+              "name": "Context-venster benoemd",
+              "good": "Bij lange documenten is het context-venster expliciet als reden genoemd."
+            },
+            {
+              "name": "Vuistregel geformuleerd",
+              "good": "Er staat een toepasbare als-dan-regel voor opschalen bij multimodaal werk."
+            },
+            {
+              "name": "Geen overshoot of undershoot",
+              "good": "Simpele beeldtaken blijven middelgroot; zware bestanden krijgen terecht een groot venster."
+            }
+          ],
+          "referenceAnswer": "Taak 1 — modaliteit: beeld (diagram uitleggen) | dwingt op? nee, een middelgroot multimodaal model volstaat, de denkstap is licht. Taak 2 — modaliteit: bestand (pdf 28 pagina's bevragen) | dwingt op? ja, naar een groot context-venster, anders valt het midden weg — dit is een venster-keuze, niet een niveau-keuze. Taak 3 — modaliteit: beeld (rommelige handgeschreven scan) | dwingt op? ja, naar een groter, sterker model, want een klein model leest het handschrift slecht. Taak 4 — modaliteit: spraak (memo uitschrijven) | dwingt op? nee voor de transcriptie zelf; pas als ik er een doordachte opdracht van laat maken, schaal ik op voor die redactiestap. Vuistregel: 'Beeld of bestand kan op zichzelf al een groter model of een groot context-venster afdwingen, ook als de vraag simpel is — dus kies eerst op modaliteit (kan de tool dit materiaal aan?), daarna pas op de zwaarte van de denkstap.' Zo voorkom ik dat ik een dik document door een klein model jaag of standaard het zwaarste model pak voor een licht plaatje."
+        }
+      },
+      {
+        "title": "Leg je modaliteit-keuzeregel vast",
+        "body": "Vat de les samen in één beslisregel die je voortaan zonder nadenken toepast. Hij beantwoordt vier dingen: bij welk soort taak kies je welke modaliteit, hoe verifieer je de output per modaliteit, wanneer dwingt de modaliteit een groter model of venster af, en waar ligt je harde AVG-grens. Dit is je opbrengst — een kaart die jou en een collega morgen de juiste keuze laat maken, ongeacht hoe de features volgend kwartaal heten.",
+        "time": "10 min",
+        "voorbeeld": "Voorbeeldregel: 'Tekst is mijn default. Ik schakel pas naar beeld, spraak of bestand als de informatie in die vorm zit én het me tijd of kwaliteit oplevert. Bij beeld reken ik elk getal en label na tegen het beeld; bij bestand vraag ik vindplaatsen en check ik volledigheid tegen de bron; bij spraak corrigeer ik het transcript. Een dik document of rommelig beeld kies ik op groot venster of groot model. En herleidbaar leerlingmateriaal gaat nooit in een gratis consumenten-AI.'",
+        "workspace": {
+          "field": "modaliteit-keuzeregel",
+          "label": "Formuleer je persoonlijke modaliteit-keuzeregel: wanneer welke modaliteit, hoe je per modaliteit verifieert, wanneer de modaliteit een groter model/venster afdwingt, en je harde AVG-grens.",
+          "shortLabel": "Keuzeregel",
+          "hint": "Maak het toetsbaar en zo dat een collega er morgen mee kan werken. Dek alle vier modaliteiten, de verificatie en de AVG-grens.",
+          "placeholder": "Default-modaliteit: ...\nIk kies beeld/spraak/bestand als: ...\nVerifiëren per modaliteit: ...\nModaliteit dwingt groter model/venster af als: ...\nAVG-grens: ...",
+          "rows": 9,
+          "rubric": [
+            {
+              "name": "Default en triggers helder",
+              "good": "Tekst is de default; er staat wanneer beeld, spraak of bestand de juiste keuze is."
+            },
+            {
+              "name": "Verificatie per modaliteit",
+              "good": "Per modaliteit staat een concrete controle: getal/label bij beeld, vindplaats/volledigheid bij bestand, transcript bij spraak."
+            },
+            {
+              "name": "Koppeling aan niveau/venster",
+              "good": "Er staat wanneer de modaliteit een groter model of groot context-venster afdwingt."
+            },
+            {
+              "name": "Harde AVG-grens",
+              "good": "Herleidbaar leerlingmateriaal nooit in een gratis consumenten-AI; expliciet en onvoorwaardelijk."
+            },
+            {
+              "name": "Direct toepasbaar",
+              "good": "Een collega zou met deze regel morgen de juiste modaliteit en omgeving kiezen."
+            }
+          ],
+          "referenceAnswer": "Default-modaliteit: tekst — daar is de winst het grootst en de foutkans het kleinst. Ik kies beeld/spraak/bestand als: de informatie écht in die vorm zit (een diagram, een opname, een pdf) én het me tijd of kwaliteit oplevert die ik met tekst niet had; zit het materiaal makkelijk als tekst over te nemen, dan doe ik dat zelf. Verifiëren per modaliteit: bij beeld reken ik elk getal, label en richting na tegen het beeld zelf, want het model presenteert een verkeerde waarneming even stellig als een juiste; bij bestand vraag ik om vindplaatsen (pagina/kopje), check ik de punten die ik zocht tegen de bron en let ik op weggevallen middendelen; bij spraak corrigeer ik het transcript op vaktermen, namen en interpunctie. Modaliteit dwingt groter model/venster af als: het document lang is (groot context-venster, anders valt het midden weg) of het beeld rommelig/handgeschreven is (groter, sterker model) — los van hoe simpel de vraag is. AVG-grens, onveranderlijk: herleidbaar leerlingmateriaal — een gescande toets, een foto met leerlingen, een memo met een naam, een document met namen-en-cijfers — gaat nooit in een gratis consumenten-AI, want wat ik upload kan voor training worden gebruikt; dat hoort in de school-/AVG-conforme omgeving met verwerkersafspraken, of ik abstraheer eerst. Zo kiest ook een collega met deze kaart morgen de juiste modaliteit, het juiste model en de juiste omgeving."
+        }
+      }
+    ],
+    "vakvariaties": [
+      {
+        "vak": "Exacte vakken (vo/havo-vwo)",
+        "body": "Beeld is hier goud waard: een grafiek, een formule of een gefotografeerde uitwerking laten uitleggen of nakijken. Maar juist hier 'ziet' het model getallen, machten en tekens geregeld verkeerd, en het rekent een meerstaps-uitwerking even overtuigend fout door. Reken elke afgelezen waarde en elke berekening zelf na tegen het beeld — beeld plus exacte vakinhoud is de combinatie waar verifiëren het hardst nodig is."
+      },
+      {
+        "vak": "Talen (vo/mbo)",
+        "body": "Spraak komt hier het sterkst tot zijn recht: een leerling iets laten inspreken en uitschrijven, of een tekst laten voorlezen voor luistervaardigheid of uitspraak. Let op de transcriptie van eigennamen en anderstalige woorden — die gaan vaak mis. Voor leesvaardigheid kun je een lange tekst laten samenvatten op niveau, mits je controleert dat de nuance niet wegvalt. Leerlingopnames met herkenbare stemmen zijn persoonsgegevens: alleen in de schoolomgeving."
+      },
+      {
+        "vak": "Beroepsgerichte vakken (mbo)",
+        "body": "Bestanden en beeld passen bij de praktijk: een lange kwalificatie-eis of werkinstructie laten samenvatten, of een foto van een werkstuk of opstelling laten beschrijven voor een opdracht. Bij veiligheids- of normgevoelig materiaal reken je elke claim na tegen de bron — een gemiste of verzonnen norm kan in de praktijk gevaarlijk zijn. Foto's waarop leerlingen of klanten herkenbaar zijn, blijven uit de gratis tool."
+      },
+      {
+        "vak": "Ondersteuning en toegankelijkheid (vo/mbo)",
+        "body": "Multimodaal raakt direct aan UDL: tekst laten voorlezen, een beeld van een functionele beschrijving voorzien, of een dichte tekst toegankelijker laten herschrijven biedt leerlingen meerdere manieren om informatie op te nemen. Maar de modaliteit borgt het materiaal, niet de individuele leerling: of een specifieke leerling dit nodig heeft, is jouw observatie en beslissing. Gegevens over een ondersteuningsbehoefte zijn bijzondere persoonsgegevens en gaan nooit de gratis tool in."
+      },
+      {
+        "vak": "Hoger beroepsonderwijs (hbo)",
+        "body": "Bestand-bevraging is hier de grootste tijdwinst: lange beleidsstukken, onderzoeksrapporten of studiegidsen laten doorzoeken en samenvatten. Het context-venster is de bottleneck — bij een dik rapport mist een klein venster juist de kern, dus kies bewust op venster en vraag om vindplaatsen. Studentwerk en herleidbare gegevens blijven in de instellingsomgeving; een geüploade scriptie met naam is een persoonsgegeven."
+      }
+    ],
+    "valkuilen": [
+      {
+        "titel": "Multimodaal inzetten omdat het kan",
+        "watGebeurtEr": "Je uploadt routinematig foto's, scans en bestanden ook waar je het sneller zelf had gedaan. Het kost meer tijd en introduceert een leesfout die je anders nooit had gehad — drie regels van een bord overtypen was sneller geweest dan corrigeren wat de AID verkeerd las.",
+        "fix": "Stel per stuk de twee vragen: zit de informatie echt in deze vorm, en levert het me tijd of kwaliteit op? Is het antwoord nee, dan doe je het zelf. Tekst blijft je default."
+      },
+      {
+        "titel": "Aannemen dat het model correct 'ziet' of 'leest'",
+        "watGebeurtEr": "De AI beschrijft een grafiek vloeiend of vat een pdf overtuigend samen, dus je vertrouwt de output. Maar het las een getal verkeerd af of sloeg een middendeel over — net zo stellig gepresenteerd als de juiste delen, dus de fout valt niet vanzelf op.",
+        "fix": "Behandel waarneming als feilbaar: reken bij beeld elk getal en label na tegen het beeld, en check bij bestand de gezochte punten tegen de bron. Vraag altijd om vindplaatsen."
+      },
+      {
+        "titel": "Het context-venster vergeten bij lange documenten",
+        "watGebeurtEr": "Je laadt een dik document in een model met een klein venster. Het begin of midden valt onopgemerkt weg, de samenvatting lijkt compleet maar mist juist de wijziging die je zocht — en omdat hij vlot leest, geloof je dat het alles dekt.",
+        "fix": "Kies bij lange documenten eerst op groot context-venster, daarna pas op niveau. Of knip het document zelf in delen en bevraag ze apart; vraag gericht naar de onderwerpen die je verwacht."
+      },
+      {
+        "titel": "Herleidbaar leerlingmateriaal uploaden",
+        "watGebeurtEr": "Je scant een toetsstapel of fotografeert leerlingwerk om het te laten nakijken of samenvatten in een gratis consumenten-AI. De namen, cijfers en handschriften gaan zo de tool in en kunnen voor training worden gebruikt — een AVG-overtreding met bijzondere persoonsgegevens.",
+        "fix": "Upload herleidbaar leerlingmateriaal alleen in de school-/AVG-conforme omgeving met verwerkersafspraken, of anonimiseer eerst. Een foto, scan of spraakmemo is net zo herleidbaar als geschreven tekst."
+      },
+      {
+        "titel": "Spraak als af product behandelen",
+        "watGebeurtEr": "Je laat een opname uitschrijven en gebruikt het transcript ongecorrigeerd. Vaktermen, eigennamen en interpunctie zitten er verkeerd in, en in een verslag of opdracht leidt dat tot fouten die je naam dragen.",
+        "fix": "Lees elk transcript na en corrigeer de typische foutplekken. Spraak-naar-tekst is een startversneller, geen eindredacteur — de laatste lezing blijft van jou."
+      }
+    ],
+    "eindcriteria": [
+      {
+        "criterium": "Bewuste modaliteitskeuze",
+        "onder": "Zet AI multimodaal in zonder af te wegen of het tijd of kwaliteit oplevert; doet beeld/bestand ook waar tekst sneller was.",
+        "op": "Kiest per taak de passende modaliteit op basis van waar de informatie in zit en wat het oplevert; doet stukken zonder winst zelf.",
+        "boven": "Heeft een vaste keuzeregel die ook collega's kunnen toepassen en die de modaliteit aan het niveau- en venster-denken koppelt."
+      },
+      {
+        "criterium": "Verifiëren per modaliteit",
+        "onder": "Vertrouwt een vlotte beeld- of bestandsoutput zonder narekenen; merkt verkeerd geziene getallen of weggevallen passages niet op.",
+        "op": "Controleert bij beeld feitelijke details tegen het beeld en bij bestand de gezochte punten tegen de bron, en vraagt om vindplaatsen.",
+        "boven": "Zoekt gericht naar de zwakke plekken per modaliteit (aflezing, middendeel, vakterm-transcriptie) en legt de controleroutine vast."
+      },
+      {
+        "criterium": "Modaliteit en model verbonden",
+        "onder": "Houdt geen rekening met dat beeld of een lang document een groter model of venster vraagt; haalt dikke bestanden door een klein model.",
+        "op": "Herkent dat de modaliteit los van de denkstap een opschaling kan afdwingen en kiest bij lange documenten op context-venster.",
+        "boven": "Formuleert een vuistregel die modaliteit-zwaarte en vraag-zwaarte scheidt en voorkomt zowel overshoot als undershoot."
+      },
+      {
+        "criterium": "AVG bij upload geborgd",
+        "onder": "Uploadt foto's, scans of memo's met herleidbaar leerlingmateriaal in een gratis consumenten-AI.",
+        "op": "Houdt herleidbaar leerlingmateriaal uit de gratis tool en gebruikt de school-/AVG-conforme omgeving of abstraheert eerst.",
+        "boven": "Past de grens consequent toe over alle modaliteiten (ook spraak en beeld) en kan uitleggen waarom een upload net zo herleidbaar is als tekst."
+      }
+    ],
+    "reflection": [
+      "Welke van je terugkerende taken zit eigenlijk in beeld, spraak of een bestand — en welke daarvan los je nu nog handmatig op terwijl een passende modaliteit je echt tijd zou schelen?",
+      "Bij welke modaliteit ben jij het meest geneigd de output blind te vertrouwen omdat hij zo overtuigend oogt, en welke concrete controle ga je daar standaard inbouwen?",
+      "Waar loopt voor jou de AVG-grens als je gaat uploaden in plaats van typen — welk materiaal dat je nu makkelijk zou fotograferen of inspreken, hoort eigenlijk niet in een gratis consumenten-AI?"
+    ],
+    "checklist": [
+      "Materiaal van de week geïnventariseerd en per stuk de modaliteit én de winst (tijd/kwaliteit/geen) bepaald",
+      "Minstens één stuk bewust zelf gedaan omdat multimodaal er geen winst opleverde",
+      "Een afbeelding of diagram laten analyseren en minstens één feitelijk detail nagerekend tegen het beeld zelf",
+      "Een lang document laten samenvatten en bevragen, om vindplaatsen gevraagd en de gezochte punten tegen de bron gecontroleerd",
+      "Het context-venster meegewogen bij het lange document en gecheckt of het hele stuk echt is meegenomen",
+      "Spraak-naar-tekst geprobeerd, het transcript gecorrigeerd en bepaald waar dicteren wel en niet loont",
+      "Per multimodale taak bepaald of de modaliteit een groter model of groot context-venster afdwingt, los van de denkstap",
+      "Eén persoonlijke modaliteit-keuzeregel vastgelegd, inclusief de AVG-grens dat herleidbaar leerlingmateriaal niet in een gratis consumenten-AI hoort"
+    ],
+    "nextLesson": "check-mod8"
+  }
+};
+
 export const lessonDetails = {
   ...baseLessonDetails,
   ...batchModule1,
@@ -12257,6 +13333,7 @@ export const lessonDetails = {
   ...module6Details,
   ...module7Details,
   ...module8Details,
+  ...moduleExtraDetails,
 };
 
 export const defaultLesson = (lesson, module) => ({
