@@ -1209,7 +1209,17 @@ function VerderLezen({ detail }) {
 
 function Sidebar({ lesson, module: m, tone, detail, work }) {
   const [checked, setChecked] = useState({});
-  const [done, setDone] = useState(false);
+  const [done, setDoneState] = useState(() => isDone(lesson.slug));
+  useEffect(() => {
+    const sync = () => setDoneState(isDone(lesson.slug));
+    sync();
+    window.addEventListener("praktijklab:voortgang", sync);
+    window.addEventListener("storage", sync);
+    return () => {
+      window.removeEventListener("praktijklab:voortgang", sync);
+      window.removeEventListener("storage", sync);
+    };
+  }, [lesson.slug]);
   const checklist = detail.checklist || [];
   const total = checklist.length || 1;
   const completed = Object.values(checked).filter(Boolean).length;
@@ -1282,7 +1292,16 @@ function Sidebar({ lesson, module: m, tone, detail, work }) {
 
         <div className="space-y-2">
           <button
-            onClick={() => setDone(!done)}
+            onClick={() => {
+              const next = !done;
+              setDone(lesson.slug, next);
+              setDoneState(next);
+              trackEvent("lesson-marked-done", {
+                slug: lesson.slug,
+                done: next,
+                source: "sidebar",
+              });
+            }}
             className={`w-full inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-[14px] font-medium transition focus-ring ${
               done
                 ? "bg-sage text-paper-card"
@@ -1373,7 +1392,14 @@ function LesAfronden({ lesson }) {
   const [done, setDoneState] = useState(() => isDone(lesson.slug));
 
   useEffect(() => {
-    setDoneState(isDone(lesson.slug));
+    const sync = () => setDoneState(isDone(lesson.slug));
+    sync();
+    window.addEventListener("praktijklab:voortgang", sync);
+    window.addEventListener("storage", sync);
+    return () => {
+      window.removeEventListener("praktijklab:voortgang", sync);
+      window.removeEventListener("storage", sync);
+    };
   }, [lesson.slug]);
 
   function toggle() {
