@@ -11,6 +11,7 @@ import {
   FlaskConical,
   Gauge,
   Accessibility,
+  Cpu,
   Signpost,
   LineChart,
   TrendingUp,
@@ -36,6 +37,7 @@ const nav = [
       { to: "/modules/groei-en-team", label: "Groei & team", icon: Users, eyebrow: "Module 05" },
       { to: "/modules/werkdruk-en-organisatie", label: "AI & werkdruk", icon: Gauge, eyebrow: "Module 06" },
       { to: "/modules/toegankelijkheid-en-inclusie", label: "AI & toegankelijkheid", icon: Accessibility, eyebrow: "Module 07" },
+      { to: "/modules/ai-tools-en-modellen", label: "AI-tools & modellen", icon: Cpu, eyebrow: "Module 08" },
     ],
   },
   {

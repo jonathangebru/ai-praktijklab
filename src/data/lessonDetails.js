@@ -10604,6 +10604,1647 @@ const module7Details = {
   }
 };
 
+
+/* ── Module 08 · AI-tools & modellen (Fase 28) ──────────────────────────── */
+const module8Details = {
+  "ai-tools-landschap": {
+    "format": "diepteles",
+    "summary": "Je leert de drie grote AI-assistenten — OpenAI ChatGPT, Anthropic Claude en Google Gemini — kennen als drie merken van hetzelfde soort gereedschap, en je leert er bewust uit kiezen op taak, ecosysteem en privacy in plaats van op hype. Je vergelijkt ze op één eigen docenttaak, bepaalt welke variant in jouw schoolcontext AVG-veilig is, en stelt een eigen keuzecriteria-lijstje op dat blijft werken als namen, prijzen en versienummers over een paar maanden weer veranderd zijn. De harde regel die de hele les draagt: geen herleidbare leerlinggegevens in een gratis consumenten-AI. Je levert een ingevulde vergelijking, een AVG-beslissing voor jouw situatie en een persoonlijke keuzelijst op.",
+    "duration": {
+      "total": "60 minuten",
+      "blocks": [
+        {
+          "label": "Aanleiding",
+          "min": 7
+        },
+        {
+          "label": "Conceptueel kader",
+          "min": 12
+        },
+        {
+          "label": "Eén taak op drie assistenten",
+          "min": 12
+        },
+        {
+          "label": "Verschillen duiden — stijl, ecosysteem, niveau",
+          "min": 10
+        },
+        {
+          "label": "AVG-beslissing voor jouw context",
+          "min": 10
+        },
+        {
+          "label": "Eigen keuzecriteria vastleggen",
+          "min": 9
+        }
+      ]
+    },
+    "opening": {
+      "eyebrow": "Aanleiding",
+      "aanleiding": "In de docentenkamer valt bijna wekelijks dezelfde vraag: 'Welke moet ik nou nemen — ChatGPT, Claude of Gemini?' De een zweert bij ChatGPT omdat hij daarmee begon, de ander is overgestapt op Claude na een tip op een studiedag, en de derde gebruikt Gemini gewoon omdat het in de Google-omgeving van de school zit waar ze toch al de hele dag in werkt. Drie collega's, drie tools, drie stellige meningen — en geen van drieën kan precies uitleggen waaróm de ene beter zou zijn dan de andere.\n\nHet probleem is niet dat ze de verkeerde keuze maken. Het probleem is dat ze kiezen op gewenning, op een tip of op een toevallige eerste kennismaking, en niet op de taak die ze willen doen of op de privacyregels die voor leerlinggegevens gelden. En zodra er een nieuwe versie uitkomt — wat elke paar maanden gebeurt — begint de discussie van voren af aan, want de hele mening hing aan een momentopname die alweer achterhaald is.\n\nDeze les haalt die discussie uit de sfeer van 'welk merk is het beste' en zet er een denkraam voor in de plaats. Je gaat niet onthouden welke tool nú vooroploopt; je gaat leren kiezen op criteria die blijven gelden. Aan het einde heb je één eigen taak op alle drie de assistenten uitgeprobeerd, weet je welke variant in jouw school AVG-veilig is, en heb je een keuzelijstje waarmee je voortaan binnen een minuut beslist — ook als de namen over een halfjaar anders zijn.",
+      "waaromNu": "AI-geletterdheid begint bij begrijpen wat deze systemen zijn en hoe je ze beoordeelt — precies de 'knowledge of AI'-dimensie uit het UNESCO AI Competency Framework for Teachers (2024) en de competenties rond professioneel selecteren van digitale bronnen in DigCompEdu. De markt beweegt snel: nieuwe modellen, nieuwe prijzen en nieuwe namen volgen elkaar in maanden op. Wie nu een duurzaam keuzeraam opbouwt, hoeft niet bij elke aankondiging opnieuw te beginnen — en houdt tegelijk grip op de AVG-grens die voor leerlinggegevens onverkort blijft gelden."
+    },
+    "conceptueel": {
+      "eyebrow": "Conceptueel kader",
+      "intro": "Begin bij wat de drie gemeen hebben, want dat is meer dan de hype suggereert. ChatGPT (van OpenAI), Claude (van Anthropic) en Gemini (van Google) zijn alle drie chatassistenten gebouwd op een groot taalmodel: een systeem dat getraind is om bij een stuk tekst het meest waarschijnlijke vervolg te voorspellen. Ze 'weten' niets in de menselijke zin; ze genereren plausibele tekst op basis van patronen. Daardoor delen ze ook dezelfde sterke kanten (vlot formuleren, samenvatten, herschrijven, ideeën genereren) én dezelfde zwakke kant: ze kunnen met volle overtuiging iets verzinnen dat niet klopt. Voor jou als docent betekent dat: je controleert de inhoud altijd zelf, ongeacht welk merk je kiest.\n\nWaar ze in verschillen, zit op drie assen. De eerste is stijl en toon: de een schrijft van nature wat zakelijker, de ander wat uitgebreider of voorzichtiger. Dat is geen hard kwaliteitsverschil maar een kwestie van wat bij jouw taak en smaak past — en je kunt het grotendeels bijsturen met een goede instructie. De tweede as is het ecosysteem: Gemini zit ingebouwd in Google Workspace (Docs, Gmail, Classroom), ChatGPT-technologie zit via Copilot in de Microsoft-omgeving (Word, Outlook, Teams), en Claude staat daar grotendeels los van — een standalone-assistent zonder eigen kantoorpakket eromheen. Voor scholen is dit vaak de doorslaggevende as: je werkt het makkelijkst met de AI die in de omgeving zit die je school al gebruikt en al heeft afgesproken.\n\nDe derde as zit binnen elke aanbieder: er zijn model-NIVEAUS. Elke provider biedt een klein, snel, goedkoop niveau (voorbeeldnamen op het moment van schrijven: mini, flash, haiku, nano) dat voor de meeste docenttaken ruim volstaat, en een groter, sterker, duurder niveau (voorbeeldnamen: pro, opus, sonnet, ultra) voor complexer redeneren, lange teksten of lastige vakinhoud. Let op: deze namen en de exacte specificaties veranderen voortdurend — neem ze als illustratie, niet als feit om te onthouden. Het duurzame inzicht is: kies op taak, niet op 'het nieuwste of het zwaarste'. Een klein model dat een mailtje herschrijft is sneller en goedkoper dan een topmodel dat hetzelfde doet.\n\nDe vierde, en voor het onderwijs hardste, laag staat los van merk en niveau: het verschil tussen een GRATIS consumentenversie en een SCHOOL- of AVG-conforme omgeving. In een gratis consumentenchatbot kunnen jouw invoer en gesprekken gebruikt worden om het model verder te trainen — wat je intypt, kan dus elders opduiken. In een school-, enterprise- of via de school afgesloten omgeving gelden afspraken die dat uitsluiten en die een verwerkersovereenkomst regelen. De regel die daaruit volgt is niet onderhandelbaar: herleidbare gegevens over een leerling of ouder horen nooit in een gratis consumenten-AI. Of een leerling dyslexie heeft, hoe het thuis zit, een naam plus een cijfer — dat type informatie blijft binnen de beveiligde schoolsystemen, ongeacht welk van de drie merken je verder prettig vindt werken.",
+      "mentalModel": {
+        "naam": "Drie merken, één soort gereedschap",
+        "beschrijving": "Zie ChatGPT, Claude en Gemini als drie merken boormachines: ze doen in de kern hetzelfde en lijken sterk op elkaar. Je kiest niet op 'welk merk is het beste', maar op de klus (de taak), op welk gereedschap past bij de werkplaats die je al hebt (het ecosysteem van je school) en op de veiligheidsregels die altijd gelden (de AVG). En je pakt niet de zwaarste machine voor elk schroefje: voor lichte klussen volstaat het kleine, snelle niveau. Merknamen en modellen wisselen; het kiesprincipe blijft."
+      },
+      "kernbegrippen": [
+        {
+          "term": "Groot taalmodel (LLM)",
+          "uitleg": "Het systeem onder elke assistent dat het meest waarschijnlijke vervolg op tekst voorspelt. Verklaart waarom alle drie sterk lijken én waarom ze allemaal overtuigend kunnen verzinnen — controleren blijft jouw werk."
+        },
+        {
+          "term": "Ecosysteem",
+          "uitleg": "De softwareomgeving waarin een assistent is ingebouwd: Gemini in Google Workspace, ChatGPT-techniek via Copilot in Microsoft, Claude grotendeels standalone. Vaak de doorslaggevende keuzefactor voor een school."
+        },
+        {
+          "term": "Model-niveau",
+          "uitleg": "Binnen elke aanbieder bestaat een klein/snel/goedkoop niveau (bv. mini, flash, haiku, nano) en een groot/sterker/duurder niveau (bv. pro, opus, sonnet, ultra). Namen wisselen; kies op taak, niet op 'het zwaarste'."
+        },
+        {
+          "term": "Consumentenversie versus AVG-conforme omgeving",
+          "uitleg": "In een gratis consumenten-AI kan je invoer voor training gebruikt worden; in een school-/enterprise-omgeving is dat met afspraken uitgesloten. Herleidbare leerlinggegevens horen alleen in de tweede — of nergens in een AI."
+        }
+      ]
+    },
+    "learningGoals": [
+      "Je benoemt in eigen woorden wat ChatGPT, Claude en Gemini gemeen hebben (alle drie taalmodellen, vergelijkbare basis) en op welke drie assen ze verschillen (stijl/toon, ecosysteem, model-niveau).",
+      "Je vergelijkt de drie assistenten op één concrete eigen docenttaak en beoordeelt de uitkomsten op bruikbaarheid in plaats van op merkvoorkeur.",
+      "Je bepaalt voor jouw eigen schoolcontext welke variant AVG-veilig is en formuleert wat wél en niet in een gratis consumenten-AI mag, zonder herleidbare leerlinggegevens.",
+      "Je stelt een persoonlijk keuzecriteria-lijstje op dat blijft werken als modelnamen, prijzen en versies veranderen, en past het toe op een tweede taak."
+    ],
+    "scenario": {
+      "title": "Werksituatie",
+      "context": "Je bereidt komende week een les voor en wilt AI inzetten voor een terugkerende klus — bijvoorbeeld een instructietekst herschrijven op het taalniveau van je groep, of een set oefenvragen genereren. Je hebt toegang tot minstens twee van de drie assistenten (vaak via je school-account het ecosysteem dat je school al gebruikt, plus een gratis consumentenversie van een ander merk). Je wilt niet meer op gevoel of op een collega-tip kiezen, maar op grond van wat de taak vraagt, wat in jouw schoolomgeving past en wat AVG-technisch mag.",
+      "role": "Docent · vo, mbo of hbo — elk vak",
+      "tools": "Toegang tot twee of drie van: ChatGPT, Claude, Gemini (school-account waar mogelijk, anders gratis consumentenversie zonder leerlinggegevens) · één eigen lesmateriaal-fragment zonder herleidbare leerlinggegevens · het AVG-/AI-beleid of de afspraken van je school"
+    },
+    "steps": [
+      {
+        "title": "Kies één eigen taak en maak hem toetsbaar",
+        "body": "Begin niet bij de tool maar bij de klus. Kies één concrete, terugkerende docenttaak die je deze week echt hebt, en formuleer hem zo dat je straks kunt beoordelen of een AI-antwoord goed is. Noteer de taak, het gewenste resultaat en twee of drie meetbare eisen waaraan een goed antwoord voldoet. Zonder die eisen vergelijk je straks op gevoel; mét die eisen vergelijk je op kwaliteit. Gebruik géén herleidbare leerlinggegevens in de taakomschrijving — werk met lesmateriaal of een geabstraheerde behoefte.",
+        "time": "10 min",
+        "voorbeeld": "Docent Nederlands, vmbo-3. Taak: 'Herschrijf mijn instructie bij de schrijfopdracht (ca. 120 woorden) naar kortere zinnen op taalniveau 2F, met behoud van alle stappen.' Eisen voor een goed antwoord: (1) alle vijf instructiestappen staan er nog in, (2) gemiddelde zinslengte korter dan vijftien woorden, (3) geen nieuwe, moeilijke woorden toegevoegd. Geen leerlingnaam of -gegeven in de prompt; alleen mijn eigen instructietekst.",
+        "workspace": {
+          "field": "tools-taak-toetsbaar",
+          "label": "Beschrijf één eigen docenttaak die je gaat vergelijken, het gewenste resultaat, en twee tot drie meetbare eisen waaraan een goed AI-antwoord voldoet. Voeg geen herleidbare leerlinggegevens toe.",
+          "shortLabel": "Taak + eisen",
+          "hint": "Kies iets terugkerends en concreets. Maak de eisen meetbaar (aantal, lengte, behoud van X) zodat je straks objectief kunt vergelijken. Lesmateriaal mag wel in de AI, leerlinggegevens niet.",
+          "placeholder": "Taak: ...\nGewenst resultaat: ...\nEis 1: ...\nEis 2: ...\nEis 3 (optioneel): ...",
+          "rows": 6,
+          "rubric": [
+            {
+              "name": "Taak is concreet en terugkerend",
+              "good": "Eén afgebakende klus uit de eigen praktijk, geen vaag 'iets met AI'."
+            },
+            {
+              "name": "Eisen zijn meetbaar",
+              "good": "Bevat controleerbare criteria (aantal, lengte, behoud van stappen), niet alleen 'goed' of 'duidelijk'."
+            },
+            {
+              "name": "Geen herleidbare leerlinggegevens",
+              "good": "Werkt met lesmateriaal of een geabstraheerde behoefte; geen naam, diagnose of cijfer."
+            }
+          ],
+          "referenceAnswer": "Taak: herschrijf mijn instructie bij de schrijfopdracht (ca. 120 woorden) naar kortere zinnen op taalniveau 2F, met behoud van alle vijf de stappen. Gewenst resultaat: dezelfde opdracht, beter leesbaar voor een zwakke lezer, klaar om te delen. Eis 1: alle vijf instructiestappen zijn nog aanwezig en in dezelfde volgorde. Eis 2: gemiddelde zinslengte korter dan vijftien woorden. Eis 3: er zijn geen nieuwe moeilijke woorden toegevoegd ten opzichte van mijn origineel. In de prompt staat alleen mijn eigen instructietekst, geen leerlingnaam of -gegeven."
+        }
+      },
+      {
+        "title": "Geef dezelfde taak aan alle drie (of minstens twee)",
+        "body": "Voer exact dezelfde prompt in bij ChatGPT, Claude en Gemini — of bij de twee waar je toegang toe hebt. Verander niets aan je formulering tussen de tools; alleen dan vergelijk je eerlijk. Plak de drie antwoorden naast elkaar of noteer per tool kort de kern. Let bewust op gelijkenis én verschil: vaak is de inhoud opvallend vergelijkbaar (ze zijn immers hetzelfde soort gereedschap), en zit het verschil in toon, lengte en structuur. Gebruik voor deze stap een omgeving zonder leerlinggegevens; je eigen lesmateriaal mag erin.",
+        "time": "12 min",
+        "voorbeeld": "Dezelfde herschrijf-prompt in drie tools. ChatGPT levert een vlotte, compacte versie met genummerde stappen. Claude geeft een iets uitgebreidere versie met een korte toelichting waarom het leesbaarder is. Gemini levert een versie die net zo goed leest en biedt aan hem direct in Google Docs te zetten. Inhoudelijk dekken alle drie de vijf stappen; de verschillen zitten in toon en in wat ze 'eromheen' aanbieden.",
+        "workspace": {
+          "field": "tools-drie-antwoorden",
+          "label": "Voer je taak in bij de assistenten waar je toegang toe hebt en noteer per tool de kern van het antwoord plus je eerste indruk. Gebruik exact dezelfde prompt bij elke tool.",
+          "shortLabel": "Drie antwoorden",
+          "hint": "Verander de prompt niet tussen de tools. Noteer wat er inhoudelijk uitkomt en wat je opvalt aan toon, lengte of structuur. Geen leerlinggegevens; lesmateriaal mag.",
+          "placeholder": "Prompt die ik bij alle gebruikte: ...\nChatGPT — kern + indruk: ...\nClaude — kern + indruk: ...\nGemini — kern + indruk: ...",
+          "rows": 7,
+          "rubric": [
+            {
+              "name": "Identieke prompt bij elke tool",
+              "good": "Dezelfde formulering overal, zodat het verschil aan de tool ligt en niet aan de vraag."
+            },
+            {
+              "name": "Concrete observatie per tool",
+              "good": "Per assistent een herkenbare kern plus een waarneembaar verschil in toon, lengte of structuur."
+            },
+            {
+              "name": "AVG-veilig uitgevoerd",
+              "good": "Alleen lesmateriaal of geabstraheerde inhoud ingevoerd; geen herleidbare leerlinggegevens."
+            }
+          ],
+          "referenceAnswer": "Prompt die ik bij alle gebruikte: 'Herschrijf deze instructie naar kortere zinnen op taalniveau 2F met behoud van alle stappen: [mijn 120-woordentekst].' ChatGPT — kern + indruk: compacte, genummerde herschrijving, alle vijf stappen aanwezig, zakelijke toon, geen extra uitleg. Claude — kern + indruk: vergelijkbare herschrijving, iets langer, met een korte toelichting waarom het leesbaarder is; voorzichtige toon. Gemini — kern + indruk: goed leesbare versie, alle stappen aanwezig, bood aan de tekst direct in Google Docs te plaatsen. Alle drie dekken de inhoud; ik voerde alleen mijn eigen instructietekst in, geen leerlinggegevens."
+        }
+      },
+      {
+        "title": "Beoordeel op je eigen eisen, niet op merkgevoel",
+        "body": "Pak de eisen uit stap 1 erbij en scoor elk antwoord erop. Welke voldoet aan alle eisen, welke laat een stap vallen, welke voegt iets ongevraagds toe? Wijs één winnaar aan vóór déze taak en schrijf in één zin waarom — verwijzend naar je eisen, niet naar 'voelt beter'. Het kan goed zijn dat het verschil klein is; dat is een waardevolle uitkomst, want het betekent dat je voor deze klus op andere gronden (ecosysteem, gewenning) mag kiezen. Wees ook eerlijk over wat geen van drieën goed deed — daar zit de grens van wat AI hier kan.",
+        "time": "8 min",
+        "voorbeeld": "Scoren op mijn drie eisen: alle drie behouden de vijf stappen (eis 1 ✓). ChatGPT en Gemini halen de zinslengte-eis ruim; Claude zit net erboven (eis 2: 2 van 3). Geen van drieën voegde moeilijke woorden toe (eis 3 ✓), maar Claude introduceerde wel één onnodig formeel woord. Winnaar voor déze taak: ChatGPT, omdat hij als enige alle drie eisen volledig haalt én het compactst is. Wat geen van drieën deed: controleren of '2F' echt klopt — dat moet ik zelf nalezen.",
+        "workspace": {
+          "field": "tools-beoordeling-eisen",
+          "label": "Scoor elk antwoord op je eigen eisen uit stap 1, wijs een winnaar aan voor deze taak met een onderbouwing die naar je eisen verwijst, en benoem wat geen van de tools goed deed.",
+          "shortLabel": "Beoordeling",
+          "hint": "Verwijs expliciet naar je meetbare eisen, niet naar 'voelt beter'. Een klein verschil mag de conclusie zijn. Benoem ook de gezamenlijke zwakte — dat is jouw controlepunt.",
+          "placeholder": "Score per eis (per tool): ...\nWinnaar voor deze taak: ... omdat ...\nWat geen van de tools goed deed: ...",
+          "rows": 6,
+          "rubric": [
+            {
+              "name": "Scoort tegen de eigen eisen",
+              "good": "Elk antwoord is beoordeeld op de meetbare eisen uit stap 1, niet op merkvoorkeur."
+            },
+            {
+              "name": "Onderbouwde keuze voor deze taak",
+              "good": "Eén winnaar met een reden die naar een concrete eis verwijst; een klein verschil mag de eerlijke conclusie zijn."
+            },
+            {
+              "name": "Gezamenlijke zwakte benoemd",
+              "good": "Benoemt wat geen van de tools goed deed, als eigen controlepunt en grens van AI."
+            }
+          ],
+          "referenceAnswer": "Score per eis: eis 1 (vijf stappen behouden) — ChatGPT ✓, Claude ✓, Gemini ✓. Eis 2 (zinslengte onder vijftien) — ChatGPT ✓, Gemini ✓, Claude net erboven (2/3). Eis 3 (geen moeilijke woorden toegevoegd) — alle drie ✓, al voegde Claude één onnodig formeel woord toe. Winnaar voor deze taak: ChatGPT, omdat hij als enige alle drie eisen volledig haalt en het compactst herschrijft. Wat geen van de tools goed deed: daadwerkelijk verifiëren of het resultaat echt 2F is; dat lees ik zelf na en pas ik waar nodig aan."
+        }
+      },
+      {
+        "title": "Duid het verschil — stijl, ecosysteem, niveau",
+        "body": "Til je observatie uit boven deze ene taak. Benoem het verschil tussen de tools langs de drie assen uit het kader: stijl/toon (welke schreef zakelijker, uitgebreider, voorzichtiger?), ecosysteem (welke past in de omgeving die jouw school al gebruikt — Google Workspace, Microsoft of standalone?) en model-niveau (had je een klein/snel niveau nodig of een groot/sterk niveau voor deze taak?). Juist deze duiding is wat je onthoudt als de namen veranderen. Noteer per as je conclusie in één regel.",
+        "time": "10 min",
+        "voorbeeld": "Stijl: ChatGPT het compactst, Claude het meest toelichtend, Gemini er tussenin — voor herschrijven maakt het weinig uit, voor een gevoelige oudermail zou ik de toelichtende toon prettiger vinden. Ecosysteem: mijn school draait op Google Workspace, dus Gemini integreert het soepelst (direct in Docs) — een echt praktijkvoordeel. Niveau: deze herschrijftaak is licht; een klein/snel niveau volstond ruim, het zwaarste model had ik niet nodig en zou alleen trager en duurder zijn.",
+        "workspace": {
+          "field": "tools-verschil-drie-assen",
+          "label": "Duid het verschil tussen de assistenten langs drie assen: stijl/toon, ecosysteem (welke past bij jouw school) en model-niveau (klein/snel volstond, of groot/sterk nodig). Eén conclusie per as.",
+          "shortLabel": "Drie assen",
+          "hint": "Dit is het duurzame deel: schrijf het zo op dat het ook klopt als de modelnamen veranderen. Koppel de ecosysteem-as expliciet aan wat jouw school al gebruikt.",
+          "placeholder": "Stijl/toon: ...\nEcosysteem (past bij mijn school omdat ...): ...\nModel-niveau (klein/snel volstond, of groot/sterk nodig, omdat ...): ...",
+          "rows": 5,
+          "rubric": [
+            {
+              "name": "Stijl-as concreet geduid",
+              "good": "Benoemt een waarneembaar verschil in toon/lengte en koppelt het aan wanneer dat uitmaakt."
+            },
+            {
+              "name": "Ecosysteem gekoppeld aan eigen school",
+              "good": "Verbindt de keuze aan de omgeving die de school al gebruikt (Google, Microsoft of standalone), niet aan een algemene voorkeur."
+            },
+            {
+              "name": "Niveau-keuze onderbouwd op de taak",
+              "good": "Bepaalt of een klein/snel of groot/sterk niveau nodig was en waarom — niet 'het zwaarste is altijd beter'."
+            }
+          ],
+          "referenceAnswer": "Stijl/toon: ChatGPT het compactst, Claude het meest toelichtend, Gemini ertussenin; voor herschrijven maakt het weinig uit, voor een gevoelige oudermail kies ik bewust de toelichtende, voorzichtige toon. Ecosysteem: mijn school werkt in Google Workspace, dus Gemini integreert het soepelst (direct in Docs en Classroom) — dat is een concreet praktijkvoordeel, los van de tekstkwaliteit. Model-niveau: deze herschrijftaak is licht, dus een klein/snel niveau volstond ruim; het grootste/sterkste model had ik niet nodig en zou alleen trager en duurder zijn. Voor een lastige vakinhoudelijke redeneertaak zou ik bewust naar een groter niveau grijpen."
+        }
+      },
+      {
+        "title": "Beslis: wat is in jouw context AVG-veilig?",
+        "body": "Nu de harde laag. Bepaal voor jouw eigen schoolsituatie welke variant je voor welk soort taak gebruikt: een via de school afgesloten/enterprise-omgeving met verwerkersovereenkomst, of een gratis consumentenversie. Schrijf de grens concreet op: wat mag wél in een gratis consumenten-AI (lesmateriaal, geabstraheerde vragen) en wat nooit (herleidbare leerling- of oudergegevens, bijzondere persoonsgegevens zoals een diagnose). Verwijs naar het AI-/AVG-beleid van je school als dat er is; ontbreekt het, noteer dan dat als openstaand punt. De regel zelf is niet onderhandelbaar: geen herleidbare leerlinggegevens in een gratis consumenten-AI.",
+        "time": "10 min",
+        "voorbeeld": "Mijn school heeft Google Workspace for Education met afspraken over Gemini in de beheerde omgeving — dat gebruik ik voor alles wat dichter bij leerlingdata komt. Voor algemene, leerlingvrije taken (een instructie herschrijven, oefenvragen genereren) mag ook een gratis consumentenversie van een ander merk, want daar voer ik alleen lesmateriaal in. Nooit, in geen enkele tool: 'Pas deze toets aan voor [naam], die dyslexie heeft.' Naam plus diagnose is een bijzonder persoonsgegeven en blijft in het LVS en het ondersteuningsplan binnen de schoolomgeving.",
+        "workspace": {
+          "field": "tools-avg-beslissing",
+          "label": "Leg voor jouw schoolcontext vast welke variant je voor welk soort taak gebruikt, wat wél en niet in een gratis consumenten-AI mag, en koppel het aan het beleid van je school (of noteer dat het ontbreekt).",
+          "shortLabel": "AVG-beslissing",
+          "hint": "Maak het onderscheid consumentenversie versus AVG-conforme omgeving expliciet. Geef een concreet 'mag wel' en een concreet 'mag nooit'. De regel geen herleidbare leerlinggegevens in een gratis consumenten-AI staat vast.",
+          "placeholder": "AVG-conforme omgeving (via school) gebruik ik voor: ...\nGratis consumentenversie mag voor: ...\nNooit in een gratis consumenten-AI: ...\nSchoolbeleid / verwerkersovereenkomst: ... (of: ontbreekt, openstaand punt)",
+          "rows": 6,
+          "rubric": [
+            {
+              "name": "Onderscheid consumenten- versus AVG-omgeving",
+              "good": "Benoemt expliciet welke variant voor welk soort taak, met de school-/enterprise-omgeving voor alles dat leerlingdata raakt."
+            },
+            {
+              "name": "Concrete 'mag wel' en 'mag nooit'",
+              "good": "Geeft een leerlingvrij voorbeeld dat mag en een herleidbaar/bijzonder gegeven dat nooit in een gratis consumenten-AI mag."
+            },
+            {
+              "name": "Gekoppeld aan schoolbeleid",
+              "good": "Verwijst naar het AI-/AVG-beleid of de verwerkersovereenkomst, of markeert het ontbreken ervan als openstaand punt."
+            }
+          ],
+          "referenceAnswer": "AVG-conforme omgeving (via school): mijn school heeft Google Workspace for Education met afspraken over Gemini in de beheerde omgeving; die gebruik ik voor alles wat in de buurt van leerlinggegevens komt. Gratis consumentenversie mag voor: algemene, leerlingvrije taken zoals een instructie herschrijven of oefenvragen genereren, waarbij ik uitsluitend lesmateriaal invoer. Nooit in een gratis consumenten-AI: herleidbare leerling- of oudergegevens en bijzondere persoonsgegevens — bijvoorbeeld 'pas deze toets aan voor [naam], die dyslexie heeft'; naam plus diagnose blijft in het LVS en het ondersteuningsplan. Schoolbeleid: er is een verwerkersovereenkomst voor de Google-omgeving; voor andere tools ontbreekt expliciet beleid — dat noteer ik als openstaand punt voor de ICT-coördinator."
+        }
+      },
+      {
+        "title": "Leg je eigen keuzecriteria vast — toekomstvast",
+        "body": "Sluit af met het blijvende product: een kort keuzecriteria-lijstje dat je voortaan gebruikt om binnen een minuut te beslissen, ook als namen en prijzen veranderd zijn. Schrijf vier tot zes criteria in de vorm van vragen die je jezelf stelt bij een nieuwe taak — over taak, ecosysteem, model-niveau en AVG — zonder een vaste toolnaam als antwoord vast te leggen. Test je lijst meteen op een tweede, andere taak en kijk of hij je naar een logische keuze leidt. Zo controleer je of je criteria écht duurzaam zijn en niet stiekem op de tool van vandaag leunen.",
+        "time": "9 min",
+        "voorbeeld": "Mijn keuzelijst: (1) Wat is de taak en welke twee eisen maken een antwoord goed? (2) Is dit leerlingvrij, of moet het sowieso in de AVG-conforme schoolomgeving? (3) In welk ecosysteem werk ik voor deze taak het meest — past de geïntegreerde assistent? (4) Volstaat een klein/snel niveau, of heb ik echt een groot/sterk niveau nodig? (5) Heb ik de uitkomst zelf gecontroleerd op feiten? Test op tweede taak (oefenvragen geschiedenis genereren): leerlingvrij → consumentenversie mag; lichte taak → klein niveau; ecosysteem niet doorslaggevend → ik kies op gewenning. De lijst leidde me in dertig seconden naar een keuze.",
+        "workspace": {
+          "field": "tools-keuzecriteria-lijst",
+          "label": "Stel je persoonlijke keuzecriteria-lijst op (vier tot zes vragen over taak, ecosysteem, niveau en AVG) zonder een vaste toolnaam als antwoord, en test hem op een tweede, andere taak.",
+          "shortLabel": "Keuzelijst",
+          "hint": "Formuleer criteria als vragen die je jezelf stelt, niet als 'gebruik tool X'. Een goede lijst werkt nog als de modelnamen over een halfjaar anders zijn. Test hem direct op een tweede taak.",
+          "placeholder": "Mijn keuzecriteria (vragen):\n1. ...\n2. ...\n3. ...\n4. ...\n5. (optioneel) ...\nTest op tweede taak: ... → keuze: ... omdat ...",
+          "rows": 8,
+          "rubric": [
+            {
+              "name": "Criteria als duurzame vragen",
+              "good": "Geformuleerd als vragen over taak/ecosysteem/niveau/AVG, niet als een vaste toolnaam — werkt nog als namen veranderen."
+            },
+            {
+              "name": "AVG-criterium opgenomen",
+              "good": "Minstens één criterium checkt of de taak leerlingvrij is of in de AVG-conforme omgeving moet."
+            },
+            {
+              "name": "Niveau- en ecosysteem-criterium aanwezig",
+              "good": "Bevat een vraag over klein/snel versus groot/sterk niveau én over het passende ecosysteem."
+            },
+            {
+              "name": "Getest op een tweede taak",
+              "good": "Toegepast op een andere taak die aantoonbaar tot een onderbouwde keuze leidt."
+            }
+          ],
+          "referenceAnswer": "Mijn keuzecriteria (vragen): 1. Wat is de taak en welke twee meetbare eisen maken een antwoord goed? 2. Is dit leerlingvrij, of moet het sowieso in de AVG-conforme schoolomgeving — en zit er nooit een herleidbaar leerlinggegeven in? 3. In welk ecosysteem werk ik voor deze taak het meest, en helpt een geïntegreerde assistent (Google, Microsoft of standalone)? 4. Volstaat een klein/snel/goedkoop niveau, of heb ik voor het redeneren echt een groot/sterk niveau nodig? 5. Heb ik de uitkomst zelf op feiten gecontroleerd voor ik hem gebruik? Test op tweede taak (oefenvragen geschiedenis genereren): leerlingvrij, dus een consumentenversie mag; lichte taak, dus klein niveau; ecosysteem niet doorslaggevend, dus ik kies op gewenning. De lijst leidde me in dertig seconden naar een onderbouwde keuze zonder dat ik een merknaam vooraf hoefde vast te leggen."
+        }
+      }
+    ],
+    "vakvariaties": [
+      {
+        "vak": "Talen · vo en mbo",
+        "body": "Herschrijven, niveau aanpassen en feedback formuleren zijn lichte taken waarvoor een klein/snel niveau ruim volstaat — kies hier op ecosysteem en gewenning, niet op het zwaarste model. Let bij toon op je vak: voor leerlinggerichte instructie wil je vaak een eenvoudige stijl, voor een oudergesprek juist een genuanceerdere. Voer altijd alleen je eigen tekst in, nooit een herkenbaar leerlingproduct met naam."
+      },
+      {
+        "vak": "Exacte vakken · vo bovenbouw en hbo",
+        "body": "Hier loont het verschil tussen niveaus: een lastige meerstaps-redenering of een bewijs vraagt eerder een groot/sterk model dan een herschrijfklus. Maar geen enkel model is betrouwbaar in rekenen — alle drie maken overtuigende fouten. Gebruik de vergelijking juist om te zien wélke fout waar opduikt, en behoud altijd je eigen controle. Dat is meteen lesmateriaal over de grenzen van AI."
+      },
+      {
+        "vak": "Beroepsgerichte vakken · mbo",
+        "body": "Kies vanuit de beroepspraktijk: welke assistent komt je student straks op de werkvloer of stage tegen, en in welk ecosysteem? Vaak is dat de Microsoft- of Google-omgeving van het stagebedrijf. Laat de keuze daar bewust op aansluiten, en behandel het kiezen-op-criteria zelf als beroepsvaardigheid die je studenten meegeeft — niet 'pak ChatGPT', maar 'kies op taak en context'."
+      },
+      {
+        "vak": "Zaakvakken (geschiedenis, aardrijkskunde, maatschappijleer)",
+        "body": "Bronkritiek is je vak, en de drie assistenten zijn een dankbaar oefenobject: laat dezelfde historische of actuele vraag aan alle drie stellen en vergelijk waar ze afwijken, wat ze zeker zeggen en wat ze missen. Dat maakt direct zichtbaar dat een vlot, zelfverzekerd antwoord geen garantie voor juistheid is — los van welk merk het levert."
+      },
+      {
+        "vak": "Hbo · propedeuse, elk domein",
+        "body": "Studenten gebruiken vaak door elkaar wat hun toevallig bevalt. Maak het kiezen expliciet: laat ze één opdracht op twee assistenten doen en op criteria beoordelen, gekoppeld aan het instellingsbeleid rond AI in toetsing. Het leerpunt is niet welke tool wint, maar dat ze leren kiezen op taak, ecosysteem en privacy — een vaardigheid die hun hele studie en daarna meegaat."
+      }
+    ],
+    "valkuilen": [
+      {
+        "titel": "Kiezen op merk in plaats van op taak",
+        "watGebeurtEr": "Je gebruikt altijd dezelfde assistent omdat je daarmee begon of omdat een collega hem aanraadde, zonder te checken of hij past bij de taak van vandaag. Voor lichte klussen pak je onnodig het zwaarste model, voor lastige redeneringen het lichtste — en je merkt het verschil niet eens.",
+        "fix": "Loop je keuzecriteria-lijst uit stap 6 langs vóór je kiest: taak, ecosysteem, niveau, AVG. Dertig seconden nadenken voorkomt een gewenningskeuze die niet bij de klus past."
+      },
+      {
+        "titel": "Een modelnaam onthouden als vast feit",
+        "watGebeurtEr": "Je leert 'het beste model is X' of 'Y heeft een venster van zoveel' uit een artikel — en drie maanden later klopt het niet meer. Je advies aan collega's veroudert, en je vertrouwen op een momentopname leidt tot verkeerde verwachtingen.",
+        "fix": "Onthoud het patroon, niet de naam: drie merken van hetzelfde soort gereedschap, elk met een klein en een groot niveau, kies op taak. Behandel concrete namen, prijzen en specificaties altijd als 'kan morgen anders zijn'."
+      },
+      {
+        "titel": "Leerlinggegevens in een gratis consumenten-AI",
+        "watGebeurtEr": "Je typt 'maak een aangepast plan voor [naam], die [diagnose] heeft' in een gratis chatbot. Dat zijn herleidbare, deels bijzondere persoonsgegevens die voor training gebruikt kunnen worden — een AVG-overtreding, ongeacht hoe handig het antwoord is.",
+        "fix": "Abstraheer altijd: voer alleen de leerbehoefte of het lesmateriaal in, nooit naam, diagnose of cijfer. Wat herleidbaar is, blijft in de beveiligde schoolsystemen. De regel staat los van welk merk je gebruikt."
+      },
+      {
+        "titel": "Altijd het zwaarste model pakken",
+        "watGebeurtEr": "Je gebruikt voor elke taak het grootste, sterkste model 'voor de zekerheid'. Dat is trager, vaak duurder en levert voor een mailtje of herschrijving geen merkbaar betere uitkomst — terwijl het kleine niveau het in een fractie van de tijd doet.",
+        "fix": "Vraag eerst: is dit een lichte taak (herschrijven, samenvatten, ideeën) of een complexe (lastig redeneren, lange context, moeilijke vakinhoud)? Pak het kleine niveau standaard en schaal alleen op als de taak het echt vraagt."
+      },
+      {
+        "titel": "Output van het 'beste' merk niet meer controleren",
+        "watGebeurtEr": "Omdat een assistent vlot en zelfverzekerd schrijft, ga je zijn inhoud vertrouwen en sla je de controle over. Juist het overtuigende karakter verbergt dat alle drie de merken met dezelfde stelligheid kunnen verzinnen wat niet klopt.",
+        "fix": "Behandel elk antwoord, van welk merk ook, als concept dat jij verifieert op feiten, niveau en passendheid. Geen enkel merk verschuift die verantwoordelijkheid van jou naar de tool."
+      }
+    ],
+    "eindcriteria": [
+      {
+        "criterium": "Vergelijking op één taak",
+        "onder": "Geen vergelijking, of drie tools naast elkaar zonder eigen eisen.",
+        "op": "Eén eigen taak met meetbare eisen op minstens twee assistenten uitgevoerd en op die eisen beoordeeld.",
+        "boven": "+ Op alle drie uitgevoerd, met een onderbouwde winnaar én een eerlijk benoemde gezamenlijke zwakte."
+      },
+      {
+        "criterium": "Duiding van het verschil",
+        "onder": "Verschil benoemd als 'X is beter' zonder grond.",
+        "op": "Verschil geduid langs stijl, ecosysteem en model-niveau, met een conclusie per as.",
+        "boven": "+ Ecosysteem expliciet gekoppeld aan de eigen school en niveau-keuze onderbouwd op de taak."
+      },
+      {
+        "criterium": "AVG-beslissing",
+        "onder": "Geen onderscheid consumenten- versus schoolomgeving, of leerlinggegevens in een gratis AI.",
+        "op": "Heldere grens vastgelegd: wat mag wél en wat nooit in een gratis consumenten-AI, gekoppeld aan schoolbeleid.",
+        "boven": "+ Openstaande punten in het schoolbeleid benoemd en belegd bij de juiste persoon (bv. ICT-coördinator)."
+      },
+      {
+        "criterium": "Eigen keuzecriteria",
+        "onder": "Geen lijst, of een lijst die op een vaste toolnaam leunt.",
+        "op": "Vier tot zes criteria als vragen over taak, ecosysteem, niveau en AVG, zonder vaste toolnaam.",
+        "boven": "+ Lijst getest op een tweede taak die aantoonbaar tot een onderbouwde keuze leidt."
+      }
+    ],
+    "reflection": [
+      "Welke assistent gebruikte je tot nu toe het meest, en koos je die ooit bewust op taak of ecosysteem — of bleef je hangen bij waar je toevallig mee begon?",
+      "Voor welk soort docenttaak zou je in jouw school écht naar een groot/sterk model grijpen in plaats van het kleine, snelle niveau, en hoe weeg je dat verschil af tegen tijd en kosten?",
+      "Waar ligt in jouw dagelijkse praktijk de grens tussen 'mag in een gratis consumenten-AI' en 'alleen in de AVG-conforme schoolomgeving' — en is die grens voor jou en je collega's even helder?"
+    ],
+    "checklist": [
+      "Eén concrete, terugkerende eigen docenttaak gekozen en voorzien van twee tot drie meetbare eisen",
+      "Dezelfde taak met identieke prompt op minstens twee assistenten uitgevoerd, zonder leerlinggegevens",
+      "Elk antwoord beoordeeld op de eigen eisen, met een onderbouwde winnaar voor deze taak",
+      "Het verschil geduid langs stijl/toon, ecosysteem en model-niveau",
+      "Bepaald welke variant in de eigen schoolcontext AVG-veilig is, met een concreet 'mag wel' en 'mag nooit'",
+      "Vastgelegd dat herleidbare leerling- of oudergegevens nooit in een gratis consumenten-AI gaan",
+      "Een persoonlijke keuzecriteria-lijst (4-6 vragen) opgesteld zonder vaste toolnaam",
+      "De keuzelijst getest op een tweede, andere taak"
+    ],
+    "nextLesson": "modellen-en-niveaus"
+  },
+  "modellen-en-niveaus": {
+    "format": "diepteles",
+    "summary": "Je leert dat elke grote AI-aanbieder model-niveaus aanbiedt — een klein, snel en goedkoop niveau naast een groot, sterker en duurder niveau — en hoe je per taak het juiste niveau kiest in plaats van standaard het zwaarste. Je leert de drie assen die ertoe doen (snelheid, kosten, kwaliteit) plus context-venster en multimodaliteit. Je koppelt je eigen taken aan een niveau, test dezelfde prompt op een klein én een groot model en bepaalt je default-niveau. De kern is een denkraam dat blijft werken terwijl namen, versies en prijzen elke paar maanden veranderen.",
+    "duration": {
+      "total": "60 minuten",
+      "blocks": [
+        {
+          "label": "Aanleiding & kader",
+          "min": 8
+        },
+        {
+          "label": "Conceptueel: niveaus en assen",
+          "min": 12
+        },
+        {
+          "label": "Je taken koppelen aan een niveau",
+          "min": 12
+        },
+        {
+          "label": "Klein versus groot testen",
+          "min": 14
+        },
+        {
+          "label": "Default bepalen & opschaalregel",
+          "min": 10
+        },
+        {
+          "label": "Reflectie & check",
+          "min": 4
+        }
+      ]
+    },
+    "opening": {
+      "eyebrow": "Aanleiding",
+      "aanleiding": "Je opent de AI-tool van je school om snel een mail aan ouders te herschrijven. In het menu staat een keuzelijstje met modelnamen die je niets zeggen: iets met 'mini', iets met 'pro', een naam met een versienummer erachter. Je weet dat het zwaarste model 'het beste' heet te zijn, dus je kiest dat maar. De mail komt eruit, prima — maar het duurde langer dan nodig, en als je school per gebruik betaalt, was het ook duurder dan nodig.\n\nDe week erna gebeurt het omgekeerde. Je laat datzelfde standaardmodel een lastig stuk vakinhoud uitleggen — een redenering over thermodynamica, of een juridische casus voor je mbo-opleiding — en het antwoord klinkt vloeiend maar zit vol kleine denkfouten. Niet omdat 'AI dom is', maar omdat je toevallig een klein, snel model had gekozen dat prima mails schrijft maar niet gemaakt is om diep te redeneren. Twee keer dezelfde tool, twee keer de verkeerde match tussen taak en model.\n\nDe meeste docenten kennen dit gevoel: je weet niet wat die namen betekenen, dus je gokt, of je pakt altijd 'de nieuwste'. Deze les haalt dat gegok weg. Niet door je een lijstje modelnamen te laten leren — dat lijstje is over drie maanden achterhaald — maar door je het patroon te leren dat eronder ligt en blijft liggen: elke aanbieder heeft niveaus, en je kiest het niveau op de taak.",
+      "waaromNu": "Modelkeuze is geen technisch detail meer maar een dagelijkse beslissing die tijd en geld kost en de kwaliteit van je output bepaalt. UNESCO's AI-competentieraamwerk voor docenten rekent 'knowledge of AI' tot de basis: genoeg begrip om kritisch en doelgericht te kiezen, niet om alles op de automatische piloot te doen. DigCompEdu plaatst dit onder het bewust en verantwoord selecteren van digitale middelen. Bewust kiezen kan pas als je het verschil tussen modelniveaus snapt — en dat verschil verandert niet, ook al veranderen de namen elk seizoen."
+    },
+    "conceptueel": {
+      "eyebrow": "Conceptueel kader",
+      "intro": "Begin bij wat níet verandert. Achter ChatGPT, Claude en Gemini zitten geen losse 'modellen' maar families met niveaus. Elke aanbieder biedt minstens twee smaken aan: een klein, snel, goedkoop niveau en een groot, sterker, duurder niveau. De namen die je nu ziet — mini, flash, haiku, nano voor de kleine; pro, opus, sonnet, ultra voor de grotere — zijn momentopnames. Volgend kwartaal heten ze anders, staat er een hoger versienummer achter, of is er een tussenniveau bijgekomen. Wat blijft is de logica: licht en snel tegenover zwaar en sterk. Onthoud die as, niet de etiketten.\n\nDe valkuil is denken dat 'groter altijd beter' is. Dat klopt alleen als je vraag groot is. Voor verreweg de meeste docenttaken — een mail herschrijven, een tekst samenvatten, een eerste lesopzet, een uitnodiging opstellen, een woordenlijst maken — is het kleine niveau ruim voldoende. Het is sneller klaar, het kost minder, en het verschil in kwaliteit merk je bij dit soort taken nauwelijks. Het grote niveau reserveer je voor wat het kleine niet aankan: complex redeneren in meerdere stappen, een lastig stuk vakinhoud waar een denkfout je leerlingen schaadt, of een opdracht waarbij heel veel tekst tegelijk overzien moet worden.\n\nDrie assen helpen je kiezen, en je weegt ze per taak anders. Snelheid: hoe snel komt het antwoord — bij een mail wil je het meteen, bij een grondige analyse mag het even duren. Kosten: kleine modellen zijn fors goedkoper per gebruik, wat optelt als je school betaalt of als je veel taken draait. Kwaliteit: het grote niveau redeneert dieper en maakt minder fouten op moeilijke inhoud. Bij een simpele taak weegt snelheid en kosten zwaar en is kwaliteitsverschil verwaarloosbaar; bij een moeilijke taak draait die weging om.\n\nTwee eigenschappen staan los van het niveau en kunnen je keuze overrulen. Het context-venster is hoeveel tekst een model in één keer kan 'vasthouden' en overzien — een groot venster is nodig als je een heel beleidsstuk of vijftien leerlingteksten tegelijk wilt laten verwerken; een klein venster knipt of vergeet. Multimodaliteit is of een model naast tekst ook beeld, audio of bestanden aankan — nodig als je een foto van een schoolbordsom wilt laten lezen of een PDF wilt laten samenvatten. Soms dwingt juist een van deze twee je naar een specifiek model, ongeacht het niveau. En over al deze keuzes heen geldt één harde grens die nooit verandert: geen herleidbare leerling- of oudergegevens in een gratis consumentenversie, want daar kunnen je invoer en je leerlinggegevens voor training gebruikt worden.",
+      "mentalModel": {
+        "naam": "Niveau-denken in plaats van naam-onthouden",
+        "beschrijving": "Zie elke aanbieder als een trap met treden: onderaan een licht, snel, goedkoop niveau, bovenaan een zwaar, sterk, duur niveau. Je kiest de laagste trede die de taak aankan — opschalen kost altijd tijd en geld. De namen op de treden wisselen elk seizoen; de trap blijft. Kies op taak, niet op 'het nieuwste'."
+      },
+      "kernbegrippen": [
+        {
+          "term": "Model-niveau (tier)",
+          "uitleg": "De positie van een model op de licht-naar-zwaar-trap binnen één aanbieder. Klein/snel/goedkoop (voorbeeldnamen mini, flash, haiku, nano) tegenover groot/sterk/duur (voorbeeldnamen pro, opus, sonnet, ultra). De voorbeeldnamen veranderen; het niveau-onderscheid blijft."
+        },
+        {
+          "term": "De drie assen",
+          "uitleg": "Snelheid, kosten en kwaliteit. Je weegt ze per taak: bij een simpele taak tellen snelheid en kosten, bij een moeilijke taak telt kwaliteit zwaarder. Een hoger niveau levert meer kwaliteit maar kost meer tijd en geld."
+        },
+        {
+          "term": "Context-venster",
+          "uitleg": "Hoeveel tekst een model in één keer kan overzien en meenemen. Te veel tekst voor het venster betekent dat het model afknipt of details vergeet. Bij lange documenten of veel teksten tegelijk is dit doorslaggevend, los van het niveau."
+        },
+        {
+          "term": "Multimodaliteit",
+          "uitleg": "Of een model naast tekst ook beeld, audio of bestanden begrijpt. Nodig zodra je een foto, scan, PDF of opname wilt laten verwerken. Niet elk model of niveau kan dit; het kan je keuze afdwingen."
+        }
+      ]
+    },
+    "learningGoals": [
+      "Je legt in eigen woorden uit dat elke grote aanbieder model-niveaus heeft en waarom de concrete namen en prijzen onbetrouwbaar zijn om te onthouden.",
+      "Je koppelt minstens zes eigen docenttaken aan een klein of groot niveau en onderbouwt elke koppeling met de drie assen snelheid, kosten en kwaliteit.",
+      "Je test dezelfde prompt op een klein én een groot model, vergelijkt het resultaat concreet en trekt een conclusie over wanneer het verschil ertoe doet.",
+      "Je bepaalt je eigen default-niveau voor dagelijks werk én een expliciete regel voor wanneer je opschaalt naar een groter niveau, inclusief de AVG-grens."
+    ],
+    "scenario": {
+      "title": "Werksituatie",
+      "context": "Je gebruikt regelmatig een AI-tool voor je lesvoorbereiding, communicatie en nakijkwerk, en je merkt dat je nooit bewust kiest welk model je aanzet — je pakt de standaard of de zwaarste. Je wilt dat omdraaien: per taak het passende niveau kiezen, sneller en goedkoper werken waar het kan, en alleen opschalen waar het echt nodig is.",
+      "role": "Docent of mentor in vo, mbo of hbo die de eigen AI-tool bewuster wil inzetten, zonder techneut te willen worden.",
+      "tools": "Een AI-chatbot waarin je tussen modelniveaus kunt kiezen, via je school- of instellingsaccount; deze werkbladen; en een lege notitie voor je taak-naar-niveau-overzicht."
+    },
+    "steps": [
+      {
+        "title": "Maak het niveau-onderscheid concreet voor jezelf",
+        "body": "Voordat je gaat kiezen, zet je het patroon in je eigen woorden. Beschrijf wat een klein/snel/goedkoop niveau is en wat een groot/sterk/duur niveau is, en — cruciaal — waarom je geen modelnamen of prijzen uit je hoofd moet leren. Het doel is dat je het denkraam vastlegt, niet een momentopname. Wie het patroon snapt, kan elke nieuwe naam die volgend kwartaal verschijnt meteen op de juiste trede plaatsen.",
+        "time": "8 min",
+        "voorbeeld": "Een docent schrijft: 'Klein niveau = snel en goedkoop, prima voor mail en samenvatten. Groot niveau = trager en duurder, voor moeilijk redeneren. Namen als mini of pro onthoud ik niet, want die zijn over een paar maanden veranderd — ik onthoud de trap.'",
+        "workspace": {
+          "field": "niveau-onderscheid-eigen-woorden",
+          "label": "Beschrijf in eigen woorden het verschil tussen een klein en een groot modelniveau, en leg uit waarom je het patroon onthoudt en niet de namen of prijzen.",
+          "shortLabel": "Niveau-uitleg",
+          "hint": "Noem voor beide niveaus de typische eigenschappen (snelheid, kosten, kwaliteit) en zeg expliciet waarom een lijstje namen verouderd raakt.",
+          "placeholder": "Klein niveau: ...\nGroot niveau: ...\nWaarom ik geen namen/prijzen onthoud: ...",
+          "rows": 7,
+          "rubric": [
+            {
+              "name": "Beide niveaus correct beschreven",
+              "good": "Klein = snel/goedkoop, groot = sterker/duurder, met de juiste typische eigenschappen."
+            },
+            {
+              "name": "Drie assen herkenbaar",
+              "good": "Snelheid, kosten en kwaliteit komen terug in de beschrijving."
+            },
+            {
+              "name": "Volatiliteit benoemd",
+              "good": "Je legt uit dat namen, versies en prijzen veranderen en daarom niet leerbaar zijn."
+            },
+            {
+              "name": "Patroon boven momentopname",
+              "good": "De nadruk ligt op het denkraam, niet op concrete modelnamen."
+            }
+          ],
+          "referenceAnswer": "Klein niveau (voorbeeldnamen mini, flash, haiku, nano): snel klaar, goedkoop per gebruik, ruim voldoende voor alledaagse taken als mail, samenvatten en een eerste concept — het kwaliteitsverschil merk je daar nauwelijks. Groot niveau (voorbeeldnamen pro, opus, sonnet, ultra): trager en duurder, maar het redeneert dieper en maakt minder fouten op lastige inhoud, dus daarvoor reserveer ik het. De drie assen zijn snelheid, kosten en kwaliteit, en die weeg ik per taak. Ik onthoud geen modelnamen of prijzen, want die veranderen elk kwartaal: er komt een nieuw versienummer, een naam wijzigt of er komt een tussenniveau bij. Wat blijft is de trap van licht-en-snel naar zwaar-en-sterk. Onthoud ik die trap, dan kan ik elke nieuwe naam die opduikt meteen op de juiste trede plaatsen."
+        }
+      },
+      {
+        "title": "Inventariseer je eigen AI-taken",
+        "body": "Maak een lijst van minstens zes taken waarvoor je AI gebruikt of zou willen gebruiken. Wees concreet en gevarieerd: pak zowel licht routinewerk (mail, samenvatten) als zwaarder werk (vakinhoud uitleggen, een complexe casus doordenken, veel tekst tegelijk verwerken). Dit is de basis voor je koppeling: zonder een eerlijke takenlijst kies je straks op gevoel. Noteer bij elke taak kort wat de taak inhoudelijk vraagt.",
+        "time": "6 min",
+        "voorbeeld": "Een docent geschiedenis noteert: ouderbriefje herschrijven, hoofdstuk samenvatten voor leerlingen, oefenvragen maken, een lange beleidsnota van de directie samenvatten, een redenering over oorzaken van de Eerste Wereldoorlog laten checken, een foto van een tijdlijn-werkblad laten omzetten naar tekst.",
+        "workspace": {
+          "field": "ai-taken-inventaris",
+          "label": "Lijst minstens zes concrete taken waarvoor je AI gebruikt of wilt gebruiken, met per taak één zin over wat de taak inhoudelijk vraagt.",
+          "shortLabel": "Takenlijst",
+          "hint": "Zorg voor spreiding: een paar lichte taken én een paar zware. Neem ook een taak met veel tekst of met beeld/bestand mee als die er is.",
+          "placeholder": "Taak 1 — vraagt: ...\nTaak 2 — vraagt: ...\n...",
+          "rows": 9,
+          "rubric": [
+            {
+              "name": "Minstens zes taken",
+              "good": "De lijst telt zes of meer concrete taken."
+            },
+            {
+              "name": "Spreiding licht en zwaar",
+              "good": "Er staan zowel routinetaken als taken die diep redeneren of veel tekst vragen."
+            },
+            {
+              "name": "Inhoudelijke vraag benoemd",
+              "good": "Bij elke taak staat kort wat de taak inhoudelijk vergt."
+            },
+            {
+              "name": "Eigen en herkenbaar",
+              "good": "De taken komen uit de eigen praktijk, geen algemeenheden."
+            }
+          ],
+          "referenceAnswer": "1. Ouderbriefje herschrijven — vraagt: nette toon, kort, geen herleidbare gegevens. 2. Lesstof-hoofdstuk samenvatten voor leerlingen — vraagt: helder inkorten op niveau. 3. Set oefenvragen maken bij een onderwerp — vraagt: variatie en juiste moeilijkheid. 4. Lange beleidsnota van de directie samenvatten — vraagt: veel tekst tegelijk overzien (context-venster). 5. Een meerstaps-redenering over een vakinhoudelijk vraagstuk laten controleren — vraagt: diep en foutloos redeneren. 6. Een gefotografeerd werkblad omzetten naar bewerkbare tekst — vraagt: beeld lezen (multimodaliteit). 7. Een eerste opzet voor een ouderavond-presentatie — vraagt: standaardstructuur, snel."
+        }
+      },
+      {
+        "title": "Koppel elke taak aan een niveau met de drie assen",
+        "body": "Loop je takenlijst langs en wijs elke taak een niveau toe: klein of groot. Onderbouw elke keuze met de drie assen — bij een lichte taak wegen snelheid en kosten zwaar en is kwaliteitsverschil verwaarloosbaar, dus klein; bij een zware taak telt kwaliteit zwaarder, dus groot. Markeer ook taken waar het context-venster (veel tekst) of multimodaliteit (beeld, bestand) je keuze afdwingt, los van het niveau. Dit overzicht is je opbrengst van de les.",
+        "time": "12 min",
+        "voorbeeld": "Ouderbriefje → klein: snel en goedkoop, kwaliteit ruim voldoende. Vakinhoud-redenering checken → groot: hier mag geen denkfout in, kwaliteit weegt zwaarder dan snelheid. Lange beleidsnota → een model met groot context-venster, want de hele tekst moet er in één keer in; het niveau is bijzaak. Foto van werkblad → een multimodaal model, ongeacht het niveau.",
+        "workspace": {
+          "field": "taak-naar-niveau-overzicht",
+          "label": "Wijs elke taak uit stap 2 een niveau toe (klein/groot) en onderbouw met de drie assen. Markeer taken waar context-venster of multimodaliteit doorslaggevend is.",
+          "shortLabel": "Taak→niveau",
+          "hint": "Schrijf per taak: niveau + welke as de doorslag geeft. Zet een sterretje bij taken waar 'veel tekst' of 'beeld/bestand' je keuze bepaalt.",
+          "placeholder": "Taak 1 — klein/groot, omdat (snelheid/kosten/kwaliteit) ...\n...",
+          "rows": 9,
+          "rubric": [
+            {
+              "name": "Elke taak een niveau",
+              "good": "Bij elke taak uit stap 2 staat klein of groot."
+            },
+            {
+              "name": "Onderbouwd met de assen",
+              "good": "Elke keuze noemt welke as (snelheid, kosten of kwaliteit) de doorslag geeft."
+            },
+            {
+              "name": "Lichte taken gaan klein",
+              "good": "Routinetaken krijgen het kleine niveau, niet standaard het zwaarste."
+            },
+            {
+              "name": "Venster/multimodaliteit gemarkeerd",
+              "good": "Taken met veel tekst of beeld/bestand zijn apart aangewezen."
+            },
+            {
+              "name": "Opschalen waar nodig",
+              "good": "Echt complexe of foutgevoelige taken krijgen terecht het grote niveau."
+            }
+          ],
+          "referenceAnswer": "1. Ouderbriefje — klein: snelheid en kosten wegen zwaar, kwaliteitsverschil verwaarloosbaar. 2. Hoofdstuk samenvatten — klein: idem, prima resultaat. 3. Oefenvragen maken — klein, maar ik controleer de moeilijkheid zelf. 4. *Lange beleidsnota samenvatten — keuze gedreven door context-venster: een model dat de hele nota in één keer aankan; niveau is secundair. 5. Vakinhoudelijke meerstaps-redenering controleren — groot: kwaliteit weegt zwaarder dan snelheid, een denkfout schaadt mijn leerlingen. 6. *Gefotografeerd werkblad omzetten — multimodaal model verplicht, ongeacht niveau. 7. Opzet ouderavond-presentatie — klein: standaardstructuur, snel en goedkoop volstaat. Mijn lijn: standaard klein, opschalen alleen bij diep redeneren of foutgevoelige vakinhoud; venster en multimodaliteit kunnen de keuze los van het niveau afdwingen."
+        }
+      },
+      {
+        "title": "Test dezelfde prompt op een klein én een groot model",
+        "body": "Nu maak je het verschil zelf zichtbaar in plaats van het op gezag aan te nemen. Kies één duidelijk lichte taak en één duidelijk zware taak. Geef voor elk exact dezelfde prompt aan zowel het kleine als het grote niveau, en vergelijk: bij de lichte taak let je op of het kwaliteitsverschil de tragere, duurdere keuze waard is; bij de zware taak let je op redeneerdiepte en fouten. Let op snelheid en, indien zichtbaar, op kosten. Werk via je schoolaccount en zonder herleidbare leerlinggegevens.",
+        "time": "14 min",
+        "voorbeeld": "Lichte taak: 'Herschrijf deze mededeling voor ouders in vriendelijke, korte taal.' Klein en groot leveren bijna hetzelfde; klein was sneller. Zware taak: 'Klopt deze redenering over osmose, en waar zit eventueel een denkfout?' Het kleine model klonk overtuigend maar miste een stap; het grote model wees de fout precies aan. Conclusie: voor mail maakt het niveau niet uit, voor vakinhoud wel.",
+        "workspace": {
+          "field": "klein-versus-groot-test",
+          "label": "Beschrijf je test: welke prompt, op welk klein en welk groot niveau, en wat je concreet zag verschillen in kwaliteit, snelheid en bruikbaarheid voor een lichte én een zware taak.",
+          "shortLabel": "A/B-test",
+          "hint": "Gebruik letterlijk dezelfde prompt op beide niveaus. Beschrijf het verschil concreet ('miste een stap', 'even goed maar trager'), niet algemeen.",
+          "placeholder": "Lichte taak — prompt: ...\nKlein: ... Groot: ... Verschil: ...\nZware taak — prompt: ...\nKlein: ... Groot: ... Verschil: ...",
+          "rows": 10,
+          "rubric": [
+            {
+              "name": "Zelfde prompt op beide niveaus",
+              "good": "Identieke prompt getest op een klein én een groot model."
+            },
+            {
+              "name": "Lichte én zware taak",
+              "good": "Beide soorten taken zijn vergeleken, niet maar één."
+            },
+            {
+              "name": "Concreet verschil benoemd",
+              "good": "Het verschil is specifiek beschreven (fout, gemiste stap, gelijk maar trager), niet vaag."
+            },
+            {
+              "name": "Assen waargenomen",
+              "good": "Snelheid en/of kosten naast kwaliteit zijn meegenomen in de observatie."
+            },
+            {
+              "name": "AVG geborgd",
+              "good": "Geen herleidbare leerling-/oudergegevens; gewerkt via school-/instellingsaccount."
+            }
+          ],
+          "referenceAnswer": "Lichte taak — prompt: 'Herschrijf deze mededeling voor ouders in korte, vriendelijke taal' (zonder namen of klasgegevens, via mijn schoolaccount). Klein niveau: nette, bruikbare tekst, vrijwel direct klaar. Groot niveau: praktisch dezelfde kwaliteit, merkbaar trager. Verschil: verwaarloosbaar in kwaliteit, klein wint op snelheid en kosten. Zware taak — prompt: 'Controleer deze meerstaps-redenering over osmose en wijs een eventuele denkfout aan.' Klein niveau: vloeiend en overtuigend, maar sloeg een stap over en miste de fout. Groot niveau: wees de fout precies aan en lichtte de juiste stap toe. Verschil: bij vakinhoud is het grote niveau het tragere antwoord echt waard. Conclusie: voor routinetaken default ik op klein; voor foutgevoelige vakinhoud schaal ik op. Ik heb geen leerlinggegevens ingevoerd."
+        }
+      },
+      {
+        "title": "Bepaal je default-niveau en je opschaalregel",
+        "body": "Trek je conclusies samen in twee beslissingen die je voortaan zonder nadenken kunt toepassen. Eén: wat wordt je default-niveau voor dagelijks werk? Voor de meeste docenten is dat het kleine niveau, omdat dat sneller en goedkoper is en bij routinewerk ruim voldoende. Twee: wanneer schaal je bewust op naar het grote niveau? Formuleer dat als een concrete als-dan-regel, zodat je niet elke keer opnieuw twijfelt en ook niet uit gemak altijd het zwaarste pakt.",
+        "time": "8 min",
+        "voorbeeld": "Default: klein niveau voor mail, samenvatten, eerste concepten en oefenmateriaal. Opschaalregel: 'Ik schakel naar groot als de taak meerstaps-redeneren vraagt, als een vakinhoudelijke fout mijn leerlingen kan schaden, of als ik een heel lang document in één keer moet laten overzien.' Multimodaliteit en context-venster kunnen de keuze los daarvan afdwingen.",
+        "workspace": {
+          "field": "default-en-opschaalregel",
+          "label": "Noteer je default-niveau voor dagelijks werk en je concrete opschaalregel (als-dan) voor wanneer je naar het grote niveau gaat. Verwerk context-venster, multimodaliteit en de AVG-grens.",
+          "shortLabel": "Default + regel",
+          "hint": "Maak de opschaalregel toetsbaar: 'als de taak X vraagt, dan groot'. Benoem ook wanneer venster of beeld/bestand de keuze afdwingt, en de AVG-grens.",
+          "placeholder": "Default-niveau: ...\nIk schaal op naar groot als: ...\nVenster/multimodaliteit dwingt af wanneer: ...\nAVG-grens: ...",
+          "rows": 8,
+          "rubric": [
+            {
+              "name": "Default expliciet gekozen",
+              "good": "Er staat één helder default-niveau voor dagelijks werk, doorgaans het kleine."
+            },
+            {
+              "name": "Opschaalregel is concreet",
+              "good": "De als-dan-regel is toetsbaar en noemt diep redeneren of foutgevoelige inhoud."
+            },
+            {
+              "name": "Venster en multimodaliteit verwerkt",
+              "good": "Het is duidelijk wanneer veel tekst of beeld/bestand de keuze los van het niveau afdwingt."
+            },
+            {
+              "name": "AVG-grens benoemd",
+              "good": "Geen herleidbare leerling-/oudergegevens in een gratis consumentenversie; school-/AVG-conforme omgeving voor schoolwerk."
+            },
+            {
+              "name": "Direct toepasbaar",
+              "good": "Iemand anders zou met deze twee regels morgen de juiste keuze maken."
+            }
+          ],
+          "referenceAnswer": "Default-niveau: het kleine, snelle, goedkope niveau voor mijn dagelijkse taken — mail, samenvatten, eerste concepten, oefenmateriaal en standaardstructuren. Het is sneller en goedkoper en het kwaliteitsverschil is bij dit werk verwaarloosbaar. Opschaalregel: ik ga naar het grote niveau als (1) de taak meerstaps-redeneren vraagt, (2) een vakinhoudelijke fout mijn leerlingen kan schaden, of (3) ik een afweging met veel nuance of zorgvuldige formulering nodig heb. Context-venster: zodra ik een heel lang document of veel teksten tegelijk moet laten overzien, kies ik een model met een groot venster, los van het niveau. Multimodaliteit: voor een foto, scan, PDF of opname kies ik een multimodaal model, ongeacht het niveau. AVG-grens, onveranderlijk: nooit herleidbare leerling- of oudergegevens in een gratis consumentenversie, want daar kan mijn invoer voor training worden gebruikt; voor schoolwerk gebruik ik de school-/instellings- of enterprise-omgeving met verwerkersafspraken en anonimiseer ik waar het kan."
+        }
+      }
+    ],
+    "vakvariaties": [
+      {
+        "vak": "Talen (vo)",
+        "body": "Klein niveau volstaat voor het gros: woordenlijsten, leesteksten op niveau, een eerste set grammatica-oefeningen, een herschreven instructie. Opschalen heeft zin bij een genuanceerde stijl- of vertaalvraag waar betekenis subtiel verschuift. Een groot context-venster helpt als je een hele literaire tekst in één keer wilt laten bevragen."
+      },
+      {
+        "vak": "Exacte vakken (vo/havo-vwo)",
+        "body": "Hier loont opschalen het snelst: meerstaps-berekeningen en bewijsvoeringen zijn precies waar een klein model overtuigend klinkt maar een stap mist. Reken elke uitwerking sowieso zelf na — ook het grote niveau rekent geregeld fout. Voor een gefotografeerde som heb je een multimodaal model nodig, los van het niveau."
+      },
+      {
+        "vak": "Beroepsgerichte vakken (mbo)",
+        "body": "Klein niveau is prima voor een eerste opzet van een praktijkopdracht of casus. Schaal op als de casus juridisch of veiligheidskritisch redeneren vraagt, want daar telt elke denkstap. Wil je een hele kwalificatie-eis of een lang praktijkdocument in één keer laten meenemen, kijk dan naar het context-venster."
+      },
+      {
+        "vak": "Mentoraat / studieloopbaan (vo/mbo)",
+        "body": "Standaardcommunicatie — uitnodigingen, informatiemails, een presentatie-opzet — gaat prima op het kleine niveau. De harde grens hier is AVG: zorgsignalen, namen of persoonlijke situaties van leerlingen horen niet in een gratis consumenten-chatbot, ongeacht welk niveau je kiest. Abstraheer of werk in de schoolomgeving."
+      },
+      {
+        "vak": "Hoger beroepsonderwijs (hbo)",
+        "body": "Voor het structureren van een werkcollege of het herschrijven van studiemateriaal is klein voldoende. Bij het doordenken van een complexe vakcasus of het beoordelen van een lange beleids- of onderzoekstekst weegt kwaliteit en context-venster zwaarder, dus dan schaal je bewust op. Studentgegevens blijven sowieso uit consumentenversies."
+      }
+    ],
+    "valkuilen": [
+      {
+        "titel": "Altijd het zwaarste model pakken",
+        "watGebeurtEr": "Je kiest standaard 'de nieuwste' of 'de beste', ook voor een mail of samenvatting. Het werk duurt onnodig lang en kost meer, terwijl het kwaliteitsverschil bij die taken verwaarloosbaar is.",
+        "fix": "Zet je default op het kleine niveau en schaal alleen op volgens je expliciete opschaalregel. Laat de taak de trede bepalen, niet de gewoonte."
+      },
+      {
+        "titel": "Modelnamen en prijzen als vaste kennis behandelen",
+        "watGebeurtEr": "Je leert een lijstje namen of een prijs uit je hoofd. Een kwartaal later kloppen ze niet meer, je keuzes raken achterhaald en je vertrouwt op verouderde informatie.",
+        "fix": "Onthoud het niveau-denken, niet de etiketten. Controleer bij twijfel de actuele namen en specificaties in de tool zelf; behandel elke prijs of elk tokengetal als momentopname."
+      },
+      {
+        "titel": "Het context-venster vergeten bij lange teksten",
+        "watGebeurtEr": "Je plakt een heel lang document in een model met een klein venster. Het model knipt de tekst af of vergeet het begin, en de samenvatting mist juist de kern — zonder dat je het doorhebt.",
+        "fix": "Bij veel tekst tegelijk kies je eerst op context-venster, daarna pas op niveau. Of knip het document zelf in behapbare delen en verwerk ze apart."
+      },
+      {
+        "titel": "Een groot model vertrouwen op moeilijke vakinhoud",
+        "watGebeurtEr": "Je gaat ervan uit dat het grote niveau wél altijd klopt. Het redeneert dieper, maar het kan nog steeds vloeiend en overtuigend een fout produceren — zeker bij rekenwerk of feiten.",
+        "fix": "Opschalen verkleint de kans op fouten, het haalt ze niet weg. Controleer foutgevoelige vakinhoud altijd zelf; het model levert een concept, jij bent verantwoordelijk."
+      },
+      {
+        "titel": "Leerlinggegevens in een gratis consumentenversie",
+        "watGebeurtEr": "Je gebruikt voor het gemak je persoonlijke gratis account en plakt er een leerlingnaam, cijfer of situatie in. In een gratis consumentenversie kunnen die gegevens voor training worden gebruikt — een AVG-overtreding, ongeacht welk modelniveau je koos.",
+        "fix": "Houd herleidbare leerling- of oudergegevens altijd uit gratis consumentenversies. Werk in de school-/instellings- of enterprise-omgeving met verwerkersafspraken, of abstraheer de gegevens vooraf."
+      }
+    ],
+    "eindcriteria": [
+      {
+        "criterium": "Niveau-denken begrepen",
+        "onder": "Noemt losse modelnamen als vaste feiten en kan het klein-versus-groot-onderscheid niet uitleggen.",
+        "op": "Legt het niveau-onderscheid helder uit met de drie assen en beseft dat namen en prijzen veranderen.",
+        "boven": "Plaatst moeiteloos nieuwe, onbekende modelnamen op de juiste trede en legt aan een collega uit waarom het patroon belangrijker is dan het lijstje."
+      },
+      {
+        "criterium": "Taak-naar-niveau-koppeling",
+        "onder": "Wijst willekeurig of standaard het zwaarste niveau toe, zonder onderbouwing.",
+        "op": "Koppelt elke taak aan een passend niveau met een argument langs snelheid, kosten of kwaliteit, en zet routinewerk op klein.",
+        "boven": "Verwerkt ook context-venster en multimodaliteit als doorslaggevende factoren en maakt zichtbaar waar die het niveau overrulen."
+      },
+      {
+        "criterium": "Verschil zelf getest",
+        "onder": "Neemt het verschil tussen niveaus op gezag aan zonder eigen vergelijking.",
+        "op": "Heeft dezelfde prompt op klein en groot getest en beschrijft het verschil concreet voor een lichte en een zware taak.",
+        "boven": "Trekt uit de test een scherpe conclusie over wanneer opschalen loont en bouwt die in zijn default- en opschaalregel in."
+      },
+      {
+        "criterium": "AVG-grens geborgd",
+        "onder": "Voert leerling- of oudergegevens in een gratis consumentenversie in of benoemt de grens niet.",
+        "op": "Houdt herleidbare gegevens uit consumentenversies en werkt voor schoolwerk in een school-/AVG-conforme omgeving.",
+        "boven": "Maakt het onderscheid tussen consumenten- en enterprise-omgeving expliciet en abstraheert gegevens standaard, ook onder tijdsdruk."
+      }
+    ],
+    "reflection": [
+      "Welke van je eigen taken pak je nu standaard met het zwaarste model aan, terwijl het kleine niveau eigenlijk volstaat — en wat houdt je tegen om dat te veranderen?",
+      "Bij welke taak in jouw vak zou een onopgemerkte denkfout van een klein model je leerlingen echt kunnen schaden, en hoe bouw je daar een controlestap in?",
+      "Hoe ga je jezelf eraan herinneren dat de modelnamen en prijzen die je vandaag ziet over een paar maanden veranderd kunnen zijn, zonder steeds opnieuw alles te moeten uitzoeken?"
+    ],
+    "checklist": [
+      "Ik kan in eigen woorden uitleggen wat een klein en een groot modelniveau is.",
+      "Ik weet dat modelnamen, versies en prijzen veranderen en onthoud het patroon, niet het lijstje.",
+      "Ik weeg snelheid, kosten en kwaliteit per taak in plaats van standaard het zwaarste te kiezen.",
+      "Ik herken wanneer het context-venster (veel tekst) doorslaggevend is, los van het niveau.",
+      "Ik herken wanneer multimodaliteit (beeld, audio, bestand) nodig is.",
+      "Ik heb een taak-naar-niveau-overzicht voor mijn eigen werk gemaakt.",
+      "Ik heb dezelfde prompt op een klein én een groot model getest en het verschil benoemd.",
+      "Ik heb een default-niveau en een concrete opschaalregel, en houd herleidbare leerlinggegevens uit gratis consumentenversies."
+    ],
+    "nextLesson": "hoe-werkt-een-taalmodel"
+  },
+  "hoe-werkt-een-taalmodel": {
+    "format": "diepteles",
+    "summary": "Je kijkt in deze diepteles onder de motorkap van een taalmodel: niet wiskundig, wel genoeg om de grenzen te zien en kritisch te gebruiken. Je doet zelf een voorspel-oefening, lokt bewust een hallucinatie uit en herkent hem, en test de kennis-cutoff met een recente gebeurtenis. Je levert een eigen, in je eigen woorden geschreven werkdefinitie op plus een korte checklist die je voortaan langs elk AI-antwoord legt. Het mentale model dat blijft hangen: een taalmodel is een extreem goede volgend-woord-voorspeller, geen wetende machine.",
+    "duration": {
+      "total": "60 minuten",
+      "blocks": [
+        {
+          "label": "Aanleiding",
+          "min": 6
+        },
+        {
+          "label": "Conceptueel kader",
+          "min": 12
+        },
+        {
+          "label": "Voorspel-oefening",
+          "min": 10
+        },
+        {
+          "label": "Hallucinatie uitlokken",
+          "min": 12
+        },
+        {
+          "label": "Kennis-cutoff testen",
+          "min": 10
+        },
+        {
+          "label": "Werkdefinitie + checklist",
+          "min": 10
+        }
+      ]
+    },
+    "opening": {
+      "eyebrow": "Aanleiding",
+      "aanleiding": "Een docent geschiedenis in 4 havo vraagt een chatbot om drie primaire bronnen bij de Vrede van Munster, met titel, jaartal en archief. Binnen seconden rolt er een keurig lijstje uit: drie bronnen, met sprekende titels, plausibele jaartallen en zelfs archiefverwijzingen. Het ziet er vlekkeloos uit. Pas als ze er een wil opzoeken voor de les, blijkt bron twee niet te bestaan. De titel klinkt echt, het jaartal klopt ongeveer, het archief bestaat — maar de bron is verzonnen. Niet half, helemaal. En het gekke is: het antwoord was juist daardoor zo overtuigend.\n\nDit overkomt iedereen die met AI werkt, en het verwart, omdat het tegen je intuïtie ingaat. We zijn gewend dat een computer die iets met grote stelligheid zegt, het ook heeft opgezocht of uitgerekend. Een rekenmachine die 47 × 89 toont, heeft het berekend. Een zoekmachine die een bron toont, heeft hem ergens gevonden. Bij een taalmodel klopt die aanname niet. Het heeft niets opgezocht en niets nagerekend; het heeft het meest waarschijnlijke vervolg op je vraag geproduceerd — en dat vervolg kan kloppen of niet kloppen, met precies dezelfde overtuigende toon.\n\nWie dat één keer goed begrijpt, gebruikt AI voorgoed anders. Niet wantrouwig-vermijdend (“je kunt er toch niets mee”), maar gericht-kritisch: je weet wáár het sterk in is (taal vormgeven, herschrijven, structureren) en wáár het je laat vallen (feiten die het niet kan controleren, gebeurtenissen na zijn training, exacte berekeningen). Deze les geeft je dat begrip — zonder formules, met oefeningen die je het mechanisme van binnenuit laten voelen.",
+      "waaromNu": "Begrijpen hoe een taalmodel werkt is geen techniek-luxe maar de kern van AI-geletterdheid. Het UNESCO AI Competency Framework for Teachers schaart dit onder “knowledge of AI”: weten wat de techniek wél en niet kan, is voorwaarde voor verantwoord gebruik. DigCompEdu plaatst het onder professionele en kritische omgang met digitale technologie. Juist nu AI overtuigend genoeg klinkt om vertrouwd te worden, is het mentale model — voorspeller, geen wetende machine — wat docenten en leerlingen behoedt voor de meest voorkomende fout: een vloeiend antwoord verwarren met een juist antwoord."
+    },
+    "conceptueel": {
+      "eyebrow": "Conceptueel kader",
+      "intro": "Begin bij wat een taalmodel is. Het is een programma dat getraind is op een enorme hoeveelheid tekst — boeken, websites, artikelen, gesprekken. Tijdens die training heeft het geen feiten in een kaartenbak gestopt en geen regels geleerd zoals een leerling in de klas. Het heeft één ding ontzettend vaak geoefend: gegeven een stuk tekst, wat is het meest waarschijnlijke volgende stukje? Miljarden keren, op miljarden zinnen. Het resultaat is een systeem dat verbluffend goed kan inschatten hoe tekst doorgaans verdergaat — en daarmee zinnen, antwoorden en hele essays kan produceren die kloppen met hoe mensen schrijven.\n\nDat “stukje tekst” heet een token. Een token is niet precies een woord en niet precies een letter; het is een stukje tekst zoals het model de wereld in hapjes knipt. Vaak is een kort, gewoon woord één token (“huis”), maar een langer of ongebruikelijk woord valt uiteen in meerdere stukjes (“fotosynthese” kan bijvoorbeeld opgeknipt worden in delen als foto / syn / these). Leestekens en spaties tellen mee. Je hoeft de exacte indeling niet te kennen; wat telt is het idee: het model leest en schrijft in tokens, en het bouwt zijn antwoord token voor token op — telkens de vraag stellend: gegeven alles tot nu toe, welk stukje volgt het meest waarschijnlijk?\n\nDaarmee staat het kernidee er. Een taalmodel is geen database en geen rekenmachine. Een database zoekt een opgeslagen feit op en geeft het terug; klopt het feit erin, dan klopt het eruit. Een rekenmachine voert een vaste procedure uit; 47 × 89 geeft altijd 4183. Een taalmodel doet geen van beide: het voorspelt het waarschijnlijke vervolg. Bij veel vragen vált dat vervolg samen met het juiste antwoord — omdat de juiste informatie zo vaak in de trainingstekst stond dat ‘waarschijnlijk’ en ‘waar’ hier dezelfde kant op wijzen. Maar bij een vraag waar het waarschijnlijke vervolg én het ware antwoord uit elkaar lopen, kiest het model voor waarschijnlijk-klinkend. Dan krijg je een verzonnen bron die klinkt als een echte: een hallucinatie.\n\nUit ditzelfde mechanisme volgen nog drie eigenschappen die je moet kennen. Eén: een taalmodel weet niets van na zijn training — zijn kennis-cutoff. Vraag je naar iets van vorige week, dan kan het dat niet weten, tenzij de tool er een zoekfunctie bij heeft die live op het web kijkt. Twee: dezelfde vraag geeft niet altijd hetzelfde antwoord. Het model kiest namelijk niet altijd star het allerwaarschijnlijkste volgende stukje, maar varieert een beetje — daardoor is het creatiever en menselijker, maar ook minder voorspelbaar. Drie: “overtuigend” en “waar” zijn twee verschillende dingen. Vloeiendheid is precies waar het model goed in is; juistheid is iets wat jij moet bewaken. En de AVG-grens hoort er meteen bij: omdat een gratis consumentenversie je invoer kan gebruiken om verder te trainen, horen herleidbare leerlinggegevens daar nooit in — ook niet ‘even snel om iets te testen’. Voor echt werk met leerlinggegevens gebruik je een school- of AVG-conforme omgeving.",
+      "mentalModel": {
+        "naam": "Volgend-woord-voorspeller, geen wetende machine",
+        "beschrijving": "Een taalmodel is een extreem goede voorspeller van het volgende stukje tekst, getraind op heel veel tekst — geen database die feiten opzoekt en geen rekenmachine die procedures uitvoert. Het produceert het meest waarschijnlijke vervolg op je vraag, en dat valt vaak (maar niet altijd) samen met het juiste antwoord. Daarom kan het overtuigend klinken én feitelijk fout zijn: vloeiendheid is wat het kan, juistheid is wat jij bewaakt."
+      },
+      "kernbegrippen": [
+        {
+          "term": "Taalmodel (LLM)",
+          "uitleg": "Een programma dat getraind is op een enorme hoeveelheid tekst en daaruit heeft geleerd om het meest waarschijnlijke volgende stukje tekst te voorspellen — het bouwt antwoorden token voor token op, in plaats van feiten op te zoeken."
+        },
+        {
+          "term": "Token",
+          "uitleg": "Het stukje tekst waarin het model leest en schrijft; soms een heel woord, soms een deel ervan, inclusief leestekens en spaties. Het model voorspelt telkens het volgende token, gegeven alles wat eraan voorafging."
+        },
+        {
+          "term": "Hallucinatie",
+          "uitleg": "Een antwoord dat overtuigend en vloeiend klinkt maar feitelijk onjuist of verzonnen is — het gevolg van ‘waarschijnlijk vervolg’ dat afwijkt van ‘waar’, bijvoorbeeld een niet-bestaande bron met een echt klinkende titel."
+        },
+        {
+          "term": "Kennis-cutoff",
+          "uitleg": "Het moment waarop de training van het model stopte; over gebeurtenissen daarna weet het niets, tenzij de tool een live zoekfunctie heeft die het web raadpleegt."
+        }
+      ]
+    },
+    "learningGoals": [
+      "Je legt in je eigen woorden uit dat een taalmodel het meest waarschijnlijke volgende stukje tekst voorspelt, en waarom het daarom geen database en geen rekenmachine is.",
+      "Je lokt bewust een hallucinatie uit, herkent waaraan je hem had kunnen zien, en benoemt waarom het antwoord overtuigend klonk maar onjuist was.",
+      "Je test de kennis-cutoff met een recente gebeurtenis en bepaalt of de tool wel of geen live zoekfunctie gebruikte, en wat dat betekent voor je vertrouwen in het antwoord.",
+      "Je legt een werkdefinitie en een korte controle-checklist vast die je voortaan toepast om feitelijke claims uit een AI-antwoord te wegen — inclusief de AVG-grens dat geen leerlinggegevens in een gratis consumentenversie horen."
+    ],
+    "scenario": {
+      "title": "Werksituatie",
+      "context": "Je gebruikt AI voor je werk — samenvatten, herschrijven, ideeën, een eerste opzet — en je merkt dat het soms feilloos is en soms iets met grote stelligheid beweert dat niet klopt. In dit uur bouw je het mentale model dat dat verschil verklaart, door zelf het mechanisme te voelen: voorspellen, hallucineren, en de grens van wat het kan weten. Je werkt met een gewone AI-chatbot en je eigen vakkennis als ijkpunt.",
+      "role": "Docent · vo, mbo of hbo — elk vak, geen technische voorkennis nodig",
+      "tools": "Een AI-chatbot via je school- of werkaccount · je eigen vakkennis om antwoorden te toetsen · een betrouwbare bron (vakboek, officiële site) om feiten te checken"
+    },
+    "steps": [
+      {
+        "title": "Doe de voorspel-oefening (voel het mechanisme)",
+        "body": "Voordat je over voorspellen leest, doe je het zelf — want het model doet niets anders. Schrijf een paar onafgemaakte zinnen op en vul telkens het meest waarschijnlijke volgende woord in, zonder na te denken over wat ‘waar’ is, puur op gevoel voor taal. ‘De hoofdstad van Frankrijk is …’, ‘Aan het einde van de regenboog staat een pot met …’, ‘De kat zat op de …’. Merk twee dingen op. Eén: bij veel zinnen valt het waarschijnlijke woord samen met het juiste woord (Parijs) — dáárom klopt een model zo vaak. Twee: bij ‘een pot met goud’ vul je het waarschijnlijke woord in, niet een waar woord — want er stáát geen pot goud. Dat is precies het punt: het model voorspelt waarschijnlijk vervolg, niet waarheid. Beschrijf daarna in je eigen woorden wat je hieruit begrijpt over hoe een taalmodel een antwoord opbouwt.",
+        "time": "10 min",
+        "voorbeeld": "Zin: ‘Een docent natuurkunde legt uit dat licht zich voortplant met de snelheid van …’ — jij vult ‘het licht’ of ‘ongeveer 300.000 km per seconde’ in, op taalgevoel. Klopt én waarschijnlijk: ze vallen samen. Zin: ‘In het jaar 2027 vonden de Olympische Spelen plaats in …’ — hier ga je iets invullen wat plausibel klínkt (een stadnaam), terwijl je het niet kunt weten. Net als het model. Je merkt: je vult het waarschijnlijke in, en bij de tweede zin is waarschijnlijk niet hetzelfde als waar.",
+        "workspace": {
+          "field": "taalmodel-voorspel-oefening",
+          "label": "Mijn voorspel-oefening + wat ik eruit begrijp",
+          "shortLabel": "Voorspellen",
+          "hint": "Minstens drie afgemaakte zinnen · daarna in eigen woorden: wat zegt dit over hoe een model een antwoord opbouwt?",
+          "placeholder": "Zin 1 (waarschijnlijk = waar): ...\nZin 2 (waarschijnlijk ≠ waar): ...\nZin 3: ...\nWat ik hieruit begrijp: een taalmodel ...",
+          "rows": 7,
+          "rubric": [
+            {
+              "name": "Eigen voorspelzinnen ingevuld",
+              "good": "Minstens drie zinnen afgemaakt op taalgevoel, waaronder één waar waarschijnlijk en waar samenvallen en één waar ze uit elkaar lopen."
+            },
+            {
+              "name": "Kernidee in eigen woorden",
+              "good": "De uitleg benoemt dat het model het meest waarschijnlijke volgende stukje voorspelt, niet de waarheid opzoekt."
+            },
+            {
+              "name": "Onderscheid waarschijnlijk vs waar",
+              "good": "Maakt expliciet dat waarschijnlijk en waar vaak samenvallen maar soms uiteenlopen — en dat dat de kern van de zwakte is."
+            },
+            {
+              "name": "Geen formule-taal",
+              "good": "De uitleg is concreet en niet-wiskundig, in begrijpelijke docenttaal."
+            }
+          ],
+          "referenceAnswer": "Zin 1 (waarschijnlijk = waar): ‘De hoofdstad van Nederland is… Amsterdam’ — het waarschijnlijke woord is ook het juiste. Zin 2 (waarschijnlijk ≠ waar): ‘Aan het einde van de regenboog staat een pot met… goud’ — ik vul het waarschijnlijke in (goud), terwijl er niets staat; waarschijnlijk is hier niet waar. Zin 3: ‘De winnaar van het WK voetbal in 2030 is… ’ — ik kan alleen iets plausibels invullen, niet iets waars. Wat ik hieruit begrijp: een taalmodel bouwt een antwoord op door telkens het meest waarschijnlijke volgende stukje tekst te kiezen, gebaseerd op heel veel tekst die het zag — het zoekt geen feit op en rekent niets na. Bij veel vragen valt ‘waarschijnlijk’ samen met ‘waar’, en dan klopt het antwoord. Maar als die twee uit elkaar lopen, kiest het model voor wat waarschijnlijk klínkt, niet voor wat waar is. Daarom kan het zo overtuigend en toch fout zijn."
+        }
+      },
+      {
+        "title": "Lok bewust een hallucinatie uit",
+        "body": "Nu maak je de zwakte zichtbaar door hem op te roepen. Vraag de chatbot iets waar het waarschijnlijke vervolg en het ware antwoord makkelijk uit elkaar lopen: vraag heel specifiek naar bronnen, citaten, jaartallen of details die zo precies zijn dat het model in de verleiding komt iets plausibels te verzinnen. ‘Geef drie wetenschappelijke artikelen met auteur, jaartal en tijdschrift over [jouw vakonderwerp]’ is een klassieker. Of: ‘Welke uitspraak deed [historisch figuur] over [onderwerp]? Geef het exacte citaat met bron.’ Controleer daarna minstens één claim in een betrouwbare bron (niet bij de chatbot zelf navragen — dan krijg je weer een waarschijnlijk vervolg). Noteer wat er niet bleek te kloppen, en — cruciaal — waaraan je het had kunnen zien: de overtuigende toon, de net iets te gladde details, het ontbreken van een vindbare bron.",
+        "time": "12 min",
+        "voorbeeld": "Een docent Nederlands vraagt: ‘Geef drie gedichten van Annie M.G. Schmidt over de zee, met de eerste regel van elk.’ De chatbot levert drie titels met eerste regels, vlot en in stijl. Bij controle blijkt één titel niet te bestaan en is een ‘eerste regel’ verzonnen in de juiste toon. Waaraan te zien: de regels klonken plausibel-Schmidt maar waren nergens terug te vinden, en de chatbot presenteerde alles met dezelfde stelligheid — geen ‘dit weet ik niet zeker’. De les: stelligheid is geen bewijs; alleen een vindbare bron is dat.",
+        "workspace": {
+          "field": "taalmodel-hallucinatie",
+          "label": "Mijn uitgelokte hallucinatie + herkenning",
+          "shortLabel": "Hallucinatie",
+          "hint": "Plak je prompt · noteer wat onjuist bleek (extern gecheckt) · waaraan je het had kunnen herkennen",
+          "placeholder": "Prompt: ...\nAntwoord (kort): ...\nWat klopte niet (gecheckt in: ...): ...\nWaaraan ik het had kunnen zien: ...",
+          "rows": 7,
+          "rubric": [
+            {
+              "name": "Gerichte uitlok-prompt",
+              "good": "De prompt vraagt naar precieze, controleerbare details (bron, citaat, jaartal) waar hallucinatie waarschijnlijk is."
+            },
+            {
+              "name": "Externe controle uitgevoerd",
+              "good": "Minstens één claim is gecheckt in een betrouwbare bron buiten de chatbot, niet bij de chatbot zelf nagevraagd."
+            },
+            {
+              "name": "Onjuistheid benoemd",
+              "good": "Concreet beschreven wat niet klopte (verzonnen bron, fout citaat) in plaats van een algemeen ‘het was fout’."
+            },
+            {
+              "name": "Herkenningssignalen",
+              "good": "Benoemt waaraan de hallucinatie te herkennen was: stellige toon, te gladde details, geen vindbare bron — en dat overtuigend ≠ waar."
+            }
+          ],
+          "referenceAnswer": "Prompt: ‘Geef drie peer-reviewed artikelen over formatief toetsen in het vmbo, met auteur, jaartal en tijdschrift.’ Antwoord (kort): drie nette verwijzingen met auteursnamen, jaartallen en tijdschrifttitels, vlot opgesomd. Wat klopte niet (gecheckt in: Google Scholar en de tijdschriftsites): twee van de drie artikelen waren niet vindbaar; één auteursnaam bestond wel maar had dat artikel nooit geschreven, en het jaartal paste bij geen enkele publicatie. Waaraan ik het had kunnen zien: alle drie de verwijzingen kwamen met exact dezelfde stellige opmaak, zonder enige aarzeling of ‘dit weet ik niet zeker’; de titels klonken plausibel maar net iets te perfect passend bij mijn vraag; en het beslissende signaal was simpel — ik kon de bron nergens terugvinden. Het model had hier het waarschijnlijke vervolg op ‘geef drie artikelen’ geproduceerd (drie artikel-achtige verwijzingen) in plaats van bestaande bronnen opgezocht. Overtuigend is niet hetzelfde als waar."
+        }
+      },
+      {
+        "title": "Test de kennis-cutoff met een recente gebeurtenis",
+        "body": "Vraag de chatbot naar iets wat zeer recent gebeurde — iets van de afgelopen weken in het nieuws, sport of je vakgebied. Let goed op het type antwoord. Drie mogelijkheden: het zegt eerlijk dat het hier niets van weet (goed teken: het kent zijn grens), het verzint iets plausibels (hallucinatie over de cutoff heen), of het toont actuele, kloppende informatie — wat betekent dat de tool een live zoekfunctie heeft gebruikt. Kijk of je ziet dát het zocht (sommige tools tonen bronlinks of ‘zoeken op het web’). Het punt dat je hieruit haalt: een taalmodel weet uit zichzelf niets van na zijn training; alleen als er een zoekfunctie bij zit, kan het actueel zijn — en zelfs dan moet je de bron checken. Noteer welke van de drie je kreeg en wat dat zegt over wanneer je een AI-antwoord over actuele zaken kunt vertrouwen.",
+        "time": "10 min",
+        "voorbeeld": "Vraag: ‘Wat waren de belangrijkste uitslagen van afgelopen weekend in de eredivisie?’ Antwoord A (zonder zoekfunctie): ‘Ik heb geen actuele gegevens na mijn trainingsdatum.’ — eerlijk en bruikbaar. Antwoord B: een lijstje uitslagen die verzonnen blijken — een hallucinatie over de cutoff heen. Antwoord C: kloppende uitslagen met bronlinks — de tool zocht live. Alleen bij A weet je zeker waar je staat; bij B trap je erin als je niet checkt; bij C is het goed, mits de bron deugt.",
+        "workspace": {
+          "field": "taalmodel-kennis-cutoff",
+          "label": "Mijn cutoff-test + wat ik eruit concludeer",
+          "shortLabel": "Kennis-cutoff",
+          "hint": "Welke recente gebeurtenis · welk type antwoord (eerlijk / verzonnen / live gezocht) · wat betekent dat voor vertrouwen?",
+          "placeholder": "Recente gebeurtenis: ...\nAntwoord-type: eerlijk ‘weet ik niet’ / verzonnen / live gezocht (bronlinks?)\nConclusie over vertrouwen bij actuele vragen: ...",
+          "rows": 6,
+          "rubric": [
+            {
+              "name": "Echt recente gebeurtenis",
+              "good": "De testvraag gaat over iets na de waarschijnlijke trainingsdatum (recente weken), niet over oude, breed bekende feiten."
+            },
+            {
+              "name": "Antwoordtype herkend",
+              "good": "Correct vastgesteld of het model eerlijk z’n grens aangaf, iets verzon, of live zocht (let op bronlinks of ‘zoeken’)."
+            },
+            {
+              "name": "Cutoff-principe begrepen",
+              "good": "Benoemt dat een model uit zichzelf niets weet van na zijn training, tenzij een zoekfunctie het web raadpleegt."
+            },
+            {
+              "name": "Gevolg voor vertrouwen",
+              "good": "Trekt een bruikbare conclusie: actuele antwoorden alleen vertrouwen als er een gecontroleerde live bron onder zit."
+            }
+          ],
+          "referenceAnswer": "Recente gebeurtenis: ik vroeg naar een nieuwsfeit van vorige week uit mijn vakgebied (een onderwijsmaatregel die net was aangekondigd). Antwoord-type: de chatbot toonde een actueel klinkend antwoord mét bronlinks en een zichtbare ‘zoeken op het web’-stap — dus live gezocht. Toen ik dezelfde vraag stelde in een modus zonder zoekfunctie, kreeg ik ‘ik heb geen informatie na mijn trainingsdatum’ — het eerlijke type. Conclusie over vertrouwen bij actuele vragen: een taalmodel weet uit zichzelf niets van na zijn kennis-cutoff. Geeft het toch een vlot, actueel antwoord zonder zichtbare zoekfunctie, dan is dat een waarschuwing — mogelijk verzonnen. Ik vertrouw een AI-antwoord over recente zaken alleen als de tool aantoonbaar live heeft gezocht én ik de getoonde bron zelf kan openen en controleren. Stelligheid over iets recents zonder bron behandel ik als ‘waarschijnlijk verzonnen’ tot het tegendeel blijkt."
+        }
+      },
+      {
+        "title": "Vraag dezelfde vraag twee keer en vergelijk",
+        "body": "Stel exact dezelfde, wat open vraag twee of drie keer opnieuw — in nieuwe gesprekken, zodat het vorige antwoord niet meetelt. Bijvoorbeeld: ‘Bedenk een metafoor om fotosynthese uit te leggen aan brugklassers’ of ‘Geef drie discussiestellingen over sociale media voor maatschappijleer.’ Je zult zien dat de antwoorden verschillen, soms behoorlijk. Dat is geen fout en geen teken dat het model ‘twijfelt’; het hoort bij het mechanisme. Het model kiest niet star het allerwaarschijnlijkste volgende stukje, maar varieert een beetje binnen wat waarschijnlijk is — daardoor is het creatiever en natuurlijker, maar ook minder reproduceerbaar. Begrijp wat dit betekent voor je praktijk: voor creatieve of genererende taken is variatie juist handig (meer opties), maar voor iets waar je één vast, controleerbaar antwoord wilt, is een taalmodel niet de betrouwbare bron — want het kan je twee keer iets anders vertellen, en allebei even stellig.",
+        "time": "8 min",
+        "voorbeeld": "Een docent biologie vraagt drie keer: ‘Geef een ezelsbruggetje voor de volgorde van de planeten.’ Keer 1, 2 en 3 leveren drie verschillende ezelsbruggetjes — prima, want hier is variatie nuttig. Maar als dezelfde docent drie keer vraagt ‘Hoeveel chromosomen heeft een mens?’ en één keer komt er per ongeluk een afwijkend getal uit, dan zie je het risico: bij een feitvraag is variatie geen creativiteit maar onbetrouwbaarheid. Vandaar: genereren = variatie welkom; feiten = extern checken.",
+        "workspace": {
+          "field": "taalmodel-variatie",
+          "label": "Twee keer dezelfde vraag + wat het betekent",
+          "shortLabel": "Variatie",
+          "hint": "Vraag 2-3x in nieuwe gesprekken · noteer de verschillen · wanneer is variatie nuttig, wanneer een risico?",
+          "placeholder": "Mijn vraag: ...\nAntwoord 1: ...\nAntwoord 2: ...\nVerschil: ...\nVoor welke taken is dit nuttig / een risico: ...",
+          "rows": 7,
+          "rubric": [
+            {
+              "name": "Herhaald in nieuwe gesprekken",
+              "good": "Dezelfde vraag minstens twee keer in losse gesprekken gesteld, zodat de antwoorden onafhankelijk zijn."
+            },
+            {
+              "name": "Verschil concreet benoemd",
+              "good": "Het verschil tussen de antwoorden is concreet beschreven, niet alleen ‘ze waren anders’."
+            },
+            {
+              "name": "Oorzaak begrepen",
+              "good": "Benoemt dat het model varieert binnen wat waarschijnlijk is — geen twijfel of fout, maar onderdeel van het mechanisme."
+            },
+            {
+              "name": "Gevolg voor taakkeuze",
+              "good": "Onderscheidt waar variatie nuttig is (genereren, ideeën) en waar ze een risico is (vaste feiten, reproduceerbaarheid)."
+            }
+          ],
+          "referenceAnswer": "Mijn vraag: ‘Geef een pakkende openingsvraag voor een les over de Franse Revolutie in 3 havo.’ Antwoord 1: ‘Wat zou jij doen als brood ineens onbetaalbaar werd?’ Antwoord 2: ‘Kan een hele samenleving van de ene op de andere dag omvallen?’ Verschil: andere invalshoek (alledaags-empathisch vs groot-historisch), andere toon, allebei bruikbaar. Voor welke taken dit nuttig / een risico is: voor genererende, creatieve taken (openingsvragen, metaforen, voorbeelden) is deze variatie juist een voordeel — ik krijg meerdere opties en kies de beste. Maar voor een vaste feitvraag (een jaartal, een formule, een definitie) is dezelfde variatie een risico: als het model me twee keer iets anders kan vertellen, en allebei even stellig, dan is het geen betrouwbare bron voor dat feit. Daarom: genereren met AI, maar feiten zelf checken bij een vaste bron. Ik begrijp nu dat dit geen ‘twijfel’ van het model is, maar hoort bij hoe het werkt — het kiest met opzet niet altijd star hetzelfde waarschijnlijke vervolg."
+        }
+      },
+      {
+        "title": "Schrijf je eigen werkdefinitie en controle-checklist",
+        "body": "Breng alles samen tot iets wat je morgen gebruikt. Schrijf eerst, in je eigen woorden, een werkdefinitie van wat een taalmodel is — zo dat een collega die nooit van ‘tokens’ hoorde het snapt. Laat het mentale model erin terugkomen: voorspeller, geen wetende machine; geen database, geen rekenmachine. Schrijf daarna een korte controle-checklist (3-5 punten) die je voortaan langs een AI-antwoord legt voordat je het vertrouwt of doorgeeft. Denk aan: is dit een feit dat ik extern moet checken of een taaltaak? klopt de bron echt (zelf opzoeken, niet bij de chatbot navragen)? gaat dit over iets na de cutoff, en zocht de tool dan live? Neem ook de AVG-grens op: geen herleidbare leerlinggegevens in een gratis consumentenversie. Dit lijstje is je vaste kritische bril.",
+        "time": "12 min",
+        "voorbeeld": "Werkdefinitie van een talendocent: ‘Een taalmodel is een programma dat heel veel tekst heeft gelezen en daaruit heeft geleerd om steeds het meest waarschijnlijke volgende stukje tekst te voorspellen. Het zoekt geen feiten op en rekent niets uit — het maakt vloeiende tekst die meestal klopt, maar soms overtuigend onzin is.’ Checklist: 1. Feit of taaltaak? Feiten check ik zelf. 2. Bron genoemd? Dan zoek ik die zelf op, niet bij de chatbot. 3. Iets recents? Alleen vertrouwen als de tool live zocht én de bron klopt. 4. Twee keer hetzelfde nodig? Dan is AI niet mijn vaste bron. 5. Geen leerlinggegevens in een gratis consumentenchatbot.",
+        "workspace": {
+          "field": "taalmodel-werkdefinitie-checklist",
+          "label": "Mijn werkdefinitie + controle-checklist",
+          "shortLabel": "Definitie + check",
+          "hint": "Definitie in eigen woorden (voorspeller, geen wetende machine) · checklist van 3-5 punten incl. de AVG-grens",
+          "placeholder": "Werkdefinitie: een taalmodel is ...\nControle-checklist:\n1. ...\n2. ...\n3. ...\n4. (AVG) ...",
+          "rows": 8,
+          "rubric": [
+            {
+              "name": "Definitie raakt de kern",
+              "good": "Beschrijft het model als voorspeller van het waarschijnlijke volgende stukje tekst, expliciet geen database en geen rekenmachine."
+            },
+            {
+              "name": "Begrijpelijk voor een leek",
+              "good": "De definitie is in eigen, niet-technische woorden geschreven; een collega zonder voorkennis zou het snappen."
+            },
+            {
+              "name": "Bruikbare checklist",
+              "good": "3-5 concrete controlepunten die je daadwerkelijk langs een AI-antwoord kunt leggen (feit-vs-taal, bron checken, cutoff)."
+            },
+            {
+              "name": "AVG-grens opgenomen",
+              "good": "Eén punt benoemt dat geen herleidbare leerlinggegevens in een gratis consumentenversie horen; school-/AVG-conforme omgeving voor echt werk."
+            },
+            {
+              "name": "Sluit aan op het mentale model",
+              "good": "Definitie en checklist ademen ‘overtuigend ≠ waar’: vloeiendheid is wat het kan, juistheid bewaak jij."
+            }
+          ],
+          "referenceAnswer": "Werkdefinitie: ‘Een taalmodel is een computerprogramma dat enorm veel tekst heeft gelezen en daaruit heeft geleerd om steeds het meest waarschijnlijke volgende stukje tekst te voorspellen. Het bouwt zijn antwoord stukje voor stukje op. Het zoekt geen feiten op zoals een naslagwerk en rekent niets na zoals een rekenmachine — het maakt vloeiende, mensachtige tekst die heel vaak klopt, omdat het juiste antwoord ook het waarschijnlijke was, maar soms overtuigend onjuist is wanneer waarschijnlijk en waar uit elkaar lopen. Kortom: een extreem goede volgend-woord-voorspeller, geen wetende machine.’ Controle-checklist: 1. Is dit een feit of een taaltaak? Taaltaken (herschrijven, samenvatten, ideeën) vertrouw ik; feiten check ik altijd zelf. 2. Wordt er een bron, citaat of jaartal genoemd? Dan zoek ik die zelf op in een betrouwbare bron — niet bij de chatbot navragen, want dat geeft weer een waarschijnlijk vervolg. 3. Gaat het over iets recents (na de cutoff)? Alleen vertrouwen als de tool aantoonbaar live zocht én ik de bron kan openen. 4. Heb ik twee keer hetzelfde, vaste antwoord nodig? Dan is een taalmodel niet mijn bron — het kan variëren. 5. (AVG) Geen herleidbare leerling- of oudergegevens in een gratis consumentenversie, want die kan mijn invoer voor training gebruiken; voor echt werk met leerlinggegevens gebruik ik een school- of AVG-conforme omgeving. Met deze bril behandel ik elk vloeiend antwoord als ‘mooi gezegd, nu eerst checken of het ook waar is’."
+        }
+      }
+    ],
+    "vakvariaties": [
+      {
+        "vak": "Talen · vo en mbo",
+        "body": "Hier is het taalmodel op zijn sterkst: herschrijven, toon aanpassen, voorbeeldzinnen, een tekst op niveau brengen — allemaal taaltaken waar ‘waarschijnlijk’ en ‘goed’ dicht bij elkaar liggen. Maar zodra je naar feiten vraagt (wie schreef welk gedicht, wanneer verscheen welk boek), kantelt het: dan check je auteurs, titels en citaten zelf, want juist daar verzint het overtuigend."
+      },
+      {
+        "vak": "Exacte vakken · vo bovenbouw",
+        "body": "Een taalmodel is geen rekenmachine: het voorspelt het waarschijnlijke vervolg van een som, en bij meerstaps-berekeningen gaat dat geregeld mis terwijl het antwoord er stellig uitziet. Gebruik het om uitleg te formuleren of een aanpak te schetsen, maar laat het rekenwerk zelf controleren — of gebruik een echte rekentool. Eindantwoorden van een chatbot zijn een hypothese, geen uitkomst."
+      },
+      {
+        "vak": "Geschiedenis & maatschappijleer · vo",
+        "body": "Bronnen, jaartallen en citaten zijn precies het terrein waar hallucinatie toeslaat: een verzonnen bron met echt klinkende titel is hier de klassieke valkuil. Gebruik AI om vragen, stellingen of een tijdlijn-opzet te genereren, maar verifieer elke historische bron of uitspraak in een betrouwbare bron voordat je hem in de les of een opdracht zet."
+      },
+      {
+        "vak": "Beroepsgerichte vakken · mbo",
+        "body": "Voor het formuleren van casussen, werkinstructies of feedbacktekst is een taalmodel sterk. Maar normen, wettelijke eisen en vaktechnische specificaties veranderen en zijn precies het soort detail dat verouderd of verzonnen kan zijn — zeker als ze van na de cutoff dateren. Check actuele richtlijnen altijd bij de officiële bron, niet bij de chatbot."
+      },
+      {
+        "vak": "Hbo · elk domein",
+        "body": "Studenten vragen AI vaak om literatuur en citaten — en krijgen plausibel ogende, soms niet-bestaande verwijzingen terug. Maak dit mechanisme expliciet onderdeel van je begeleiding: laat studenten elke AI-aangedragen bron zelf vinden en controleren, en bespreek waarom ‘de chatbot zei het’ geen bronvermelding is. Zo wordt het LLM-begrip meteen academische integriteit."
+      }
+    ],
+    "valkuilen": [
+      {
+        "titel": "Stelligheid verwarren met betrouwbaarheid",
+        "watGebeurtEr": "Het antwoord komt vloeiend, compleet en zonder enige aarzeling — dus ga je ervan uit dat het klopt. Maar een taalmodel klinkt altijd even zelfverzekerd, of het nu een feit of een hallucinatie produceert; toon is geen signaal van waarheid.",
+        "fix": "Ontkoppel toon en waarheid. Behandel elke feitelijke claim, hoe stellig ook, als ‘te checken’ tot je hem in een betrouwbare bron hebt teruggevonden. Vloeiendheid is wat het model kan; juistheid bewaak jij."
+      },
+      {
+        "titel": "De chatbot om bevestiging van zijn eigen bron vragen",
+        "watGebeurtEr": "Je twijfelt aan een bron en vraagt de chatbot ‘klopt dit echt?’ — waarop het overtuigend bevestigt of een nieuwe, even verzonnen onderbouwing geeft. Je krijgt opnieuw een waarschijnlijk vervolg, geen onafhankelijke controle.",
+        "fix": "Verifieer altijd buiten de chatbot: zoek de bron zelf op in een naslagwerk, vakdatabase of officiële site. Een model kan zichzelf niet betrouwbaar corrigeren op feiten die het niet kan opzoeken."
+      },
+      {
+        "titel": "Aannemen dat het model het laatste nieuws kent",
+        "watGebeurtEr": "Je vraagt naar iets recents en krijgt een vlot, actueel klinkend antwoord — terwijl het model niets weet van na zijn cutoff en het dus verzonnen kan zijn, of verouderd. Je merkt het niet, want het zegt er niet bij dat het gokt.",
+        "fix": "Vraag je bij actuele onderwerpen altijd af: zocht de tool live (bronlinks, ‘zoeken op het web’)? Zo niet, behandel het antwoord als mogelijk verouderd of verzonnen en controleer de actualiteit zelf."
+      },
+      {
+        "titel": "Een taalmodel als rekenmachine of database gebruiken",
+        "watGebeurtEr": "Je laat het sommen maken, exacte cijfers opzoeken of precieze data oplepelen, en vertrouwt de uitkomst. Maar het voorspelt het waarschijnlijke vervolg van een berekening of feit — het rekent en zoekt niet — en zit er dan stellig naast.",
+        "fix": "Gebruik het juiste gereedschap voor de taak: een rekentool voor berekeningen, een database of naslagwerk voor exacte feiten. Zet het taalmodel in voor wat het kan: taal vormgeven, structureren, herformuleren."
+      },
+      {
+        "titel": "Leerlinggegevens in een gratis consumentenversie zetten",
+        "watGebeurtEr": "Om ‘even iets te testen’ plak je leerlingwerk met naam, of gegevens over een leerling, in een gratis chatbot. Die invoer kan gebruikt worden om het model verder te trainen — herleidbare persoonsgegevens horen daar niet, hoe nuttig de test ook lijkt.",
+        "fix": "Test het mechanisme met neutraal materiaal of fictieve voorbeelden, nooit met herleidbare leerlinggegevens. Voor echt werk met leerlinggegevens gebruik je een school- of AVG-conforme omgeving, niet een gratis consumentenchatbot."
+      }
+    ],
+    "eindcriteria": [
+      {
+        "criterium": "Mechanisme begrepen",
+        "onder": "Beschrijft het model als ‘iets dat antwoorden opzoekt of weet’; geen onderscheid met database of rekenmachine.",
+        "op": "Legt in eigen woorden uit dat het model het waarschijnlijke volgende stukje voorspelt en daarom geen database of rekenmachine is.",
+        "boven": "+ Verbindt het mechanisme expliciet aan waar het sterk en zwak is (taal vs feiten), met een eigen voorbeeld."
+      },
+      {
+        "criterium": "Hallucinatie herkend",
+        "onder": "Geen hallucinatie uitgelokt of niet gemerkt dat het antwoord fout was; vertrouwde op de stellige toon.",
+        "op": "Bewust een hallucinatie uitgelokt, extern gecheckt en de herkenningssignalen benoemd.",
+        "boven": "+ Maakt scherp waarom overtuigend ≠ waar en koppelt dit aan een vaste controlegewoonte."
+      },
+      {
+        "criterium": "Cutoff & variatie",
+        "onder": "Gaat ervan uit dat het model actueel is en altijd hetzelfde antwoordt.",
+        "op": "Test de cutoff met een recente gebeurtenis en herkent dat dezelfde vraag kan variëren; trekt de juiste conclusie voor vertrouwen.",
+        "boven": "+ Onderscheidt taken waar variatie nuttig is van taken waar reproduceerbaarheid nodig is, en kiest de tool daarop."
+      },
+      {
+        "criterium": "Werkdefinitie & AVG",
+        "onder": "Geen bruikbare definitie of checklist; AVG-grens ontbreekt.",
+        "op": "Een heldere eigen werkdefinitie plus een controle-checklist van 3-5 punten, inclusief de AVG-grens.",
+        "boven": "+ Checklist is direct toepasbaar en herbruikbaar, en de AVG-grens onderscheidt gratis consument vs school-/AVG-conforme omgeving."
+      }
+    ],
+    "reflection": [
+      "Bij welke taak vertrouwde je een AI-antwoord tot nu toe zonder te checken — en wat verandert er aan die gewoonte nu je weet dat het model voorspelt in plaats van weet?",
+      "De hallucinatie die je uitlokte klonk overtuigend. Wat zegt het over je eigen lezen dat je zo’n antwoord eerder voor waar zou hebben aangenomen, en hoe ga je dat bij je leerlingen aan de orde stellen?",
+      "Waar ligt voor jou de grens tussen taken waarvoor een taalmodel ideaal is en taken waarvoor je het juist niet moet gebruiken — en hoe leg je dat onderscheid uit aan een collega die denkt dat AI ‘alles weet’?"
+    ],
+    "checklist": [
+      "Voorspel-oefening zelf gedaan en in eigen woorden beschreven hoe een model een antwoord opbouwt",
+      "Bewust een hallucinatie uitgelokt met een gerichte prompt naar bronnen, citaten of details",
+      "Minstens één claim extern gecheckt (niet bij de chatbot zelf) en de onjuistheid benoemd",
+      "Herkenningssignalen van een hallucinatie genoteerd — stellige toon, te gladde details, geen vindbare bron",
+      "Kennis-cutoff getest met een recente gebeurtenis en vastgesteld of de tool live zocht",
+      "Dezelfde vraag meermaals gesteld en het verschil verklaard vanuit variatie binnen het waarschijnlijke",
+      "Eigen werkdefinitie geschreven: voorspeller, geen wetende machine; geen database, geen rekenmachine",
+      "Controle-checklist van 3-5 punten vastgelegd, inclusief de AVG-grens (geen leerlinggegevens in gratis consumenten-AI)"
+    ],
+    "nextLesson": "check-mod8"
+  },
+  "check-mod8": {
+    "format": "kennischeck",
+    "summary": "Vijf vragen over de kern van Module 8: de drie grote assistenten en kiezen op taak, ecosysteem en privacy, het niveau-denken (klein/snel/goedkoop versus groot/sterk/duur), het verschil tussen een gratis consumentenversie en een schoolomgeving onder de AVG, en hoe een taalmodel eigenlijk werkt. Na elke vraag krijg je meteen uitleg, zodat de check ook een herhaling is. We toetsen het denkraam, niet de modelnaam van vandaag — want namen, versies en prijzen veranderen, het patroon blijft.",
+    "duration": {
+      "total": "12 min",
+      "blocks": [
+        {
+          "label": "5 vragen",
+          "min": 8
+        },
+        {
+          "label": "Advies",
+          "min": 4
+        }
+      ]
+    },
+    "learningGoals": [
+      "Je herkent dat de drie grote assistenten sterk op elkaar lijken en je de keuze maakt op taak, ecosysteem en privacy — niet op 'het nieuwste' of 'het zwaarste'.",
+      "Je past het niveau-denken toe: een klein/snel/goedkoop model volstaat voor de meeste docenttaken, een groot/sterker/duurder model zet je in voor complex redeneren, lange context of lastige vakinhoud — en je weet dat namen en prijzen veranderen, het patroon niet.",
+      "Je legt uit dat een taalmodel een tekstvoorspeller is die kan hallucineren en een kennis-cutoff heeft, en je past de AVG-regel toe dat herleidbare leerlinggegevens niet in een gratis consumentenchatbot horen maar in een afgeschermde schoolomgeving."
+    ],
+    "scenario": {
+      "title": "Tools en modellen getoetst",
+      "context": "Vijf vragen na de drie dieptelessen (8.1 de drie grote assistenten en kiezen op taak/ecosysteem/privacy, 8.2 het niveau-denken klein versus groot, 8.3 hoe een taalmodel werkt). Een mix van meerkeuze en waar/niet-waar. We toetsen bewust de duurzame concepten — kiezen op taak, klein versus groot niveau, consument versus school onder de AVG, hallucinatie en kennis-cutoff — en niet welk model deze maand het nieuwste is, want dat verandert te snel om te onthouden. Bij elke vraag krijg je direct uitleg waarom een antwoord goed of fout is, zodat de stof verder inzakt en je ziet waar je nog onzeker bent.",
+      "role": "Voor jezelf",
+      "tools": "Geen"
+    },
+    "checkTitle": "Toets je beeld van AI-tools en modellen in vijf vragen.",
+    "checkItems": [
+      {
+        "type": "Meerkeuze · kiezen op taak, ecosysteem en privacy",
+        "q": "Een collega vraagt welke van de drie grote assistenten — ChatGPT, Claude of Gemini — 'de beste' is om mee te beginnen. Wat is het meest verstandige antwoord?",
+        "options": [
+          {
+            "label": "Pak altijd de assistent die op dit moment het nieuwste topmodel heeft uitgebracht; die is per definitie het beste voor elke taak.",
+            "explain": "Fout. 'Het nieuwste' is een momentopname die elke paar maanden verschuift, en het zwaarste model is voor de meeste docenttaken overkill. De drie grote assistenten lijken bovendien sterk op elkaar in basiskwaliteit — de zinnige keuze gaat over taak, ecosysteem en privacy, niet over wie deze week vooroploopt."
+          },
+          {
+            "label": "De drie lijken sterk op elkaar; kies op wat past bij je taak, bij het ecosysteem waarin je toch al werkt (bijvoorbeeld Google Workspace of Microsoft) en bij de privacy-afspraken van je school.",
+            "explain": "Goed. Dit is het duurzame denkraam. De drie grote assistenten zijn in basiskwaliteit vergelijkbaar en verschillen vooral in stijl, sterktes en in welk ecosysteem ze passen. Welke voor jou 'de beste' is, hangt af van je taak, van de tools waar je school al mee werkt, en van welke omgeving AVG-conform is geregeld — niet van een ranglijst van vandaag."
+          },
+          {
+            "label": "Gebruik ze nooit door elkaar; kies er één voor de rest van je loopbaan en blijf daar koste wat kost bij, anders raak je in de war.",
+            "explain": "Fout. Je hoeft je niet voor het leven vast te leggen. Omdat de assistenten op elkaar lijken, is overstappen of afwisselen prima — de vaardigheid die je leert (goed vragen stellen, output controleren) neem je gewoon mee. De keuze is praktisch, geen levenslange verbintenis."
+          },
+          {
+            "label": "Vraag het de assistenten zelf; de tool die zichzelf het hoogst beoordeelt, is de juiste keuze.",
+            "explain": "Fout. Een model is een tekstvoorspeller, geen objectieve jury over zichzelf — het kan een vlot maar onbetrouwbaar antwoord geven en heeft geen actueel zicht op de concurrentie. De keuze maak jij op taak, ecosysteem en privacy, niet op een zelfbeoordeling van de tool."
+          }
+        ],
+        "correct": 1
+      },
+      {
+        "type": "Waar of niet waar · het niveau-denken",
+        "q": "Stelling: voor de meeste alledaagse docenttaken — een mail herschrijven, een oefenvraag bedenken, een tekst samenvatten — heb je het grootste, zwaarste model nodig; het kleine/snelle niveau is alleen geschikt om mee te oefenen.",
+        "options": [
+          {
+            "label": "Waar",
+            "explain": "Niet waar. Het is precies andersom in nuance: het kleine/snelle/goedkopere niveau (voorbeeldnamen als mini, flash, haiku, nano — die veranderen) is voor de meeste docenttaken ruim voldoende en vaak prettiger omdat het sneller antwoordt. Het grote/sterkere/duurdere niveau (voorbeeldnamen als pro, opus, ultra) bewaar je voor complex redeneren, lange documenten of lastige vakinhoud. Je kiest op taak, niet op 'zo zwaar mogelijk'."
+          },
+          {
+            "label": "Niet waar",
+            "explain": "Klopt. Elke provider heeft model-niveaus: een klein/snel/goedkoop niveau dat voor de meeste docenttaken ruim volstaat, en een groot/sterker/duurder niveau voor complexer werk — lange context, ingewikkeld redeneren, lastige vakinhoud. De voorbeeldnamen (mini, flash, haiku versus pro, opus, ultra) veranderen, maar het patroon blijft: kies het niveau op de taak. Voor een mailtje of een oefenvraag is het zware model verspilling."
+          }
+        ],
+        "correct": 1
+      },
+      {
+        "type": "Meerkeuze · consumentenversie versus schoolomgeving en de AVG",
+        "q": "Je wilt AI vragen om feedback op het werk van een specifieke leerling. Wat is de juiste handelwijze rond privacy en de AVG?",
+        "options": [
+          {
+            "label": "In een gratis publieke consumentenchatbot mag alles, zolang je maar niet de volledige naam typt; een voornaam en de klas zijn geen probleem.",
+            "explain": "Fout. Een voornaam plus klas, vak en context maken een leerling vaak alsnog herleidbaar, zeker in een kleine setting. En bij een gratis consumentenversie kan je invoer gebruikt worden om het model te trainen. Herleidbare leerlinggegevens horen hier sowieso niet thuis — met of zonder achternaam."
+          },
+          {
+            "label": "Je gebruikt de afgeschermde school-/zakelijke omgeving (geen training op je invoer) en abstraheert de casus, of je laat AI alleen iets algemeens doen zonder herleidbare leerlinggegevens.",
+            "explain": "Goed. Het kernonderscheid is dat tussen een gratis consumentenversie — waar je invoer voor training gebruikt kan worden — en een door de school geregelde, AVG-conforme omgeving die niet op jouw invoer traint. Zelfs daar geldt: herleidbare gegevens over een specifieke leerling houd je liefst buiten de chatbot. Je vraagt om algemene feedbackcriteria of werkt met geabstraheerde, niet-herleidbare voorbeelden."
+          },
+          {
+            "label": "Een gratis en een betaalde consumentenversie zijn voor de AVG hetzelfde; zodra je betaalt, mag je gewoon leerlingnamen invoeren.",
+            "explain": "Fout. Betalen maakt een consumentenversie nog geen AVG-conforme schoolomgeving. Het verschil dat telt, is of er een afspraak (verwerkersovereenkomst) ligt en of er níét op je invoer wordt getraind — dat is een eigenschap van de zakelijke/schoolomgeving, niet van het feit dat je een abonnement hebt. Herleidbare leerlinggegevens horen niet in een consumentenchatbot, gratis of betaald."
+          },
+          {
+            "label": "Zolang je de chat daarna verwijdert, is het geen probleem om de naam, het niveau en de thuissituatie van de leerling in te typen.",
+            "explain": "Fout. Verwijderen achteraf neemt niet weg dat de gegevens al verwerkt zijn en bij een gratis versie mogelijk al voor training zijn gebruikt. De AVG-regel is preventief: herleidbare leerlinggegevens gaan niet in een consumentenchatbot. Je voorkomt het probleem vooraf door te abstraheren en de afgeschermde schoolomgeving te gebruiken."
+          }
+        ],
+        "correct": 1
+      },
+      {
+        "type": "Meerkeuze · hoe een taalmodel werkt",
+        "q": "Een taalmodel geeft je een vlot, overtuigend antwoord met een keurige bronvermelding erbij. Wat moet je over de werking van zo'n model in je achterhoofd houden?",
+        "options": [
+          {
+            "label": "Een taalmodel zoekt het antwoord op in een betrouwbare database en geeft alleen iets terug als het de feiten heeft geverifieerd.",
+            "explain": "Fout. Een taalmodel is geen opzoekmachine met een geverifieerde database. Het voorspelt stap voor stap het meest waarschijnlijke volgende stuk tekst op basis van patronen in waar het op getraind is. Het 'weet' niet of iets klopt; het produceert wat plausibel klinkt — en dat is niet hetzelfde als waar."
+          },
+          {
+            "label": "Het model voorspelt waarschijnlijke tekst, kan daardoor overtuigend klinkende onzin produceren (hallucineren) — ook verzonnen bronnen — en heeft een kennis-cutoff, dus controleer feiten en bronnen zelf.",
+            "explain": "Goed. Dit zijn de drie duurzame eigenschappen die je moet onthouden. Een taalmodel is een tekstvoorspeller: het kan vol overtuiging iets verzinnen wat niet bestaat, inclusief nette maar nep-bronvermeldingen — dat heet hallucineren. En zijn kennis loopt tot een bepaald moment (de kennis-cutoff), dus over recente zaken kan het verouderd of fout zijn. De vlotte toon zegt niets over de juistheid; jij blijft de feiten en bronnen controleren."
+          },
+          {
+            "label": "Omdat er een bronvermelding bij staat, is het antwoord per definitie gecontroleerd en hoef je die bron niet zelf te openen.",
+            "explain": "Fout. Juist een bronvermelding is iets wat een model kan verzinnen: een geloofwaardig ogende titel, auteur of link die niet bestaat of niet zegt wat het model beweert. Een bron die je niet zelf hebt geopend en gelezen, is geen bewijs. Klik door en controleer — de vorm van een bron is geen garantie voor de inhoud."
+          },
+          {
+            "label": "Een taalmodel heeft realtime internettoegang en is daarom altijd up-to-date over actuele gebeurtenissen.",
+            "explain": "Fout. Het basismodel heeft een kennis-cutoff: het is getraind tot een bepaald moment en weet niets van wat daarna gebeurde. Sommige tools kunnen aanvullend zoeken, maar dat is een extra functie, geen eigenschap van het model zelf — en ook dan blijft controle nodig. Ga er nooit vanuit dat een model standaard actueel is."
+          }
+        ],
+        "correct": 1
+      },
+      {
+        "type": "Waar of niet waar · kies op taak, niet op het nieuwste",
+        "q": "Stelling: zodra een provider een nieuwer of zwaarder model uitbrengt, moet je daar meteen op overstappen voor al je werk, want een nieuwer model is altijd de betere keuze voor elke taak.",
+        "options": [
+          {
+            "label": "Waar",
+            "explain": "Niet waar. 'Nieuwer' of 'zwaarder' is niet automatisch 'beter voor jouw taak'. Een groter model is trager en duurder en voegt voor een mailtje of een oefenvraag niets toe; soms verandert ook de stijl op een manier die je juist niet wilt. Je kiest op de taak — klein/snel voor het dagelijkse werk, groot/sterk voor het complexe — en niet op de release van de week. Modelnamen en prijzen veranderen voortdurend; het denkraam 'kies op taak' is wat je onthoudt."
+          },
+          {
+            "label": "Niet waar",
+            "explain": "Klopt. Dit is de rode draad van de module: kies op taak, niet op 'het nieuwste'. Een nieuwer of zwaarder model is voor de meeste docenttaken geen verbetering — het is trager, duurder en soms anders van stijl, terwijl het kleine/snelle niveau de klus prima klaart. Reserveer het zware model voor complex redeneren, lange context of lastige vakinhoud. Namen, versies en prijzen wisselen; het patroon — kies het juiste niveau voor de taak — blijft staan."
+          }
+        ],
+        "correct": 1
+      }
+    ],
+    "nextLesson": "casus-tool-en-model-keuze"
+  },
+  "casus-tool-en-model-keuze": {
+    "format": "casusbespreking",
+    "summary": "Tool- en modelkeuze is geen kwestie van 'het nieuwste pakken', maar van een keuze op de taak: welke tool is AVG-veilig, welk niveau volstaat, en wanneer schaal je op. In deze les werk je drie casussen door — leerlingwerk met namen in een gratis chatbot, de collega die voor alles het zwaarste model pakt, en een lange-context- of beeldtaak waar de keuze echt verschil maakt — elk met drie perspectieven en twee stellingnames. Daarna bouw je in vier stappen je eigen keuzeregels: je AVG-veilige tool, je default-niveau, je opschaalmoment en je controle-routine.",
+    "duration": {
+      "total": "45 minuten",
+      "blocks": [
+        {
+          "label": "Aanleiding",
+          "min": 4
+        },
+        {
+          "label": "Conceptueel kader",
+          "min": 7
+        },
+        {
+          "label": "Casus A — leerlingdata in gratis chatbot",
+          "min": 8
+        },
+        {
+          "label": "Casus B — altijd het zwaarste model",
+          "min": 8
+        },
+        {
+          "label": "Casus C — lange context / beeld",
+          "min": 8
+        },
+        {
+          "label": "Action plan vier stappen",
+          "min": 7
+        },
+        {
+          "label": "Reflectie",
+          "min": 3
+        }
+      ]
+    },
+    "conceptueel": {
+      "eyebrow": "Conceptueel kader",
+      "intro": "Voor je de casussen induikt, drie denkramen die je door alle drie heen overeind houdt — want de concrete namen en prijzen waarmee je nu werkt, zijn over een paar maanden veranderd. Onthoud de patronen, niet de momentopname.\n\nHet eerste denkraam: er zijn drie grote assistenten — OpenAI's ChatGPT, Anthropic's Claude en Google's Gemini — die sterk op elkaar lijken. Ze kunnen alle drie tekst schrijven, samenvatten, vertalen en redeneren op een niveau dat voor de meeste docenttaken ruim volstaat. Ze verschillen vooral in stijl (de een formuleert zakelijker, de ander uitbundiger), in ecosysteem (Gemini zit dicht tegen Google Workspace aan, Copilot/ChatGPT tegen Microsoft, Claude is meer standalone) en in waar ze nét iets sterker in zijn. De keuze tussen de drie gaat dus zelden over 'welke is de beste' en bijna altijd over 'welke past bij mijn omgeving en mijn taak'. En cruciaal: welke versie heb je voor je? Dezelfde merknaam bestaat in een gratis consumentenvariant én in een school- of enterprise-omgeving, en dat verschil bepaalt of je er leerlinggegevens in mág stoppen.\n\nHet tweede denkraam: elke aanbieder heeft niveaus. Binnen één merk zit een klein, snel, goedkoop niveau (je herkent het aan voorbeeldnamen als mini, flash, haiku, nano) en een groot, sterker, duurder niveau (pro, opus, sonnet, ultra). Het kleine niveau is niet 'het slechte model' — het is voor verreweg de meeste docenttaken (een mail herschrijven, een tekst samenvatten, een rubric netjes formatteren) ruim voldoende, en het is sneller en goedkoper. Het grote niveau verdient zijn meerprijs alleen bij complexer redeneren, lastige vakinhoud, lange documenten of taken waar een denkfout echt kostbaar is. De default hoort dus klein te zijn; opschalen doe je bewust, niet uit gewoonte. Ook hier: namen en prijzen veranderen elke paar maanden, het patroon 'klein-snel-goedkoop versus groot-sterk-duur' blijft.\n\nHet derde denkraam: kies op taak, niet op hype. De vraag is nooit 'wat is het nieuwste/zwaarste?' maar 'wat vraagt déze taak?'. Drie taakkenmerken sturen je keuze: (1) staan er persoonsgegevens in? — dan bepaalt AVG je tool, niet je voorkeur; (2) hoe moeilijk is de denkstap? — simpel betekent klein niveau; (3) wat voor materiaal gaat erin — alleen tekst, een dik PDF, of een afbeelding? — dat bepaalt of je een multimodale of lange-context-tool nodig hebt. Die drie vragen vormen samen je keuzefilter, en ze blijven gelden ongeacht hoe de modellen volgend jaar heten.",
+      "mentalModel": {
+        "naam": "Gereedschapskist, geen wedstrijd",
+        "beschrijving": "Niemand kiest een gereedschap door te vragen 'welke is de duurste?'. Je vraagt: wat moet ik maken, en mag ik dit materiaal hier wel bewerken? Een schroef draai je met een schroevendraaier, niet met de zwaarste klopboor omdat die 'het beste' is. Zo werkt tool- en modelkeuze ook: de gratis consumenten-chatbot, de school-omgeving, het kleine snelle model en het grote dure model zijn vier gereedschappen met elk hun klus. De vraag is steeds: welke taak, welk materiaal (zitten er namen in?), hoe zwaar is de denkstap? Daar kies je op — en niet op welk merk vorige week in het nieuws was."
+      },
+      "kernbegrippen": [
+        {
+          "term": "Consumentenversie versus school-/enterprise-omgeving",
+          "uitleg": "Dezelfde merknaam bestaat in twee smaken. De gratis consumentenversie kan jouw invoer gebruiken om het model verder te trainen — wat je intypt, kan dus elders opduiken. Een school- of enterprise-omgeving met een verwerkersovereenkomst doet dat niet. Het verschil bepaalt of je er leerlinggegevens in mag zetten. Het zit niet in het merk maar in de versie en het contract."
+        },
+        {
+          "term": "Modelniveau (klein versus groot)",
+          "uitleg": "Binnen één merk zit een klein/snel/goedkoop niveau (voorbeeldnamen: mini, flash, haiku, nano) en een groot/sterker/duurder niveau (pro, opus, sonnet, ultra). Klein volstaat voor de meeste docenttaken; groot verdient zijn meerprijs alleen bij lastig redeneren, lange context of moeilijke vakinhoud. Namen wisselen per paar maanden — het patroon blijft."
+        },
+        {
+          "term": "Multimodaal",
+          "uitleg": "Een model dat niet alleen tekst aankan maar ook beeld (een foto, scan of grafiek) en soms audio. Wil je een afbeelding láten analyseren, dan heb je een multimodale tool nodig — een puur tekst-model kan dat niet, hoe duur het ook is."
+        },
+        {
+          "term": "Context-venster (lange context)",
+          "uitleg": "Hoeveel tekst een model in één keer 'in het hoofd' kan houden — ruwweg: kan dat hele dikke PDF er in één keer in, of moet je knippen? Sommige tools/niveaus houden veel meer vast dan andere. De exacte omvang (in tokens) wisselt per versie en verandert vaak; onthoud de vraag 'past mijn document er in één keer in?', niet een getal."
+        },
+        {
+          "term": "Kies op taak, niet op hype",
+          "uitleg": "De kernregel van deze module. Niet 'wat is het nieuwste/zwaarste?' maar 'wat vraagt déze taak qua privacy, denkstap en materiaal?'. Hype duwt richting het zwaarste en duurste; de taak wijst vaak naar klein en goedkoop — of juist naar een specifieke tool om een AVG- of beeld-reden."
+        }
+      ]
+    },
+    "learningGoals": [
+      "Je beslist beargumenteerd welke tool/versie en welk modelniveau bij een taak passen, op basis van privacy, kosten/snelheid en kwaliteit — niet op merk of hype.",
+      "Je benoemt de AVG-grens scherp: geen herleidbare leerling- of oudergegevens in een gratis consumenten-chatbot, en je weet wat het verschil is met een school-/enterprise-omgeving.",
+      "Je herkent wanneer een taak juist om een klein/goedkoop niveau vraagt en wanneer opschalen of een multimodale/lange-context-tool het verschil maakt — en je vertaalt dat naar eigen keuzeregels."
+    ],
+    "scenario": {
+      "title": "Werksituatie",
+      "context": "Je gebruikt AI inmiddels regelmatig voor je voorbereiding en nakijkwerk, maar je merkt dat je vaak 'gewoon de tool pakt die openstaat' — zonder bewust na te denken over privacy, kosten of of de versie wel geschikt is. In je team lopen de gewoontes uiteen: de een plakt overal alles in, de ander pakt voor elke snipper het zwaarste model. Voor de praktijkopdracht (8.5) ga je straks je eigen AI-stack samenstellen. Deze les scherp je daarvoor je keuzeregels aan de hand van drie casussen die je vrijwel zeker zelf tegenkomt.",
+      "role": "Docent · vo, mbo of hbo",
+      "tools": "De drie grote assistenten (ChatGPT, Claude, Gemini) in zowel hun gratis consumentenversie als — waar je school die heeft — de school-/enterprise-omgeving · het niveau-denkraam uit 8.2 (klein versus groot) · papier voor je keuzeregels"
+    },
+    "casusbesprekingTitle": "Drie casussen, drie perspectieven, vier eigen keuzeregels.",
+    "casusbesprekingIntro": "Per casus zie je drie perspectieven en twee uitspraken van fictieve collega's. Eerst formuleer je je eigen reactie, dan kies je positie. Daarna vertaal je de inzichten in vier keuzeregels voor je eigen praktijk. Let op: de modelnamen die vallen zijn illustratie — namen en prijzen veranderen, het denkraam blijft.",
+    "cases": [
+      {
+        "title": "Casus A — Leerlingwerk met namen in een gratis consumenten-chatbot",
+        "context": "Een docent Nederlands wil snel feedback genereren op een stapel werkstukken. Om tijd te besparen plakt zij complete leerlingteksten — inclusief de naam, klas en in één verslag een persoonlijk verhaal over de thuissituatie — rechtstreeks in de gratis consumentenversie van een chatbot, en vraagt om feedbackpunten per leerling. Het werkt prima: binnen tien minuten heeft ze voor de hele klas concept-feedback. Een collega die meekijkt fronst: 'Mag dat zomaar, met die namen erin?' De docent: 'Het is toch alleen feedback, ik deel het verder met niemand.' Wat hier speelt is dubbel: een AVG-fout (herleidbare leerlinggegevens in een gratis consumenten-tool die invoer voor training kan gebruiken) én een verkeerde versie-/tool-keuze (ze had dit AVG-veilig en net zo snel kunnen doen).",
+        "perspectives": [
+          {
+            "role": "De docent",
+            "view": "Ik probeer gewoon efficiënt te zijn. Het is feitelijk dezelfde tekst die ik anders met rode pen zou nakijken — ik zie niet wat het verschil is of die nou op mijn bureau ligt of in een chatvenster staat. En ik deel het toch met niemand? Als dit niet mag, dan weet ik eerlijk gezegd niet meer wat dan wél mag."
+          },
+          {
+            "role": "De functionaris gegevensbescherming (FG)",
+            "view": "Het verschil zit niet in jouw bedoeling maar in waar de data heen gaat. In de gratis consumentenversie kan jouw invoer gebruikt worden om het model verder te trainen — die leerlingnaam plus dat verhaal over de thuissituatie verlaat de school en kun je niet terughalen. Dat is precies wat de AVG verbiedt voor herleidbare gegevens. Het is geen kwestie van of je het deelt; het ís al gedeeld op het moment dat je op enter drukt."
+          },
+          {
+            "role": "De leerling (en de ouder)",
+            "view": "Ik heb dat verslag voor jóu geschreven, niet voor een bedrijf in een ander land. Dat verhaal over thuis vertrouwde ik aan mijn docent toe. Dat het nu ergens in een systeem staat dat ik nooit gezien heb — daar heeft niemand mij iets over gevraagd. Het gaat over mij."
+          }
+        ],
+        "statements": [
+          {
+            "author": "Collega 1",
+            "quote": "Overdreven. Iedereen plakt weleens iets in ChatGPT. Als je echt nergens meer iets in mag stoppen, kun je AI net zo goed niet gebruiken voor nakijkwerk.",
+            "agreePrompt": "Stel je deelt deze zorg deels: noem twee concrete manieren waarop je deze docent dezelfde tijdwinst geeft zónder de AVG te overtreden (denk aan anonimiseren én aan de juiste versie/omgeving). Wees concreet."
+          },
+          {
+            "author": "Collega 2",
+            "quote": "De fout is niet 'AI gebruiken' maar 'de verkeerde versie gebruiken'. In onze schoolomgeving met verwerkersovereenkomst had exact dezelfde handeling gewoon gemogen. Het probleem is de gratis consumentenversie, niet de tool.",
+            "agreePrompt": "In hoeverre klopt dit volgens jou — en wat blijft er ook in een AVG-veilige schoolomgeving alsnog verstandig om weg te laten of te anonimiseren? Onderbouw in drie zinnen."
+          }
+        ],
+        "workspaceFields": {
+          "reactionField": {
+            "field": "tool-casus-a-reactie",
+            "label": "Jouw eerste reactie op casus A",
+            "shortLabel": "Reactie A",
+            "hint": "Drie regels: wat ging hier precies fout, wat is de AVG-kern, wat had de docent moeten doen",
+            "placeholder": "Wat hier fout ging: ...\nDe AVG-kern in één zin: ...\nWat de docent had moeten doen (versie/omgeving + anonimiseren): ...",
+            "rows": 6
+          },
+          "positionField": {
+            "field": "tool-casus-a-positie",
+            "label": "Jouw positie tegenover de twee collega-uitspraken",
+            "shortLabel": "Positie A",
+            "hint": "Per uitspraak: in hoeverre eens of oneens, en wat je zelf concreet doet",
+            "placeholder": "Bij collega 1: ... — wat ik zelf doe: ...\nBij collega 2: ... — wat ik zelf doe: ...",
+            "rows": 6
+          }
+        }
+      },
+      {
+        "title": "Casus B — Voor élke taak het zwaarste, duurste model",
+        "context": "Een collega is enthousiast over AI en heeft een betaald abonnement op het topniveau van zijn favoriete assistent. Zijn vuistregel: 'Ik pak altijd het zwaarste model, want dat is gewoon het beste.' Ook voor een mailtje herschrijven, een rooster-tekst samenvatten of een woordjeslijst formatteren laat hij het grootste, duurste en traagste model rekenen. Hij merkt dat het soms lang duurt en dat zijn maandbudget snel op is, maar schrijft dat toe aan 'dat AI nu eenmaal zwaar is'. Een collega die het niveau-denkraam uit 8.2 kent, vraagt zich af of dit niet zonde is: voor de meeste van die taken zou een klein, snel, goedkoop niveau exact hetzelfde resultaat geven — sneller en voor een fractie van de kosten. Wat hier speelt is de afweging kosten en snelheid versus nut, en de vraag wanneer klein juist beter is.",
+        "perspectives": [
+          {
+            "role": "De enthousiaste collega",
+            "view": "Waarom zou ik bewust een minder goed model kiezen? Het beste is het beste. Ik wil niet per taak zitten nadenken welk niveau ik nodig heb — dat kost mij meer tijd dan het bespaart. Ik pak het topmodel en klaar. Dat het wat duurder is, heb ik over voor kwaliteit."
+          },
+          {
+            "role": "De kostenbewuste teamleider",
+            "view": "Voor één docent valt dat budget weg in de ruis. Maar reken het eens schoolbreed door: als veertig collega's voor elke samenvatting het duurste niveau aanzetten, betalen we fors meer voor resultaat dat op het kleine niveau identiek was. En de traagheid telt op: bij simpele taken wacht hij onnodig. Ik wil geen zuinigheid om de zuinigheid, maar wel bewuste keuzes."
+          },
+          {
+            "role": "De realist (jij, na les 8.2)",
+            "view": "Het zwaarste model is niet 'het beste' — het is het beste vóór een bepaald soort taak: lastig redeneren, lange documenten, moeilijke vakinhoud. Een mail herschrijven of een tekst samenvatten is dat niet. Daar voegt het topniveau niets toe behalve kosten en wachttijd. De kunst is je default klein te zetten en alléén op te schalen als de taak erom vraagt."
+          }
+        ],
+        "statements": [
+          {
+            "author": "Collega 1",
+            "quote": "Tijd is duurder dan tokens. Ik wil niet per taak nadenken over modelniveaus — dat gepuzzel kost mij meer dan het verschil in kosten ooit oplevert. Gewoon het beste pakken en doorwerken.",
+            "agreePrompt": "Deze collega heeft een punt over keuzelast. Hoe maak je 'op het juiste niveau kiezen' zó simpel dat het géén gepuzzel per taak wordt? Beschrijf een vuistregel die je zonder nadenken toepast."
+          },
+          {
+            "author": "Collega 2",
+            "quote": "Het kleine model is niet 'minder' — het is voor 80% van wat wij doen exact even goed, alleen sneller en goedkoper. Het grote model is de uitzondering, niet de standaard.",
+            "agreePrompt": "Noem uit je eigen week twee taken die ruim op het kleine niveau kunnen, en één taak waarvoor je echt zou opschalen. Wat maakt die ene taak anders?"
+          }
+        ],
+        "workspaceFields": {
+          "reactionField": {
+            "field": "tool-casus-b-reactie",
+            "label": "Jouw eerste reactie op casus B",
+            "shortLabel": "Reactie B",
+            "hint": "Drie regels: wat is de denkfout in 'zwaarste = beste', wat kost het, wanneer is klein juist beter",
+            "placeholder": "De denkfout in 'zwaarste = beste': ...\nWat het onnodig kost (kosten + snelheid): ...\nWanneer klein juist beter is: ...",
+            "rows": 6
+          },
+          "positionField": {
+            "field": "tool-casus-b-positie",
+            "label": "Jouw positie tegenover de twee collega-uitspraken",
+            "shortLabel": "Positie B",
+            "hint": "Per uitspraak: in hoeverre eens of oneens, en wat dat betekent voor jouw default-niveau",
+            "placeholder": "Bij collega 1: ... — wat dit betekent voor mijn default: ...\nBij collega 2: ... — wat dit betekent voor mijn default: ...",
+            "rows": 6
+          }
+        }
+      },
+      {
+        "title": "Casus C — De dikke PDF en de scan: waar de keuze écht verschil maakt",
+        "context": "Een docent moet voor een vaksectie een lijvig examenrapport van tientallen pagina's doornemen en er de kernpunten en cijfers uithalen. Tegelijk wil een collega een foto van een handgeschreven leerlingsom laten 'lezen' en analyseren. Beiden proberen het eerst in de tool en de versie die toevallig openstond — en lopen vast: de een knipt het PDF in stukken en raakt de rode draad kwijt omdat het document niet in één keer 'in het hoofd' van het model past; de ander krijgt te horen dat de tool geen afbeeldingen aankan. Een derde collega zegt: 'Dit is precies waar het ertoe doet wélke tool en welk niveau je kiest — je hebt hier lange context of een multimodaal model nodig, niet zomaar de populairste app.' Maar er klinkt ook scepsis: 'Of we tuinen weer in de hype — moet dit überhaupt door een model, of lees ik dat rapport gewoon zelf?'",
+        "perspectives": [
+          {
+            "role": "De docent met het dikke PDF",
+            "view": "Ik wil niet dat het model halverwege de eerste tien bladzijden is vergeten — ik wil dat het hele rapport in één keer wordt overzien, anders mis ik juist de verbanden tussen voor- en achterin. Dat het in stukken moet, is het probleem. Ik heb iets nodig dat zo'n heel document in één keer vasthoudt."
+          },
+          {
+            "role": "De voorzichtige collega (hype-scepsis)",
+            "view": "Voor ik een tool zoek: moet dit eigenlijk wel door AI? Een samenvatting van een examenrapport waar beleid op gebaseerd wordt — als het model één cijfer verzint of een nuance mist, sturen we op verkeerde informatie. Misschien is het slim om AI een eerste schifting te laten maken en het zelf na te lopen, in plaats van blind op de uitvoer te varen. Niet alles wat kán moet."
+          },
+          {
+            "role": "De collega die het denkraam kent",
+            "view": "Dit is nou precies het geval waarin de keuze het verschil maakt. Voor het PDF heb je een tool/niveau met een groot context-venster nodig — dan past het hele document er in één keer in. Voor de handgeschreven som heb je een multimodaal model nodig dat beeld kan lezen; een puur tekst-model kan dat niet, hoe duur ook. Hier is 'kies op taak' geen luxe maar de voorwaarde om überhaupt resultaat te krijgen. Maar de scepticus heeft gelijk: kies de tool én controleer de uitvoer."
+          }
+        ],
+        "statements": [
+          {
+            "author": "Collega 1",
+            "quote": "Voor dit soort taken heeft het topniveau zichzelf bewezen — lange documenten en beeld, dáár betaal je met recht voor. Dit is precies waar het kleine model tekortschiet.",
+            "agreePrompt": "In welke gevallen rechtvaardigt deze taak inderdaad het opschalen naar een groter/multimodaal niveau — en in welke gevallen is het nog steeds overkill? Maak het onderscheid concreet."
+          },
+          {
+            "author": "Collega 2",
+            "quote": "Voor je een tool kiest, stel de hype-versus-geschikt-vraag: moet dit door een model? Bij een rapport waar beleid op leunt, laat ik AI hooguit voorwerk doen en controleer ik elk cijfer zelf — anders sturen we op verzonnen getallen.",
+            "agreePrompt": "Beschrijf hoe jij bij deze PDF-taak AI als hulp gebruikt zónder blind op de uitvoer te varen: welke twee dingen controleer je altijd zelf voordat je iets doorgeeft?"
+          }
+        ],
+        "workspaceFields": {
+          "reactionField": {
+            "field": "tool-casus-c-reactie",
+            "label": "Jouw eerste reactie op casus C",
+            "shortLabel": "Reactie C",
+            "hint": "Drie regels: welk taakkenmerk bepaalt hier de keuze (lange context / multimodaal), wanneer schaal je op, en de hype-versus-geschikt-vraag",
+            "placeholder": "Welk taakkenmerk de keuze bepaalt: ...\nWanneer opschalen / multimodaal nodig is: ...\nMijn hype-versus-geschikt-afweging: ...",
+            "rows": 6
+          },
+          "positionField": {
+            "field": "tool-casus-c-positie",
+            "label": "Jouw positie tegenover de twee collega-uitspraken",
+            "shortLabel": "Positie C",
+            "hint": "Per uitspraak: in hoeverre eens of oneens, en wat dat betekent voor jouw opschaal- en controleregel",
+            "placeholder": "Bij collega 1: ... — wat dit betekent voor mijn opschaalregel: ...\nBij collega 2: ... — wat dit betekent voor mijn controleregel: ...",
+            "rows": 6
+          }
+        }
+      }
+    ],
+    "legalCallout": {
+      "source": "AVG (Algemene Verordening Gegevensbescherming) · EU AI Act, art. 4 (van kracht sinds 2 februari 2025) · Kennisnet — AI-geletterdheid in het onderwijs",
+      "title": "De AVG-grens bij tool- en versiekeuze — kort en hard",
+      "body": "Eén regel staat boven alles: er gaan nooit herleidbare leerling- of oudergegevens in een AI-tool die daar niet voor is gecontracteerd. Naam, klas, een persoonlijk verhaal over de thuissituatie, een cijferlijst met namen — dat hoort niet in een gratis consumenten-chatbot. De reden is concreet: in de gratis consumentenversie kan jouw invoer gebruikt worden om het model verder te trainen, dus de gegevens verlaten de school en zijn niet terug te halen. Dat is precies wat de AVG verbiedt.\n\nHet verschil dat je moet kennen is dat tussen de gratis consumentenversie en een school-/enterprise-omgeving. In een school- of enterprise-omgeving met een verwerkersovereenkomst worden jouw invoergegevens niet voor training gebruikt en zijn de verwerking en bewaring contractueel geregeld — dáár mag (binnen de afspraken) wel leerlingwerk in. Het onderscheid zit dus niet in het merk (ChatGPT, Claude of Gemini) maar in de versie en het contract erachter. Vraag bij jouw school na welke AVG-conforme omgeving beschikbaar is; gebruik die voor alles wat met leerlingen te maken heeft.\n\nTwee praktische ankers. Ten eerste: in twijfel anonimiseer je vóór je iets invoert — haal namen en herleidbare details eruit, óók in een schoolomgeving, want minder data is altijd veiliger (dataminimalisatie). Ten tweede: de EU AI Act (art. 4) verwacht dat organisaties die AI inzetten — ook scholen — zorgen voor voldoende AI-geletterdheid bij hun mensen. Weten wélke versie AVG-veilig is en wanneer je anonimiseert, is daar onderdeel van. Dit sluit aan op de UNESCO AI-competenties voor leraren (de dimensie 'kennis van AI'): begrijpen wat een tool met je gegevens doet, is basiskennis — geen specialisme.",
+      "link": "https://www.kennisnet.nl/artificial-intelligence/"
+    },
+    "actionPlan": {
+      "source": "Voor je eigen praktijk — vier keuzeregels die je morgen gebruikt",
+      "title": "Van losse gewoonte naar bewuste keuze: jouw vier regels",
+      "steps": [
+        {
+          "title": "Bepaal welke tool/versie bij jou AVG-veilig is",
+          "body": "Zoek uit welke AI-omgeving jouw school AVG-conform heeft geregeld (een school-/enterprise-versie met verwerkersovereenkomst) en maak dát je vaste plek voor alles wat met leerlingen te maken heeft. Geen school-omgeving beschikbaar? Dan is je regel: leerlinggegevens gaan nooit in een AI-tool, en je anonimiseert alles vóór invoer. Schrijf je AVG-veilige tool/versie expliciet op, plus de grens: wat gaat er nooit in, ook niet geanonimiseerd.",
+          "workspace": {
+            "field": "tool-action-avg",
+            "label": "Mijn AVG-veilige tool/versie + de grens",
+            "placeholder": "Mijn AVG-veilige omgeving (school-/enterprise-versie of: niet beschikbaar): ...\nWat ik daar wél in mag: ...\nWat er nooit in gaat (ook niet geanonimiseerd): ...\nWat ik altijd eerst anonimiseer: ...",
+            "rows": 7,
+            "rubric": [
+              {
+                "name": "Concrete tool/versie benoemd",
+                "good": "een specifieke omgeving is genoemd (school-/enterprise-versie), niet vaag 'ChatGPT'; of expliciet 'geen school-omgeving, dus geen leerlingdata'"
+              },
+              {
+                "name": "Versie-onderscheid scherp",
+                "good": "het verschil gratis-consumentenversie versus AVG-conforme schoolomgeving is herkenbaar gemaakt, niet alleen het merk"
+              },
+              {
+                "name": "Harde grens geformuleerd",
+                "good": "er staat concreet wat er nooit in gaat — namen, herleidbare verhalen, cijferlijsten met namen"
+              },
+              {
+                "name": "Anonimiseren als reflex",
+                "good": "er is benoemd wat standaard geanonimiseerd wordt vóór invoer, óók in de veilige omgeving"
+              }
+            ],
+            "referenceAnswer": "Mijn AVG-veilige omgeving: de schoolomgeving van [merk] met verwerkersovereenkomst die onze ICT heeft geregeld — die gebruik ik voor al het leerlinggebonden werk. Wat ik daar wél in mag: leerlingteksten voor feedback, mits zo min mogelijk herleidbaar. Wat er nooit in gaat: volledige namen in combinatie met persoonlijke verhalen, gevoelige gegevens over thuissituatie of zorg, cijferlijsten met namen. Wat ik altijd eerst anonimiseer: ik vervang namen door 'leerling A/B', haal klasaanduiding weg en knip persoonlijke details die niet nodig zijn voor de feedback. Heb ik géén schoolomgeving bij de hand, dan gaat er principieel geen leerlingdata in een AI-tool — punt."
+          }
+        },
+        {
+          "title": "Zet je default-niveau bewust op klein",
+          "body": "Maak het kleine, snelle, goedkope niveau (voorbeeldnamen nu: mini, flash, haiku, nano — de namen veranderen, het niveau bedoel ik) je standaard voor alle dagelijkse taken: mails, samenvattingen, herschrijven, formatteren, brainstormen. Niet omdat zuinigheid het doel is, maar omdat het voor die taken even goed én sneller is. Schrijf je default op en koppel er een korte lijst aan van taken waarvoor klein altijd genoeg is — zodat je niet per taak hoeft te puzzelen.",
+          "workspace": {
+            "field": "tool-action-default",
+            "label": "Mijn default-niveau + taken waarvoor klein volstaat",
+            "placeholder": "Mijn default-niveau (klein/snel/goedkoop): ...\nTaken waarvoor klein altijd genoeg is:\n1) ...\n2) ...\n3) ...\nWaarom ik dit als default kies (niet zuinigheid maar...): ...",
+            "rows": 7,
+            "rubric": [
+              {
+                "name": "Klein als default gekozen",
+                "good": "het standaardniveau is expliciet het kleine/snelle/goedkope niveau, niet het zwaarste"
+              },
+              {
+                "name": "Patroon boven momentopname",
+                "good": "het niveau is omschreven als categorie (klein-snel-goedkoop), met besef dat de concrete naam wisselt — niet als één vaste modelnaam alsof die blijft"
+              },
+              {
+                "name": "Concrete taaklijst",
+                "good": "minstens drie echte eigen taken zijn genoemd waarvoor klein volstaat (mail, samenvatting, formatteren e.d.)"
+              },
+              {
+                "name": "Juiste motivering",
+                "good": "de keuze is gemotiveerd vanuit 'even goed + sneller voor deze taken', niet puur vanuit kosten besparen"
+              }
+            ],
+            "referenceAnswer": "Mijn default-niveau: het kleine, snelle, goedkope niveau van mijn assistent (nu heet dat bij mij iets als 'flash/mini', maar ik kies op het niveau, niet op de naam — die wisselt). Taken waarvoor klein altijd genoeg is: (1) een mail of ouderbericht herschrijven naar een vriendelijkere toon, (2) een lange tekst of vergaderstuk samenvatten tot kernpunten, (3) een woordenlijst of rubric netjes in een tabel formatteren, (4) brainstormen over werkvormen. Waarom als default: voor dit soort taken levert het grote model exact hetzelfde, maar trager en duurder — klein is hier niet 'minder', het is gewoon de juiste maat. Ik bespaar mezelf ook keuzelast: alles start klein, ik schaal alleen bewust op."
+          }
+        },
+        {
+          "title": "Bepaal wanneer — en waarom — je opschaalt",
+          "body": "Formuleer je opschaalregel: bij welke signalen stap je over van het kleine naar het grote niveau, of naar een multimodale/lange-context-tool? Denk aan: lastige vakinhoud waar een denkfout kostbaar is, een redenering in meerdere stappen, een dik document dat in één keer overzien moet worden (lange context), of een afbeelding die gelezen moet worden (multimodaal). Maak het concreet met voorbeelden uit je eigen vak, zodat opschalen een bewuste uitzondering is en geen gewoonte.",
+          "workspace": {
+            "field": "tool-action-opschalen",
+            "label": "Mijn opschaalregel met eigen voorbeelden",
+            "placeholder": "Ik schaal op naar een groter/multimodaal/lange-context-niveau als:\n- (lastig redeneren / kostbare denkfout): ... bv. ...\n- (lange context / dik document): ... bv. ...\n- (beeld / multimodaal): ... bv. ...\nDe hype-versus-geschikt-check die ik eerst doe: ...",
+            "rows": 8,
+            "rubric": [
+              {
+                "name": "Opschaalsignalen benoemd",
+                "good": "concrete signalen voor opschalen staan er — lastige denkstap, lange context, beeld — niet 'als ik het beste wil'"
+              },
+              {
+                "name": "Lange context én multimodaal",
+                "good": "zowel het lange-document-geval als het beeld-geval is herkend als reden om van tool/niveau te wisselen"
+              },
+              {
+                "name": "Eigen vakvoorbeelden",
+                "good": "minstens twee voorbeelden komen uit de eigen onderwijspraktijk, niet abstract"
+              },
+              {
+                "name": "Hype-versus-geschikt-check",
+                "good": "er staat een check die eerst vraagt of de taak überhaupt door AI moet, vóór het opschalen"
+              }
+            ],
+            "referenceAnswer": "Ik schaal op als: (lastig redeneren) ik een toets met onderbouwde, vakinhoudelijk lastige feedback wil — bv. argumentatie-analyse bij betogen, waar een denkfout van het model echt verkeerd uitpakt. (Lange context) ik een heel examenrapport of een dik beleidsstuk in één keer moet laten overzien — dan kies ik een tool/niveau met een groot context-venster zodat het document niet in stukken hoeft. (Beeld) ik een foto van handgeschreven werk of een grafiek wil laten lezen — dan moet het een multimodaal model zijn, want een tekst-only model kan dat simpelweg niet. Mijn hype-versus-geschikt-check vooraf: 'Moet dit überhaupt door AI, en wat gebeurt er als het een fout maakt?' Bij iets waar beleid of cijfers op leunen, laat ik AI hooguit voorwerk doen en controleer ik zelf."
+          }
+        },
+        {
+          "title": "Leg vast hoe je een antwoord controleert",
+          "body": "Welke tool of welk niveau je ook kiest: de uitvoer is een voorstel, geen feit. Formuleer je vaste controle-routine — wat check je altijd voordat je iets gebruikt of doorgeeft? Denk aan: klopt de inhoud vakinhoudelijk, zijn genoemde cijfers/bronnen/citaten echt (modellen verzinnen die soms overtuigend), past de toon, en — bij iets dat richting leerlingen of beleid gaat — heb ik het zelf nagelopen. Maak een korte checklist die je zonder nadenken afloopt.",
+          "workspace": {
+            "field": "tool-action-controle",
+            "label": "Mijn controle-routine voor AI-uitvoer",
+            "placeholder": "Voor ik AI-uitvoer gebruik of doorgeef, check ik altijd:\n1) Inhoud klopt vakinhoudelijk: ...\n2) Feiten/cijfers/bronnen geverifieerd: ...\n3) Toon en passendheid: ...\n4) Extra check bij leerling-/beleidsgevoelig werk: ...",
+            "rows": 8,
+            "rubric": [
+              {
+                "name": "Vaste routine, geen losse flodder",
+                "good": "het is een herhaalbare checklist die op elke uitvoer past, niet een eenmalige opmerking"
+              },
+              {
+                "name": "Feitencontrole expliciet",
+                "good": "het verifiëren van cijfers, bronnen of citaten staat erin — met besef dat modellen die kunnen verzinnen (hallucinatie)"
+              },
+              {
+                "name": "Vakinhoud + toon",
+                "good": "zowel de vakinhoudelijke juistheid als de passendheid/toon wordt gecheckt"
+              },
+              {
+                "name": "Zwaardere check bij gevoelig werk",
+                "good": "voor leerling- of beleidsgericht materiaal is er een strengere, eigen-nalees-stap benoemd"
+              }
+            ],
+            "referenceAnswer": "Mijn vaste routine voor elke AI-uitvoer: (1) Vakinhoud — klopt het wat er staat, of zitten er subtiele fouten in die een leerling zou overnemen? Ik lees het met mijn vak-bril. (2) Feiten — elk cijfer, elke bron en elk citaat dat ik wil gebruiken, controleer ik bij de echte bron; modellen verzinnen die soms heel overtuigend (hallucinatie), dus 'het klinkt goed' is geen bewijs. (3) Toon — past het bij mijn klas/ouder/situatie, of moet ik het in mijn eigen stem herschrijven? (4) Bij leerling- of beleidsgevoelig werk leg ik de lat hoger: ik gebruik de uitvoer als concept en loop het volledig zelf na voor ik het de deur uit doe. Vuistregel: AI levert een eerste versie, ik blijf eindverantwoordelijk."
+          }
+        }
+      ]
+    },
+    "reflection": [
+      "Welke van je huidige AI-gewoontes wijzigt na deze les het meest — je tool/versie-keuze (AVG), je default-niveau, of je controle-routine? Waarom juist die?",
+      "De namen en prijzen van modellen veranderen elke paar maanden. Welk denkraam uit deze les helpt je straks kiezen, ook als alle modellen anders heten dan nu?",
+      "Waar zit bij jou de grootste verleiding: het zwaarste model pakken 'voor de zekerheid', of snel iets in de eerste de beste tool plakken? Welke ene afspraak met jezelf dekt die verleiding af?"
+    ],
+    "nextLesson": "praktijkopdracht-8"
+  },
+  "praktijkopdracht-8": {
+    "format": "praktijkopdracht",
+    "summary": "Je kiest één terugkerende taak uit je eigen werk en test daarop 2-3 tools of modelniveaus. Je documenteert beargumenteerd welke combinatie je kiest op grond van taakgeschiktheid, snelheid en kosten, en AVG-veiligheid. Het resultaat is jouw eigen 'AI-stack': geen lijstje van het nieuwste, maar een bewuste keuze die past bij wat jij wekelijks doet.",
+    "duration": {
+      "total": "2,5 uur",
+      "blocks": [
+        {
+          "label": "Taak kiezen en vergelijking opzetten",
+          "min": 30
+        },
+        {
+          "label": "Korte test op 2-3 tools/niveaus",
+          "min": 50
+        },
+        {
+          "label": "AVG-check op de gekozen tool/versie",
+          "min": 25
+        },
+        {
+          "label": "Onderbouwde keuze en opschaalmoment",
+          "min": 25
+        },
+        {
+          "label": "PeerReview met een collega",
+          "min": 20
+        }
+      ]
+    },
+    "praktijkTitle": "Stel beargumenteerd je eigen AI-stack samen",
+    "praktijkIntro": "In deze module heb je het duurzame denkraam geleerd: er zijn drie grote assistenten (ChatGPT van OpenAI, Claude van Anthropic, Gemini van Google) die sterk op elkaar lijken maar verschillen in stijl, ecosysteem en sterktes, en elke aanbieder heeft modelniveaus — een klein/snel/goedkoop niveau (voorbeeldnamen: mini, flash, haiku, nano) dat voor de meeste docenttaken ruim volstaat, en een groot/sterker/duurder niveau (voorbeeldnamen: pro, opus, sonnet, ultra) voor complexer redeneren, lange context of lastige vakinhoud. De kern: je kiest op de taak, niet op de hype. Let op: modelnamen, versienummers, prijzen en exacte specificaties veranderen elke paar maanden — gebruik concrete namen hier alleen als illustratie en controleer ze op het moment dat je kiest. Het patroon blijft, de momentopname niet.\n\nIn deze opdracht maak je dat denkraam concreet voor jezelf. Je pakt één taak die je echt elke week doet, je test daarop een paar opties, en je legt vast wat je kiest en waarom. Dat 'waarom' is het halve werk: je weegt taakgeschiktheid (doet het wat je nodig hebt?), snelheid en kosten (klein niveau volstaat vaak), en AVG-veiligheid (nooit herleidbare leerling- of oudergegevens in een gratis consumenten-chatbot). Kies één van de drie paden dat het dichtst bij jouw werk ligt.",
+    "paths": [
+      {
+        "id": "a",
+        "label": "Dagelijkse schrijftaken",
+        "beschrijving": "Voor docenten die wekelijks veel routinematige tekst produceren: e-mails aan ouders, nieuwsbriefjes, herschrijven van opdrachtteksten naar een ander taalniveau, samenvattingen van vergaderstukken. Je zoekt een snelle, betrouwbare schrijfhulp die je toon raakt — niet het zwaarste model.",
+        "deliverables": [
+          "Taakdefinitie: beschrijf in 4-6 zinnen één terugkerende schrijftaak die je echt wekelijks doet (bijvoorbeeld: een ouderbrief over een excursie, of een opdracht herschrijven van vmbo-niveau naar een toegankelijker taalniveau). Noteer hoe vaak per week, hoeveel tijd het nu kost, en wat 'goed genoeg' betekent (toon, lengte, taalniveau).",
+          "Vergelijkingsopzet: kies 2-3 opties om te testen — bijvoorbeeld twee verschillende assistenten op hun kleine/snelle niveau, óf hetzelfde gereedschap op klein versus groot niveau. Schrijf één identieke prompt die je bij alle opties exact hetzelfde invoert, plus 3-4 beoordelingscriteria (bv. toon klopt, geen verzonnen feiten, lengte, hoeveel naredigeren).",
+          "Korte test: voer de prompt bij elk van de 2-3 opties in en plak per optie de output (of een kort fragment) in je document. Test met een neutraal voorbeeld zonder echte leerlingnamen of -gegevens. Noteer per optie hoe lang het duurde en hoeveel je moest naredigeren.",
+          "AVG-check op de gekozen tool/versie: stel vast in welke omgeving je deze taak gaat doen. Mag deze tekst überhaupt herleidbare gegevens bevatten? Voor een ouderbrief geldt: gebruik geen echte leerlingnamen of bijzonderheden in een gratis consumentenversie (gegevens kunnen voor training gebruikt worden). Noteer of je een school-/AVG-conforme omgeving gebruikt of bewust anonimiseert, en wie binnen school dit bevestigt.",
+          "Onderbouwde keuze: schrijf in een korte alinea welke optie je kiest en waarom, expliciet afgewogen op (1) taakgeschiktheid, (2) snelheid/kosten — volstaat het kleine niveau? — en (3) AVG-veiligheid. Benoem ook wat je inlevert ten opzichte van de andere opties.",
+          "Opschaalmoment: beschrijf in 2-3 zinnen wanneer je naar een groter/duurder niveau of een andere tool zou wisselen voor deze taak (bv. wanneer de tekst langer, gevoeliger of juridisch preciezer moet zijn). Maak het concreet: 'als ... dan schaal ik op naar ...'.",
+          "Stack-kaartje: vat je keuze samen in maximaal vijf regels — taak, gekozen tool + niveau, omgeving (gratis/school), wanneer opschalen. Dit kaartje is je naslag; de namen check je opnieuw als je het over een paar maanden gebruikt."
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Vakinhoud & feedback",
+        "beschrijving": "Voor docenten die AI willen inzetten dichter op de vakinhoud: een uitleg op niveau formuleren, feedbackzinnen op leerlingwerk genereren, een toetsvraag bedenken met een rubric, een redeneerfout in een uitwerking opsporen. Hier telt redeneerkracht zwaarder en is de afweging klein-versus-groot niveau scherper.",
+        "deliverables": [
+          "Taakdefinitie: beschrijf in 4-6 zinnen één terugkerende vakinhoudelijke taak (bijvoorbeeld: feedback formuleren op een wiskunde-uitwerking, of een korte uitleg van fotosynthese op havo-niveau). Noteer welke vakkennis erin moet kloppen en wat een fout-antwoord van de AI hier zou kosten.",
+          "Vergelijkingsopzet: kies 2-3 opties — bij voorkeur hetzelfde gereedschap op klein versus groot niveau, plus eventueel een tweede assistent. Schrijf één identieke vakinhoudelijke prompt (met een concreet, geanonimiseerd voorbeeld) en 4-5 criteria, waaronder minstens één harde correctheidscheck (klopt de vakinhoud? geen verzonnen formule of jaartal?).",
+          "Korte test: voer de prompt bij elk van de 2-3 opties in en leg de outputs naast elkaar. Controleer de vakinhoud zelf — je bent de vakexpert, de AI niet. Noteer per optie minstens één concrete fout of zwakte die je vond, plus hoe goed het redeneren was op het kleine versus het grote niveau.",
+          "AVG-check op de gekozen tool/versie: bepaal of het leerlingwerk dat je invoert herleidbaar is. Echt leerlingwerk met naam of duidelijk herkenbare details hoort niet in een gratis consumenten-chatbot. Noteer hoe je anonimiseert (naam weg, details neutraliseren) of dat je een school-/AVG-conforme omgeving gebruikt, en wie dat binnen school heeft goedgekeurd.",
+          "Onderbouwde keuze: schrijf welke optie je kiest en waarom, afgewogen op (1) taakgeschiktheid — vooral correctheid van de vakinhoud, (2) snelheid/kosten — is het grote niveau het hier waard of volstaat het kleine?, en (3) AVG-veiligheid. Wees eerlijk over wat de AI NIET betrouwbaar deed.",
+          "Opschaalmoment: beschrijf wanneer je voor deze taak naar een groter niveau gaat (bv. meerstaps-redeneren, lastige som, randgevallen) en wanneer het kleine niveau prima blijft (bv. standaardfeedbackzinnen). 'Als ... dan ...'.",
+          "Stack-kaartje: maximaal vijf regels — taak, gekozen tool + niveau, omgeving, vaste controlestap ('vakinhoud altijd zelf nakijken'), wanneer opschalen. Inclusief de notitie dat namen/niveaus aan verandering onderhevig zijn."
+        ]
+      },
+      {
+        "id": "c",
+        "label": "Multimodaal: beeld, bestand, lange tekst",
+        "beschrijving": "Voor docenten die verder gaan dan tekst-in-tekst-uit: een foto van een schoolbord of werkblad laten omzetten, een PDF of lang document laten samenvatten, een diagram laten beschrijven, of een hele lessenreeks in één keer laten doorlezen. Hier spelen contextlengte en het kunnen verwerken van beeld/bestanden de hoofdrol.",
+        "deliverables": [
+          "Taakdefinitie: beschrijf in 4-6 zinnen één terugkerende multimodale taak (bijvoorbeeld: een gefotografeerd handgeschreven werkblad omzetten naar tekst, of een vakdocument van tientallen pagina's samenvatten tot kernpunten). Noteer welk type invoer het is (beeld, PDF, lange tekst) en wat je als output nodig hebt.",
+          "Vergelijkingsopzet: kies 2-3 opties die het invoertype aankunnen (niet elk klein niveau of elke tool verwerkt beeld/bestanden of lange context even goed). Schrijf één identieke opdracht en 3-4 criteria, waaronder of de tool het bestand/beeld überhaupt aankon en of de lange context volledig is meegenomen.",
+          "Korte test: voer de taak bij elk van de 2-3 opties uit met hetzelfde bestand/beeld. Gebruik materiaal zonder herleidbare leerlinggegevens. Noteer per optie of de invoer compleet werd verwerkt, of er stukken werden overgeslagen of verzonnen, en hoe lang het duurde.",
+          "AVG-check op de gekozen tool/versie: bestanden en foto's bevatten vaak meer herleidbare gegevens dan je denkt (namen op een werkblad, gezichten, een klassenlijst in een PDF). Een bestand met herleidbare leerling-/oudergegevens hoort niet in een gratis consumentenversie. Noteer hoe je het bestand/beeld vooraf schoont of dat je een school-/AVG-conforme omgeving gebruikt, en wie dat bevestigt.",
+          "Onderbouwde keuze: schrijf welke optie je kiest en waarom, afgewogen op (1) taakgeschiktheid — kan de tool het invoertype en de lengte echt aan?, (2) snelheid/kosten — lange context en beeldverwerking kosten vaak een groter niveau, weegt dat op?, en (3) AVG-veiligheid. Benoem de grenzen die je tegenkwam.",
+          "Opschaalmoment: beschrijf wanneer je naar een groter niveau of andere tool gaat (bv. langere documenten dan deze test, slechtere beeldkwaliteit, meer bestanden tegelijk) en wanneer de huidige keuze volstaat. 'Als ... dan ...'.",
+          "Stack-kaartje: maximaal vijf regels — taak, invoertype, gekozen tool + niveau, omgeving, vaste schoonmaakstap voor bestanden/beeld, wanneer opschalen. Met de notitie dat ondersteuning voor beeld/bestand/contextlengte per versie verandert."
+        ]
+      }
+    ],
+    "peerReview": {
+      "title": "Laat je AI-stack tegenlezen door een collega",
+      "intro": "Vraag een collega (liefst uit je eigen sectie of team) om je gekozen stack en onderbouwing kritisch te bekijken. Een tweede paar ogen ziet vaak snel of je keuze op de taak rust of stiekem op 'het nieuwste'. Noteer per vraag wat de collega zegt en wat je ermee doet.",
+      "questions": [
+        {
+          "vraag": "Rust de keuze duidelijk op de taak, en niet op 'het zwaarste of nieuwste'? Zou een goedkoper/kleiner niveau hier ook volstaan?",
+          "workspace": {
+            "field": "peer_taakkeuze",
+            "label": "Reactie collega op taakgerichte keuze",
+            "placeholder": "Bijv.: Voor ouderbrieven lijkt het grote niveau overkill — het kleine deed het in jouw test net zo goed. Overweeg af te schalen.",
+            "rows": 2
+          }
+        },
+        {
+          "vraag": "Is de AVG-afweging waterdicht? Zou er bij deze taak per ongeluk een herleidbaar leerling- of oudergegeven in een gratis consumenten-tool kunnen belanden?",
+          "workspace": {
+            "field": "peer_avg",
+            "label": "Reactie collega op AVG-veiligheid",
+            "placeholder": "Bijv.: Je werkblad-foto bevat nog de naam in de kantlijn — die moet eruit voordat je hem in een gratis tool zet. Anders: school-omgeving gebruiken.",
+            "rows": 2
+          }
+        },
+        {
+          "vraag": "Is het opschaalmoment concreet genoeg om er over een paar maanden naar te handelen, of is het te vaag ('als het complexer wordt')?",
+          "workspace": {
+            "field": "peer_opschalen",
+            "label": "Reactie collega op het opschaalmoment",
+            "placeholder": "Bijv.: 'Complexer' is te vaag — maak er een meetbare drempel van, bijvoorbeeld documenten langer dan X pagina's of meerstaps-sommen.",
+            "rows": 2
+          }
+        }
+      ]
+    },
+    "reflection": [
+      "Koos je uiteindelijk het kleine/snelle niveau of het grote/duurdere — en kwam dat doordat de taak het echt vroeg, of doordat 'zwaarder' veiliger voelde? Wat zegt dat over je eigen neiging?",
+      "Op welk punt in je test merkte je een grens van AI die je vooraf niet had verwacht — iets dat de tool niet of slecht deed? Hoe verandert dat hoe je de output voortaan controleert?",
+      "Transfer: zet over twee weken een moment in je agenda om te evalueren of de gekozen stack in de praktijk bevalt. Welke twee signalen ga je dan checken (bv. tijdwinst, hoe vaak je moest naredigeren, of je tegen de AVG-grens aanliep), en bij welk signaal herzie je je keuze of check je of de modelnamen/niveaus inmiddels veranderd zijn?"
+    ],
+    "nextLesson": ""
+  }
+};
+
 export const lessonDetails = {
   ...baseLessonDetails,
   ...batchModule1,
@@ -10615,6 +12256,7 @@ export const lessonDetails = {
   ...module5Details,
   ...module6Details,
   ...module7Details,
+  ...module8Details,
 };
 
 export const defaultLesson = (lesson, module) => ({

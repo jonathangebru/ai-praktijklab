@@ -12,6 +12,7 @@ import { Module4 } from "./pages/Module4";
 import { Module5 } from "./pages/Module5";
 import { Module6 } from "./pages/Module6";
 import { Module7 } from "./pages/Module7";
+import { Module8 } from "./pages/Module8";
 import { Lesson } from "./pages/Lesson";
 import { Cases } from "./pages/Cases";
 import { Prompts } from "./pages/Prompts";
@@ -74,6 +75,7 @@ function AppRoutes() {
         <Route path="/modules/groei-en-team" element={<Module5 />} />
         <Route path="/modules/werkdruk-en-organisatie" element={<Module6 />} />
         <Route path="/modules/toegankelijkheid-en-inclusie" element={<Module7 />} />
+        <Route path="/modules/ai-tools-en-modellen" element={<Module8 />} />
         <Route path="/lessen/:slug" element={<Lesson />} />
         <Route path="/praktijkcasussen" element={<Cases />} />
         <Route path="/promptbibliotheek" element={<Prompts />} />

@@ -379,6 +379,34 @@ export const modules = {
       { slug: "praktijkopdracht-7", number: "7.5", title: "Praktijkopdracht: maak één les toegankelijker", duration: "3 uur", goal: "Je maakt één les aantoonbaar toegankelijker met AI en toetst of de drempel weg is.", output: "Toegankelijker gemaakte les + check", difficulty: "Praktijk" },
     ],
   },
+
+  "ai-tools-en-modellen": {
+    id: "ai-tools-en-modellen",
+    number: "08",
+    title: "AI-tools & modellen",
+    tagline: "ChatGPT, Claude of Gemini — en welk model? Bewust kiezen.",
+    level: "Verdieping",
+    audience: "vo · mbo · hbo",
+    durationWeeks: 4,
+    totalHours: "6–9 uur",
+    color: "koraal",
+    intro:
+      "Een iets technischere module voor de docent die wil begrijpen wát hij gebruikt. Je leert de drie grote assistenten (ChatGPT, Claude, Gemini) bewust kiezen, snapt het verschil tussen modelniveaus (de kleine, snelle, goedkope modellen versus de grote, sterke, duurdere) en weet hoe een taalmodel eigenlijk werkt — genoeg om de grenzen te zien en kritisch te gebruiken. De rode draad: kies op taak, ecosysteem en privacy, niet op hype — en onthoud het denkraam, want namen en prijzen veranderen elke paar maanden.",
+    learningOutcomes: [
+      "Je kiest bewust tussen ChatGPT, Claude en Gemini op basis van taak, ecosysteem en privacy.",
+      "Je herkent modelniveaus en kiest het juiste niveau bij een taak in plaats van standaard het zwaarste.",
+      "Je begrijpt op hoofdlijnen hoe een taalmodel werkt — voorspeller, hallucinatie, kennis-cutoff.",
+      "Je stelt een onderbouwde, AVG-veilige eigen AI-stack samen voor je terugkerende taken.",
+    ],
+    lessons: [
+      { slug: "ai-tools-landschap", number: "8.1", title: "ChatGPT, Claude & Gemini", duration: "60 min", goal: "Je kiest bewust tussen de drie grote assistenten op taak, ecosysteem en privacy.", output: "Eigen keuzecriteria voor AI-tools", difficulty: "Verdieping" },
+      { slug: "modellen-en-niveaus", number: "8.2", title: "Mini, Flash of Pro? Modellen en hun niveaus", duration: "60 min", goal: "Je kiest het juiste modelniveau bij een taak in plaats van standaard het zwaarste.", output: "Taak-naar-niveau overzicht", difficulty: "Verdieping" },
+      { slug: "hoe-werkt-een-taalmodel", number: "8.3", title: "Onder de motorkap — hoe een taalmodel werkt", duration: "60 min", goal: "Je begrijpt op hoofdlijnen hoe een taalmodel werkt en ziet daardoor de grenzen.", output: "Eigen uitleg + hallucinatie-check", difficulty: "Verdieping" },
+      { slug: "check-mod8", number: "✓10", title: "Kennischeck — tools & modellen getoetst", duration: "12 min", goal: "Test tool-keuze, niveau-denken, AVG en hoe een taalmodel werkt.", output: "Advies voor de praktijkopdracht", difficulty: "Tussencheck", isCheck: true },
+      { slug: "casus-tool-en-model-keuze", number: "8.4", title: "Casus: welke tool, welk model?", duration: "45 min", goal: "Je beslist beargumenteerd welke tool en welk niveau passen bij een taak — privacy, kosten, kwaliteit.", output: "Eigen keuzeregels + AVG-grens", difficulty: "Verdieping" },
+      { slug: "praktijkopdracht-8", number: "8.5", title: "Praktijkopdracht: stel je eigen AI-stack samen", duration: "2,5 uur", goal: "Je test 2-3 tools/niveaus op een eigen taak en kiest onderbouwd en AVG-veilig.", output: "Onderbouwde eigen AI-stack", difficulty: "Praktijk" },
+    ],
+  },
 };
 
 export const moduleList = Object.values(modules);
