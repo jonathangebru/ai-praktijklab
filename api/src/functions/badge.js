@@ -120,7 +120,16 @@ app.http("badge", {
       },
     };
 
-    const pem = process.env.BADGE_SIGNING_KEY;
+    let pem = process.env.BADGE_SIGNING_KEY;
+    // Accepteer zowel rauwe PEM als base64-gecodeerde PEM (robuust tegen
+    // newline-mangling bij het zetten van de app-setting).
+    if (pem && !pem.includes("BEGIN")) {
+      try {
+        pem = Buffer.from(pem, "base64").toString("utf8");
+      } catch {
+        /* laat staan; sign faalt dan netjes hieronder */
+      }
+    }
     if (!pem) {
       context.log("BADGE_UNSIGNED (no BADGE_SIGNING_KEY)");
       return {
