@@ -660,6 +660,7 @@ function ToegangsAanvragen() {
                   {r.email}
                   {r.organisation ? ` · ${r.organisation}` : ""}
                   {r.role ? ` · ${r.role}` : ""}
+                  {r.aantal ? ` · ${r.aantal} docenten` : ""}
                 </p>
                 {r.message ? (
                   <p className="mt-2 max-w-xl text-[13px] leading-relaxed text-ink-mute">

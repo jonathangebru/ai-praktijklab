@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   LogIn,
@@ -649,7 +649,7 @@ function Prijzen({ naarToegang }) {
       eenheid: "per jaar",
       pitch: "Voor de docent die zelf aan de slag wil — declareerbaar uit je persoonlijke scholingsbudget (€500–600, cao vo/mbo).",
       punten: [
-        "Alle 5 modules · 36 lessen",
+        "Alle 8 modules · 64 lessen",
         "AI-coach, promptbibliotheek en casussen",
         "Certificaat per module (AI Act art. 4)",
       ],
@@ -682,6 +682,21 @@ function Prijzen({ naarToegang }) {
       cta: "Vraag een offerte aan",
       uitgelicht: false,
     },
+    {
+      naam: "Bestuur",
+      prijs: "Op maat",
+      eenheid: "per docent · dalend tarief",
+      pitch: "Eén koepellicentie voor meerdere scholen, met een dalend tarief naarmate je meer docenten meeneemt — en één bestuursfactuur in plaats van losse schoollicenties.",
+      punten: [
+        "Alle scholen onder één bestuur",
+        "Dalend tarief vanaf ± 100 docenten",
+        "AI Act-bewijslast bestuursbreed",
+        "Eén factuur · onboarding op maat",
+      ],
+      cta: "Vraag een bestuursofferte aan",
+      uitgelicht: false,
+      prefillRole: "Bestuur / koepel (offerte)",
+    },
   ];
   return (
     <section id="prijzen" className="hairline-t scroll-mt-24">
@@ -695,10 +710,10 @@ function Prijzen({ naarToegang }) {
           Elke docent in vo en mbo heeft een persoonlijk
           professionaliseringsbudget van €500–600 per jaar (cao). Eén losse
           AI-cursusdag kost elders €395–899 — hier krijg je er een jaar lang
-          vijf modules, een AI-coach en certificaten voor.
+          acht modules, een AI-coach en certificaten voor.
         </p>
 
-        <div className="mt-12 grid gap-5 lg:grid-cols-3">
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
           {plannen.map((p) => (
             <article
               key={p.naam}
@@ -745,7 +760,16 @@ function Prijzen({ naarToegang }) {
               </ul>
               <button
                 type="button"
-                onClick={naarToegang}
+                onClick={() => {
+                  if (p.prefillRole) {
+                    window.dispatchEvent(
+                      new CustomEvent("praktijklab:prefill", {
+                        detail: { role: p.prefillRole },
+                      })
+                    );
+                  }
+                  naarToegang();
+                }}
                 className={
                   p.uitgelicht
                     ? "btn btn-accent focus-ring mt-7 w-full"
@@ -910,6 +934,7 @@ function RequestForm({ onSent }) {
     email: "",
     organisation: "",
     role: "Docent mbo",
+    aantal: "",
     message: "",
     website: "", // honeypot — blijft leeg bij echte mensen
   });
@@ -917,6 +942,19 @@ function RequestForm({ onSent }) {
   const [error, setError] = useState("");
 
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
+
+  // Een prijskaart (bv. Bestuur) kan het formulier voorvullen + scrollen.
+  useEffect(() => {
+    const onPrefill = (e) => {
+      const role = e.detail?.role;
+      if (role) setForm((f) => ({ ...f, role }));
+    };
+    window.addEventListener("praktijklab:prefill", onPrefill);
+    return () => window.removeEventListener("praktijklab:prefill", onPrefill);
+  }, []);
+
+  const toonAantal =
+    /bestuur|koepel|team|management|school|directie/i.test(form.role);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -983,10 +1021,24 @@ function RequestForm({ onSent }) {
               <option>Docent mbo</option>
               <option>Docent hbo</option>
               <option>Teamleider / management</option>
+              <option>Schoolleider / directie</option>
+              <option>Bestuur / koepel (offerte)</option>
               <option>Anders</option>
             </select>
           </Field>
         </div>
+        {toonAantal && (
+          <Field label="Aantal docenten (voor team-, school- of bestuursofferte)">
+            <input
+              type="text"
+              inputMode="numeric"
+              value={form.aantal}
+              onChange={set("aantal")}
+              className="input-base"
+              placeholder="Bijv. 25, of 600 voor een heel bestuur"
+            />
+          </Field>
+        )}
         <Field label="Waar wil je AI voor inzetten? (optioneel)">
           <textarea
             value={form.message}

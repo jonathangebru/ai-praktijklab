@@ -130,6 +130,7 @@ async function notifyDatagrid(context, r) {
       `E-mail:      ${r.email}`,
       `Instelling:  ${r.organisation || "—"}`,
       `Functie:     ${r.role || "—"}`,
+      `Aantal doc.: ${r.aantal || "—"}`,
       `Bericht:     ${r.message || "—"}`,
       `Ontvangen:   ${r.receivedAt}`,
       ``,
@@ -175,6 +176,7 @@ app.http("access", {
         const email = clean(body.email, 160).toLowerCase();
         const organisation = clean(body.organisation, 160);
         const role = clean(body.role, 80);
+        const aantal = clean(body.aantal, 40);
         const message = clean(body.message, 1500);
 
         if (!name || !looksLikeEmail(email)) {
@@ -207,6 +209,7 @@ app.http("access", {
           email,
           organisation,
           role,
+          aantal,
           message,
           status: "nieuw",
           receivedAt,
@@ -226,6 +229,7 @@ app.http("access", {
           email,
           organisation,
           role,
+          aantal,
           message,
           receivedAt,
         });
@@ -271,6 +275,7 @@ app.http("access", {
             email: e.email || "",
             organisation: e.organisation || "",
             role: e.role || "",
+            aantal: e.aantal || "",
             message: e.message || "",
             status: e.status || "nieuw",
             receivedAt: e.receivedAt || null,

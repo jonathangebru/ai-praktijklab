@@ -50,7 +50,8 @@ omzet — niet doen.
 |---|---|---|---|
 | **Docent** | **€249/docent/jaar** | Individuele docent vo/mbo (zelf declareren) | Ruim binnen eigen CAO-budget (€500–600); goedkoper dan één dagcursus (€395–899) voor 5× zoveel inhoud; bewust onder E-WISE (€337) |
 | **Team** | **€149/docent/jaar** (vanaf 10) | Vakgroep of team, incl. managementdashboard | Marktnorm teamkorting (≈40%); 25 docenten = €3.725 — minder dan één workshopreeks van VO-content (€5.500) |
-| **School** | **€4.950/jaar tot 50 docenten**, daarboven €79/docent | Schoolbreed/bestuur, incl. AI Act-bewijslast voor het hele team, prioriteit-support | Effectief €99/docent (LessonUp-niveau = "infrastructuurprijs"); 50 losse cursussen zouden €9.750–22.250 kosten |
+| **School** | **€4.950/jaar tot 50 docenten**, daarboven €79/docent | Schoolbreed, incl. AI Act-bewijslast voor het hele team, prioriteit-support | Effectief €99/docent (LessonUp-niveau = "infrastructuurprijs"); 50 losse cursussen zouden €9.750–22.250 kosten |
+| **Bestuur** | **Op maat — dalend tarief** (bv. ~€49/docent vanaf 500), één bestuursfactuur | Koepel/bestuur met meerdere scholen (bv. Esprit ~700 docenten) | Voor ~700 docenten ≈ €30–35k i.p.v. ~€48k bij losse schoollicenties; marge >98% (zie docs/kosten-en-marge); sluit aan op de besturen die je nu benadert. Offerte via de aanvraagflow (rol "Bestuur / koepel" + aantal docenten) → info@datagrid.nl |
 | Kennismaking | Gratis demo + proefperiode via toegangsaanvraag | Elke geïnteresseerde school | Bestaande flow |
 
 **Omzetscenario's (bruto, na Azure-kosten ≈ alles):**

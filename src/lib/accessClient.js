@@ -8,12 +8,12 @@
 
 const ENDPOINT = "/api/access";
 
-export async function submitAccess({ name, email, organisation, role, message, website }) {
+export async function submitAccess({ name, email, organisation, role, aantal, message, website }) {
   try {
     const res = await fetch(ENDPOINT, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email, organisation, role, message, website }),
+      body: JSON.stringify({ name, email, organisation, role, aantal, message, website }),
     });
     if (!res.ok) return false;
     const data = await res.json();
