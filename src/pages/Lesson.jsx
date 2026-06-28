@@ -57,11 +57,45 @@ import { findLesson } from "../data/modules";
 import { lessonDetails, defaultLesson } from "../data/lessonDetails";
 import { useLessonWork } from "../hooks/useLessonWork";
 import { isDone, setDone } from "../lib/voortgang";
+import { Lock } from "lucide-react";
+import {
+  useEntitlement,
+  hasModuleAccess,
+  ENTITLEMENT_ENFORCED,
+} from "../lib/entitlement";
+
+/* Getoond i.p.v. de lesinhoud als de paywall aanstaat en de docent geen
+ * betaalde toegang heeft. Module 01 + intake blijven gratis. */
+function LessonLocked({ lesson, module: m }) {
+  return (
+    <div className="mx-auto max-w-2xl px-6 py-20 text-center">
+      <span className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-terra-tint text-terra-deep">
+        <Lock size={20} strokeWidth={1.8} />
+      </span>
+      <span className="eyebrow mt-6 block">
+        Module {m.number} · {lesson.number}
+      </span>
+      <h2 className="mt-2 font-display text-[26px] font-bold text-ink">
+        {lesson.title}
+      </h2>
+      <p className="mt-3 text-[14.5px] leading-relaxed text-ink-soft">
+        Deze module hoort bij volledige toegang. Module 01 (Basiscursus AI) en de
+        intake zijn gratis;{` ${m.title}`} en de overige modules zijn onderdeel
+        van een abonnement — declareerbaar uit je persoonlijke scholingsbudget
+        (€600, cao vo/mbo).
+      </p>
+      <a href="/" className="btn btn-primary focus-ring mt-6">
+        Volledige toegang aanvragen
+      </a>
+    </div>
+  );
+}
 
 export function Lesson() {
   const { slug } = useParams();
   const found = findLesson(slug);
   const work = useLessonWork(slug);
+  const entitlement = useEntitlement();
 
   if (!found) return <NotFound />;
   const { lesson, module: m } = found;
@@ -76,6 +110,16 @@ export function Lesson() {
     "kennischeck",
   ];
   const isInteractive = interactiveFormats.includes(detail.format);
+
+  // Paywall (alleen actief als ENTITLEMENT_ENFORCED aanstaat). Gratis modules en
+  // uitgezette enforcement → geen blokkade. Tijdens laden niet voortijdig sluiten.
+  if (
+    ENTITLEMENT_ENFORCED &&
+    !entitlement.loading &&
+    !hasModuleAccess(m.id, entitlement)
+  ) {
+    return <LessonLocked lesson={lesson} module={m} />;
+  }
 
   return (
     <>
