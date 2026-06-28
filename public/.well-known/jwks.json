@@ -1,0 +1,12 @@
+{
+  "keys": [
+    {
+      "crv": "Ed25519",
+      "x": "uanp9bKHB1I9WSjGipv8-mzb6oxjfLn4iB3kK9j6MKY",
+      "kty": "OKP",
+      "kid": "praktijklab-badge-1",
+      "alg": "EdDSA",
+      "use": "sig"
+    }
+  ]
+}

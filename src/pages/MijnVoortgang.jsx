@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   CheckCircle2,
@@ -8,12 +9,16 @@ import {
   Download,
   ArrowRight,
   ScrollText,
+  ShieldCheck,
+  Loader2,
 } from "lucide-react";
 import { PageHeader, Section, Tag, ProgressBar, Footnote } from "../components/ui";
 import { moduleList } from "../data/modules";
+import { moduleAchievement } from "../data/badges";
 import { useVoortgang, formatRelative } from "../lib/voortgang";
 import { useAuth } from "../components/AuthProvider";
 import { downloadMarkdown } from "../hooks/useLessonWork";
+import { requestBadge, downloadBadge as downloadOpenBadgeJson } from "../lib/badgeClient";
 import { trackEvent } from "../lib/appInsights";
 
 /* ──────────────────────────────────────────────────────────────────────────
@@ -67,6 +72,28 @@ export function MijnVoortgang() {
     const md = certificaatMarkdown({ name: displayName, module: m });
     downloadMarkdown(`certificaat-${m.id}.md`, md);
     trackEvent("certificate-downloaded", { module: m.id });
+  }
+
+  const [obState, setObState] = useState({}); // module-id -> {loading,error,verifyUrl,signed}
+  async function issueOpenBadge(m) {
+    setObState((s) => ({ ...s, [m.id]: { loading: true } }));
+    try {
+      const ach = moduleAchievement(m);
+      const data = await requestBadge({
+        kind: "module",
+        id: m.id,
+        name: ach.name,
+        description: ach.description,
+        criteria: ach.criteria,
+      });
+      downloadOpenBadgeJson(data, `badge-${m.id}`);
+      setObState((s) => ({
+        ...s,
+        [m.id]: { loading: false, verifyUrl: data.verifyUrl, signed: data.signed },
+      }));
+    } catch (e) {
+      setObState((s) => ({ ...s, [m.id]: { loading: false, error: e.message || "Mislukt" } }));
+    }
   }
 
   return (
@@ -215,14 +242,52 @@ export function MijnVoortgang() {
                 </div>
               </div>
               {klaar && (
-                <button
-                  type="button"
-                  onClick={() => downloadCertificaat(m)}
-                  className="btn btn-primary focus-ring shrink-0"
-                >
-                  <Download size={15} strokeWidth={1.9} />
-                  Download certificaat
-                </button>
+                <div className="flex shrink-0 flex-col items-stretch gap-1.5 sm:items-end">
+                  <button
+                    type="button"
+                    onClick={() => issueOpenBadge(m)}
+                    disabled={obState[m.id]?.loading}
+                    className="btn btn-primary focus-ring disabled:opacity-60"
+                  >
+                    {obState[m.id]?.loading ? (
+                      <>
+                        <Loader2 size={15} strokeWidth={1.9} className="animate-spin" />
+                        Uitgeven…
+                      </>
+                    ) : (
+                      <>
+                        <ShieldCheck size={15} strokeWidth={1.9} />
+                        Open Badge (verifieerbaar)
+                      </>
+                    )}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => downloadCertificaat(m)}
+                    className="inline-flex items-center justify-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-ink-mute hover:text-ink focus-ring rounded"
+                  >
+                    <Download size={11} strokeWidth={1.8} />
+                    Tekstcertificaat
+                  </button>
+                  {obState[m.id]?.verifyUrl && (
+                    <a
+                      href={obState[m.id].verifyUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="font-mono text-[10px] uppercase tracking-widest text-academy-deep hover:underline"
+                    >
+                      Verifieer / deel ↗
+                    </a>
+                  )}
+                  {obState[m.id]?.signed === false && (
+                    <span className="font-mono text-[9.5px] text-ink-faint">
+                      onondertekend · server-sleutel nog niet gezet
+                    </span>
+                  )}
+                  {obState[m.id]?.error && (
+                    <span className="text-[10.5px] text-terra-deep">{obState[m.id].error}</span>
+                  )}
+                </div>
               )}
             </div>
           </Section>

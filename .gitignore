@@ -31,3 +31,6 @@ api/local.settings.json
 __azurite_db*__.json
 __blobstorage__
 __queuestorage__
+
+# Local signing keys — never commit
+.secrets/

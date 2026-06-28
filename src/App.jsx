@@ -19,6 +19,7 @@ import { Prompts } from "./pages/Prompts";
 import { Analytics } from "./pages/Analytics";
 import { Privacy } from "./pages/Privacy";
 import { Toegankelijkheid } from "./pages/Toegankelijkheid";
+import { Verify } from "./pages/Verify";
 import { MijnVoortgang } from "./pages/MijnVoortgang";
 import { Paden } from "./pages/Paden";
 
@@ -81,6 +82,7 @@ function AppRoutes() {
         <Route path="/promptbibliotheek" element={<Prompts />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/toegankelijkheid" element={<Toegankelijkheid />} />
+        <Route path="/verify" element={<Verify />} />
         <Route
           path="/analytics"
           element={
@@ -137,6 +139,12 @@ function Gate() {
       return (
         <PublicPage>
           <Toegankelijkheid />
+        </PublicPage>
+      );
+    if (pathname === "/verify")
+      return (
+        <PublicPage>
+          <Verify />
         </PublicPage>
       );
     return <Login />;

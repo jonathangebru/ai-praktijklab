@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Award,
@@ -8,12 +9,16 @@ import {
   Circle,
   Sparkles,
   Layers,
+  ShieldCheck,
+  Loader2,
 } from "lucide-react";
 import { PageHeader, Section, Tag, ProgressBar, Footnote } from "../components/ui";
 import { paths, pathModules } from "../data/paths";
+import { pathAchievement } from "../data/badges";
 import { useVoortgang } from "../lib/voortgang";
 import { useAuth } from "../components/AuthProvider";
 import { downloadMarkdown } from "../hooks/useLessonWork";
+import { requestBadge, downloadBadge as downloadOpenBadgeJson } from "../lib/badgeClient";
 import { trackEvent } from "../lib/appInsights";
 
 /* ──────────────────────────────────────────────────────────────────────────
@@ -100,6 +105,28 @@ export function Paden() {
     });
     downloadMarkdown(`leerpad-${c.id}.md`, md);
     trackEvent("path-badge-downloaded", { path: c.id });
+  }
+
+  const [obState, setObState] = useState({}); // path-id -> {loading,error,verifyUrl,signed}
+  async function issueOpenBadge(c) {
+    setObState((s) => ({ ...s, [c.id]: { loading: true } }));
+    try {
+      const ach = pathAchievement(c);
+      const data = await requestBadge({
+        kind: "path",
+        id: c.id,
+        name: ach.name,
+        description: ach.description,
+        criteria: ach.criteria,
+      });
+      downloadOpenBadgeJson(data, `leerpad-${c.id}`);
+      setObState((s) => ({
+        ...s,
+        [c.id]: { loading: false, verifyUrl: data.verifyUrl, signed: data.signed },
+      }));
+    } catch (e) {
+      setObState((s) => ({ ...s, [c.id]: { loading: false, error: e.message || "Mislukt" } }));
+    }
   }
 
   return (
@@ -234,14 +261,54 @@ export function Paden() {
                       </div>
                     </div>
                     {c.complete ? (
-                      <button
-                        type="button"
-                        onClick={() => downloadBadge(c)}
-                        className="btn btn-primary focus-ring shrink-0"
-                      >
-                        <Download size={15} strokeWidth={1.9} />
-                        Download badge
-                      </button>
+                      <div className="flex shrink-0 flex-col items-stretch gap-1.5 sm:items-end">
+                        <button
+                          type="button"
+                          onClick={() => issueOpenBadge(c)}
+                          disabled={obState[c.id]?.loading}
+                          className="btn btn-primary focus-ring disabled:opacity-60"
+                        >
+                          {obState[c.id]?.loading ? (
+                            <>
+                              <Loader2 size={15} strokeWidth={1.9} className="animate-spin" />
+                              Uitgeven…
+                            </>
+                          ) : (
+                            <>
+                              <ShieldCheck size={15} strokeWidth={1.9} />
+                              Open Badge (verifieerbaar)
+                            </>
+                          )}
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => downloadBadge(c)}
+                          className="inline-flex items-center justify-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-ink-mute hover:text-ink focus-ring rounded"
+                        >
+                          <Download size={11} strokeWidth={1.8} />
+                          Tekstcertificaat
+                        </button>
+                        {obState[c.id]?.verifyUrl && (
+                          <a
+                            href={obState[c.id].verifyUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="font-mono text-[10px] uppercase tracking-widest text-academy-deep hover:underline"
+                          >
+                            Verifieer / deel ↗
+                          </a>
+                        )}
+                        {obState[c.id]?.signed === false && (
+                          <span className="font-mono text-[9.5px] text-ink-faint">
+                            onondertekend · server-sleutel nog niet gezet
+                          </span>
+                        )}
+                        {obState[c.id]?.error && (
+                          <span className="text-[10.5px] text-terra-deep">
+                            {obState[c.id].error}
+                          </span>
+                        )}
+                      </div>
                     ) : (
                       <Link
                         to={`/modules/${c.moduleIds[0]}`}
