@@ -63,6 +63,7 @@ import {
   hasModuleAccess,
   ENTITLEMENT_ENFORCED,
 } from "../lib/entitlement";
+import { startCheckout } from "../lib/checkoutClient";
 
 /* Getoond i.p.v. de lesinhoud als de paywall aanstaat en de docent geen
  * betaalde toegang heeft. Module 01 + intake blijven gratis. */
@@ -84,9 +85,41 @@ function LessonLocked({ lesson, module: m }) {
         van een abonnement — declareerbaar uit je persoonlijke scholingsbudget
         (€600, cao vo/mbo).
       </p>
-      <a href="/" className="btn btn-primary focus-ring mt-6">
-        Volledige toegang aanvragen
+      <LessonBuy />
+    </div>
+  );
+}
+
+function LessonBuy() {
+  const [busy, setBusy] = useState(false);
+  const [err, setErr] = useState("");
+  async function koop() {
+    setBusy(true);
+    setErr("");
+    try {
+      await startCheckout("docent");
+    } catch (e) {
+      setErr(e?.message || "Afrekenen lukte niet.");
+      setBusy(false);
+    }
+  }
+  return (
+    <div className="mt-6 flex flex-col items-center gap-2">
+      <button
+        type="button"
+        onClick={koop}
+        disabled={busy}
+        className="btn btn-primary focus-ring disabled:opacity-60"
+      >
+        {busy ? "Bezig…" : "Koop volledige toegang · €301,29"}
+      </button>
+      <a
+        href="/"
+        className="font-mono text-[10px] uppercase tracking-widest text-ink-mute hover:text-ink focus-ring rounded"
+      >
+        Of vraag toegang aan ↗
       </a>
+      {err && <p className="mt-1 max-w-sm text-[12.5px] text-terra-deep">{err}</p>}
     </div>
   );
 }
