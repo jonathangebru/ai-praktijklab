@@ -16,6 +16,7 @@
  */
 
 const { app } = require("@azure/functions");
+const { checkAccess } = require("../shared/entitlement");
 
 /* ─── Rate limit (in-memory; reset bij container restart) ────────────────── */
 const RATE_WINDOW_MS = 60_000;
@@ -147,6 +148,18 @@ app.http("chat", {
         status: 400,
         headers: JSON_HEADERS,
         jsonBody: { ok: false, error: "input_too_long" },
+      };
+    }
+
+    /* Betaalmuur (inert zolang ENTITLEMENT_ENFORCED-app-setting ≠ "true").
+     * Gratis module vrij; daarbuiten actieve entitlement vereist. */
+    const access = await checkAccess(req, body?.moduleId, context);
+    if (!access.allowed) {
+      context.log(`CHAT_DENIED module=${body?.moduleId || "?"}`);
+      return {
+        status: 402,
+        headers: JSON_HEADERS,
+        jsonBody: { ok: false, error: "entitlement_required" },
       };
     }
 

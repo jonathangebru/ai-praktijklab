@@ -3,15 +3,20 @@ import { useEffect, useState } from "react";
 /* ──────────────────────────────────────────────────────────────────────────
  * Entitlement — bepaalt of een gebruiker betaalde toegang heeft.
  *
- * VEILIGHEIDSVLAG: zolang ENTITLEMENT_ENFORCED === false verandert er NIETS —
- * iedereen houdt volledige toegang (zoals nu). Zet 'm op true (na Mollie +
- * besluit) om de paywall te activeren. Server-zijde checkt dezelfde grens in
- * de betaalde functies zodra enforcement aanstaat.
+ * VEILIGHEIDSVLAG — ÉÉN schakelaar: of de paywall aanstaat komt van de server
+ * (/api/entitlement geeft `enforced` terug, gestuurd door de app-setting
+ * ENTITLEMENT_ENFORCED). Zolang die uit staat verandert er NIETS — iedereen
+ * houdt volledige toegang, precies zoals nu. Dezelfde vlag zet dus UI én de
+ * betaalde functies (coach/chat/badge) tegelijk om, zónder herbouw.
+ *
+ * De constante hieronder is enkel de fallback wanneer /api/entitlement even
+ * onbereikbaar is (lokale dev / offline).
  * ─────────────────────────────────────────────────────────────────────── */
 
 export const ENTITLEMENT_ENFORCED = false;
 
 // Gratis toegankelijk zonder betaling (de "kennismaking").
+// Spiegelt FREE_MODULE_IDS in api/src/shared/entitlement.js.
 export const FREE_MODULE_IDS = ["basiscursus-ai"];
 
 /* Eén keer per sessie ophalen en cachen. */
@@ -29,10 +34,22 @@ async function fetchEntitlement() {
       });
       if (!res.ok) throw new Error("bad status");
       const data = await res.json();
-      _cache = { active: !!data.active, tier: data.tier || null, source: data.source || "none" };
+      _cache = {
+        active: !!data.active,
+        tier: data.tier || null,
+        source: data.source || "none",
+        // Server is de bron van waarheid voor de schakelaar; alleen als het veld
+        // ontbreekt (oude API) vallen we terug op de compile-time constante.
+        enforced: typeof data.enforced === "boolean" ? data.enforced : ENTITLEMENT_ENFORCED,
+      };
     } catch {
       // Geen /api (lokale dev) of fout → in dev niet blokkeren.
-      _cache = { active: import.meta.env.DEV, tier: null, source: "unavailable" };
+      _cache = {
+        active: import.meta.env.DEV,
+        tier: null,
+        source: "unavailable",
+        enforced: ENTITLEMENT_ENFORCED,
+      };
     }
     return _cache;
   })();
@@ -40,7 +57,12 @@ async function fetchEntitlement() {
 }
 
 export function useEntitlement() {
-  const [state, setState] = useState({ loading: true, active: false, tier: null });
+  const [state, setState] = useState({
+    loading: true,
+    active: false,
+    tier: null,
+    enforced: ENTITLEMENT_ENFORCED,
+  });
   useEffect(() => {
     let alive = true;
     fetchEntitlement().then((e) => {
@@ -53,10 +75,17 @@ export function useEntitlement() {
   return state;
 }
 
+/* Staat de paywall aan? Server-vlag wint; anders de compile-time fallback. */
+export function isEnforced(entitlement) {
+  return typeof entitlement?.enforced === "boolean"
+    ? entitlement.enforced
+    : ENTITLEMENT_ENFORCED;
+}
+
 /* Bepaalt of een module toegankelijk is. Gratis modules en uitgezette
- * enforcement → altijd toegang. */
+ * enforcement → altijd toegang. Spiegelt moduleAllowed() server-side. */
 export function hasModuleAccess(moduleId, entitlement) {
-  if (!ENTITLEMENT_ENFORCED) return true;
+  if (!isEnforced(entitlement)) return true;
   if (FREE_MODULE_IDS.includes(moduleId)) return true;
   return !!entitlement?.active;
 }

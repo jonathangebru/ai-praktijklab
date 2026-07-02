@@ -26,6 +26,11 @@ export async function requestBadge({ kind, id, name, description, criteria, sign
   if (!res.ok || !data?.ok) {
     const detail = data?.error || `status ${res.status}`;
     trackEvent("badge-request-fail", { kind, id, detail });
+    if (detail === "entitlement_required") {
+      throw new Error(
+        "Een verifieerbare badge zit in het betaalde pakket — activeer je toegang om 'm uit te geven."
+      );
+    }
     throw new Error(`Badge-uitgifte werkte niet (${detail}).`);
   }
   trackEvent("badge-issued", { kind, id, signed: !!data.signed });

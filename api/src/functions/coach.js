@@ -24,6 +24,7 @@
  */
 
 const { app } = require("@azure/functions");
+const { checkAccess } = require("../shared/entitlement");
 
 /* ─── Rate limit (in-memory) ──────────────────────────────────────────────── */
 const RATE_WINDOW_MS = 60_000;
@@ -199,6 +200,19 @@ app.http("coach", {
         status: 400,
         headers: CORS,
         jsonBody: { ok: false, error: "input_required" },
+      };
+    }
+
+    /* Betaalmuur (inert zolang ENTITLEMENT_ENFORCED-app-setting ≠ "true").
+     * De gratis module blijft toegankelijk; alles daarbuiten vereist een
+     * actieve entitlement. Staat de vlag uit → geen storage-call, geen effect. */
+    const access = await checkAccess(req, ctx?.moduleId, context);
+    if (!access.allowed) {
+      context.log(`COACH_DENIED mode=${mode} module=${ctx?.moduleId || "?"}`);
+      return {
+        status: 402,
+        headers: CORS,
+        jsonBody: { ok: false, error: "entitlement_required" },
       };
     }
 

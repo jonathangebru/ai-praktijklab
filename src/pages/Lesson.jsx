@@ -27,7 +27,7 @@ import {
   Play,
 } from "lucide-react";
 import { AIResponse } from "../components/AIResponse";
-import { streamChat, coach, AIError } from "../lib/aiClient";
+import { streamChat, coach, AIError, setAiContext } from "../lib/aiClient";
 import { trackEvent } from "../lib/appInsights";
 import {
   PageHeader,
@@ -61,7 +61,7 @@ import { Lock } from "lucide-react";
 import {
   useEntitlement,
   hasModuleAccess,
-  ENTITLEMENT_ENFORCED,
+  isEnforced,
 } from "../lib/entitlement";
 import { startCheckout } from "../lib/checkoutClient";
 
@@ -130,6 +130,14 @@ export function Lesson() {
   const work = useLessonWork(slug);
   const entitlement = useEntitlement();
 
+  // Zet de actieve module voor de AI-client, zodat coach/chat server-side tegen
+  // de juiste module gecheckt worden (gratis module blijft vrij).
+  const activeModuleId = found?.module?.id || null;
+  useEffect(() => {
+    setAiContext({ moduleId: activeModuleId });
+    return () => setAiContext({});
+  }, [activeModuleId]);
+
   if (!found) return <NotFound />;
   const { lesson, module: m } = found;
   const detail = lessonDetails[slug] || defaultLesson(lesson, m);
@@ -144,10 +152,11 @@ export function Lesson() {
   ];
   const isInteractive = interactiveFormats.includes(detail.format);
 
-  // Paywall (alleen actief als ENTITLEMENT_ENFORCED aanstaat). Gratis modules en
-  // uitgezette enforcement → geen blokkade. Tijdens laden niet voortijdig sluiten.
+  // Paywall (alleen actief als de server enforcement aan heeft). Gratis modules
+  // en uitgezette enforcement → geen blokkade. Tijdens laden niet voortijdig
+  // sluiten (dan is enforced nog de veilige fallback = uit).
   if (
-    ENTITLEMENT_ENFORCED &&
+    isEnforced(entitlement) &&
     !entitlement.loading &&
     !hasModuleAccess(m.id, entitlement)
   ) {

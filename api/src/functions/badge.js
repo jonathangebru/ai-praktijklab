@@ -16,6 +16,7 @@
 
 const { app } = require("@azure/functions");
 const crypto = require("crypto");
+const { checkAccess } = require("../shared/entitlement");
 
 const BASE = "https://praktijklab.datagrid.nl";
 
@@ -81,6 +82,16 @@ app.http("badge", {
 
     if (!refId) {
       return { status: 400, headers: CORS, jsonBody: { ok: false, error: "id_required" } };
+    }
+
+    /* Betaalmuur (inert zolang ENTITLEMENT_ENFORCED-app-setting ≠ "true").
+     * Een module-badge voor de gratis module mag altijd; elke andere module- of
+     * pad-badge vereist een actieve entitlement (paden bundelen betaalde
+     * modules → moduleId null dwingt de entitlement-check af). */
+    const access = await checkAccess(req, kind === "module" ? refId : null, context);
+    if (!access.allowed) {
+      context.log(`BADGE_DENIED kind=${kind} ref=${refId}`);
+      return { status: 402, headers: CORS, jsonBody: { ok: false, error: "entitlement_required" } };
     }
 
     const user = principal(req);

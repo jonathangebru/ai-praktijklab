@@ -8,6 +8,17 @@ import { trackEvent } from "./appInsights";
 
 const API_BASE = "/api";
 
+/* ──────────────────────────────────────────────────────────────────────────
+ * Actieve les-context — de huidige les (Lesson.jsx) zet hier de moduleId, zodat
+ * elke coach/chat-aanroep server-side tegen de juiste module gecheckt kan
+ * worden zonder dat we 'm door elk component hoeven te prop-drillen. Puur
+ * additioneel: als de paywall uit staat negeert de server dit veld volledig.
+ * ─────────────────────────────────────────────────────────────────────── */
+let _aiContext = {};
+export function setAiContext(ctx) {
+  _aiContext = ctx && typeof ctx === "object" ? ctx : {};
+}
+
 class AIError extends Error {
   constructor(message, { status, code } = {}) {
     super(message);
@@ -41,7 +52,7 @@ export async function* streamChat({
     res = await fetch(`${API_BASE}/chat`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ messages, temperature, maxTokens }),
+      body: JSON.stringify({ messages, temperature, maxTokens, moduleId: _aiContext.moduleId }),
       signal,
     });
   } catch (err) {
@@ -132,12 +143,15 @@ export async function coach({ mode, input, context, signal }) {
     throw new AIError("Mode en input zijn verplicht.", { code: "bad_args" });
   }
 
+  const ctx = { ...(context || {}) };
+  if (_aiContext.moduleId && ctx.moduleId == null) ctx.moduleId = _aiContext.moduleId;
+
   let res;
   try {
     res = await fetch(`${API_BASE}/coach`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ mode, input, context }),
+      body: JSON.stringify({ mode, input, context: ctx }),
       signal,
     });
   } catch (err) {
@@ -165,6 +179,12 @@ export async function coach({ mode, input, context, signal }) {
   if (!res.ok || !data?.ok) {
     const detail = data?.error || "bad_status";
     trackEvent("ai-coach-bad-status", { mode, status: res.status, detail });
+    if (detail === "entitlement_required") {
+      throw new AIError(
+        "AI-feedback zit in het betaalde pakket — activeer je toegang om de coach te gebruiken.",
+        { status: res.status, code: detail }
+      );
+    }
     throw new AIError(`AI-coach werkte niet (${detail}).`, {
       status: res.status,
       code: detail,
