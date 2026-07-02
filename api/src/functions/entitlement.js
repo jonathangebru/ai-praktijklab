@@ -89,25 +89,27 @@ app.http("entitlement", {
       const body = await readBody(req);
       const scope = body.scope === "domain" ? "domain" : "person";
       const key = String(body.key || "").trim().toLowerCase();
-      const tier = String(body.tier || "docent");
+      const tier = String(body.tier || "docent").slice(0, 40);
+      const revoke = body.revoke === true;
       const validUntil = String(body.validUntil || "");
       if (!key) return { status: 400, headers: CORS, jsonBody: { ok: false, error: "key_required" } };
       const table = await getWritableTable(scope === "domain" ? "domainentitlements" : "entitlements", context);
       if (!table) return { status: 500, headers: CORS, jsonBody: { ok: false, error: "no_storage" } };
+      const status = revoke ? "revoked" : "active";
       await table.upsertEntity(
         {
           partitionKey: "ent",
           rowKey: sanitizeKey(key),
           tier,
-          status: "active",
+          status,
           validUntil,
           source: "invoice",
           grantedBy: principal.userDetails || "beheerder",
         },
         "Merge"
       );
-      context.log(`ENT_GRANT scope=${scope} tier=${tier}`);
-      return { status: 200, headers: CORS, jsonBody: { ok: true, scope, tier } };
+      context.log(`ENT_${revoke ? "REVOKE" : "GRANT"} scope=${scope} tier=${tier}`);
+      return { status: 200, headers: CORS, jsonBody: { ok: true, scope, key, tier, validUntil, status } };
     }
 
     // GET — entitlement bepalen via de gedeelde lookup (persoon → domein).

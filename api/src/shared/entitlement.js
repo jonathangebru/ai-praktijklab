@@ -111,6 +111,7 @@ async function getEntity(table, rowKey) {
 async function lookupEntitlement(principal, context) {
   if (!principal) return { active: false, tier: null, status: null, validUntil: "", source: "none" };
   try {
+    // 1) per persoon op userId (zo schrijft de Mollie-webhook het weg).
     const person = await getEntity(getTable("entitlements"), principal.userId);
     if (isActive(person)) {
       return {
@@ -121,6 +122,22 @@ async function lookupEntitlement(principal, context) {
         source: person.source || "person",
       };
     }
+    // 2) per persoon op e-mailadres (zo kent de beheerder handmatig toe — die
+    //    kent de opake userId niet, alleen het e-mailadres).
+    const email = String(principal.userDetails || "").trim().toLowerCase();
+    if (email && email !== String(principal.userId).toLowerCase()) {
+      const byEmail = await getEntity(getTable("entitlements"), email);
+      if (isActive(byEmail)) {
+        return {
+          active: true,
+          tier: byEmail.tier || "docent",
+          status: byEmail.status || "active",
+          validUntil: byEmail.validUntil || "",
+          source: byEmail.source || "person",
+        };
+      }
+    }
+    // 3) per e-maildomein (een hele school in één keer).
     const dom = emailDomain(principal);
     if (dom) {
       const d = await getEntity(getTable("domainentitlements"), dom);

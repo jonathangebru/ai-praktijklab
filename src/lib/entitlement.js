@@ -89,3 +89,34 @@ export function hasModuleAccess(moduleId, entitlement) {
   if (FREE_MODULE_IDS.includes(moduleId)) return true;
   return !!entitlement?.active;
 }
+
+/* Beheerder: ken toegang toe (of trek in) voor één persoon (e-mail) of een
+ * heel e-maildomein (school). Serverzijde beheerder-only afgedwongen.
+ *  scope: "person" (key = e-mailadres) | "domain" (key = e-maildomein)
+ *  validUntil: ISO-datum of "" (= onbeperkt); revoke: true trekt in. */
+export async function grantEntitlement({ scope, key, tier, validUntil = "", revoke = false }) {
+  let res;
+  try {
+    res = await fetch("/api/entitlement", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+      body: JSON.stringify({ scope, key, tier, validUntil, revoke }),
+    });
+  } catch {
+    throw new Error("Geen verbinding met de server.");
+  }
+  let data = null;
+  try {
+    data = await res.json();
+  } catch {
+    /* ignore */
+  }
+  if (!res.ok || !data?.ok) {
+    const detail = data?.error || `status ${res.status}`;
+    if (detail === "forbidden") throw new Error("Alleen een beheerder kan toegang verlenen.");
+    if (detail === "key_required") throw new Error("Vul een e-mailadres of domein in.");
+    throw new Error(`Toekennen lukte niet (${detail}).`);
+  }
+  return data;
+}

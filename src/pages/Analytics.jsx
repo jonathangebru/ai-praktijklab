@@ -8,6 +8,11 @@ import {
   Mail,
   Check,
   RotateCcw,
+  KeyRound,
+  User,
+  Building2,
+  ShieldCheck,
+  Ban,
 } from "lucide-react";
 import {
   PageHeader,
@@ -19,6 +24,7 @@ import {
 import { moduleList, findLesson } from "../data/modules";
 import { loadProgress } from "../lib/progressClient";
 import { listAccess, updateAccess } from "../lib/accessClient";
+import { grantEntitlement } from "../lib/entitlement";
 import { useAuth } from "../components/AuthProvider";
 
 /* ──────────────────────────────────────────────────────────────────────────
@@ -278,6 +284,8 @@ export function Analytics() {
       </div>
 
       <ToegangsAanvragen />
+
+      <ToegangVerlenen />
 
       <Section className="!py-10">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -705,6 +713,225 @@ function ToegangsAanvragen() {
             </li>
           ))}
         </ul>
+      )}
+    </Section>
+  );
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+ * Toegang verlenen — beheerder kent betaalde toegang toe zonder Mollie-betaling.
+ *
+ * Nodig sinds de betaalmuur aanstaat: pilots/scholen die (nog) niet via Mollie
+ * betalen, zet je hier open. Een heel e-maildomein opent een complete school in
+ * één keer; een e-mailadres opent één persoon. Schrijft naar dezelfde
+ * entitlement-tabellen die coach/chat/badge en de paywall lezen.
+ * ─────────────────────────────────────────────────────────────────────── */
+
+const TIER_OPTIONS = [
+  { value: "docent", label: "Docent (individu)" },
+  { value: "school", label: "School (locatie)" },
+  { value: "bestuur", label: "Bestuur / koepel" },
+];
+
+function fmtDate(iso) {
+  if (!iso) return "onbeperkt";
+  const d = new Date(iso);
+  return isNaN(d.getTime())
+    ? "onbeperkt"
+    : d.toLocaleDateString("nl-NL", { day: "numeric", month: "short", year: "numeric" });
+}
+
+function ToegangVerlenen() {
+  const { hasRole } = useAuth();
+  const isBeheerder = hasRole("beheerder");
+
+  const [scope, setScope] = useState("domain");
+  const [key, setKey] = useState("");
+  const [tier, setTier] = useState("school");
+  const [duration, setDuration] = useState("1y");
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState(null);
+  const [log, setLog] = useState([]);
+
+  if (!isBeheerder) return null;
+
+  function validUntilISO() {
+    if (duration === "none") return "";
+    const d = new Date();
+    d.setFullYear(d.getFullYear() + (duration === "2y" ? 2 : 1));
+    return d.toISOString();
+  }
+
+  function normalizeKey(raw) {
+    let v = String(raw).trim().toLowerCase();
+    if (scope === "domain") {
+      const at = v.lastIndexOf("@"); // "iemand@school.nl" of "@school.nl" → "school.nl"
+      if (at >= 0) v = v.slice(at + 1);
+    }
+    return v;
+  }
+
+  async function submit(revoke) {
+    setError(null);
+    const k = normalizeKey(key);
+    if (!k) return setError("Vul een e-mailadres of domein in.");
+    if (scope === "person" && !k.includes("@"))
+      return setError("Vul een volledig e-mailadres in.");
+    if (scope === "domain" && !k.includes("."))
+      return setError("Vul een geldig domein in (bijv. school.nl).");
+    setBusy(true);
+    try {
+      const res = await grantEntitlement({
+        scope,
+        key: k,
+        tier,
+        validUntil: validUntilISO(),
+        revoke,
+      });
+      setLog((l) =>
+        [
+          {
+            id: `${Date.now()}-${k}`,
+            scope,
+            key: k,
+            tier,
+            status: res.status,
+            validUntil: res.validUntil,
+          },
+          ...l,
+        ].slice(0, 8)
+      );
+      setKey("");
+    } catch (e) {
+      setError(e.message || "Er ging iets mis.");
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  const fieldCls =
+    "w-full rounded-lg border border-rule bg-paper px-3.5 py-2.5 text-[13.5px] text-ink focus-ring placeholder:text-ink-faint";
+  const scopeBtn = (val, Icon, label) => (
+    <button
+      type="button"
+      onClick={() => {
+        setScope(val);
+        setTier(val === "domain" ? "school" : "docent");
+      }}
+      className={`flex flex-1 items-center justify-center gap-2 rounded-lg border px-3.5 py-2.5 text-[13px] font-medium transition ${
+        scope === val
+          ? "border-terra/40 bg-terra-tint text-terra-deep"
+          : "border-rule bg-paper-card text-ink-soft hover:border-rule-strong hover:text-ink"
+      }`}
+    >
+      <Icon size={14} strokeWidth={1.9} />
+      {label}
+    </button>
+  );
+
+  return (
+    <Section
+      eyebrow="Onboarding"
+      title="Toegang verlenen"
+      className="hairline-t !py-10"
+      action={<Tag tone="sage">Beheerder</Tag>}
+    >
+      <p className="mb-5 max-w-2xl text-[13.5px] leading-relaxed text-ink-mute">
+        Zet een pilot of school open zonder Mollie-betaling. Een{" "}
+        <strong className="font-semibold text-ink">domein</strong> opent iedereen
+        met dat e-mailadres (een hele school in één keer); een{" "}
+        <strong className="font-semibold text-ink">e-mailadres</strong> opent één
+        persoon. Werkt meteen — de volgende keer dat diegene inlogt, is alles open.
+      </p>
+
+      <div className="card max-w-2xl p-6">
+        <div className="mb-4 flex gap-2">
+          {scopeBtn("domain", Building2, "Hele school (domein)")}
+          {scopeBtn("person", User, "Eén persoon (e-mail)")}
+        </div>
+
+        <div className="grid gap-3 sm:grid-cols-[1fr_auto_auto]">
+          <input
+            type="text"
+            value={key}
+            onChange={(e) => setKey(e.target.value)}
+            placeholder={scope === "domain" ? "school.nl" : "docent@school.nl"}
+            className={fieldCls}
+            onKeyDown={(e) => e.key === "Enter" && !busy && submit(false)}
+          />
+          <select
+            value={tier}
+            onChange={(e) => setTier(e.target.value)}
+            className={fieldCls}
+            aria-label="Tier"
+          >
+            {TIER_OPTIONS.map((t) => (
+              <option key={t.value} value={t.value}>
+                {t.label}
+              </option>
+            ))}
+          </select>
+          <select
+            value={duration}
+            onChange={(e) => setDuration(e.target.value)}
+            className={fieldCls}
+            aria-label="Looptijd"
+          >
+            <option value="1y">1 jaar</option>
+            <option value="2y">2 jaar</option>
+            <option value="none">Onbeperkt</option>
+          </select>
+        </div>
+
+        {error && (
+          <p className="mt-3 text-[12.5px] text-terra-deep">{error}</p>
+        )}
+
+        <div className="mt-4 flex flex-wrap items-center gap-2.5">
+          <button
+            type="button"
+            disabled={busy}
+            onClick={() => submit(false)}
+            className="focus-ring inline-flex items-center gap-1.5 rounded-lg bg-terra px-4 py-2.5 text-[13px] font-medium text-white transition hover:bg-terra-deep disabled:opacity-50"
+          >
+            <ShieldCheck size={14} strokeWidth={1.9} />
+            {busy ? "Bezig…" : "Toegang verlenen"}
+          </button>
+          <button
+            type="button"
+            disabled={busy}
+            onClick={() => submit(true)}
+            className="focus-ring inline-flex items-center gap-1.5 rounded-lg border border-rule bg-paper-card px-4 py-2.5 text-[13px] font-medium text-ink-soft transition hover:border-rule-strong hover:text-ink disabled:opacity-50"
+          >
+            <Ban size={14} strokeWidth={1.9} />
+            Intrekken
+          </button>
+        </div>
+      </div>
+
+      {log.length > 0 && (
+        <div className="mt-5 max-w-2xl">
+          <Footnote>Deze sessie toegekend</Footnote>
+          <ul className="mt-2 space-y-1.5">
+            {log.map((r) => (
+              <li
+                key={r.id}
+                className="flex flex-wrap items-center gap-2 rounded-lg bg-paper px-3.5 py-2 text-[12.5px] text-ink-soft"
+              >
+                {r.status === "revoked" ? (
+                  <Ban size={13} strokeWidth={1.9} className="text-terra-deep" />
+                ) : (
+                  <KeyRound size={13} strokeWidth={1.9} className="text-sage-deep" />
+                )}
+                <span className="font-medium text-ink">{r.key}</span>
+                <span className="text-ink-mute">
+                  · {r.scope === "domain" ? "school" : "persoon"} · {r.tier} ·{" "}
+                  {r.status === "revoked" ? "ingetrokken" : `t/m ${fmtDate(r.validUntil)}`}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
     </Section>
   );
